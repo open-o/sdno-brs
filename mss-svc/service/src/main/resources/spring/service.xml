@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.huawei.com/schema/oms
+	http://www.huawei.com/schema/oms/oms.xsd
+	http://cxf.apache.org/jaxrs 
+	http://cxf.apache.org/schemas/jaxrs.xsd">
+
+  <bean id="mssSvcModule" class="org.openo.sdno.mss.service.module.MssSvcModule"
+    init-method="start" destroy-method="stop">
+    <property name="bucket" ref="mssBucketHandler"></property>
+    <property name="roaResList">
+      <list>
+        <ref bean="mssSvcResource" />
+      </list>
+    </property>
+  </bean>
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+	<!-- jar rest server registration -->
+    <jaxrs:server id="sampleServer" address="/">
+        <!-- registering beans -->
+        <jaxrs:serviceBeans>
+        	<ref bean="mssSvcResource"></ref>
+        </jaxrs:serviceBeans>
+        <!-- registering providers -->
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+        </jaxrs:providers>
+    </jaxrs:server>
+  <bean id="mssSvcResource" class="org.openo.sdno.mss.service.resource.MssSvcResource">
+    <property name="mssResourceService" ref="mssResourceService"></property>
+    <property name="mssRelationService" ref="mssRelationService"></property>
+  </bean>
+
+  <bean id="mssResourceService" class="org.openo.sdno.mss.service.impl.MssResourceService">
+    <property name="invDataService" ref="invDataService"></property>
+  </bean>
+
+  <bean id="mssRelationService" class="org.openo.sdno.mss.service.impl.MssRelationService">
+    <property name="invRelationDataService" ref="invRelationDataService"></property>
+  </bean>
+  
+</beans>
+

@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.openo.sdno.mss.model.util.ModelParserUtil;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
@@ -63,7 +62,7 @@ public class ModelParser {
      * @since SDNO 0.5
      */
     public void parseModel() {
-        ModelParserUtil.getInstance().parseModel(this.models);
+        // TODO
     }
 
     /**
@@ -73,7 +72,8 @@ public class ModelParser {
      * @since SDNO 0.5
      */
     public Map<String, Infomodel> getInfoModel() {
-        return ModelParserUtil.getInstance().getInfoModels();
+        // TODO
+        return null;
     }
 
     /**
@@ -83,7 +83,8 @@ public class ModelParser {
      * @since SDNO 0.5
      */
     public Map<String, Datamodel> getDataModel() {
-        return ModelParserUtil.getInstance().getDataModels();
+        // TODO
+        return null;
     }
 
     /**
@@ -93,6 +94,7 @@ public class ModelParser {
      * @since SDNO 0.5
      */
     public Map<String, RelationModelRelation> getRelationModel() {
-        return ModelParserUtil.getInstance().getRelationModels();
+        // TODO
+        return null;
     }
 }
