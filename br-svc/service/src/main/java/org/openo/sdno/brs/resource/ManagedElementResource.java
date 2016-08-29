@@ -54,7 +54,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("brs/v1/managed-elements")
+@Path("/sdnobrs/v1/managed-elements")
 public class ManagedElementResource extends IResource<IManagedElementService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ManagedElementResource.class);
@@ -241,7 +241,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
 
     @Override
     public String getResUri() {
-        return "brs/v1/managed-elements";
+        return "/sdnobrs/v1/managed-elements";
     }
 
     /**

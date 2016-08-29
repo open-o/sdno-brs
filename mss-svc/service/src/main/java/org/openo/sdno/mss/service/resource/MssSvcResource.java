@@ -43,7 +43,7 @@ import org.openo.sdno.mss.service.intf.IMssSvcService;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("/svc/mss/v2/buckets")
+@Path("/sdnomss/v1/buckets")
 public class MssSvcResource extends IResource<IMssSvcService> {
 
     /**
@@ -61,7 +61,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     @Produces({"application/json"})
     @Override
     public String getResUri() {
-        return "/rest/svc/mss/v2/buckets";
+        return "/openoapi/sdnomss/v1/buckets";
     }
 
     public void setMssResourceService(IMssResourceService mssResourceService) {

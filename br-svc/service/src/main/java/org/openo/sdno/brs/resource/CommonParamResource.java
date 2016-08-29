@@ -45,7 +45,7 @@ import org.openo.sdno.framework.container.service.IResource;
  * @author
  * @version SDNO 0.5 07-Jun-2016
  */
-@Path("/brs/v1/commparammgmt")
+@Path("/sdnobrs/v1/commparammgmt")
 public class CommonParamResource extends IResource<ICommParamService> {
 
     /**
@@ -56,7 +56,7 @@ public class CommonParamResource extends IResource<ICommParamService> {
      */
     @Override
     public String getResUri() {
-        return "/brs/v1/commparammgmt";
+        return "/sdnobrs/v1/commparammgmt";
     }
 
     /**

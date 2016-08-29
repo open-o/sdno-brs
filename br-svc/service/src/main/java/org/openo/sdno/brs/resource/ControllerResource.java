@@ -42,7 +42,7 @@ import org.openo.sdno.brs.util.http.ResponseUtils;
  * @version SDNO 0.5 2016-6-7
  */
 
-@Path("brs/v1/controller")
+@Path("/sdnobrs/v1/controller")
 public class ControllerResource extends IResource<IControllerService> {
 
     /**
@@ -123,6 +123,6 @@ public class ControllerResource extends IResource<IControllerService> {
     @Override
     public String getResUri() {
 
-        return "brs/v1/controller";
+        return "/sdnobrs/v1/controller";
     }
 }

@@ -49,14 +49,14 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("/brs/v1/sites")
+@Path("/sdnobrs/v1/sites")
 public class SiteResource extends IResource<ISiteService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteResource.class);
 
     @Override
     public String getResUri() {
-        return "brs/v1/sites";
+        return "/sdnobrs/v1/sites";
     }
 
     /**

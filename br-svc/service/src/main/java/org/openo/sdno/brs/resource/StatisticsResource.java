@@ -21,9 +21,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.service.IResource;
-
 import org.openo.sdno.brs.service.inf.IStatisticsService;
+import org.openo.sdno.framework.container.service.IResource;
 
 /**
  * Get total count of the resource.<br/>
@@ -31,12 +30,12 @@ import org.openo.sdno.brs.service.inf.IStatisticsService;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("brs/v1/statistics")
+@Path("/sdnobrs/v1/statistics")
 public class StatisticsResource extends IResource<IStatisticsService> {
 
     @Override
     public String getResUri() {
-        return "brs/v1/statistics";
+        return "/sdnobrs/v1/statistics";
     }
 
     /**

@@ -51,7 +51,7 @@ import org.openo.sdno.brs.util.validate.ValidateUtil;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("brs/v1/logical-termination-points")
+@Path("/sdnobrs/v1/logical-termination-points")
 public class LogicalTPResource extends IResource<ILogicalTPService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LogicalTPResource.class);
@@ -62,7 +62,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
 
     @Override
     public String getResUri() {
-        return "brs/v1/logical-termination-points";
+        return "/sdnobrs/v1/logical-termination-points";
     }
 
     /**

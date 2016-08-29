@@ -51,7 +51,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("brs/v1/topological-links")
+@Path("/sdnobrs/v1/topological-links")
 public class TopologicalLinkResource extends IResource<IResourceService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TopologicalLinkResource.class);
@@ -60,7 +60,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
 
     @Override
     public String getResUri() {
-        return "brs/v1/topological-links";
+        return "/sdnobrs/v1/topological-links";
     }
 
     /**

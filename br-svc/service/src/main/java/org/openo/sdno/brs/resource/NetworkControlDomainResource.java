@@ -49,14 +49,14 @@ import org.openo.sdno.brs.util.validate.ValidateUtil;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-@Path("brs/v1/network-control-domains")
+@Path("/sdnobrs/v1/network-control-domains")
 public class NetworkControlDomainResource extends IResource<INetworkControlDomainService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NetworkControlDomainResource.class);
 
     @Override
     public String getResUri() {
-        return "brs/v1/network-control-domains";
+        return "/sdnobrs/v1/network-control-domains";
     }
 
     /**
