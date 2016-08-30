@@ -61,7 +61,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     @Produces({"application/json"})
     @Override
     public String getResUri() {
-        return "/openoapi/sdnomss/v1/buckets";
+        return "/sdnomss/v1/buckets";
     }
 
     public void setMssResourceService(IMssResourceService mssResourceService) {
