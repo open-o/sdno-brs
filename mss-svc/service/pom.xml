@@ -74,8 +74,8 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.openo.baseservice</groupId>
-            <artifactId>commonlib-remoteservice</artifactId>
+            <groupId>org.openo.common-services.common-utilities</groupId>
+            <artifactId>commonlib-restclient</artifactId>
             <version>1.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
