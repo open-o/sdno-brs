@@ -6,7 +6,7 @@
         <artifactId>common-setting</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.openo.sdno</groupId>
+    <groupId>org.openo.sdno.brs</groupId>
     <artifactId>res-manage</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
