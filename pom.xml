@@ -2,9 +2,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.openo.common-services.common-utilities</groupId>
-        <artifactId>common-setting</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <groupId>org.openo.oparent</groupId>
+        <artifactId>oparent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>org.openo.sdno.brs</groupId>
     <artifactId>res-manage</artifactId>
@@ -15,12 +15,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.3</version>
-        </dependency>        
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <brs.version>1.0.1-SNAPSHOT</brs.version>
-        <release.dir>${basedir}/../release/lib/repository/</release.dir>
         <resources.dir>${basedir}/src/main/resources</resources.dir>
     </properties>
     <modules>
@@ -32,10 +31,11 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
                 <configuration>
-                    <argLine>-XX:-UseSplitVerifier</argLine>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
