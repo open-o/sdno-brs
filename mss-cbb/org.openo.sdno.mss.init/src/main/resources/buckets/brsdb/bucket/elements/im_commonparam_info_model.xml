@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="commonparam" datamodel="inv_commonparam" version="1.0">
+        <!--basic property-->
+        <basic>		  
+			<property name="objectId" type="string" length="255"/>
+            <property name="protocol" type="string" length="36"/>
+            <property name="hostName" type="string" length="64"/>
+			<property name="port" type="string" length="32"/>
+			<property name="commParams" type="string" length="1024"/>		
+        </basic>
+		
+		<!-- extension  -->
+		<extension>
+        </extension>
+     
+      </infomodel>
+</inventory>

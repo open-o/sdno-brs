@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-datamodel-1.0.xsd">
+    <relationmodel>
+        <relation src="overlayvpn_tenant_endpointgroup" dst="overlayvpn_nvstring" type="composition"
+            owner="overlayvpn_tenant_endpointgroup" />
+        <relation src="overlayvpn_trafficclassifier" dst="overlayvpn_trafficclassifierrule" type="composition"
+            owner="overlayvpn_trafficclassifier" />
+        <relation src="overlayvpn_tenant_negretunnel" dst="overlayvpn_tenant_ipsecdpd" type="composition"
+            owner="overlayvpn_tenant_negretunnel" />
+    </relationmodel>
+</inventory>

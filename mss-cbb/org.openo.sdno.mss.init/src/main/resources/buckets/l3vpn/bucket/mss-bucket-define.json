@@ -1,0 +1,14 @@
+{
+	"name":"l3vpn",
+    
+	"owner":"L3VPN",
+    
+	"authorization":"private",
+    
+	"allowread":
+    [
+        "L3VPN"
+    ]
+}
+
+

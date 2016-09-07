@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="managementdomain" datamodel="inv_managementdomain" version="1.0">
+        <!--basic property-->
+        <basic>
+            <property name="name" type="string" length="255"/>
+        </basic>
+
+        <!-- extension  -->
+        <extension>
+            <property name="description" type="string" length="255"/>
+        	<property name="location" type="string" length="255"/>
+        </extension>
+      </infomodel>
+</inventory>

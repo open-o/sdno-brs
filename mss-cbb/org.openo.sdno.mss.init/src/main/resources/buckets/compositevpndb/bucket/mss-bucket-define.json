@@ -1,0 +1,14 @@
+{
+	"name":"compositevpndb",
+    
+	"owner":"compositevpn",
+    
+	"authorization":"private",
+    
+	"allowread":
+    [
+        "compositevpn"
+    ]
+}
+
+

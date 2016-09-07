@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="overlayvpn_tenant_ikepolicy" datamodel="inv_overlayvpn_tenant_ikepolicy" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="tenantId" type="string" length="255" />
+            <property name="name" type="string" length="128" />
+            <property name="description" type="string" length="256" />
+            <property name="authAlgorithm" type="string" length="255" />
+            <property name="encryptionAlgorithm" type="string" length="255" />
+            <property name="pfs" type="string" length="255" />
+            <property name="lifeTime" type="string" length="255" />
+            <property name="ikeVersion" type="string" length="255" />
+        </basic>
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+</inventory>

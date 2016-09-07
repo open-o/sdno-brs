@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="wan_l3vpn_protectionschema" datamodel="inv_wan_l3vpn_protectionschema" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="layerRate" type="string" length="255" />
+            <property name="protectType" type="string" length="255" />
+            <property name="protectDetailType" type="string" length="255" />
+            <property name="reversionMode" type="string" length="255" />
+            <property name="wtr" type="integer" />
+            <property name="mplsTESpecId" type="string" length="255" />
+            <property name="vpnId" type="string" length="255" />
+
+        </basic>
+
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+
+</inventory>

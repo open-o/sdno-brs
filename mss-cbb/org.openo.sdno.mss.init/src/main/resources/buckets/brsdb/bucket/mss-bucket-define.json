@@ -1,0 +1,14 @@
+{
+	"name":"brsdb",
+    
+	"owner":"BRS",
+    
+	"authorization":"private",
+    
+	"allowread":
+    [
+        "BRS"
+    ]
+}
+
+

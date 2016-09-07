@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3school.com.cn"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="wan_l3vpnn_tunnelspconstraint" datamodel="inv_wan_l3vpn_tunnelspconstraint" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="vpnId" type="string" length="255" />
+            <property name="pathConnectionId" type="string" length="255" />
+            <property name="tunnelWorkMode" type="string" length="255" />
+            <property name="tunnelTech" type="string" length="255" />
+            <property name="bandwitdh" type="Integer" length="10" />
+            <property name="bindingTunnels" type="string" length="255" />
+        </basic>
+
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+
+</inventory>

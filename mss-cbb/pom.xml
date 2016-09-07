@@ -45,5 +45,6 @@
         <module>org.openo.sdno.mss.init</module>
         <module>org.openo.sdno.mss.model</module>
         <module>org.openo.sdno.mss.schema</module>
+        <module>liquibasemodel</module>
     </modules>
 </project>

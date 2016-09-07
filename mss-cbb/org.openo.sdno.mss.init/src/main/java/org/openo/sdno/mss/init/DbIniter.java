@@ -16,14 +16,17 @@
 
 package org.openo.sdno.mss.init;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import liquibase.exception.LiquibaseException;
+
+import org.openo.sdno.mss.init.buckets.BucketsMgrt;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
+import org.openo.sdno.mss.init.util.BucketStaticUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import liquibase.exception.LiquibaseException;
 
 /**
  * Entrance for Db Init Jar's call.<br/>
@@ -40,10 +43,29 @@ public class DbIniter {
      * 
      * @param dbParam parameter for database.
      * @throws IOException
-     * @throws CloneNotSupportedException
+     * @throws CloneNotSupportedException 
      * @since SDNO 0.5
      */
     public void init(DBParam dbParam) throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
+        try {
+            LOGGER.warn("DBiniter is running.....");
+            File f = new File(this.getClass().getResource("/").getPath());
 
+            String appRoot = f.getCanonicalPath() + File.separator + "buckets" + File.separator + dbParam.getDbName();
+            BucketStaticUtil.setAppRootPath(appRoot);
+
+            if(!BucketsMgrt.getInstance().isBucketSupport()) {
+                LOGGER.warn("App is Not Bucket Management support, nothing to do.");
+                return;
+            }
+
+            dbParam.setDbName(BucketStaticUtil.getBucketDbName());
+            BucketsMgrt.getInstance().setDbParam(dbParam);
+            BucketsMgrt.getInstance().init();
+
+            LOGGER.warn("bucketsMgrt init finished");
+        } finally {
+            dbParam.destroyPassword();
+        }
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn inv_datamodel-1.0.xsd">
+    <datamodel  name="inv_managementdomain">
+        <index name="idx_managementdomain_u1" value="name" isunique="true"/>
+		<filter name="default" value="id in (:id) and name like '%:name%'"/>
+    </datamodel>
+</inventory>

@@ -1,0 +1,8 @@
+{
+	"name": "vpcdb",
+	"owner": "vpcservice",
+	"authorization": "private",
+	"allowread": [
+		"vpcservice"
+	]
+}

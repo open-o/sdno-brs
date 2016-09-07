@@ -19,13 +19,13 @@
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
-            <version>1.18</version>
+            <version>1.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit-coverage</artifactId>
-            <version>1.18</version>
+            <version>1.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -74,6 +74,13 @@
             <groupId>org.openo.sdno.brs</groupId>
             <artifactId>org.openo.sdno.mss.model</artifactId>
             <version>${brs.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openo.sdno.brs</groupId>
+            <artifactId>liquibasemodel</artifactId>
+            <version>0.0.1-RELEASE</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>

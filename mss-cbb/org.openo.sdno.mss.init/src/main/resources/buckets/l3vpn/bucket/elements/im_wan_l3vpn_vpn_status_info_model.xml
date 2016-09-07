@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3school.com.cn"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="wan_l3vpn_vpn_status" datamodel="inv_wan_l3vpn_vpn_status" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="notificationType" type="string" length="255" />
+            <property name="eventTime" type="string" length="255" />
+            <property name="vpnId" type="string" length="32" />
+            <property name="reason" type="string" length="255" />
+        </basic>
+
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+
+</inventory>

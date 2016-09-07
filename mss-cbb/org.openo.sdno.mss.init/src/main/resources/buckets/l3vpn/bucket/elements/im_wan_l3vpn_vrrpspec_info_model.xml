@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3school.com.cn"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="wan_l3vpn_vrrpspec" datamodel="inv_wan_l3vpn_vrrpspec" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="virtualIp" type="string" length="255" />
+        </basic>
+
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+
+</inventory>

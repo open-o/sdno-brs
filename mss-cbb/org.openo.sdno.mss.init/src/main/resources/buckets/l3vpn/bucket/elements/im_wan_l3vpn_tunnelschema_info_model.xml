@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="wan_l3vpn_tunnelschema" datamodel="inv_wan_l3vpn_tunnelschema" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="tunnelTech" type="string" length="255" />
+            <property name="tunnelLatency" type="integer" length="255" />
+            <property name="tunnelSelectMode" type="string" length="255" />
+            <property name="vpnId" type="string" length="255" />
+
+        </basic>
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+
+</inventory>

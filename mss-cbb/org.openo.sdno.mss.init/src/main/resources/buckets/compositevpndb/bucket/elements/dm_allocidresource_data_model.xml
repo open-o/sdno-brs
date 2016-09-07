@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv_datamodel-1.0.xsd">
+    <datamodel name="inv_allocidresource">
+        <index name="idx_resource_uniqueid" value="poolname,idres" isunique="true" />
+        <filter name="default"
+            value="uuid in (:uuid) and poolname like ':poolname' and userlabel like ':userlabel' and idres=:idres" />
+    </datamodel>
+</inventory>
