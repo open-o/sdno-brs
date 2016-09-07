@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3school.com.cn" xmlns="http://www.w3school.com.cn"
+	elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0">
+
+	<xs:include schemaLocation="GlobalBindings.xsd" />
+
+	<xs:element name="inventory">
+    <xs:complexType>
+        <xs:sequence>
+             <xs:element minOccurs="1"  maxOccurs="unbounded" ref="infomodel"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="infomodel">
+    <xs:complexType>
+        <xs:all>
+            <xs:element ref="basic"/>
+            <xs:element ref="extension"/>
+        </xs:all>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="datamodel" use="required" type="xs:string"/>
+        <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="basic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="property"/>
+      </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="extension">
+    <xs:complexType>
+       <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="property">
+            <xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="type" type="datatype" use="required" />
+						<xs:attribute name="length" type="LengthType" />
+						<xs:attribute name="scale" type="LengthType" />
+						<xs:attribute name="encrypt" type="xs:integer" default="0" />
+						<xs:attribute name="empty" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="property">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="type" type="datatype" use="required" />
+			<xs:attribute name="length" type="xs:integer" />
+			<xs:attribute name="scale" type="xs:integer" />
+			<xs:attribute name="encrypt" type="xs:integer"/>
+			<xs:attribute name="default" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="LengthType">
+		<xs:restriction base="xs:integer">
+			<xs:minExclusive value="0" />
+           <xs:maxExclusive value="1024"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="datatype">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="string"/>
+        <xs:enumeration value="integer"/>
+        <xs:enumeration value="decimal"/>
+        <xs:enumeration value="datetime"/>
+        <xs:enumeration value="float"/>
+        <xs:enumeration value="double"/>
+    </xs:restriction>
+</xs:simpleType>
+
+</xs:schema>

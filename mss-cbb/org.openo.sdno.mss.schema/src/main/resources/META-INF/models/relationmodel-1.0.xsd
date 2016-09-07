@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3school.com.cn"
+xmlns="http://www.w3school.com.cn" elementFormDefault="qualified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:jaxb = "http://java.sun.com/xml/ns/jaxb" 
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd" 
+jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0">
+
+<xs:include schemaLocation="GlobalBindings.xsd"/>
+
+<xs:element name="inventory">
+    <xs:complexType>
+        <xs:sequence>
+             <xs:element minOccurs="1"  maxOccurs="unbounded" ref="relationmodel"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="relationmodel">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element minOccurs="1"  maxOccurs="unbounded" name="relation">
+                <xs:complexType>
+                   <xs:attribute name="src" type="xs:string"/>
+                   <xs:attribute name="dst" type="xs:string"/>
+                   <xs:attribute name="type" type="relationtype" use="required"/>
+                   <xs:attribute name="owner" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:simpleType name="relationtype">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="composition"/>
+        <xs:enumeration value="aggregation"/>
+        <xs:enumeration value="association"/>
+    </xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
