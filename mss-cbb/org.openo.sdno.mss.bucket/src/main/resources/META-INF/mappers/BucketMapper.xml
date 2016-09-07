@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.sdno.mss.bucket.dao.mappers.BucketMapper">
+    <resultMap id="BaseResultMap" type="org.openo.sdno.mss.bucket.dao.pojo.BucketPojo">
+        <id column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="owner" property="owner" jdbcType="VARCHAR"/>
+        <result column="authorization" property="authorization" jdbcType="VARCHAR"/>
+        <result column="allowread" property="allowread" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        name, owner, authorization, allowread
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_bucket
+        where name = #{name,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_bucket
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from
+        tbl_bucket
+        where name = #{name,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="org.openo.sdno.mss.bucket.dao.pojo.BucketPojo">
+        insert into tbl_bucket (name,
+        owner, authorization,
+        allowread)
+        values (#{name,jdbcType=VARCHAR},
+        #{owner,jdbcType=VARCHAR},
+        #{authorization,jdbcType=VARCHAR},
+        #{allowread,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="org.openo.sdno.mss.bucket.dao.pojo.BucketPojo">
+        insert into tbl_bucket
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                name,
+            </if>
+            <if test="owner != null">
+                owner,
+            </if>
+            <if test="authorization != null">
+                authorization,
+            </if>
+            <if test="allowread != null">
+                allowread,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="owner != null">
+                #{owner,jdbcType=VARCHAR},
+            </if>
+            <if test="authorization != null">
+                #{authorization,jdbcType=VARCHAR},
+            </if>
+            <if test="allowread != null">
+                #{allowread,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.openo.sdno.mss.bucket.dao.pojo.BucketPojo">
+        update tbl_bucket
+        <set>
+            <if test="owner != null">
+                owner = #{owner,jdbcType=VARCHAR},
+            </if>
+            <if test="authorization != null">
+                authorization = #{authorization,jdbcType=VARCHAR},
+            </if>
+            <if test="allowread != null">
+                allowread = #{allowread,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where name = #{name,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.openo.sdno.mss.bucket.dao.pojo.BucketPojo">
+        update tbl_bucket
+        set owner = #{owner,jdbcType=VARCHAR},
+        authorization =
+        #{authorization,jdbcType=VARCHAR},
+        allowread =
+        #{allowread,jdbcType=VARCHAR}
+        where name = #{name,jdbcType=VARCHAR}
+    </update>
+</mapper>
