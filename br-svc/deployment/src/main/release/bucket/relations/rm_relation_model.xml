@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-datamodel-1.0.xsd">
+
+    <relationmodel>
+        <relation src="networkelement" dst="terminationpoint" type="composition" owner="networkelement"/>
+        <relation src="terminationpoint" dst="networkelement" type="aggregation" owner="terminationpoint"/>
+        <relation src="site" dst="networkelement" type="association" owner="site"/>
+        <relation src="managedelement" dst="site" type="association" owner="managedelement"/>
+        <relation src="managedelement" dst="managementdomain" type="association" owner="managedelement"/>
+        <relation src="managedelement" dst="controller" type="association" owner="managedelement"/>
+    </relationmodel>
+</inventory>

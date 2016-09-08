@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="topologicallink" datamodel="inv_topologicallink" version="1.0">
+        <basic>
+            <property name="name" type="string" length="255"/>
+            <property name="logicalType" type="string" length="32"/>
+            <property name="layerRate" type="string" length="32"/>
+            <property name="aEnd" type="string" length="36"/>
+            <property name="zEnd" type="string" length="36"/>
+            <property name="aEndME" type="string" length="36"/>
+            <property name="zEndME" type="string" length="36"/>
+            <property name="source" type="string" length="32"/>
+            <property name="owner" type="string" length="36"/>
+            <property name="adminState" type="string" length="32"/>
+            <property name="nativeID" type="string" length="64"/>
+
+        </basic>
+        <extension>
+            <property name="description" type="string" length="255"/>
+            <property name="operState" type="string" length="32"/>
+            <property name="direction" type="string" length="32"/>
+            <property name="phyBW" type="string" length="64"/>
+            <property name="latency" type="string" length="255"/>
+        </extension>
+    </infomodel>
+</inventory>

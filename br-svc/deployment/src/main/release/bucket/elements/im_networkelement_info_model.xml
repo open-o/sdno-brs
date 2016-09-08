@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="networkelement" datamodel="inv_networkelement" version="1.0">
+        <basic>
+            <property name="commonName" type="string" length="255"/>
+            <property name="type" type="string" length="32"/>
+            <property name="version" type="string" length="64"/>
+            <property name="ip" type="string" length="64"/>
+            <property name="phy_ne_id" type="string" length="36"/>
+            <property name="management_domain_id" type="string" length="64"/>
+        </basic>
+        <extension>
+            <property name="description" type="string" length="255"/>
+            <property name="manufacturer" type="string" length="64"/>
+            <property name="lgc_ne_id" type="string" length="36"/>
+            <property name="ne_role" type="string" length="64"/>
+            <property name="service_address" type="string" length="64"/>
+            <property name="fpid" type="string" length="32"/>
+            <property name="loopback_address" type="string" length="64"/>
+            <property name="vdc_admin_ip" type="string" length="64"/>
+            <property name="vdc_hostname" type="string" length="64"/>
+            <property name="vdc_vniMappingTvni" type="string" length="10"/>
+            <property name="vdc_userLearningType" type="string" length="10"/>
+            <property name="rr_type" type="integer"/>
+            <property name="admin_state_up" type="integer"/>
+            <property name="snmp_para_id" type="string" length="36"/>
+            <property name="dc_id" type="string" length="36"/>
+            <property name="collect" type="string" length="64"/>
+            <property name="status" type="string" length="64"/>
+            <property name="esn" type="string" length="20"/>
+        </extension>
+    </infomodel>
+</inventory>
+
