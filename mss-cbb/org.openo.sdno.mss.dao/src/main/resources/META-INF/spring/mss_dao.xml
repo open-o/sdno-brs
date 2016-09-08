@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+    xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
+    xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="vxlandb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+
+    <bean id="brsdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="compositevpndb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="l3vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="l2vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="vpcdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="osdriverdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="ipsecdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="acbranchdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+
+    <bean id="dataSource" class="org.openo.sdno.mss.dao.multi.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry value-ref="brsdb" key="brsdb"></entry>
+                <entry value-ref="l3vpn" key="l3vpn"></entry>
+                <entry value-ref="l2vpn" key="l2vpn"></entry>
+                <entry value-ref="compositevpndb" key="compositevpndb"></entry>
+                <entry value-ref="vxlandb" key="vxlandb"></entry>
+                <entry value-ref="osdriverdb" key="osdriverdb"></entry>
+                <entry value-ref="ipsecdb" key="ipsecdb"></entry>
+                <entry value-ref="acbranchdb" key="acbranchdb"></entry>
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="brsdb"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:sql_data_access.xml" />
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="SIMPLE" />
+    </bean>
+
+    <bean id="springContextUtil" class="org.openo.sdno.mss.dao.util.SpringContextUtil">
+    </bean>
+
+    <bean id="mssModelManagement" class="org.openo.sdno.mss.dao.model.ModelManagement">
+        <property name="metaHanlder" ref="mssMetaHandler"></property>
+        <property name="bucketHandler" ref="mssBucketHandler"></property>
+    </bean>
+
+    <bean id="mssRelaGraphManagement" class="org.openo.sdno.mss.dao.model.RelationGraphMgr">
+        <property name="modelMgr" ref="mssModelManagement"></property>
+    </bean>
+
+    <bean id="invDataHandler" class="org.openo.sdno.mss.dao.impl.InvDataHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+        <property name="relationDataHandler" ref="invRelationDataHandler"></property>
+    </bean>
+
+
+    <bean id="invRelationDataHandler" class="org.openo.sdno.mss.dao.impl.InvRelationDataHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+        <property name="invDataHandler" ref="invDataHandler"></property>
+    </bean>
+
+    <bean id="invStatisticsHandler" class="org.openo.sdno.mss.dao.impl.InvStatisticsHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
+</beans>
