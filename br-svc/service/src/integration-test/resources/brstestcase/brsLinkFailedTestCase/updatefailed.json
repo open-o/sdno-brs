@@ -1,0 +1,31 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/topological-links/{objectId}",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+			"topologicalLink":{
+				"name": "Link1",
+		    	"description": "Test for Link update",
+		  	  	"logicalType": "l2Link",
+		  	  	"layerRate": "test1",
+		   	 	"source": "network_me",
+		   	 	"owner": "active",
+		    	"adminState": "active",
+		    	"operState": "up",
+		    	"direction": "uni_direction",
+		    	"phyBW": "test1"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":500,
+		"json":
+		{
+			"data":"*"
+		}
+	}
+}

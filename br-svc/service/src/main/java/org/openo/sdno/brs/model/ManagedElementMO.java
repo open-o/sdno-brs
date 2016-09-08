@@ -18,6 +18,10 @@ package org.openo.sdno.brs.model;
 
 import java.util.List;
 
+import org.openo.sdno.brs.validator.rules.StrEnumRule;
+import org.openo.sdno.brs.validator.rules.StrRule;
+import org.openo.sdno.brs.validator.rules.SupportFilter;
+
 /**
  * Managed element module, usually used for net element.<br/>
  * 
@@ -29,103 +33,137 @@ public final class ManagedElementMO extends Resource {
     /**
      * user name.
      */
+    @StrRule(range = "1-255", nullable = false, paramName = "name")
+    @SupportFilter
     private String name;
 
     /**
      * Logical id of NE, used to match the NE collected from controller.
      */
+    @StrRule(range = "0-64", paramName = "logicID")
     private String logicID;
 
     /**
      * Physical NE ID.
      */
+    @StrRule(range = "0-36", paramName = "phyNeID")
     private String phyNeID;
 
     /**
      * Product name, such like：NE40E、CX600.
      */
+    @StrRule(range = "0-32", paramName = "productName")
+    @SupportFilter
     private String productName;
 
     /**
      * if it is virtual,1:yes 0:no.
      */
+    @StrEnumRule(range = "true,false", paramName = "isVirtual")
     private String isVirtual;
 
     /**
      * manage IP address.
      */
+    @StrRule(range = "0-128", paramName = "ipAddress")
+    @SupportFilter
     private String ipAddress;
 
     /**
      * source of NE. scope：NETWORK_ME（get from network）、OS（get from controller）、NETWORK_EMS（get from
      * EMS）、USER（user import）.
      */
+    @StrEnumRule(range = "network_me,os,network_ems,user", paramName = "source")
+    @SupportFilter
     private String source;
 
     /**
      * owner. like：from controller，fill in controller UUID；from NE，fill in NE UUID.
      */
+    @StrRule(range = "0-36", paramName = "owner")
+    @SupportFilter
     private String owner;
 
     /**
      * manage state:active/inactive.
      */
+    @StrEnumRule(range = "active,inactive", paramName = "adminState")
+    @SupportFilter
     private String adminState;
 
     /**
      * running state: up/down/unkonwn.
      */
+    @StrEnumRule(range = "up,down,unknown", paramName = "operState")
     private String operState;
 
     /**
      * serial number.
      */
+    @StrRule(range = "0-32", paramName = "serialNumber")
+    @SupportFilter
     private String serialNumber;
 
     /**
      * NE role
      */
+    @StrRule(range = "0-255", paramName = "neRole")
+    @SupportFilter
     private String neRole;
 
     /**
      * manufacturer name.
      */
+    @StrRule(range = "0-32", paramName = "manufacturer")
     private String manufacturer;
 
     /**
      * manufacture date.
      */
+    @StrRule(range = "0-32", paramName = "manufactureDate")
     private String manufactureDate;
 
     /**
      * location information.
      */
+    @StrRule(range = "0-255", paramName = "location")
     private String location;
 
     /**
      * manage domain ID
      */
+    @StrRule(range = "0-36", paramName = "managementDomainID")
+    @RelationField(dbName = "managementDomainID", modelName = "managementdomain", paraName = "managementDomainID")
+    @SupportFilter
     private String managementDomainID;
 
     /**
      * controller ID
      */
+    @RelationField(dbName = "controllerID", modelName = "controller", paraName = "controllerID")
+    @SupportFilter
     private List<String> controllerID;
 
     /**
      * site ID
      */
+    @RelationField(dbName = "siteID", modelName = "site", paraName = "siteID")
+    @SupportFilter
     private List<String> siteID;
 
     /**
      * native id from outer system,distributed when get resource from outer system. Like the uuid of
      * NE allocated from AC controller.
      */
+    @StrRule(range = "0-64", paramName = "nativeID")
+    @SupportFilter
     private String nativeID;
 
     /**
      * manage domain ID
      */
+    @RelationField(dbName = "networkControlDomainID", modelName = "networkcontroldomain", paraName = "networkControlDomainID")
+    @SupportFilter
     private List<String> networkControlDomainID;
 
     /**

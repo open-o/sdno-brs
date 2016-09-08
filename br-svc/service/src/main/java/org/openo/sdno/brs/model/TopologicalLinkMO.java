@@ -16,6 +16,10 @@
 
 package org.openo.sdno.brs.model;
 
+import org.openo.sdno.brs.validator.rules.StrEnumRule;
+import org.openo.sdno.brs.validator.rules.StrRule;
+import org.openo.sdno.brs.validator.rules.SupportFilter;
+
 /**
  * Link resource MO.<br/>
  * 
@@ -24,37 +28,61 @@ package org.openo.sdno.brs.model;
  */
 public class TopologicalLinkMO extends RootEntity {
 
+    @StrRule(range = "1-255", nullable = false, paramName = "name")
+    @SupportFilter
     protected String name;
 
+    @StrRule(range = "0-32", paramName = "layerRate")
     private String layerRate;
 
+    @StrRule(range = "1-36", paramName = "aEnd", nullable = false)
+    @SupportFilter
     private String aEnd;
 
+    @StrRule(range = "1-36", paramName = "zEnd", nullable = false)
+    @SupportFilter
     private String zEnd;
 
+    @StrRule(range = "1-36", paramName = "aEndME", nullable = false)
+    @SupportFilter
     private String aEndME;
 
+    @StrRule(range = "1-36", paramName = "zEndME", nullable = false)
+    @SupportFilter
     private String zEndME;
 
+    @StrRule(range = "0-64", paramName = "phyBW")
     private String phyBW;
 
+    @StrRule(range = "0-36", paramName = "owner")
+    @SupportFilter
     private String owner;
 
+    @StrEnumRule(range = "uni_direction,bi_direction", paramName = "direction")
     private String direction;
 
     /**
      * link type
      */
+    @StrEnumRule(range = "fiberLink,l2Link,ipLink,electricalLink", paramName = "logicalType", nullable = false)
+    @SupportFilter
     private String logicalType;
 
+    @StrEnumRule(range = "network_me,os,network_ems,user", paramName = "source")
     private String source;
 
+    @StrEnumRule(range = "active,inactive", paramName = "adminState")
+    @SupportFilter
     private String adminState;
 
+    @StrEnumRule(range = "up,down,unknown", paramName = "operState")
     private String operState;
 
+    @StrRule(range = "0-64", paramName = "nativeID")
+    @SupportFilter
     private String nativeID;
 
+    @StrRule(range = "0-255", paramName = "latency")
     private String latency;
 
     /**
@@ -260,10 +288,10 @@ public class TopologicalLinkMO extends RootEntity {
 
     @Override
     public String toString() {
-        return "TopologicalLinkMO [logicalType=" + logicalType + ", layerRate=" + layerRate + ", direction=" + direction
-                + ", source=" + source + ", owner=" + owner + ", " + "adminState=" + adminState + ", operState="
-                + operState + ", phyBW=" + phyBW + ", aEnd=" + aEnd + ", zEnd=" + zEnd + ", aEndME=" + aEndME
-                + ",zEndME=" + zEndME + ", id=" + id + ", name=" + name + ", description=" + description
+        return "TopologicalLinkMO [logicalType=" + logicalType + ", layerRate=" + layerRate + ", direction="
+                + direction + ", source=" + source + ", owner=" + owner + ", " + "adminState=" + adminState
+                + ", operState=" + operState + ", phyBW=" + phyBW + ", aEnd=" + aEnd + ", zEnd=" + zEnd + ", aEndME="
+                + aEndME + ",zEndME=" + zEndME + ", id=" + id + ", name=" + name + ", description=" + description
                 + ", createtime=" + createtime + ", updatetime=" + updatetime + "]";
     }
 

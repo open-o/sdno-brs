@@ -1,0 +1,24 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/logical-termination-points/{objectId}",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"logicalTerminationPoint":{
+				"name": "Ltp1",
+		    	"description": "Test for Ltp1",
+		  	  	"logicalType": "ETH",
+		   	 	"source": "os",
+		    	"adminState": "active",
+		    	"operState": "up",
+		    	"ipAddress": "192.168.2.1"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":500
+	}
+}

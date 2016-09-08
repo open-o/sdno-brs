@@ -1,0 +1,26 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/commparammgmt/access-objects/{objectId}/commparams",
+		"method": "post",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"commparam":{
+			"objectId": "controller2",
+		    "protocol": "ftp",
+		    "hostName": "sdnorchestrator",
+		    "port": "",
+			"commParams": "username:tomcat, password:tomdog"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"data":"*"
+		}
+	}
+}

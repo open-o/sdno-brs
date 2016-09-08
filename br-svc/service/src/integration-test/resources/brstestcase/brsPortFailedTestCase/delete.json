@@ -1,0 +1,12 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/logical-termination-points1/{objectId}",
+		"method": "delete",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":404
+	}
+}

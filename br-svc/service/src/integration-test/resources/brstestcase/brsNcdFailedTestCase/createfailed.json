@@ -1,0 +1,27 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/network-control-domains",
+		"method": "post",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"networkControlDomain":{
+			"name": "NCD",
+		    "nativeID": "test",
+		    "userLabel": "hw",
+		    "parentNcdID": "test",
+		    "location": "test",
+		    "manufacturer": "test",
+		    "ipAddress": "10.10.10.10",
+		    "port": 8080,
+		    "adminStatus": "active",
+		    "operateStatus": "up"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":500
+	}
+}

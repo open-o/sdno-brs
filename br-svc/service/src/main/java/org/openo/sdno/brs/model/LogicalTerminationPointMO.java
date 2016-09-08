@@ -16,6 +16,10 @@
 
 package org.openo.sdno.brs.model;
 
+import org.openo.sdno.brs.validator.rules.StrEnumRule;
+import org.openo.sdno.brs.validator.rules.StrRule;
+import org.openo.sdno.brs.validator.rules.SupportFilter;
+
 /**
  * Logical Termination Point module.<br/>
  * 
@@ -24,42 +28,72 @@ package org.openo.sdno.brs.model;
  */
 public final class LogicalTerminationPointMO extends RootEntity {
 
+    @StrRule(regex = "[A-Za-z0-9_/]{1,255}", matches = true, nullable = false, paramName = "name")
+    @SupportFilter
     private String name;
 
+    @StrRule(range = "1-36", nullable = false, paramName = "meID")
+    @SupportFilter
     private String meID;
 
+    @StrEnumRule(range = "ETH,POS,Trunk,Loopback", nullable = false, paramName = "logicalType")
+    @SupportFilter
     private String logicalType;
 
+    @StrRule(range = "0-32", paramName = "layerRate")
     private String layerRate;
 
+    @StrEnumRule(range = "true,false", paramName = "isEdgePoint")
+    @SupportFilter
     private String isEdgePoint;
 
+    @StrRule(range = "0-255", paramName = "portIndex")
     private String portIndex;
 
+    @StrEnumRule(range = "network_me,os,network_ems,user", paramName = "source")
+    @SupportFilter
     private String source;
 
+    @StrRule(range = "0-36", paramName = "owner")
+    @SupportFilter
     private String owner;
 
+    @StrRule(range = "0-128", paramName = "ipAddress")
+    @SupportFilter
     private String ipAddress;
 
+    @StrEnumRule(range = "active,inactive", paramName = "adminState")
+    @SupportFilter
     private String adminState;
 
+    @StrEnumRule(range = "up,down,unknown", paramName = "operState")
     private String operState;
 
+    @StrEnumRule(range = "D_NA,D_BIDIRECTIONAL,D_SOURCE,D_SINK", paramName = "direction")
     private String direction;
 
+    @StrRule(range = "0-64", paramName = "phyBW")
     private String phyBW;
 
+    @StrRule(range = "0-64", paramName = "ipMask")
     private String ipMask;
 
+    @StrRule(range = "0-64", paramName = "nativeID")
+    @SupportFilter
     private String nativeID;
 
+    @StrRule(range = "0-24", paramName = "macAddress")
     private String macAddress;
 
+    @StrRule(range = "0-36", paramName = "tenantID")
+    @SupportFilter
     private String tenantID;
 
+    @StrEnumRule(range = "unused,used", paramName = "usageState")
+    @SupportFilter
     private String usageState;
 
+    @StrRule(range = "0-1023", paramName = "containedLayers")
     private String containedLayers;
 
     /**
@@ -350,8 +384,8 @@ public final class LogicalTerminationPointMO extends RootEntity {
     @Override
     public String toString() {
         return "LogicalTerminationPointMO [name=" + name + ", meID=" + meID + ", logicalType=" + logicalType
-                + ", layerRate=" + layerRate + ", isEdgePoint=" + isEdgePoint + ", portIndex=" + portIndex + ", source="
-                + source + ", owner=" + owner + ", ipAddress=" + ipAddress + ", adminState=" + adminState
+                + ", layerRate=" + layerRate + ", isEdgePoint=" + isEdgePoint + ", portIndex=" + portIndex
+                + ", source=" + source + ", owner=" + owner + ", ipAddress=" + ipAddress + ", adminState=" + adminState
                 + ", operState=" + operState + ", direction=" + direction + ", phyBW=" + phyBW + ", ipMask=" + ipMask
                 + ", nativeID=" + nativeID + ", macAddress=" + macAddress + ", tenantID=" + tenantID + ", usageState="
                 + usageState + ", containedLayers=" + containedLayers + "]";

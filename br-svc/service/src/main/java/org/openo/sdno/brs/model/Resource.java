@@ -16,6 +16,8 @@
 
 package org.openo.sdno.brs.model;
 
+import org.openo.sdno.brs.validator.rules.StrRule;
+
 /**
  * Resource module.<br/>
  * 
@@ -25,6 +27,7 @@ package org.openo.sdno.brs.model;
 
 public abstract class Resource extends RootEntity {
 
+    @StrRule(range = "0-64", paramName = "version")
     protected String version;
 
     public String getVersion() {

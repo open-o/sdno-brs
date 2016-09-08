@@ -1,0 +1,15 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/topological-links/{objectId}",
+		"method": "delete",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":500,
+		"body":{
+		"result":false
+		}
+	}
+}

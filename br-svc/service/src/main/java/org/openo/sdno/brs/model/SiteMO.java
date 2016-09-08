@@ -18,6 +18,10 @@ package org.openo.sdno.brs.model;
 
 import java.util.List;
 
+import org.openo.sdno.brs.validator.rules.StrEnumRule;
+import org.openo.sdno.brs.validator.rules.StrRule;
+import org.openo.sdno.brs.validator.rules.SupportFilter;
+
 /**
  * Site module.<br/>
  * 
@@ -26,17 +30,26 @@ import java.util.List;
  */
 public class SiteMO extends RootEntity {
 
+    @StrEnumRule(range = "network_site,tenant_site", nullable = false, paramName = "type")
+    @SupportFilter
     private String type;
 
+    @StrRule(range = "0-36", paramName = "tenantID")
+    @SupportFilter
     private String tenantID;
 
+    @StrRule(range = "0-255", paramName = "location")
     private String location;
 
+    @StrRule(range = "1-255", nullable = false, paramName = "name")
+    @SupportFilter
     protected String name;
 
     /**
      * the corresponding tenant site of the site on the web side.(1:N)
      */
+    @RelationField(dbName = "tenantSiteIDs", modelName = "site", paraName = "tenantSiteIDs")
+    @SupportFilter
     private List<String> tenantSiteIDs;
 
     public String getName() {

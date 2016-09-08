@@ -1,0 +1,13 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/statistics/count?res-type-name=site&tenant-id=tenantid",
+		"method": "get",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":200,
+		"json":1
+	}
+}

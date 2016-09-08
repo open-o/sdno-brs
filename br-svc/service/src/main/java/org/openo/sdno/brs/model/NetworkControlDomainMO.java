@@ -18,6 +18,12 @@ package org.openo.sdno.brs.model;
 
 import java.util.List;
 
+import org.openo.sdno.brs.validator.rules.IntRule;
+import org.openo.sdno.brs.validator.rules.IpRule;
+import org.openo.sdno.brs.validator.rules.StrEnumRule;
+import org.openo.sdno.brs.validator.rules.StrRule;
+import org.openo.sdno.brs.validator.rules.SupportFilter;
+
 /**
  * Network controller domain module.<br/>
  * 
@@ -26,26 +32,44 @@ import java.util.List;
  */
 public class NetworkControlDomainMO extends RootEntity {
 
+    @StrRule(regex = "[a-zA-Z0-9\\-_]{1,36}", matches = true, paramName = "nativeID")
+    @SupportFilter
     private String nativeID;
 
+    @StrRule(regex = "[^\\\\:\\*\\?\"><\\|/]{1,255}", matches = true, nullable = false, paramName = "name")
+    @SupportFilter
     private String name;
 
+    @StrRule(regex = "[^\\\\:\\*\\?\"><\\|/]{1,255}", matches = true, paramName = "userLabel")
+    @SupportFilter
     private String userLabel;
 
+    @StrRule(regex = "[a-zA-Z0-9\\-_]{1,36}", matches = true, paramName = "parentNcdID")
+    @SupportFilter
     private String parentNcdID;
 
+    @StrRule(regex = "[^\\\\:\\*\\?\"><\\|/]{1,255}", matches = true, paramName = "location")
     private String location;
 
+    @StrRule(regex = "[^\\\\:\\*\\?\"><\\|/]{1,255}", matches = true, paramName = "manufacturer")
+    @SupportFilter
     private String manufacturer;
 
+    @IpRule(type = "ipv4", paramName = "ipAddress")
     private String ipAddress;
 
+    @IntRule(max = 65535, min = 0, paramName = "port")
     private int port;
 
+    @StrEnumRule(range = "up,down", paramName = "adminStatus")
+    @SupportFilter
     private String adminStatus;
 
+    @StrEnumRule(range = "up,down", paramName = "operateStatus")
+    @SupportFilter
     private String operateStatus;
 
+    @RelationField(dbName = "managementElementIDs", modelName = "networkcontroldomain", paraName = "managementElementIDs")
     private List<String> managementElementIDs;
 
     public List<String> getManagementElementIDs() {

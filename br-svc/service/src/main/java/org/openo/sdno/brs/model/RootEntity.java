@@ -19,7 +19,9 @@ package org.openo.sdno.brs.model;
 import javax.servlet.http.HttpServletRequest;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+
 import org.openo.sdno.brs.constant.Constant;
+import org.openo.sdno.brs.validator.rules.StrRule;
 
 /**
  * Father class of all the resource entity.<br/>
@@ -31,6 +33,7 @@ public class RootEntity {
 
     protected String id;
 
+    @StrRule(range = "0-255", paramName = "description")
     protected String description;
 
     protected Long createtime;

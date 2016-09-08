@@ -1,0 +1,12 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/commparammgmt/access-objects/{objectId}/commparams",
+		"method": "delete",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":204		
+	}
+}

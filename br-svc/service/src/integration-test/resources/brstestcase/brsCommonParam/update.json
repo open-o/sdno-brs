@@ -1,0 +1,21 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/commparammgmt/access-objects/{objectId}/commparams/{paramId}",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"commparam":{			
+		    "protocol": "sftp",
+		    "hostName": "open-o orchestrator",
+		    "port": "22",
+			"commParams": "username:catcat, password:dogdog"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":204		
+	}
+}

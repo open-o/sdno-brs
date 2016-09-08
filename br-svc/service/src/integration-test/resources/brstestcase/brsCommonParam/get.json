@@ -1,0 +1,22 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/commparammgmt/access-objects/{objectId}/commparams",
+		"method": "get",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"commparam":{
+			"objectId": "*",
+		    "protocol": "*",
+		    "hostName": "*",
+		    "port": "*",
+			"commParams": "*"
+		    }
+		}
+	}
+}

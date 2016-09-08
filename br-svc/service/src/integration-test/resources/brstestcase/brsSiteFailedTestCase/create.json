@@ -1,0 +1,21 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/sites1",
+		"method": "post",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"site":{
+			"name": "Site1",
+		    "type": "tenant_site",
+		    "tenantID": "tenantid",
+		    "location": "testlocation"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":404
+	}
+}

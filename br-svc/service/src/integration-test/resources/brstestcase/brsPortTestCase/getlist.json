@@ -1,0 +1,22 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/logical-termination-points?name=Ltp1",
+		"method": "get",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+		
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"site":{
+			"name": "Site1",
+		    "type": "tenant_site",
+		    "tenantID": "tenantid",
+		    "location": "testlocation"
+		    }
+		}
+	}
+}

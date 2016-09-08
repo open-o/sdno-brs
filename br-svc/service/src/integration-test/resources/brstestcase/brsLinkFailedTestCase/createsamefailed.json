@@ -1,0 +1,35 @@
+{
+	"request":
+	{
+		"uri": "/rest/brs/v1/topological-links",
+		"method": "post",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+			"topologicalLink":{
+				"name": "Link1",
+		    	"description": "Test for Link1",
+		  	  	"logicalType": "l2Link",
+		  	  	"layerRate": "test",
+		   	 	"aEnd": "a_end_port",
+		    	"zEnd": "z_end_port",
+		    	"aEndME": "a_end_me",
+		  	  	"zEndME": "z_end_me",
+		   	 	"source": "network_me",
+		   	 	"owner": "active",
+		    	"adminState": "active",
+		    	"operState": "up",
+		    	"direction": "uni_direction",
+		    	"phyBW": "test"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":500,
+		"json":
+		{
+			"data":"*"
+		}
+	}
+}
