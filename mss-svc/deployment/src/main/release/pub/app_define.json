@@ -1,0 +1,63 @@
+{
+    "fileVersion": "1",
+	"name": "MSS",
+	"description": "system model storage service.",
+	"requireDiskSize": 50,
+    "rtspSoftLink": true,
+    "dependency": {
+    },
+    "upgrade": {
+        "use": {
+            "jre": "~1.3"
+        }
+    },
+    "processes": {
+		"mss": {
+            "use": {
+                "jre": "~1.3",
+            	"tomcat": "~9.0"
+            },
+            "mode": "cluster",
+            "cpu": 0.5,
+            "memory": 512,
+            "memoryLimit": 1024,
+			"patterns": ["/rest/svc/mss/v2/buckets"],
+            "useAdditionalEnv": [
+                "_APP_LOG_DIR",
+                "_APP_TMP_DIR",
+                "_APP_SHARE_DIR",
+                "AUTH"
+            ],
+            "protocols": {
+                "IR": "http",
+            },
+            "commands": {
+                "start": [
+                    "${APP_ROOT}/bin/start.sh"
+                ],
+                "stop": [
+                    "${APP_ROOT}/bin/stop.sh"
+                ]
+            },
+	"databases": {
+		"bucketsys": {
+			"type": ["mysql"],
+			"serviceName": "invdbsvr",
+			"dataSize": 20480,
+			"logSize": 10240,
+			"sharding": false,
+			"defaultShardingNumber": 3
+		}
+	},
+    "redis": {
+        "mssrdb": {
+            "type": "cache",
+            "serviceName":"mssrdb",
+            "memory": 64,
+            "dataSize": 64,
+            "sharding": false,
+            "defaultShardingNumber": 3, 
+            "protected": true
+        }
+    }
+}
