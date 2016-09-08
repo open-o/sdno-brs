@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <changeSet id="1473321147299_1" author="inv">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics">
+            <column name="dsrcResID" type="varchar(255)"/>
+            <column name="showName" type="varchar(255)"/>
+            <column name="dsrcID" type="varchar(255)"/>
+            <column name="domainType" type="varchar(1023)"/>
+            <column name="solutionType" type="varchar(255)"/>
+            <column name="uuid" type="varchar(36)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="createtime" type="int"/>
+            <column name="updatetime" type="int"/>
+        </createTable>
+        <rollback>
+            <dropTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="1473321147299_2" author="inv">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_ex"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_ex">
+            <column name="uuid" type="varchar(36)"/>
+            <column name="attrname" type="varchar(40)"/>
+            <column name="attrvalue" type="varchar(1024)"/>
+        </createTable>
+        <rollback>
+            <dropTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_ex"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="1473321147299_3" author="inv">
+        <preConditions/>
+        <sql stripComments="true" splitStatements="true" dbms="mssql,sybase,mysql,oracle">create  index idx_ex_PerfInventory_Process_Statistics on tbl_inv_PerfInventory_Process_Statistics_ex(uuid)</sql>
+        <rollback>
+            <dropIndex indexName="idx_ex_PerfInventory_Process_Statistics" schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_ex"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="1473321147299_4" author="inv">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_links"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_links">
+            <column name="src_uuid" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dst_uuid" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dst_type" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="relation" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="servicetype" type="varchar(16)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_links"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="1473321147299_5" author="inv">
+        <preConditions/>
+        <sql stripComments="true" splitStatements="true" dbms="mssql,sybase,mysql,oracle">create unique index idx_relation_PerfInventory_Process_Statistics on tbl_inv_PerfInventory_Process_Statistics_links(src_uuid,dst_uuid,dst_type)</sql>
+        <rollback>
+            <dropIndex indexName="idx_relation_PerfInventory_Process_Statistics" schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics_links"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="1473321147299_6" author="inv">
+        <preConditions/>
+        <sql stripComments="true" splitStatements="true" dbms="mssql,sybase,mysql,oracle">create unique index idx_PerfInventory_Process_Statistics_dsrcResID on tbl_inv_PerfInventory_Process_Statistics(dsrcResID)</sql>
+        <rollback>
+            <dropIndex indexName="idx_PerfInventory_Process_Statistics_dsrcResID" schemaName="" tableName="tbl_inv_PerfInventory_Process_Statistics"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

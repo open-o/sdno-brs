@@ -1,0 +1,31 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/relation-objects?filter={\"name\":\"ACController1\"}",
+		"method": "get",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"data":
+			{
+				"name": "ACController1",
+		        "category": "NE",
+		        "vendor": "hw",
+		        "productName": "Fusionsphere",
+		        "version": "V1R2C10",
+		        "hostName": "10.144.98.13",
+		        "slaveHostName": "10.10.10.10",
+		        "regionId": "1",
+		        "adminStatus": "enable",
+		        "adapterType": "inner",
+		        "location": "shenzhenD2-F1",
+		        "description": "abc",
+		        "reserved": "dddd"
+			}
+		}
+	}
+}

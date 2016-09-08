@@ -1,0 +1,12 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/brsdb/resources/managedelement/relationships?",
+		"method": "delete",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"}
+	},
+	"response":
+	{
+		"status":204
+	}
+}

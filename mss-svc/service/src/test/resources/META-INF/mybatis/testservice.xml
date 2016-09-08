@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
+    xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.huawei.com/schema/oms
+	http://www.huawei.com/schema/oms/oms.xsd">
+
+
+
+    <bean id="mssResourceService" class="org.openo.sdno.mss.service.impl.MssResourceService">
+        <property name="invDataService" ref="invDataService"></property>
+    </bean>
+
+    <bean id="mssRelationService" class="org.openo.sdno.mss.service.impl.MssRelationService">
+        <property name="invRelationDataService" ref="invRelationDataService"></property>
+    </bean>
+
+
+
+    <bean id="invDataService" class="org.openo.sdno.mss.combine.impl.InvDataService">
+        <property name="dataHandler" ref="invDataHandler"></property>
+    </bean>
+
+    <bean id="invRelationDataService" class="org.openo.sdno.mss.combine.impl.InvRelationDataService">
+        <property name="relationDataHandler" ref="invRelationDataHandler"></property>
+    </bean>
+
+
+
+
+
+
+</beans>

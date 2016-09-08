@@ -1,0 +1,30 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/objects/testuuid",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+		"controller":{
+			"name": "ACController1",
+		    "category": "NE1",
+		    "vendor": "hw1",
+		    "productName": "Fusionsphere1",
+		    "version": "V1R2C101",
+		    "hostName": "10.144.98.13",
+		    "slaveHostName": "10.10.10.10",
+		    "regionId": "1",
+		    "adminStatus": "enable",
+		    "adapterType": "inner",
+		    "location": "shenzhenD2-F1",
+		    "description": "abc",
+		    "reserved": "dddd"
+		    }
+		}
+	},
+	"response":
+	{
+		"status":500
+	}
+}

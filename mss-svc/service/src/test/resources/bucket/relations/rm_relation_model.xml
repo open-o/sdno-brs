@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn inv-datamodel-1.0.xsd">
+<relationmodel>	
+	<relation src="NE" dst="CP" type="aggregation" owner="NE"/>
+	<relation src="NE" dst="IPInterface" type="aggregation" owner="NE"/>
+	<relation src="Subnet" dst="NE" type="association" owner="Subnet"/>	
+	<relation src="Ring" dst="Ring" type="aggregation" owner="Ring"/>
+	<relation src="L2Link" dst="FiberLink" type="aggregation" owner="L2Link"/>
+	<relation src="L2Link" dst="Ring" type="aggregation" owner="L2Link"/>
+	<relation src="PWTrail" dst="PWPath" type="aggregation" owner="PWTrail"/>
+	<relation src="PWTrail" dst="Ring" type="aggregation" owner="PWTrail"/>
+	<relation src="PWTrail" dst="RingPipe" type="aggregation" owner="PWTrail"/>	
+	<relation src="PWE3Service" dst="PWE3Link" type="aggregation" owner="PWE3Service"/>
+	<relation src="PWE3Service" dst="PWTrail" type="aggregation" owner="PWE3Service"/>
+	<relation src="PWE3Service" dst="Ring" type="aggregation" owner="PWE3Service"/>
+	<relation src="PWE3Service" dst="RingPipe" type="aggregation" owner="PWE3Service"/>
+	<relation src="PWE3Service" dst="IPInterface" type="aggregation" owner="PWE3Service"/>
+	<relation src="PWE3Service" dst="PTN_VUNIPort" type="aggregation" owner="PWE3Service"/>
+	<relation src="L3VPNService" dst="PELink" type="aggregation" owner="L3VPNService"/>
+	<relation src="L3VPNService" dst="VRF" type="aggregation" owner="L3VPNService"/>
+	<relation src="L3VPNService" dst="IPInterface" type="aggregation" owner="L3VPNService"/>
+	<relation src="L3VPNService" dst="PTN_VUNIPort" type="aggregation" owner="L3VPNService "/>
+	<relation src="VPLSService" dst="PWTrail" type="aggregation" owner="VPLSService"/>
+	<relation src="VPLSService" dst="IPInterface" type="aggregation" owner="VPLSService"/>
+	<relation src="PWXC" dst="PW" type="aggregation" owner="PWXC"/>
+	<relation src="PWXC" dst="IPInterface" type="aggregation" owner="PWXC"/>
+	<relation src="IPFPMServiceFlow" dst="NE" type="association" owner="IPFPMServiceFlow"/>
+	<relation src="PWPath"  dst="TunnelTrail" type="aggregation" owner="PWPath"/>
+	<relation src="VRF" dst="IPInterface" type="aggregation" owner="VRF"/>
+	<relation src="LocationPipe"  dst="CityPipe" type="aggregation" owner="LocationPipe"/>
+	<relation src="PTN_Ethernetport" dst="PWTrail" type="aggregation" owner="PTN_Ethernetport"/>
+	<relation src="TunnelTrail" dst="PTN_TunnelHop" type="aggregation" owner="TunnelTrail"/>
+	<relation src="TunnelTrail" dst="L2Link" type="aggregation" owner="TunnelTrail"/>
+	<relation src="PTN_NE" dst="CP" type="aggregation" owner="PTN_NE"/>
+	<relation src="PTN_NE" dst="IPInterface" type="aggregation" owner="PTN_NE"/>	
+</relationmodel>
+</inventory>
+

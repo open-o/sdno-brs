@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.openo.sdno.mss.bucket.dao.mappers.ResourceMapper">
+	<resultMap id="BaseResultMap" type="org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo">
+		<id column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="bkt_name" property="bktName" jdbcType="VARCHAR" />
+		<result column="restype" property="restype" jdbcType="VARCHAR" />
+		<result column="imspec" property="imspec" jdbcType="VARCHAR" />
+		<result column="dmspec" property="dmspec" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		uuid, bkt_name, restype, imspec, dmspec
+	</sql>
+
+	<select id="selectByBktName" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_resource
+		where bkt_name = #{bktName,jdbcType=VARCHAR}
+	</select>
+	<select id="selectByBktAndModelName" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_resource
+		where bkt_name = #{bktName,jdbcType=VARCHAR} and
+		restype = #{modelName,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		tbl_resource
+		where uuid = #{uuid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo">
+		insert into tbl_resource
+		(uuid, bkt_name, restype,
+		imspec, dmspec)
+		values
+		(#{uuid,jdbcType=VARCHAR}, #{bktName,jdbcType=VARCHAR},
+		#{restype,jdbcType=VARCHAR},
+		#{imspec,jdbcType=VARCHAR},
+		#{dmspec,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo">
+		insert into tbl_resource
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uuid != null">
+				uuid,
+			</if>
+			<if test="bktName != null">
+				bkt_name,
+			</if>
+			<if test="restype != null">
+				restype,
+			</if>
+			<if test="imspec != null">
+				imspec,
+			</if>
+			<if test="dmspec != null">
+				dmspec,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uuid != null">
+				#{uuid,jdbcType=VARCHAR},
+			</if>
+			<if test="bktName != null">
+				#{bktName,jdbcType=VARCHAR},
+			</if>
+			<if test="restype != null">
+				#{restype,jdbcType=VARCHAR},
+			</if>
+			<if test="imspec != null">
+				#{imspec,jdbcType=VARCHAR},
+			</if>
+			<if test="dmspec != null">
+				#{dmspec,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo">
+		update tbl_resource
+		<set>
+			<if test="bktName != null">
+				bkt_name = #{bktName,jdbcType=VARCHAR},
+			</if>
+			<if test="restype != null">
+				restype = #{restype,jdbcType=VARCHAR},
+			</if>
+			<if test="imspec != null">
+				imspec = #{imspec,jdbcType=VARCHAR},
+			</if>
+			<if test="dmspec != null">
+				dmspec = #{dmspec,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where uuid = #{uuid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo">
+		update
+		tbl_resource
+		set bkt_name = #{bktName,jdbcType=VARCHAR},
+		restype =
+		#{restype,jdbcType=VARCHAR},
+		imspec = #{imspec,jdbcType=VARCHAR},
+		dmspec = #{dmspec,jdbcType=VARCHAR}
+		where uuid =
+		#{uuid,jdbcType=VARCHAR}
+	</update>
+</mapper>

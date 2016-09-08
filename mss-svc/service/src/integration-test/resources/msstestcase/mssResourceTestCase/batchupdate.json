@@ -1,0 +1,33 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/objects",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+			{
+				"objects":
+					[
+						{
+							"id":"698b20c2-5d3d-434e-891b-26196b609a0c",
+							"description":"abcd",
+							"objectId":"698b20c2-5d3d-434e-891b-26196b609a0c",
+							"name":"ACController1",
+							"productName":"Fusionsphere",
+							"version":"V1R2C10",
+							"hostName":"10.144.98.13",
+							"slaveHostName":"10.10.10.10",
+							"vendor":"hw1"
+						}
+					]
+			}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"data":"*"
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/brsdb/resources/managedElement/relationships",
+		"method": "post",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{			
+		}
+	},
+	"response":
+	{
+		"status":500
+	}
+}

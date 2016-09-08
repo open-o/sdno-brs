@@ -1,0 +1,14 @@
+{
+	"name":"inventory",
+    
+	"owner":"InvSvc",
+    
+	"authorization":"private",
+    
+	"allowread":
+    [
+        "InvSvc"
+    ]
+}
+
+

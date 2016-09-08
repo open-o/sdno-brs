@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
+    xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/jdbc
+    http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+
+    <bean id="inventory" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="jdbcUrl" value="jdbc:h2:file:~/.h2/inventory;AUTO_SERVER=TRUE;MODE=MySQL" />
+        <property name="user" value="ossdbuser" />
+        <property name="password" value="123456" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+
+
+<bean id="dataSource" class="org.openo.sdno.mss.dao.multi.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry value-ref="inventory" key="inventory"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="file:src/test/resources/META-INF/mybatis/sql_data_access.xml" />
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="SIMPLE" />
+    </bean>
+
+    <bean id="springContextUtil" class="org.openo.sdno.mss.dao.util.SpringContextUtil">
+    </bean>
+
+
+    <bean id="invDataHandler" class="org.openo.sdno.mss.dao.impl.InvDataHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+        <property name="relationDataHandler" ref="invRelationDataHandler"></property>
+    </bean>
+
+    <bean id="invRelationDataHandler" class="org.openo.sdno.mss.dao.impl.InvRelationDataHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+        <property name="invDataHandler" ref="invDataHandler"></property>
+    </bean>
+
+
+
+
+
+    <bean id="mapperFilesLoader" class="org.openo.sdno.mss.bucket.ibatis.MapperFilesLoader" init-method="init">
+        <property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+    </bean>
+    <bean name="dataSourceProxy" class="org.openo.sdno.mss.bucket.dao.dbinfo.DataSourceFactoryBean">
+        <property name="dataSource" ref="dataSource1" />
+    </bean>
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceProxy" />
+    </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" depends-on="mapperFilesLoader">
+        <constructor-arg index="0" ref="sqlSessionFactoryBean" />
+        <constructor-arg index="1" value="SIMPLE" />
+    </bean>
+
+    <bean id="dataSource1" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="jdbcUrl" value="jdbc:h2:file:~/.h2/inventory;AUTO_SERVER=TRUE;MODE=MySQL" />
+        <property name="user" value="ossdbuser" />
+        <property name="password" value="123456" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+
+
+
+
+
+    <bean id="mssRelaGraphManagement" class="org.openo.sdno.mss.dao.model.RelationGraphMgr">
+        <property name="modelMgr" ref="mssModelManagement"></property>
+    </bean>
+    <bean id="mssModelManagement" class="org.openo.sdno.mss.dao.model.ModelManagement">
+        <property name="metaHanlder" ref="mssMetaHandler"></property>
+        <property name="bucketHandler" ref="mssBucketHandler"></property>
+    </bean>
+    <bean id="mssMetaHandler" class="org.openo.sdno.mss.bucket.impl.MetaHandler">
+        <property name="resourceHandler" ref="mssResourceHandler" />
+        <property name="relationHandler" ref="mssRealtionHandler" />
+    </bean>
+
+    <bean id="mssResourceHandler" class="org.openo.sdno.mss.bucket.impl.ResourceHandler" init-method="init">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+    </bean>
+
+    <bean id="mssRealtionHandler" class="org.openo.sdno.mss.bucket.impl.RelationHandler" init-method="init">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="invStatisticsHandler" class="org.openo.sdno.mss.dao.impl.InvStatisticsHandler">
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
+
+
+
+    <bean id="mssBucketHandler" class="org.openo.sdno.mss.bucket.impl.BucketHandler" init-method="init">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+    </bean>
+
+</beans>

@@ -1,0 +1,64 @@
+{
+    "processes": {
+        "invsvc-0-0": {
+            "slot": 0, 
+            "processType": "invsvc", 
+            "region": "default-1", 
+            "IR": {
+                "ip": "10.167.101.223", 
+                "port": 32018
+            }, 
+            "nodeId": "0", 
+            "local": {
+                "ip": "127.0.0.1", 
+                "protocol": "https", 
+                "port": 31859
+            }
+        }
+    }, 
+    "redis": {
+        "inventoryrdb": [
+            {
+                "dbName": "inventoryrdb", 
+                "passwd": "0000000100000001AFBD75D3F48727F3DB5A0311F1507750E930D90E01881C8DD061DB8DD909ADEC", 
+                "region": "default-1", 
+                "port": 26534, 
+                "user": "ossdbuser", 
+                "type": "redis", 
+                "serverName": "10.167.101.223"
+            }
+        ]
+    }, 
+    "databases": {
+        "bucketsys": [
+            {
+                "readPort": 32081, 
+                "passwd": "0000000100000001AFBD75D3F48727F3DB5A0311F1507750E930D90E01881C8DD061DB8DD909ADEC", 
+                "region": "default-1", 
+                "port": 32081, 
+                "ssl": false, 
+                "user": "ossdbuser", 
+                "serverName": "10.167.101.223", 
+                "type": "mysql", 
+                "dbName": "bucketsys", 
+                "accessHost": "10.167.101.223", 
+                "accessPort": 32081
+            }
+        ], 
+        "inventory": [
+            {
+                "readPort": 32081, 
+                "passwd": "0000000100000001AFBD75D3F48727F3DB5A0311F1507750E930D90E01881C8DD061DB8DD909ADEC", 
+                "region": "default-1", 
+                "port": 32081, 
+                "ssl": false, 
+                "user": "ossdbuser", 
+                "serverName": "10.167.101.223", 
+                "type": "mysql", 
+                "dbName": "inventory", 
+                "accessHost": "10.167.101.223", 
+                "accessPort": 32081
+            }
+        ]
+    }
+}

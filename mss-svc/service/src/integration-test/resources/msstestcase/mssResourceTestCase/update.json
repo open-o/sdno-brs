@@ -1,0 +1,28 @@
+{
+	"request":
+	{
+		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/objects/{objectId}",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+			{
+				"description":"abc",
+				"name":"ACController1",
+				"productName":"Fusionsphere1",
+				"version":"V1R2C101",
+				"hostName":"10.144.98.13",
+				"slaveHostName":"10.10.10.10",
+				"vendor":"hw1"
+			}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"data":
+			{
+			}
+		}
+	}
+}
