@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/managed-elements?tenantID=testTenantID",
+		"uri": "/openoapi/sdnobrs/v1/managed-elements?tenantID=testTenantID",
 		"method": "get",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},

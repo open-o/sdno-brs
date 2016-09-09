@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/managed-elements",
+		"uri": "/openoapi/sdnobrs/v1/managed-elements",
 		"method": "post",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

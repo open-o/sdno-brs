@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,12 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.brs.model.ManagedElementMO;
 import org.openo.sdno.framework.container.service.IService;
 
-import org.openo.sdno.brs.model.ManagedElementMO;
-
 /**
- * Interface of managed element service.<br/>
+ * Interface of managed element service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -33,7 +32,7 @@ import org.openo.sdno.brs.model.ManagedElementMO;
 public interface IManagedElementService extends IService {
 
     /**
-     * Query data according to the network ID.<br/>
+     * Query data according to the network ID.<br>
      * 
      * @param objectID The object Id
      * @return The managedElement object
@@ -42,7 +41,7 @@ public interface IManagedElementService extends IService {
     ManagedElementMO getManagedElementByID(String objectID) throws ServiceException;
 
     /**
-     * Get the Id of the object.<br/>
+     * Get the Id of the object.<br>
      * 
      * @param managedElement The managedElement object
      * @return The Id of the object
@@ -51,7 +50,7 @@ public interface IManagedElementService extends IService {
     String getObjectId(ManagedElementMO managedElement) throws ServiceException;
 
     /**
-     * Paging query element list information.<br/>
+     * Paging query element list information.<br>
      * 
      * @param fields The fields to be queried
      * @param filterMap The filter map
@@ -64,7 +63,7 @@ public interface IManagedElementService extends IService {
             int pagenum) throws ServiceException;
 
     /**
-     * Add managedElement.<br/>
+     * Add managedElement.<br>
      * 
      * @param managedElement The managedElement object to be added
      * @return The managedElement object
@@ -73,7 +72,7 @@ public interface IManagedElementService extends IService {
     Object addManagedElement(ManagedElementMO managedElement) throws ServiceException;
 
     /**
-     * Update the managedElement information according the Id.<br/>
+     * Update the managedElement information according the Id.<br>
      * 
      * @param objectID The object Id
      * @param managedElement The managedElement object
@@ -83,7 +82,7 @@ public interface IManagedElementService extends IService {
     Object updateManagedElementByID(String objectID, ManagedElementMO managedElement) throws ServiceException;
 
     /**
-     * Delete the managedElement object according the Id.<br/>
+     * Delete the managedElement object according the Id.<br>
      * 
      * @param objectID The object Id
      * @return The operation status code
@@ -92,7 +91,7 @@ public interface IManagedElementService extends IService {
     int delManagedElementByID(String objectID) throws ServiceException;
 
     /**
-     * Get the resource data according the resource Id.<br/>
+     * Get the resource data according the resource Id.<br>
      * 
      * @param strObjID The object Id
      * @return The managedElement object
@@ -101,7 +100,7 @@ public interface IManagedElementService extends IService {
     ManagedElementMO getBaseDataByID(String strObjID) throws ServiceException;
 
     /**
-     * Get the CPE information according the tenant Id.<br/>
+     * Get the ME information according the tenant Id.<br>
      * 
      * @param tenantId The tenant Id
      * @return The list of managedElement object

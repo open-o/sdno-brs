@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,14 +37,14 @@ import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
 import org.openo.sdno.brs.service.inf.ISiteService;
 import org.openo.sdno.brs.util.PagingQueryCheckUtil;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Restful interface class of Site, provide CRUD service of Site resource.<br/>
+ * Restful interface class of Site, provide CRUD service of Site resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -60,7 +60,7 @@ public class SiteResource extends IResource<ISiteService> {
     }
 
     /**
-     * Get site by uuid.<br/>
+     * Get site by uuid.<br>
      * 
      * @param objectID uuid of the site.
      * @param request context of http request.
@@ -85,7 +85,7 @@ public class SiteResource extends IResource<ISiteService> {
     }
 
     /**
-     * paged query site list.<br/>
+     * paged query site list.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -104,7 +104,7 @@ public class SiteResource extends IResource<ISiteService> {
     }
 
     /**
-     * Add new site.<br/>
+     * Add new site.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -120,7 +120,7 @@ public class SiteResource extends IResource<ISiteService> {
         SiteMO site = new SiteMO();
         try {
             String requestStr = RestUtils.getRequestBody(request);
-            site = ResponseUtils.getDataModelFromReqStr(requestStr, Constant.SITE_KEY, SiteMO.class);
+            site = HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.SITE_KEY, SiteMO.class);
 
             objectId = service.getObjectId(site);
             site.setId(objectId);
@@ -141,7 +141,7 @@ public class SiteResource extends IResource<ISiteService> {
     }
 
     /**
-     * Update site by uuid.<br/>
+     * Update site by uuid.<br>
      * 
      * @param objectId uuid of the site need to update.
      * @param request context of http request.
@@ -172,7 +172,7 @@ public class SiteResource extends IResource<ISiteService> {
             }
 
             Map<String, Object> reponseBody = new HashMap<String, Object>();
-            SiteMO data = service.updateSiteByID(objectId, ResponseUtils
+            SiteMO data = service.updateSiteByID(objectId, HttpResponseUtil
                     .getDataModelFromReqStr(RestUtils.getRequestBody(request), Constant.SITE_KEY, SiteMO.class));
             if(null != data) {
                 Map<String, Object> result = new HashMap<String, Object>();
@@ -187,7 +187,7 @@ public class SiteResource extends IResource<ISiteService> {
     }
 
     /**
-     * delete site by uuid.<br/>
+     * delete site by uuid.<br>
      * 
      * @param objectId uuid of the site need to delete.
      * @param request context of http request.

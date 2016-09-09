@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -40,16 +40,17 @@ import org.openo.sdno.brs.service.inf.IManagedElementService;
 import org.openo.sdno.brs.service.inf.IRelationService;
 import org.openo.sdno.brs.service.inf.IResWithRelationQueryService;
 import org.openo.sdno.brs.util.RelationUtil;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.framework.container.util.UuidUtils;
+import org.openo.sdno.rest.ResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Implementation of managed element service.<br/>
+ * Implementation of managed element service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -86,8 +87,6 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
 
     private static String RELATION_ID = "id";
 
-    private static final String RELATION_NCDID = "networkControlDomainID";
-
     @SuppressWarnings("unchecked")
     @Override
     public Object addManagedElement(ManagedElementMO managedElement) throws ServiceException {
@@ -121,18 +120,6 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
         return meRsp;
     }
 
-    /**
-     * 覆盖方法/实现方法(选择其一)<br>
-     * 根据网元ID删除网元<br>
-     * 
-     * @see org.openo.sdno.brs.service.inf.IManagedElementService#delManagedElementByID(java.lang.String)
-     * @author l00138167
-     * @see [相关类，可选、也可多条，对于重要的类或接口建议注释]
-     * @since PUER V100R002C00, 2016-1-5
-     * @param objectID
-     * @return
-     * @throws ServiceException
-     */
     @Override
     public int delManagedElementByID(String objectID) throws ServiceException {
         // Check whether there is a link under the ne
@@ -148,7 +135,6 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
 
     @Override
     public ManagedElementMO getManagedElementByID(String objectID) throws ServiceException {
-
         return meQueryService.getResourceByID(objectID, ManagedElementMO.class);
     }
 
@@ -165,7 +151,6 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
     @Override
     public Map<String, Object> getManagedElementMOs(String fields, Map<String, String> filterMap, int pagesize,
             int pagenum) throws ServiceException {
-
         return meQueryService.getResources(fields, "managedElements", filterMap, pagesize, pagenum,
                 ManagedElementMO.class);
     }
@@ -250,7 +235,7 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
 
     @SuppressWarnings("rawtypes")
     private List<ManagedElementMO> parseDataFromResponse(String responseContent) throws ServiceException {
-        Object rspObj = ResponseUtils.assembleRspData(responseContent, ManagedElementMO.class);
+        Object rspObj = HttpResponseUtil.assembleRspData(responseContent, ManagedElementMO.class);
         ValidateUtil.assertNotList(rspObj, "resultData");
 
         List<ManagedElementMO> meList = new ArrayList<ManagedElementMO>();
@@ -344,7 +329,7 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
     }
 
     /**
-     * Get base data by Id.<br/>
+     * Get base data by Id.<br>
      * 
      * @param strObjID String object Id
      * @return ManagedElement
@@ -355,8 +340,8 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
         RestfulResponse response = mssProxy.getResource(bucketName, resourceTypeName, strObjID);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        return (ManagedElementMO)ResponseUtils.assembleRspData(response.getResponseContent(), ManagedElementMO.class);
-
+        return (ManagedElementMO)HttpResponseUtil.assembleRspData(response.getResponseContent(),
+                ManagedElementMO.class);
     }
 
     @SuppressWarnings("unchecked")
@@ -413,7 +398,7 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
 
             String strResult = response.getResponseContent();
             ValidateUtil.assertNotEmpty(strResult, "responseContent");
-            meRsp = (ManagedElementMO)ResponseUtils.assembleRspData(response.getResponseContent(),
+            meRsp = (ManagedElementMO)HttpResponseUtil.assembleRspData(response.getResponseContent(),
                     ManagedElementMO.class);
         }
 
@@ -435,7 +420,7 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
         Map<String, String> checkObj = new HashMap<>();
         checkObj.put(Constant.RESOURCE_ID, me.getId());
         RestfulResponse response = mssProxy.checkObjExsit(bucketName, resourceTypeName, checkObj);
-        ResponseUtils.checkResonseAndThrowException(response);
+        HttpResponseUtil.checkResonseAndThrowException(response);
         if("true".equals(response.getResponseContent())) {
             throw new ServiceException(ErrorCode.BRS_RESOURCE_ID_USED, HttpCode.BAD_REQUEST);
         }
@@ -454,7 +439,7 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
         @SuppressWarnings({"rawtypes"})
         PageResponseData pageRsp = new PageResponseData();
         List<SiteMO> data =
-                ResponseUtils.assembleListRspData(restfulResponse.getResponseContent(), pageRsp, SiteMO.class);
+                HttpResponseUtil.assembleListRspData(restfulResponse.getResponseContent(), pageRsp, SiteMO.class);
         List<String> siteIdlist = getUuidByTenantId(data);
 
         if(null != siteIdlist && !siteIdlist.isEmpty()) {

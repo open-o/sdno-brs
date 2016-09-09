@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/managed-elements?name=Ne1",
+		"uri": "/openoapi/sdnobrs/v1/managed-elements?name=Ne1",
 		"method": "get",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},

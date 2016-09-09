@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/network-control-domains/{objectId}",
+		"uri": "/openoapi/sdnobrs/v1/network-control-domains/{objectId}",
 		"method": "put",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

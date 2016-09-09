@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/managed-elements1/{objectId}",
+		"uri": "/openoapi/sdnobrs/v1/managed-elements1/{objectId}",
 		"method": "delete",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},

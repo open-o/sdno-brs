@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,19 +32,18 @@ import javax.ws.rs.core.Context;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
+import org.openo.sdno.brs.constant.Constant;
+import org.openo.sdno.brs.model.NetworkControlDomainMO;
+import org.openo.sdno.brs.service.inf.INetworkControlDomainService;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
+import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.openo.sdno.brs.constant.Constant;
-import org.openo.sdno.brs.model.NetworkControlDomainMO;
-import org.openo.sdno.brs.service.inf.INetworkControlDomainService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
-import org.openo.sdno.brs.util.validate.ValidateUtil;
-
 /**
  * Restful interface class of Network Control Domain, provide CRUD service of Network Control Domain
- * resource.<br/>
+ * resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -60,7 +59,7 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
     }
 
     /**
-     * get NCD by uuid.<br/>
+     * get NCD by uuid.<br>
      * 
      * @param objectID uuid of NCD.
      * @param request context of http request.
@@ -85,7 +84,7 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
     }
 
     /**
-     * Get NDC list.<br/>
+     * Get NDC list.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -104,7 +103,7 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
     }
 
     /**
-     * Add new NDC.<br/>
+     * Add new NDC.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -120,9 +119,8 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
         NetworkControlDomainMO ncdMO = new NetworkControlDomainMO();
         try {
             String requestStr = RestUtils.getRequestBody(request);
-            ncdMO =
-                    ResponseUtils.getDataModelFromReqStr(requestStr, Constant.NETWORKCONTROLDOMIAN_KEY,
-                            NetworkControlDomainMO.class);
+            ncdMO = HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.NETWORKCONTROLDOMIAN_KEY,
+                    NetworkControlDomainMO.class);
 
             objectId = service.getObjectId(ncdMO);
             ncdMO.setId(objectId);
@@ -143,7 +141,7 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
     }
 
     /**
-     * Update NDC by uuid.<br/>
+     * Update NDC by uuid.<br>
      * 
      * @param objectId uuid of the NDC need to update.
      * @param request context of http request.
@@ -173,10 +171,9 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
                 ncdForLog.setName(ncd.getName());
             }
             Map<String, Object> reponseBody = new HashMap<String, Object>();
-            NetworkControlDomainMO data =
-                    service.updateNCDByID(objectId, ResponseUtils.getDataModelFromReqStr(
-                            RestUtils.getRequestBody(request), Constant.NETWORKCONTROLDOMIAN_KEY,
-                            NetworkControlDomainMO.class));
+            NetworkControlDomainMO data = service.updateNCDByID(objectId,
+                    HttpResponseUtil.getDataModelFromReqStr(RestUtils.getRequestBody(request),
+                            Constant.NETWORKCONTROLDOMIAN_KEY, NetworkControlDomainMO.class));
             if(null != data) {
                 Map<String, Object> result = new HashMap<String, Object>();
                 result.put(Constant.RESOURCE_ID, data.getId());
@@ -190,7 +187,7 @@ public class NetworkControlDomainResource extends IResource<INetworkControlDomai
     }
 
     /**
-     * Delete NDC by uuid.<br/>
+     * Delete NDC by uuid.<br>
      * 
      * @param objectId uuid of the NDC need to delete.
      * @param request context of http request.

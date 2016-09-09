@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/commparammgmt/access-objects/{objectId}/commparams/{paramId}",
+		"uri": "/openoapi/sdnobrs/v1/commparammgmt/access-objects/{objectId}/commparams/{paramId}",
 		"method": "put",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

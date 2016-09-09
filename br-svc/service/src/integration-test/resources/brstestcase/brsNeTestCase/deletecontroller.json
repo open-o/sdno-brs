@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/controller/{objectId}",
+		"uri": "/openoapi/sdnobrs/v1/controller/{objectId}",
 		"method": "delete",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},

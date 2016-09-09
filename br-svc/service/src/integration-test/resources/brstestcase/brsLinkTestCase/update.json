@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/topological-links/{objectId}",
+		"uri": "/openoapi/sdnobrs/v1/topological-links/{objectId}",
 		"method": "put",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

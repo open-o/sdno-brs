@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2016 Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
     xsi:schemaLocation="
@@ -11,28 +27,9 @@
 	http://cxf.apache.org/jaxrs 
 	http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <bean name="brsModule" class="org.openo.sdno.brs.BrsModule" init-method="start" destroy-method="stop">
-        <property name="roaResList">
-            <list>
-                <ref bean="siteResource"/>
-                <ref bean="logicalTPResource"/>
-                <ref bean="managedElementResource"/>
-                <ref bean="topologicalLinkResource"/>
-                <ref bean="statisticsResource"/>
-                <ref bean="networkControlDomainResource"/>
-                <ref bean="controllerResource"/>
-                <ref bean="commParamResource"/>
-            </list>
-        </property>
-    </bean>
-    <import resource="classpath:META-INF/cxf/cxf.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-
-
-    <bean id="logicalTPResource" class="org.openo.sdno.brs.resource.LogicalTPResource">
-        <property name="service" ref="logicalTPService"/>
-    </bean>
     <!-- jar rest server registration -->
     <jaxrs:server id="sampleServer" address="/">
         <!-- registering beans -->
@@ -48,29 +45,31 @@
         </jaxrs:serviceBeans>
         <!-- registering providers -->
         <jaxrs:providers>
-            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
         </jaxrs:providers>
     </jaxrs:server>
 
     <bean id="controllerResource" class="org.openo.sdno.brs.resource.ControllerResource">
-        <property name="service" ref="controllerService"/>
+        <property name="service" ref="controllerService" />
     </bean>
 
-    <bean id="commParamResource" class="org.openo.sdno.brs.resource.CommonParamResource"> 
-        <property name="service"  ref="commParamService" /> </bean>
-
+    <bean id="commParamResource" class="org.openo.sdno.brs.resource.CommonParamResource">
+        <property name="service" ref="commParamService" />
+    </bean>
 
     <bean id="siteResource" class="org.openo.sdno.brs.resource.SiteResource">
-        <property name="service" ref="siteService"/>
+        <property name="service" ref="siteService" />
     </bean>
 
-
+    <bean id="logicalTPResource" class="org.openo.sdno.brs.resource.LogicalTPResource">
+        <property name="service" ref="logicalTPService" />
+    </bean>
     <bean id="topologicalLinkResource" class="org.openo.sdno.brs.resource.TopologicalLinkResource">
-        <property name="service" ref="topologicalLinkService"/>
+        <property name="service" ref="topologicalLinkService" />
     </bean>
 
     <bean id="statisticsResource" class="org.openo.sdno.brs.resource.StatisticsResource">
-        <property name="service" ref="statisticsService"/>
+        <property name="service" ref="statisticsService" />
     </bean>
 
     <bean id="networkControlDomainResource" class="org.openo.sdno.brs.resource.NetworkControlDomainResource">
@@ -78,7 +77,7 @@
     </bean>
 
     <bean id="brsChecker" class="org.openo.sdno.brs.check.impl.BrsCheckerImpl">
-        <property name="service" ref="topologicalLinkService"/>
+        <property name="service" ref="topologicalLinkService" />
     </bean>
 
     <bean id="topologicalLinkService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">
@@ -116,11 +115,11 @@
         <property name="bucketName" value="brsdb"></property>
         <property name="resourceTypeName" value="controller"></property>
     </bean>
-    
+
     <bean id="commParamService" class="org.openo.sdno.brs.service.impl.CommParamService">
-        <property name="commoperService" ref="commoperService"></property>       
+        <property name="commoperService" ref="commoperService"></property>
     </bean>
-    
+
     <bean id="commoperService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="brsCheckerService" ref="brsChecker"></property>
@@ -132,9 +131,8 @@
         <property name="tpOperService" ref="tpOperService"></property>
         <property name="tpRelationService" ref="tpRelationService"></property>
         <property name="resourceTypeName" value="terminationpoint"></property>
-    </bean>   
-    
-    
+    </bean>
+
     <bean id="tpOperService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="brsCheckerService" ref="brsChecker"></property>
@@ -148,20 +146,20 @@
     </bean>
 
     <bean id="managedElementResource" class="org.openo.sdno.brs.resource.ManagedElementResource">
-        <property name="service" ref="managedElementService"/>
+        <property name="service" ref="managedElementService" />
     </bean>
 
     <bean id="managedElementService" class="org.openo.sdno.brs.service.impl.ManagedElementServiceImpl">
-        <property name="mssProxy" ref="mssProxy"/>
-        <property name="brsCheckerService" ref="brsChecker"/>
-        <property name="bucketName" value="brsdb"/>
-        <property name="meQueryService" ref="meQueryService"/>
-        <property name="meQueryServiceEx" ref="meQueryServiceEx"/>
-        <property name="relationService" ref="meRelationService"/>
-        <property name="resourceTypeName" value="managedelement"/>
-        <property name="mdResTypeName" value="managementdomain"/>
-        <property name="siteResTypeName" value="site"/>
-        <property name="controllerResTypeName" value="controller"/>
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="brsCheckerService" ref="brsChecker" />
+        <property name="bucketName" value="brsdb" />
+        <property name="meQueryService" ref="meQueryService" />
+        <property name="meQueryServiceEx" ref="meQueryServiceEx" />
+        <property name="relationService" ref="meRelationService" />
+        <property name="resourceTypeName" value="managedelement" />
+        <property name="mdResTypeName" value="managementdomain" />
+        <property name="siteResTypeName" value="site" />
+        <property name="controllerResTypeName" value="controller" />
     </bean>
 
     <bean id="meRelationService" class="org.openo.sdno.brs.service.impl.RelationService">
@@ -171,26 +169,26 @@
     </bean>
 
     <bean id="meQueryService" class="org.openo.sdno.brs.service.impl.ResWithRelationQueryService">
-        <property name="mssProxy" ref="mssProxy"/>
-        <property name="bucketName" value="brsdb"/>
-        <property name="resourceTypeName" value="managedelement"/>
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="managedelement" />
     </bean>
     <bean id="siteQueryService" class="org.openo.sdno.brs.service.impl.ResWithRelationQueryService">
-        <property name="mssProxy" ref="mssProxy"/>
-        <property name="bucketName" value="brsdb"/>
-        <property name="resourceTypeName" value="site"/>
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="site" />
     </bean>
 
     <bean id="meQueryServiceEx" class="org.openo.sdno.brs.service.impl.MEQueryServiceEx">
-        <property name="mssProxy" ref="mssProxy"/>
-        <property name="bucketName" value="brsdb"/>
-        <property name="resourceTypeName" value="managedelement"/>
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="managedelement" />
     </bean>
 
     <bean id="networkControlDomainService" class="org.openo.sdno.brs.service.impl.NetworkControlDomainService">
-        <property name="mssProxy" ref="mssProxy"/>
-        <property name="bucketName" value="brsdb"/>
-        <property name="resourceTypeName" value="networkcontroldomain"/>
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="networkcontroldomain" />
         <property name="ncdOpreateService" ref="ncdOperService"></property>
         <property name="meRelationService" ref="meRelationService"></property>
     </bean>
@@ -206,7 +204,6 @@
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="bucketName" value="brsdb"></property>
     </bean>
-
 
     <bean id="mssProxy" class="org.openo.sdno.brs.restrepository.impl.MSSProxyImpl"></bean>
 

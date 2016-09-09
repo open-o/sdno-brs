@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,15 +29,14 @@ import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.CommParamMo;
 import org.openo.sdno.brs.service.inf.ICommParamService;
 import org.openo.sdno.brs.service.inf.IResourceService;
+import org.openo.sdno.brs.util.CommParamCheckUtil;
 import org.openo.sdno.brs.util.json.JsonUtil;
 import org.openo.sdno.framework.container.util.UuidUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Service implementation of common parameter for Controller communication.(Support CRUD)<br/>
- * <p>
- * </p>
+ * Service implementation of common parameter for Controller communication.(Support CRUD)<br>
  * 
  * @author
  * @version SDNO 0.5 07-Jun-2016
@@ -60,7 +59,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Create Common parameters for controller<br/>
+     * Create Common parameters for controller<br>
      * 
      * @param commParams - common parameter JSON string
      * @param objectId - Controller UUID
@@ -84,21 +83,24 @@ public class CommParamService implements ICommParamService {
         }
 
         // Validate common parameters
-        validateCommParams(commParams);
+        CommParamCheckUtil.validateCommParams(commParams);
 
         commParams.setObjectId(objectId);
 
         // Generate UUID
-        String paramID = UuidUtils.createUuid();
-        commParams.setId(paramID);
+        String paramID = commParams.getId();
+        if(StringUtils.isEmpty(paramID)) {
+            paramID = UuidUtils.createUuid();
+            commParams.setId(paramID);
+        }
 
         // Check if the common parameters already exist in database
         String[] filterName = {"objectId", "port", "protocol"};
         Object[] filterValue = {commParams.getObjectId(), commParams.getPort(), commParams.getProtocol()};
         String filter = getFilterValue(filterName, filterValue);
 
-        List<CommParamMo> cParamlist = (List<CommParamMo>)commoperService.getObjectList("base", filter,
-                Constant.PAGE_SIZE_KEY, Constant.PAGE_NUM_KEY, CommParamMo.class);
+        List<CommParamMo> cParamlist = commoperService.getObjectList("base", filter, Constant.PAGE_SIZE_KEY,
+                Constant.PAGE_NUM_KEY, CommParamMo.class);
         if(!cParamlist.isEmpty()) {
             LOGGER.error("pk is exist");
             throw generateSvcException("createCommParams fail, the request pk is exist",
@@ -114,7 +116,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Query common parameters by parameter ID and Object ID<br/>
+     * Query common parameters by parameter ID and Object ID<br>
      * 
      * @param paramId - paramter ID (unique ID)
      * @param objectId - Controller UUID
@@ -159,7 +161,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Query common parameter list by Object ID<br/>
+     * Query common parameter list by Object ID<br>
      * 
      * @param objectid - Controller UUID
      * @return List of Common parameter information
@@ -194,7 +196,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Update common parameter by controller UUID<br/>
+     * Update common parameter by controller UUID<br>
      * 
      * @param commParams - Common parameter
      * @param objectId - Controller UUID
@@ -239,7 +241,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Delete common parameters by parameter ID<br/>
+     * Delete common parameters by parameter ID<br>
      * 
      * @param paramId - parameter UUID
      * @throws ServiceException - when input is invalid
@@ -266,7 +268,7 @@ public class CommParamService implements ICommParamService {
     }
 
     /**
-     * Delete common parameter by object ID (controller UUID)<br/>
+     * Delete common parameter by object ID (controller UUID)<br>
      * 
      * @param objId - Controller UUID
      * @throws ServiceException - when input is invalid
@@ -317,67 +319,6 @@ public class CommParamService implements ICommParamService {
 
     }
 
-    private void validateCommParams(CommParamMo commParams) throws ServiceException {
-        // Check Object ID
-        if(StringUtils.isBlank(commParams.getObjectId())) {
-            LOGGER.error("objectId is empty");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-
-        checkPort(commParams.getPort());
-        checkHostName(commParams.getHostName());
-        checkProtocol(commParams.getProtocol());
-    }
-
-    private void checkPort(String port) throws ServiceException {
-        // Check port
-        if(StringUtils.isEmpty(port)) {
-            LOGGER.error("port is error,port is error");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-
-        // Check Port
-        if(Integer.parseInt(port) > 65535) {
-            LOGGER.error("port is error,port is too big");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-    }
-
-    private void checkHostName(String hostName) throws ServiceException {
-        // Check host Name
-        if(StringUtils.isBlank(hostName)) {
-            LOGGER.error("hostname is empty");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-
-        // Check hostName
-        if(hostName.length() > 128) {
-            LOGGER.error("hostname is too long");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-    }
-
-    private void checkProtocol(String protocol) throws ServiceException {
-        // Check protocol
-        if(StringUtils.isBlank(protocol)) {
-            LOGGER.error("protocal is empty");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-
-        // Validate protocol length
-        if(protocol.length() > 32) {
-            LOGGER.error("protocal is too long");
-            throw generateSvcException("create or update CommParams  fail, the request commParams is empty",
-                    ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-    }
-
     private String getFilterValue(String[] filterName, Object[] filterValue) {
 
         Map<String, String> filter = new HashMap<String, String>();
@@ -406,10 +347,9 @@ public class CommParamService implements ICommParamService {
     }
 
     private static ServiceException generateSvcException(String msg, String errorCode, int httpCode) {
-        ServiceException e = new ServiceException(msg);
-        e.setId(errorCode);
-        e.setHttpCode(httpCode);
-        return e;
+        ServiceException exception = new ServiceException(msg);
+        exception.setId(errorCode);
+        exception.setHttpCode(httpCode);
+        return exception;
     }
-
 }

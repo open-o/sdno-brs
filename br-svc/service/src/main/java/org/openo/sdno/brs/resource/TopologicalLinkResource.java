@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,14 +39,14 @@ import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.TopologicalLinkMO;
 import org.openo.sdno.brs.service.inf.IResourceService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Restful interface of topological link.<br/>
+ * Restful interface of topological link.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -64,7 +64,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * Get link by uuid.<br/>
+     * Get link by uuid.<br>
      * 
      * @param objectID uuid of link.
      * @param request context of http request.
@@ -89,7 +89,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * get link list.<br/>
+     * get link list.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -105,7 +105,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * add link to db.<br/>
+     * add link to db.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -121,7 +121,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
         TopologicalLinkMO topologicalLink = new TopologicalLinkMO();
         try {
             String requestStr = RestUtils.getRequestBody(request);
-            topologicalLink = ResponseUtils.getDataModelFromReqStr(requestStr, Constant.TOPOLOGICALLINK_KEY,
+            topologicalLink = HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.TOPOLOGICALLINK_KEY,
                     TopologicalLinkMO.class);
 
             objectId = service.genID(topologicalLink);
@@ -149,7 +149,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * Update link by uuid.<br/>
+     * Update link by uuid.<br>
      * 
      * @param objectId uuid of the link need to update.
      * @param request context of http request.
@@ -180,7 +180,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
             String requestStr = RestUtils.getRequestBody(request);
             Map<String, Object> reponseBody = new HashMap<String, Object>();
             TopologicalLinkMO topologicalLinkInfo =
-                    service.updateResource(objectId, ResponseUtils.getDataModelFromReqStr(requestStr,
+                    service.updateResource(objectId, HttpResponseUtil.getDataModelFromReqStr(requestStr,
                             Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class), TopologicalLinkMO.class);
             if(null != topologicalLinkInfo) {
                 Map<String, Object> result = new HashMap<String, Object>();
@@ -197,7 +197,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * delete link by uuid.<br/>
+     * delete link by uuid.<br>
      * 
      * @param objectId uuid of the link need todelete.
      * @param request context of http request.
@@ -246,7 +246,7 @@ public class TopologicalLinkResource extends IResource<IResourceService> {
     }
 
     /**
-     * check if the link exist.<br/>
+     * check if the link exist.<br>
      * 
      * @param linkNew the link need to check.
      * @throws ServiceException if data base service have encounter some problem.

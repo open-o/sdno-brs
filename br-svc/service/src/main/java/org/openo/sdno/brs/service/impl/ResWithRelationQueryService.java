@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,6 @@ package org.openo.sdno.brs.service.impl;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -40,22 +39,25 @@ import org.openo.sdno.brs.model.RootEntity;
 import org.openo.sdno.brs.model.roamo.PageResponseData;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.service.inf.IResWithRelationQueryService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.ResWithRelationQueryUtil;
+import org.openo.sdno.brs.util.http.HttpRelationUtil;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.json.JsonUtil;
+import org.openo.sdno.rest.ResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Implementation class of relation query.<br/>
+ * Implementation class of relation query.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
  */
 public class ResWithRelationQueryService implements IResWithRelationQueryService {
 
-    private String bucketName;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(ResWithRelationQueryService.class);
+
+    private String bucketName;
 
     private IMSSProxy mssProxy;
 
@@ -70,7 +72,7 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
         RestfulResponse response = mssProxy.getResource(bucketName, resourceTypeName, objectID);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        T result = (T)ResponseUtils.assembleRspData(response.getResponseContent(), classType);
+        T result = (T)HttpResponseUtil.assembleRspData(response.getResponseContent(), classType);
 
         if(!StringUtils.isEmpty(result.getId())) {
             List<T> resourceLst = new ArrayList<T>();
@@ -101,12 +103,44 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
         return resourceRspMap;
     }
 
+    /**
+     * Get relations.<br>
+     * 
+     * @param dstType Destination Type
+     * @param srcIds source Ids
+     * @param dstIds Destination Ids
+     * @return The relation list
+     * @since SDNO 0.5
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public List<Relation> getRelations(String dstType, String srcIds, String dstIds) throws ServiceException {
+        String[] paras = {dstType, srcIds, dstIds};
+        LOGGER.info("getRelations dstType={}, srcids={}, dstids={}", paras);
+        RestfulResponse response = mssProxy.getRelations(bucketName, resourceTypeName, dstType, srcIds, dstIds);
+        ResponseUtils.checkResonseAndThrowException(response);
+
+        return (List)HttpResponseUtil.assembleRspData(response.getResponseContent(), Relation.class);
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    public void setMssProxy(IMSSProxy mssProxy) {
+        this.mssProxy = mssProxy;
+    }
+
+    public void setResourceTypeName(String resourceTypeName) {
+        this.resourceTypeName = resourceTypeName;
+    }
+
     @SuppressWarnings("rawtypes")
     private <T> Map<String, Object> queryResourceList(String key, ResourcePagePara pagePara, Class<T> classType)
             throws ServiceException {
 
-        String fields = convertToFieldString(pagePara.getResFieldList());
-        Map<String, Object> basefilters = convertToFilterString(pagePara.getBaseFilters(), classType);
+        String fields = ResWithRelationQueryUtil.convertToFieldString(pagePara.getResFieldList());
+        Map<String, Object> basefilters =
+                ResWithRelationQueryUtil.convertToFilterString(pagePara.getBaseFilters(), classType);
         Map<String, Object> relationfilters = convertToRelationFilterString(pagePara.getRelationFilters());
 
         Map<String, Object> filterMap = new HashMap<String, Object>();
@@ -121,7 +155,7 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
         Map<String, Object> resourceMap = new HashMap<String, Object>();
         PageResponseData pageRsp = new PageResponseData();
         List<T> resourceLst =
-                ResponseUtils.assembleListRspWithRelationData(response.getResponseContent(), pageRsp, classType);
+                HttpRelationUtil.assembleListRspWithRelationData(response.getResponseContent(), pageRsp, classType);
         filterResList(resourceLst, pagePara, classType);
         resourceMap.put(key, resourceLst);
 
@@ -140,37 +174,10 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
 
         List<String> lstRes = pagePara.getResFieldList();
         if(CollectionUtils.isEmpty(lstRes)) {
-            filterBaseAndExtAttr(resourceLst, classType);
+            ResWithRelationQueryUtil.filterBaseAndExtAttr(resourceLst, classType);
         }
 
         filterRelation(resourceLst, pagePara.getRelationFields());
-    }
-
-    private <T> void filterBaseAndExtAttr(List<T> resourceLst, Class<T> classType) {
-        Class<?> currentClass = classType;
-
-        List<Field> lstField = new ArrayList<Field>();
-        lstField.addAll(Arrays.asList(currentClass.getDeclaredFields()));
-        Class<?> superClassType = currentClass.getSuperclass();
-        while(null != superClassType) {
-            lstField.addAll(Arrays.asList(superClassType.getDeclaredFields()));
-            superClassType = superClassType.getSuperclass();
-        }
-
-        for(T resource : resourceLst) {
-            for(Field field : lstField) {
-                if((field.isAnnotationPresent(RelationField.class)) || field.getName().equals(Constant.RESOURCE_ID)) {
-                    continue;
-                }
-
-                try {
-                    field.setAccessible(true);
-                    field.set(resource, null);
-                } catch(SecurityException | IllegalArgumentException | IllegalAccessException exception) {
-                    LOGGER.error("filterBaseAndExtAttr: fail to set null", exception);
-                }
-            }
-        }
     }
 
     private <T> void filterRelation(List<T> resourceLst, Map<String, String> relationFields) {
@@ -198,66 +205,6 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
                 LOGGER.error("filterRelation failed,ex={}", ex);
             }
         }
-    }
-
-    /**
-     * Get relations.<br/>
-     * 
-     * @param dstType Destination Type
-     * @param srcIds source Ids
-     * @param dstIds Destination Ids
-     * @return The relation list
-     * @since SDNO 0.5
-     */
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    public List<Relation> getRelations(String dstType, String srcIds, String dstIds) throws ServiceException {
-        String[] paras = {dstType, srcIds, dstIds};
-        LOGGER.info("getRelations dstType={}, srcids={}, dstids={}", paras);
-        RestfulResponse response = mssProxy.getRelations(bucketName, resourceTypeName, dstType, srcIds, dstIds);
-        ResponseUtils.checkResonseAndThrowException(response);
-
-        return (List)ResponseUtils.assembleRspData(response.getResponseContent(), Relation.class);
-    }
-
-    public void setBucketName(String bucketName) {
-        this.bucketName = bucketName;
-    }
-
-    public void setMssProxy(IMSSProxy mssProxy) {
-        this.mssProxy = mssProxy;
-    }
-
-    public void setResourceTypeName(String resourceTypeName) {
-        this.resourceTypeName = resourceTypeName;
-    }
-
-    private String convertToFieldString(List<String> fieldList) {
-        StringBuffer buffer = new StringBuffer();
-        for(String field : fieldList) {
-            buffer.append(field);
-            buffer.append(Constant.COMMA);
-        }
-        String fields = buffer.toString();
-        if(fields.length() > 0) {
-            fields = fields.substring(0, fields.length() - 1);
-        }
-
-        return fields;
-
-    }
-
-    @SuppressWarnings("unchecked")
-    private <T> Map<String, Object> convertToFilterString(Map<String, String> filterMap, Class<T> classType)
-            throws ServiceException {
-        String filters = null;
-        try {
-            filters = ResponseUtils.getFilterValue(filterMap, classType);
-
-        } catch(IOException e) {
-            LOGGER.error("brs has bad param.", e);
-            throw new ServiceException(ErrorCode.BRS_BAD_PARAM, HttpCode.BAD_REQUEST);
-        }
-        return org.openo.sdno.framework.container.util.JsonUtil.fromJson(filters, Map.class);
     }
 
     private Map<String, Object> convertToRelationFilterString(Map<String, String> relationQueryMap)
@@ -312,28 +259,13 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
 
     }
 
-    private Map<String, List<String>> getRelationMap(List<Relation> relations) {
-        Map<String, List<String>> relationMap = new HashMap<String, List<String>>();
-        for(Relation relation : relations) {
-            List<String> relationList = relationMap.get(relation.getSrcId());
-            if(null == relationList) {
-                relationList = new ArrayList<String>();
-            }
-
-            relationList.add(relation.getDstId());
-            relationMap.put(relation.getSrcId(), relationList);
-        }
-        return relationMap;
-
-    }
-
     private <T extends RootEntity> void queryResLstRuleRelations(List<T> resourceLst,
             Collection<String> relationFieldList) throws ServiceException {
         if(CollectionUtils.isEmpty(resourceLst) || CollectionUtils.isEmpty(relationFieldList)) {
             return;
         }
 
-        String srcFields = getResourcesIds(resourceLst);
+        String srcFields = ResWithRelationQueryUtil.getResourcesIds(resourceLst);
 
         List<Relation> relationList = null;
         Map<String, Map<String, List<String>>> allRelationMap = new HashMap<String, Map<String, List<String>>>();
@@ -343,7 +275,7 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
                     String modelName = relationInfoMap.get(relationField).get(0);
                     String paraName = relationInfoMap.get(relationField).get(1);
                     relationList = getRelations(modelName, srcFields, null);
-                    allRelationMap.put(paraName, getRelationMap(relationList));
+                    allRelationMap.put(paraName, ResWithRelationQueryUtil.getRelationMap(relationList));
                 }
             }
 
@@ -383,24 +315,6 @@ public class ResWithRelationQueryService implements IResWithRelationQueryService
                 }
             }
         }
-    }
-
-    private <T extends RootEntity> String getResourcesIds(List<T> resourceList) {
-
-        StringBuffer buffer = new StringBuffer();
-        for(T resource : resourceList) {
-            if(null != resource.getId()) {
-                buffer.append(resource.getId());
-                buffer.append(Constant.COMMA);
-            }
-
-        }
-        String srcFields = buffer.toString();
-        if(srcFields.length() > 0) {
-            srcFields = srcFields.substring(0, srcFields.length() - 1);
-        }
-
-        return srcFields;
     }
 
     private void initRelationInfoMap(Class<?> classType) {

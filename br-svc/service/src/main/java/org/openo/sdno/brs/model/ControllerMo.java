@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.openo.sdno.brs.model;
 
 /**
- * controller definition class.<br/>
+ * controller definition class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-3
@@ -37,29 +38,29 @@ public class ControllerMo extends RootEntity {
 
     private String version;
 
+    private String slaveHostName;
+
     /**
      * controller ip.
      */
     private String hostName;
 
-    private String slaveHostName;
-
-    private String description;
-
     private String vendor;
 
-    /**
-     * @return Returns the objectId.
-     */
-    public String getObjectId() {
-        return objectId;
-    }
+    private String description;
 
     /**
      * @param objectId The objectId to set.
      */
     public void setObjectId(String objectId) {
         this.objectId = objectId;
+    }
+
+    /**
+     * @return Returns the objectId.
+     */
+    public String getObjectId() {
+        return objectId;
     }
 
     /**
@@ -77,10 +78,10 @@ public class ControllerMo extends RootEntity {
     }
 
     /**
-     * @return Returns the productName.
+     * @param version The version to set.
      */
-    public String getProductName() {
-        return productName;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     /**
@@ -91,17 +92,24 @@ public class ControllerMo extends RootEntity {
     }
 
     /**
-     * @return Returns the version.
+     * @return Returns the slaveHostName.
      */
-    public String getVersion() {
-        return version;
+    public String getSlaveHostName() {
+        return slaveHostName;
     }
 
     /**
-     * @param version The version to set.
+     * @return Returns the productName.
      */
-    public void setVersion(String version) {
-        this.version = version;
+    public String getProductName() {
+        return productName;
+    }
+
+    /**
+     * @param slaveHostName The slaveHostName to set.
+     */
+    public void setSlaveHostName(String slaveHostName) {
+        this.slaveHostName = slaveHostName;
     }
 
     /**
@@ -112,6 +120,13 @@ public class ControllerMo extends RootEntity {
     }
 
     /**
+     * @return Returns the version.
+     */
+    public String getVersion() {
+        return version;
+    }
+
+    /**
      * @param hostName The hostName to set.
      */
     public void setHostName(String hostName) {
@@ -119,17 +134,17 @@ public class ControllerMo extends RootEntity {
     }
 
     /**
-     * @return Returns the slaveHostName.
+     * @return Returns the vendor.
      */
-    public String getSlaveHostName() {
-        return slaveHostName;
+    public String getVendor() {
+        return vendor;
     }
 
     /**
-     * @param slaveHostName The slaveHostName to set.
+     * @param vendor The vendor to set.
      */
-    public void setSlaveHostName(String slaveHostName) {
-        this.slaveHostName = slaveHostName;
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
     }
 
     /**
@@ -146,17 +161,4 @@ public class ControllerMo extends RootEntity {
         this.description = description;
     }
 
-    /**
-     * @return Returns the vendor.
-     */
-    public String getVendor() {
-        return vendor;
-    }
-
-    /**
-     * @param vendor The vendor to set.
-     */
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
-    }
 }

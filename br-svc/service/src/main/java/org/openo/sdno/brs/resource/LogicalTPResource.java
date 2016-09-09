@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,20 +33,19 @@ import javax.ws.rs.core.Context;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
-import org.openo.sdno.framework.container.service.IResource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 import org.openo.sdno.brs.service.inf.ILogicalTPService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
+import org.openo.sdno.framework.container.service.IResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Restful interface class of logical TP, provide CRUD service of LTP resource.<br/>
+ * Restful interface class of logical TP, provide CRUD service of LTP resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -66,7 +65,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
     }
 
     /**
-     * Get LTP information by uuid.<br/>
+     * Get LTP information by uuid.<br>
      * 
      * @param objectID uuid of object need to query.
      * @param request context of http request.
@@ -91,7 +90,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
     }
 
     /**
-     * Paged query LTP resource list.<br/>
+     * Paged query LTP resource list.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -107,7 +106,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
     }
 
     /**
-     * Add new termination point.<br/>
+     * Add new termination point.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -123,9 +122,8 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
         LogicalTerminationPointMO logicalTP = new LogicalTerminationPointMO();
         try {
             String requestStr = RestUtils.getRequestBody(request);
-            logicalTP =
-                    ResponseUtils.getDataModelFromReqStr(requestStr, Constant.LOGICALTP_KEY,
-                            LogicalTerminationPointMO.class);
+            logicalTP = HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.LOGICALTP_KEY,
+                    LogicalTerminationPointMO.class);
 
             // get object id
             objectId = service.getObjectId(logicalTP);
@@ -150,7 +148,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
     }
 
     /**
-     * Update termination point.<br/>
+     * Update termination point.<br>
      * 
      * @param objectId uuid of the object need to update.
      * @param request context of http request.
@@ -180,9 +178,8 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
 
             String requestStr = RestUtils.getRequestBody(request);
             Map<String, Object> reponseBody = new HashMap<String, Object>();
-            LogicalTerminationPointMO logicalTPInfo =
-                    service.updateTPByID(objectId, ResponseUtils.getDataModelFromReqStr(requestStr,
-                            Constant.LOGICALTP_KEY, LogicalTerminationPointMO.class));
+            LogicalTerminationPointMO logicalTPInfo = service.updateTPByID(objectId, HttpResponseUtil
+                    .getDataModelFromReqStr(requestStr, Constant.LOGICALTP_KEY, LogicalTerminationPointMO.class));
             if(null != logicalTPInfo) {
                 Map<String, Object> result = new HashMap<String, Object>();
                 result.put(Constant.RESOURCE_ID, logicalTPInfo.getId());
@@ -198,7 +195,7 @@ public class LogicalTPResource extends IResource<ILogicalTPService> {
     }
 
     /**
-     * Delete TP information.<br/>
+     * Delete TP information.<br>
      * 
      * @param objectId uuid of the TP need to delete.
      * @param request context of http request.

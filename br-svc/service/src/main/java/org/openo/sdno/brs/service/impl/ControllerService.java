@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.cxf.common.util.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.brs.check.inf.IBrsChecker;
@@ -28,14 +29,15 @@ import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.ControllerMo;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.service.inf.IControllerService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import org.openo.sdno.framework.container.util.UuidUtils;
+import org.openo.sdno.rest.ResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * controller management service.<br/>
+ * controller management service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-6-7
@@ -77,11 +79,11 @@ public class ControllerService implements IControllerService {
     }
 
     /**
-     * <br/>
+     * Query Controller by Id.<br>
      * 
      * @param objectId uuid of controller.
      * @return controller of the given uuid.
-     * @throws ServiceException if exception happens in db.
+     * @throws ServiceException when query failed
      * @since SDNO 0.5
      */
     @Override
@@ -90,11 +92,11 @@ public class ControllerService implements IControllerService {
         RestfulResponse response = getMssProxy().getResource(bucketName, resourceTypeName, objectId);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        return (ControllerMo)ResponseUtils.assembleRspData(response.getResponseContent(), ControllerMo.class);
+        return (ControllerMo)HttpResponseUtil.assembleRspData(response.getResponseContent(), ControllerMo.class);
     }
 
     /**
-     * add controller.<br/>
+     * add controller.<br>
      * 
      * @param controller controller to add.
      * @return uuid of the given controller.
@@ -104,10 +106,12 @@ public class ControllerService implements IControllerService {
     @Override
     public String addController(ControllerMo controller) throws ServiceException {
         InputParaCheck.inputParamsCheck(controller);
-        String controllerid = UuidUtils.createUuid();
 
-        controller.setId(controllerid);
-        controller.setObjectId(controllerid);
+        if(StringUtils.isEmpty(controller.getId())) {
+            String controllerid = UuidUtils.createUuid();
+            controller.setId(controllerid);
+            controller.setObjectId(controllerid);
+        }
 
         List<Object> list = new ArrayList<Object>();
         Map<String, Object> sendBody = new HashMap<String, Object>();
@@ -121,7 +125,7 @@ public class ControllerService implements IControllerService {
     }
 
     /**
-     * delete controller by uuid.<br/>
+     * delete controller by uuid.<br>
      * 
      * @param objectId uuid of controller.
      * @throws ServiceException if exception happens in db.
@@ -136,7 +140,7 @@ public class ControllerService implements IControllerService {
     }
 
     /**
-     * update controller.<br/>
+     * update controller.<br>
      * 
      * @param objectId uuid of controller.
      * @param controller the controller information to update.

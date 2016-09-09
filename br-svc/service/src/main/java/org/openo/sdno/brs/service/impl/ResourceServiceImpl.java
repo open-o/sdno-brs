@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,15 +36,16 @@ import org.openo.sdno.brs.model.roamo.PagingQueryPara;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.service.inf.IResourceService;
 import org.openo.sdno.brs.util.PagingQueryCheckUtil;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.json.JsonUtil;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import org.openo.sdno.framework.container.util.UuidUtils;
+import org.openo.sdno.rest.ResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Basic CRUD service for resources.<br/>
+ * Basic CRUD service for resources.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -67,7 +68,7 @@ public class ResourceServiceImpl implements IResourceService {
         RestfulResponse response = mssProxy.getResource(bucketName, resourceTypeName, objectID);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        return (T)ResponseUtils.assembleRspData(response.getResponseContent(), type);
+        return (T)HttpResponseUtil.assembleRspData(response.getResponseContent(), type);
     }
 
     @Override
@@ -92,7 +93,7 @@ public class ResourceServiceImpl implements IResourceService {
 
         try {
             fields = param.getFields();
-            filters = ResponseUtils.getFilterValue(param.getFiltersMap(), classType);
+            filters = HttpResponseUtil.getFilterValue(param.getFiltersMap(), classType);
         } catch(IOException e) {
             LOGGER.error("filters data is error! please check.", e);
             throw new ServiceException(ErrorCode.BRS_BAD_PARAM, "filters data is error! please check.");
@@ -107,7 +108,7 @@ public class ResourceServiceImpl implements IResourceService {
         PageResponseData pageRsp = new PageResponseData();
         Map<String, Object> resourceMap = new HashMap<String, Object>();
 
-        resourceMap.put(key, ResponseUtils.assembleListRspData(response.getResponseContent(), pageRsp, classType));
+        resourceMap.put(key, HttpResponseUtil.assembleListRspData(response.getResponseContent(), pageRsp, classType));
         resourceMap.put(Constant.RESPONSE_TOTALNUM, pageRsp.getTotalNum());
         resourceMap.put(Constant.RESPONSE_PAGESIZE, pageRsp.getPageSize());
         resourceMap.put(Constant.RESPONSE_TOPAGENUM, pageRsp.getTotalPageNum());
@@ -130,7 +131,7 @@ public class ResourceServiceImpl implements IResourceService {
         InputParaCheck.inputParamsCheck(data);
 
         checkIDIsUsed(data);
-       
+
         List<Object> list = new ArrayList<Object>();
         Map<String, Object> sendBody = new HashMap<String, Object>();
         list.add(data);
@@ -139,7 +140,7 @@ public class ResourceServiceImpl implements IResourceService {
         RestfulResponse response = mssProxy.addResources(bucketName, resourceTypeName, sendBody);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        List<T> responseList = (List<T>)ResponseUtils.assembleRspData(response.getResponseContent(), type);
+        List<T> responseList = (List<T>)HttpResponseUtil.assembleRspData(response.getResponseContent(), type);
 
         if(CollectionUtils.isEmpty(responseList)) {
             return null;
@@ -155,7 +156,7 @@ public class ResourceServiceImpl implements IResourceService {
         RestfulResponse response = mssProxy.updateResource(bucketName, resourceTypeName, objectID, data);
         ResponseUtils.checkResonseAndThrowException(response);
 
-        return (T)ResponseUtils.assembleRspData(response.getResponseContent(), type);
+        return (T)HttpResponseUtil.assembleRspData(response.getResponseContent(), type);
     }
 
     @Override
@@ -205,7 +206,7 @@ public class ResourceServiceImpl implements IResourceService {
     @Override
     public String checkObjExsit(Object key) throws ServiceException {
         RestfulResponse response = mssProxy.checkObjExsit(bucketName, resourceTypeName, key);
-        ResponseUtils.checkResonseAndThrowException(response);
+        HttpResponseUtil.checkResonseAndThrowException(response);
         return response.getResponseContent();
     }
 
@@ -220,7 +221,7 @@ public class ResourceServiceImpl implements IResourceService {
     }
 
     /**
-     * get object list<br/>
+     * get object list<br>
      * 
      * @param fields Fields as string
      * @param filter Filter used to filter the objects we don't need
@@ -240,6 +241,6 @@ public class ResourceServiceImpl implements IResourceService {
 
         @SuppressWarnings({"rawtypes"})
         PageResponseData pageRsp = new PageResponseData();
-        return ResponseUtils.assembleListRspData(restfulResponse.getResponseContent(), pageRsp, classType);
+        return HttpResponseUtil.assembleListRspData(restfulResponse.getResponseContent(), pageRsp, classType);
     }
 }

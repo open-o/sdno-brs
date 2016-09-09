@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,17 +23,16 @@ import java.util.Map.Entry;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.framework.container.resthelper.RestfulProxy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.util.json.JsonUtil;
+import org.openo.sdno.framework.container.resthelper.RestfulProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * HTTP client util class.<br/>
+ * HTTP client util class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -41,14 +40,13 @@ import org.openo.sdno.brs.util.json.JsonUtil;
 public final class HttpClientUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientUtil.class);
-    
-    
+
     // Only temporary, later need to change
     private HttpClientUtil() {
     }
 
     /**
-     * Execute GET request.<br/>
+     * Execute GET request.<br>
      * 
      * @param url URL
      * @param httpHeaders HTTP headers
@@ -67,7 +65,7 @@ public final class HttpClientUtil {
     }
 
     /**
-     * Execute POST request.<br/>
+     * Execute POST request.<br>
      * 
      * @param url URL
      * @param sendObj object
@@ -87,7 +85,7 @@ public final class HttpClientUtil {
     }
 
     /**
-     * Execute PUT request.<br/>
+     * Execute PUT request.<br>
      * 
      * @param url URL
      * @param sendObj object
@@ -107,7 +105,7 @@ public final class HttpClientUtil {
     }
 
     /**
-     * Execute DELETE request.<br/>
+     * Execute DELETE request.<br>
      * 
      * @param url URL
      * @return Restful response
@@ -122,7 +120,7 @@ public final class HttpClientUtil {
     }
 
     /**
-     * Transform request to JSON string.<br/>
+     * Transform request to JSON string.<br>
      * 
      * @param obj object
      * @return JSON string

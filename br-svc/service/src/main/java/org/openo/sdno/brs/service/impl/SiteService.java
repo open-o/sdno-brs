@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,9 +26,6 @@ import org.apache.cxf.common.util.CollectionUtils;
 import org.apache.cxf.common.util.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
@@ -40,10 +37,12 @@ import org.openo.sdno.brs.service.inf.IResWithRelationQueryService;
 import org.openo.sdno.brs.service.inf.IResourceService;
 import org.openo.sdno.brs.service.inf.ISiteService;
 import org.openo.sdno.brs.util.RelationUtil;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * site service implementation class.<br/>
+ * site service implementation class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -148,7 +147,7 @@ public class SiteService implements ISiteService {
     }
 
     /**
-     * Check whether is the given object exist.<br/>
+     * Check whether is the given object exist.<br>
      * 
      * @param key Object to check
      * @throws ServiceException if data base service encouter some problem
@@ -156,7 +155,7 @@ public class SiteService implements ISiteService {
      */
     public void checkObjExsit(Object key) throws ServiceException {
         RestfulResponse response = mssProxy.checkObjExsit(bucketName, resourceTypeName, key);
-        ResponseUtils.checkResonseAndThrowException(response);
+        HttpResponseUtil.checkResonseAndThrowException(response);
         if("true".equals(response.getResponseContent())) {
             throw new ServiceException(ErrorCode.BRS_RESOURCE_NAME_EXIST, HttpCode.BAD_REQUEST);
         }

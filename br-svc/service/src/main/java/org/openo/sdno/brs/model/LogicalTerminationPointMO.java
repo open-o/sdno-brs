@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import org.openo.sdno.brs.validator.rules.StrRule;
 import org.openo.sdno.brs.validator.rules.SupportFilter;
 
 /**
- * Logical Termination Point module.<br/>
+ * Logical Termination Point module.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -97,7 +97,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     private String containedLayers;
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      */
@@ -105,160 +105,160 @@ public final class LogicalTerminationPointMO extends RootEntity {
         super();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getMacAddress() {
-        return macAddress;
+    public String getName() {
+        return name;
     }
 
     public void setMacAddress(String macAddress) {
         this.macAddress = macAddress;
     }
 
-    public String getMeID() {
-        return meID;
+    public String getMacAddress() {
+        return macAddress;
     }
 
     public void setMeID(String meID) {
         this.meID = meID;
     }
 
-    public String getLogicalType() {
-        return logicalType;
+    public String getMeID() {
+        return meID;
     }
 
     public void setLogicalType(String logicalType) {
         this.logicalType = logicalType;
     }
 
-    public String getLayerRate() {
-        return layerRate;
+    public String getLogicalType() {
+        return logicalType;
     }
 
     public void setLayerRate(String layerRate) {
         this.layerRate = layerRate;
     }
 
-    public String getIsEdgePoint() {
-        return isEdgePoint;
+    public String getLayerRate() {
+        return layerRate;
     }
 
     public void setIsEdgePoint(String isEdgePoint) {
         this.isEdgePoint = isEdgePoint;
     }
 
-    public String getPortIndex() {
-        return portIndex;
+    public String getIsEdgePoint() {
+        return isEdgePoint;
     }
 
     public void setPortIndex(String portIndex) {
         this.portIndex = portIndex;
     }
 
-    public String getSource() {
-        return source;
+    public String getPortIndex() {
+        return portIndex;
     }
 
     public void setSource(String source) {
         this.source = source;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getSource() {
+        return source;
     }
 
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    public String getIpAddress() {
-        return ipAddress;
+    public String getOwner() {
+        return owner;
     }
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
 
-    public String getAdminState() {
-        return adminState;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
     public void setAdminState(String adminState) {
         this.adminState = adminState;
     }
 
-    public String getOperState() {
-        return operState;
+    public String getAdminState() {
+        return adminState;
     }
 
     public void setOperState(String operState) {
         this.operState = operState;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getOperState() {
+        return operState;
     }
 
     public void setDirection(String direction) {
         this.direction = direction;
     }
 
-    public String getPhyBW() {
-        return phyBW;
+    public String getDirection() {
+        return direction;
     }
 
     public void setPhyBW(String phyBW) {
         this.phyBW = phyBW;
     }
 
-    public String getIpMask() {
-        return ipMask;
+    public String getPhyBW() {
+        return phyBW;
     }
 
     public void setIpMask(String ipMask) {
         this.ipMask = ipMask;
     }
 
-    public String getNativeID() {
-        return nativeID;
+    public String getIpMask() {
+        return ipMask;
     }
 
     public void setNativeID(String nativeID) {
         this.nativeID = nativeID;
     }
 
-    public String getTenantID() {
-        return tenantID;
+    public String getNativeID() {
+        return nativeID;
     }
 
     public void setTenantID(String tenantID) {
         this.tenantID = tenantID;
     }
 
-    public String getUsageState() {
-        return usageState;
+    public String getTenantID() {
+        return tenantID;
     }
 
     public void setUsageState(String usageState) {
         this.usageState = usageState;
     }
 
-    public String getContainedLayers() {
-        return containedLayers;
+    public String getUsageState() {
+        return usageState;
     }
 
     public void setContainedLayers(String containedLayers) {
         this.containedLayers = containedLayers;
     }
 
+    public String getContainedLayers() {
+        return containedLayers;
+    }
+
     /**
-     * Enumeration class,define the type of link.<br/>
+     * Enumeration class,define the type of link.<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -277,7 +277,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     }
 
     /**
-     * Enumeration class, define the rate type of link.<br/>
+     * Enumeration class, define the rate type of link.<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -300,7 +300,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     }
 
     /**
-     * Enumeration class, define the source of NE.<br/>
+     * Enumeration class, define the source of NE.<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -321,7 +321,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     }
 
     /**
-     * Enumeration class, define the state of the link(active, inactive).<br/>
+     * Enumeration class, define the state of the link(active, inactive).<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -338,7 +338,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     }
 
     /**
-     * Enumeration class, define the operation state of the link(up, down, unkown).<br/>
+     * Enumeration class, define the operation state of the link(up, down, unkown).<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -357,7 +357,7 @@ public final class LogicalTerminationPointMO extends RootEntity {
     }
 
     /**
-     * Enumeration class,define the direction of the link.<br/>
+     * Enumeration class,define the direction of the link.<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-19
@@ -384,8 +384,8 @@ public final class LogicalTerminationPointMO extends RootEntity {
     @Override
     public String toString() {
         return "LogicalTerminationPointMO [name=" + name + ", meID=" + meID + ", logicalType=" + logicalType
-                + ", layerRate=" + layerRate + ", isEdgePoint=" + isEdgePoint + ", portIndex=" + portIndex
-                + ", source=" + source + ", owner=" + owner + ", ipAddress=" + ipAddress + ", adminState=" + adminState
+                + ", layerRate=" + layerRate + ", isEdgePoint=" + isEdgePoint + ", portIndex=" + portIndex + ", source="
+                + source + ", owner=" + owner + ", ipAddress=" + ipAddress + ", adminState=" + adminState
                 + ", operState=" + operState + ", direction=" + direction + ", phyBW=" + phyBW + ", ipMask=" + ipMask
                 + ", nativeID=" + nativeID + ", macAddress=" + macAddress + ", tenantID=" + tenantID + ", usageState="
                 + usageState + ", containedLayers=" + containedLayers + "]";

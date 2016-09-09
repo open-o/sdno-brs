@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,14 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.cxf.common.util.CollectionUtils;
+import org.apache.cxf.common.util.StringUtils;
 import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.apache.cxf.common.util.CollectionUtils;
-import org.apache.cxf.common.util.StringUtils;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
@@ -42,11 +39,13 @@ import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.service.inf.INetworkControlDomainService;
 import org.openo.sdno.brs.service.inf.IRelationService;
 import org.openo.sdno.brs.service.inf.IResourceService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
 import org.openo.sdno.brs.util.json.JsonUtil;
+import org.openo.sdno.rest.ResponseUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * The class of network control domain service.<br/>
+ * The class of network control domain service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -151,7 +150,7 @@ public class NetworkControlDomainService implements INetworkControlDomainService
     }
 
     /**
-     * Check object exsit.<br/>
+     * Check object exsit.<br>
      * 
      * @param key Key object
      * @since SDNO 0.5

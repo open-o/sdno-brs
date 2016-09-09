@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -34,11 +34,11 @@ import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.CommParamMo;
 import org.openo.sdno.brs.service.inf.ICommParamService;
-import org.openo.sdno.brs.util.http.ResponseUtils;
+import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.framework.container.service.IResource;
 
 /**
- * Restful service for common parameter for Controller communication<br/>
+ * Restful service for common parameter for Controller communication<br>
  * <p>
  * </p>
  * 
@@ -49,7 +49,7 @@ import org.openo.sdno.framework.container.service.IResource;
 public class CommonParamResource extends IResource<ICommParamService> {
 
     /**
-     * Get resource URI<br/>
+     * Get resource URI<br>
      * 
      * @return URI string
      * @since SDNO 0.5
@@ -60,7 +60,7 @@ public class CommonParamResource extends IResource<ICommParamService> {
     }
 
     /**
-     * Create common parameter information<br/>
+     * Create common parameter information<br>
      * 
      * @param objectId - Controller UUID
      * @param request - Common Parameter information
@@ -76,12 +76,12 @@ public class CommonParamResource extends IResource<ICommParamService> {
             throws ServiceException {
         String requestStr = RestUtils.getRequestBody(request);
         CommParamMo commonparam =
-                ResponseUtils.getDataModelFromReqStr(requestStr, Constant.COMMONPARAMETER, CommParamMo.class);
+                HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.COMMONPARAMETER, CommParamMo.class);
         return service.createCommParams(commonparam, objectId);
     }
 
     /**
-     * Query common parameters in detail<br/>
+     * Query common parameters in detail<br>
      * 
      * @param accessObjId - Controller UUID
      * @param paramId - Parameter ID
@@ -99,7 +99,7 @@ public class CommonParamResource extends IResource<ICommParamService> {
     }
 
     /**
-     * Query common parameter list by object ID<br/>
+     * Query common parameter list by object ID<br>
      * 
      * @param accessObjId - Controller UUID
      * @return List of common parameter information
@@ -116,7 +116,7 @@ public class CommonParamResource extends IResource<ICommParamService> {
     }
 
     /**
-     * Update common parameters by Object ID and common parameters<br/>
+     * Update common parameters by Object ID and common parameters<br>
      * 
      * @param objectId - Controller UUID
      * @param paramId - Parameter id
@@ -132,12 +132,12 @@ public class CommonParamResource extends IResource<ICommParamService> {
             @Context HttpServletRequest request) throws ServiceException {
         String requestStr = RestUtils.getRequestBody(request);
         CommParamMo commonparam =
-                ResponseUtils.getDataModelFromReqStr(requestStr, Constant.COMMONPARAMETER, CommParamMo.class);
+                HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.COMMONPARAMETER, CommParamMo.class);
         service.updateCommParams(commonparam, objectId, paramId);
     }
 
     /**
-     * Delete common parameter by param ID<br/>
+     * Delete common parameter by param ID<br>
      * 
      * @param paramId - Parameter ID
      * @throws ServiceException -when service throws exception
@@ -152,7 +152,7 @@ public class CommonParamResource extends IResource<ICommParamService> {
     }
 
     /**
-     * Delete common parameter by object ID<br/>
+     * Delete common parameter by object ID<br>
      * 
      * @param objId - Object ID
      * @throws ServiceException -when service throws exception

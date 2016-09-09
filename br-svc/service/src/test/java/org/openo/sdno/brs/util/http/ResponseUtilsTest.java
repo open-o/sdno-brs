@@ -1,11 +1,11 @@
 /*
- * Copyright 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,188 +25,19 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.httpclient.HttpStatus;
-import org.codehaus.jackson.type.TypeReference;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.ControllerMo;
 import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.PageResponseData;
 import org.openo.sdno.brs.util.json.JsonUtil;
 import org.openo.sdno.framework.container.util.PageQueryResult;
-import org.openo.sdno.rest.RoaExceptionInfo;
 
 import mockit.Mock;
 import mockit.MockUp;
 
 public class ResponseUtilsTest {
-
-    @Test
-    public void testTransferResponseByClassOk() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-        String data = "111";
-        restfulResponse.setResponseJson(data);
-
-        String response = ResponseUtils.transferResponse(restfulResponse, String.class);
-        assertTrue(data.equals(response));
-    }
-
-    @Test
-    public void testTransferResponseByClassIoException() throws ServiceException {
-        new MockUp<JsonUtil>() {
-
-            @Mock
-            public <T> T unMarshal(String jsonstr, Class<T> type) throws IOException {
-                throw new IOException();
-            }
-        };
-
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-
-        assertTrue(null == ResponseUtils.transferResponse(restfulResponse, String.class));
-    }
-
-    @Test(expected = ServiceException.class)
-    public void testTransferResponseByClassExceptionWhenStatusOver300() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_NOT_MODIFIED);
-        RoaExceptionInfo roaExceptionInfo = new RoaExceptionInfo();
-        try {
-            restfulResponse.setResponseJson(JsonUtil.marshal(roaExceptionInfo));
-        } catch(IOException e1) {
-            assertTrue(false);
-        }
-
-        ResponseUtils.transferResponse(restfulResponse, String.class);
-    }
-
-    @Test(expected = ServiceException.class)
-    public void testTransferResponseByClassExceptionWhenStatusBelow200() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_CONTINUE);
-        RoaExceptionInfo roaExceptionInfo = new RoaExceptionInfo();
-        try {
-            restfulResponse.setResponseJson(JsonUtil.marshal(roaExceptionInfo));
-        } catch(IOException e1) {
-            assertTrue(false);
-        }
-
-        ResponseUtils.transferResponse(restfulResponse, String.class);
-    }
-
-    @Test
-    public void testTransferResponseByTypeReferenceOk() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-        String data = "111";
-        restfulResponse.setResponseJson(data);
-
-        String response = ResponseUtils.transferResponse(restfulResponse, new TypeReference<String>() {});
-        assertTrue(data.equals(response));
-    }
-
-    @Test
-    public void testTransferResponseByTypeReferenceWhenResponseJsonIsNull() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-        restfulResponse.setResponseJson(null);
-
-        assertTrue(null == ResponseUtils.transferResponse(restfulResponse, new TypeReference<String>() {}));
-    }
-
-    @Test(expected = ServiceException.class)
-    public void testTransferResponseByTypeReferenceIoException() throws ServiceException {
-        new MockUp<JsonUtil>() {
-
-            @Mock
-            public <T> T unMarshal(String jsonstr, TypeReference<T> type) throws IOException {
-                throw new IOException();
-            }
-        };
-
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-        restfulResponse.setResponseJson("111");
-
-        ResponseUtils.transferResponse(restfulResponse, new TypeReference<String>() {});
-    }
-
-    @Test
-    public void testTransferResponseByTypeReferenceWhenUnMarshalNull() throws ServiceException {
-        new MockUp<JsonUtil>() {
-
-            @Mock
-            public <T> T unMarshal(String jsonstr, Class<T> type) throws IOException {
-                return null;
-            }
-        };
-
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_NOT_MODIFIED);
-
-        assertTrue(null == ResponseUtils.transferResponse(restfulResponse, new TypeReference<String>() {}));
-    }
-
-    @Test
-    public void testTransferResponseByTypeReferenceWhenUnMarshalIoException() throws ServiceException {
-        new MockUp<JsonUtil>() {
-
-            @Mock
-            public <T> T unMarshal(String jsonstr, Class<T> type) throws IOException {
-                throw new IOException();
-            }
-        };
-
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_NOT_MODIFIED);
-
-        assertTrue(null == ResponseUtils.transferResponse(restfulResponse, new TypeReference<String>() {}));
-    }
-
-    @Test
-    public void testTransferResponseOk() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_OK);
-        String data = "111";
-        restfulResponse.setResponseJson(data);
-
-        String response = ResponseUtils.transferResponse(restfulResponse);
-        assertTrue(data.equals(response));
-    }
-
-    @Test(expected = ServiceException.class)
-    public void testTransferResponseExceptionWhenStatusOver300() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_NOT_MODIFIED);
-        RoaExceptionInfo roaExceptionInfo = new RoaExceptionInfo();
-
-        try {
-            restfulResponse.setResponseJson(JsonUtil.marshal(roaExceptionInfo));
-        } catch(IOException e1) {
-            assertTrue(false);
-        }
-
-        ResponseUtils.transferResponse(restfulResponse);
-    }
-
-    @Test(expected = ServiceException.class)
-    public void testTransferResponseExceptionWhenStatusBelow200() throws ServiceException {
-        RestfulResponse restfulResponse = new RestfulResponse();
-        restfulResponse.setStatus(HttpStatus.SC_CONTINUE);
-        RoaExceptionInfo roaExceptionInfo = new RoaExceptionInfo();
-
-        try {
-            restfulResponse.setResponseJson(JsonUtil.marshal(roaExceptionInfo));
-        } catch(IOException e1) {
-            assertTrue(false);
-        }
-
-        ResponseUtils.transferResponse(restfulResponse);
-    }
 
     @Test
     public void testGetDataModelFromReqStrOk() throws ServiceException {
@@ -227,7 +58,7 @@ public class ResponseUtilsTest {
         }
 
         ControllerMo newController =
-                ResponseUtils.getDataModelFromReqStr(requestStr, Constant.CONTROLLER, ControllerMo.class);
+                HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.CONTROLLER, ControllerMo.class);
         assertTrue(oldController.getName().equals(newController.getName()));
         assertTrue(oldController.getId().equals(newController.getId()));
         assertTrue(oldController.getCreatetime().equals(newController.getCreatetime()));
@@ -246,7 +77,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.getDataModelFromReqStr(requestStr, Constant.CONTROLLER, ControllerMo.class);
+        HttpResponseUtil.getDataModelFromReqStr(requestStr, Constant.CONTROLLER, ControllerMo.class);
     }
 
     @Test
@@ -290,7 +121,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        List<SiteMO> respDataList = ResponseUtils.assembleListRspData(responseContent, pageRsp, SiteMO.class);
+        List<SiteMO> respDataList = HttpResponseUtil.assembleListRspData(responseContent, pageRsp, SiteMO.class);
         assertTrue(pageRsp.getCurrentPageNum() == pageQueryResult.getCurrentPage());
         assertTrue(pageRsp.getPageSize() == pageQueryResult.getPageSize());
         assertTrue(pageRsp.getTotalNum() == pageQueryResult.getTotal());
@@ -320,7 +151,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleListRspData(responseContent, pageRsp, SiteMO.class);
+        HttpResponseUtil.assembleListRspData(responseContent, pageRsp, SiteMO.class);
     }
 
     @Test
@@ -338,7 +169,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        List<SiteMO> respDataList = ResponseUtils.assembleListRspData(responseContent, pageRsp, SiteMO.class);
+        List<SiteMO> respDataList = HttpResponseUtil.assembleListRspData(responseContent, pageRsp, SiteMO.class);
         assertTrue(CollectionUtils.isEmpty(respDataList));
     }
 
@@ -360,7 +191,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleListRspData(responseContent, pageRsp, SiteMO.class);
+        HttpResponseUtil.assembleListRspData(responseContent, pageRsp, SiteMO.class);
     }
 
     @Test
@@ -383,7 +214,7 @@ public class ResponseUtilsTest {
         }
 
         @SuppressWarnings("unchecked")
-        List<SiteMO> respDataList = (List<SiteMO>)ResponseUtils.assembleRspData(responseContent, SiteMO.class);
+        List<SiteMO> respDataList = (List<SiteMO>)HttpResponseUtil.assembleRspData(responseContent, SiteMO.class);
         boolean bMatch = false;
         for(SiteMO temp : respDataList) {
             if(siteMO.getId().equals(temp.getId()) && siteMO.getName().equals(temp.getName())) {
@@ -421,7 +252,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleRspData(responseContent, SiteMO.class);
+        HttpResponseUtil.assembleRspData(responseContent, SiteMO.class);
     }
 
     @Test(expected = ServiceException.class)
@@ -436,7 +267,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleRspData(responseContent, SiteMO.class);
+        HttpResponseUtil.assembleRspData(responseContent, SiteMO.class);
     }
 
     @Test(expected = ServiceException.class)
@@ -454,7 +285,7 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleRspData(responseContent, SiteMO.class);
+        HttpResponseUtil.assembleRspData(responseContent, SiteMO.class);
     }
 
     @Test
@@ -484,7 +315,7 @@ public class ResponseUtilsTest {
         }
 
         List<SiteMO> respDataList =
-                ResponseUtils.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
+                HttpRelationUtil.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
         boolean bMatch = false;
         for(SiteMO temp : respDataList) {
             if(siteMO.getId().equals(temp.getId()) && siteMO.getName().equals(temp.getName())) {
@@ -531,7 +362,7 @@ public class ResponseUtilsTest {
         }
 
         List<SiteMO> respDataList =
-                ResponseUtils.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
+                HttpRelationUtil.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
         assertTrue(CollectionUtils.isEmpty(respDataList));
     }
 
@@ -551,7 +382,7 @@ public class ResponseUtilsTest {
         }
 
         List<SiteMO> respDataList =
-                ResponseUtils.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
+                HttpRelationUtil.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
         assertTrue(CollectionUtils.isEmpty(respDataList));
     }
 
@@ -573,17 +404,17 @@ public class ResponseUtilsTest {
             assertTrue(false);
         }
 
-        ResponseUtils.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
+        HttpRelationUtil.assembleListRspWithRelationData(responseContent, pageRsp, SiteMO.class);
     }
 
     @Test
     public void testGetFilterValueExceptionWhenQueryMapIsNull() throws IOException {
         Map<String, String> filterMap = new HashMap<String, String>();
 
-        String result = ResponseUtils.getFilterValue(null, SiteMO.class);
+        String result = HttpResponseUtil.getFilterValue(null, SiteMO.class);
         assertTrue("{}".equals(result));
 
-        result = ResponseUtils.getFilterValue(filterMap, SiteMO.class);
+        result = HttpResponseUtil.getFilterValue(filterMap, SiteMO.class);
         assertTrue("{}".equals(result));
 
     }
@@ -593,7 +424,7 @@ public class ResponseUtilsTest {
         Map<String, String> filterMap = new HashMap<String, String>();
         filterMap.put("type", "111");
 
-        String result = ResponseUtils.getFilterValue(filterMap, SiteMO.class);
+        String result = HttpResponseUtil.getFilterValue(filterMap, SiteMO.class);
         assertTrue(result.contains("typeValue"));
     }
 }
