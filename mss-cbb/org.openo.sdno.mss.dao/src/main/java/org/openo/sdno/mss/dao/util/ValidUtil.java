@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,10 +27,10 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.codehaus.jackson.type.TypeReference;
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.dao.model.ModelMgrUtil;
 import org.openo.sdno.mss.dao.pojo.InvCrossTablePojo;
 import org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
@@ -38,7 +38,7 @@ import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
 
 /**
- * Parameter validate utility, <br/>
+ * Parameter validate utility, <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -50,7 +50,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check if resource type in range. <br/>
+     * Check if resource type in range. <br>
      * 
      * @param resType Resource type.
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check UUID. <br/>
+     * Check UUID. <br>
      * 
      * @param uuid UUID
      * @since SDNO 0.5
@@ -77,7 +77,7 @@ public final class ValidUtil {
     }
 
     /**
-     * UUID batch check. <br/>
+     * UUID batch check. <br>
      * 
      * @param uuidList UUID list.
      * @since SDNO 0.5
@@ -90,7 +90,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check attributes. <br/>
+     * Check attributes. <br>
      * 
      * @param resType Resource type.
      * @param attributes Attributes.
@@ -102,7 +102,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check attribute, non resType check in this method. <br/>
+     * Check attribute, non resType check in this method. <br>
      * 
      * @param resType Resource type.
      * @param attributes Attributes.
@@ -132,7 +132,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check attributes. <br/>
+     * Check attributes. <br>
      * 
      * @param resType Resource type
      * @param attrArray Attribute array.
@@ -144,7 +144,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check attributes, non resType check in this method. <br/>
+     * Check attributes, non resType check in this method. <br>
      * 
      * @param resType Resource type.
      * @param attrArray Attribute array.
@@ -175,8 +175,8 @@ public final class ValidUtil {
     }
 
     /**
-     * Check filter condition, non resType check in this method. <br/>
-     * <br/>
+     * Check filter condition, non resType check in this method. <br>
+     * <br>
      * 
      * @param resType Resource type.
      * @param filter filter condition.
@@ -203,7 +203,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check sort parameter, non resType check in this method. <br/>
+     * Check sort parameter, non resType check in this method. <br>
      * 
      * @param resType Resource type.
      * @param attributes Attributes.
@@ -229,7 +229,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check paging parameter. <br/>
+     * Check paging parameter. <br>
      * 
      * @param sortAttrName Sort parameter.
      * @param refValue Reference value.
@@ -250,7 +250,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check relation type. <br/>
+     * Check relation type. <br>
      * 
      * @param relationType Relation type.
      * @return Resource types.
@@ -268,7 +268,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check if relation name defined in relation model. <br/>
+     * Check if relation name defined in relation model. <br>
      * 
      * @param relationType Relation type.
      * @since SDNO 0.5
@@ -281,7 +281,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check enum. <br/>
+     * Check enum. <br>
      * 
      * @param relationTypeIntValue
      * @since SDNO 0.5
@@ -295,7 +295,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check relation. <br/>
+     * Check relation. <br>
      * 
      * @param relation Table relation.
      * @since SDNO 0.5
@@ -309,7 +309,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check property precision. <br/>
+     * Check property precision. <br>
      * 
      * @param length Length
      * @param scale scale
@@ -321,7 +321,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check relation. <br/>
+     * Check relation. <br>
      * 
      * @param relationType Relation type.
      * @param relation relation.
@@ -356,7 +356,7 @@ public final class ValidUtil {
 
     /**
      * Check all the relation type and value of relation, 1. if type is exist, 2. if value validate,
-     * if relation value follow model define. <br/>
+     * if relation value follow model define. <br>
      * 
      * @param relationType Relation type.
      * @param relation Relation

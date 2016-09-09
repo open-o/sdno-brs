@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,17 +31,14 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.dao.constant.InvSqlState;
 import org.openo.sdno.mss.dao.exception.InvSqlException;
 import org.openo.sdno.mss.dao.util.intf.ParaCallable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Sql Session Proxy class for batch Commit.<br/>
- * <p>
- * </p>
+ * Sql Session Proxy class for batch Commit.<br>
  * 
  * @author
  */
@@ -88,7 +85,7 @@ public class SqlSessionProxy implements SqlSession {
     private InvSqlException exception;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @param size number of commit records
      * @param session SqlSession Object
@@ -99,7 +96,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * add Point.<br/>
+     * add Point.<br>
      */
     public void addPoint() {
         if(recordList.isEmpty()) {
@@ -109,7 +106,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Get size of recordList.<br/>
+     * Get size of recordList.<br>
      * 
      * @return size of recordList
      */
@@ -118,7 +115,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a single row mapped from the statement key.<br/>
+     * Retrieve a single row mapped from the statement key.<br>
      * 
      * @param statement Unique identifier matching the statement to use
      * @return Mapped object
@@ -130,7 +127,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a single row mapped from the statement key and parameter.<br/>
+     * Retrieve a single row mapped from the statement key and parameter.<br>
      * 
      * @param statement Unique identifier matching the statement to use.
      * @param parameter parameter A parameter object to pass to the statement.
@@ -143,7 +140,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a list of mapped objects from the statement key.<br/>
+     * Retrieve a list of mapped objects from the statement key.<br>
      * 
      * @param statement Unique identifier matching the statement to use.
      * @return List of mapped object
@@ -154,7 +151,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a list of mapped objects from the statement key and parameter.<br/>
+     * Retrieve a list of mapped objects from the statement key and parameter.<br>
      * 
      * @param statement Unique identifier matching the statement to use.
      * @param parameter A parameter object to pass to the statement.
@@ -167,7 +164,7 @@ public class SqlSessionProxy implements SqlSession {
 
     /**
      * Retrieve a list of mapped objects from the statement key and parameter,
-     * within the specified row bounds.<br/>
+     * within the specified row bounds.<br>
      * 
      * @param <E> the returned list element type
      * @param statement Unique identifier matching the statement to use.
@@ -183,7 +180,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * The selectMap is a special case in that it is designed to convert a list
      * of results into a Map based on one of the properties in the resulting
-     * objects.<br/>
+     * objects.<br>
      * Eg. Return a of Map[Integer,Author] for selectMap("selectAuthors","id")
      * 
      * @param <K> the returned Map keys type
@@ -200,7 +197,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * The selectMap is a special case in that it is designed to convert a list
      * of results into a Map based on one of the properties in the resulting
-     * objects.<br/>
+     * objects.<br>
      * 
      * @param <K> the returned Map keys type
      * @param <V> the returned Map values type
@@ -217,7 +214,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * The selectMap is a special case in that it is designed to convert a list
      * of results into a Map based on one of the properties in the resulting
-     * objects.<br/>
+     * objects.<br>
      * 
      * @param <K> the returned Map keys type
      * @param <V> the returned Map values type
@@ -233,7 +230,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a single row mapped from the statement key and parameter.<br/>
+     * Retrieve a single row mapped from the statement key and parameter.<br>
      * using a {@code ResultHandler}.
      * 
      * @param statement Unique identifier matching the statement to use.
@@ -247,7 +244,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a single row mapped from the statement.<br/>
+     * Retrieve a single row mapped from the statement.<br>
      * using a {@code ResultHandler}.
      * 
      * @param statement Unique identifier matching the statement to use.
@@ -260,7 +257,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieve a single row mapped from the statement key and parameter.<br/>
+     * Retrieve a single row mapped from the statement key and parameter.<br>
      * using a {@code ResultHandler} and {@code RowBounds}
      * 
      * @param statement Unique identifier matching the statement to use.
@@ -296,7 +293,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * Execute an insert statement with the given parameter object. Any generated
      * autoincrement values or selectKey entries will modify the given parameter
-     * object properties. Only the number of rows affected will be returned.<br/>
+     * object properties. Only the number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
@@ -317,7 +314,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Execute an update statement. The number of rows affected will be returned.<br/>
+     * Execute an update statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @return int The number of rows affected by the update.
@@ -337,7 +334,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Execute an update statement. The number of rows affected will be returned.<br/>
+     * Execute an update statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
@@ -358,7 +355,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Execute a delete statement. The number of rows affected will be returned.<br/>
+     * Execute a delete statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @return int The number of rows affected by the delete.
@@ -378,7 +375,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Execute a delete statement. The number of rows affected will be returned.<br/>
+     * Execute a delete statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
@@ -401,7 +398,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * Flushes batch statements and commits database connection.
      * Note that database connection will not be committed if no updates/deletes/inserts were
-     * called.<br/>
+     * called.<br>
      * To force the commit call {@link SqlSession#commit(boolean)}
      */
     @Override
@@ -410,7 +407,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Try the best to commit.<br/>
+     * Try the best to commit.<br>
      */
     public void tryTheBestCommit() {
         if(recordList.isEmpty()) {
@@ -422,7 +419,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Do commit.<br/>
+     * Do commit.<br>
      * 
      * @param records records need to commit
      */
@@ -440,7 +437,7 @@ public class SqlSessionProxy implements SqlSession {
             LOGGER.warn("INV-Import: Failed to commit sql: index = {}, sqlState = {}", failedSqlIndex, sqlState);
 
             // if deadlock,retry
-            if(isErrorWithDeadLock(sqlState) && (++deadLockRetryCnt <= MAX_RETRY_CNT)) {
+            if(InvSqlState.DEAD_LOCK.matches(sqlState) && (++deadLockRetryCnt <= MAX_RETRY_CNT)) {
                 LOGGER.warn("INV-Import: DeadLock retry", ex);
                 recommitCurrent(failedSqlIndex, records);
             } else {
@@ -459,27 +456,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Check whether is duplicated index error.<br/>
-     * 
-     * @param sqlState SQL State
-     * @return true if is duplicated index error, false otherwise
-     */
-    private boolean isErrorWithDupIndex(int sqlState) {
-        return InvSqlState.INSERT_DUPLICATE_KEY.matches(sqlState);
-    }
-
-    /**
-     * Check whether is DeadLock error.<br/>
-     * 
-     * @param sqlState SQL State
-     * @return true if is deadlock error, false otherwise
-     */
-    private boolean isErrorWithDeadLock(int sqlState) {
-        return InvSqlState.DEAD_LOCK.matches(sqlState);
-    }
-
-    /**
-     * Get SQL State from PersistenceException.<br/>
+     * Get SQL State from PersistenceException.<br>
      * 
      * @param ex PersistenceException
      * @return SQL State of PersistenceException
@@ -494,20 +471,21 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Get SQL State to PersistenceException. <br/>
+     * Get SQL State to PersistenceException. <br>
      * 
      * @param ex PersistenceException
      * @param sqlState SQL State
      */
     private void setException(PersistenceException ex, int sqlState) {
         if(exception == null) {
-            InvSqlState state = isErrorWithDupIndex(sqlState) ? InvSqlState.INSERT_DUPLICATE_KEY : InvSqlState.UNKNOWN;
+            InvSqlState state = InvSqlState.INSERT_DUPLICATE_KEY.matches(sqlState) ? InvSqlState.INSERT_DUPLICATE_KEY
+                    : InvSqlState.UNKNOWN;
             exception = new InvSqlException(ex, state);
         }
     }
 
     /**
-     * Get exception attribute.<br/>
+     * Get exception attribute.<br>
      * 
      * @return exception attribute
      */
@@ -516,7 +494,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * ReCommit from current.<br/>
+     * ReCommit from current.<br>
      * 
      * @param failedSqlIndex failedSqlIndex
      * @param records records needed to commit
@@ -535,7 +513,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * ReCommit all records and ignore failed commit.<br/>
+     * ReCommit all records and ignore failed commit.<br>
      * 
      * @param failedSqlIndex failedSqlIndex
      * @param records records needed to commit
@@ -559,7 +537,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Get FailedSqlIndex.<br/>
+     * Get FailedSqlIndex.<br>
      * 
      * @param ex PersistenceException
      * @return FailedSqlIndex and -1 if not found.
@@ -599,7 +577,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Find Next batch of SQLs.<br/>
+     * Find Next batch of SQLs.<br>
      * 
      * @param failedSqlIndex failedSqlIndex
      * @param records records needed to commit
@@ -622,7 +600,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Flushes batch statements and commits database connection.<br/>
+     * Flushes batch statements and commits database connection.<br>
      * 
      * @param force forces connection commit
      */
@@ -634,7 +612,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * Discards pending batch statements and rolls database connection back.
      * Note that database connection will not be rolled back if no updates/deletes/inserts were
-     * called.<br/>
+     * called.<br>
      * To force the rollback call {@link SqlSession#rollback(boolean)}
      */
     @Override
@@ -645,7 +623,7 @@ public class SqlSessionProxy implements SqlSession {
     /**
      * Discards pending batch statements and rolls database connection back.
      * Note that database connection will not be rolled back if no updates/deletes/inserts were
-     * called.<br/>
+     * called.<br>
      * 
      * @param force forces connection rollback
      */
@@ -655,7 +633,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Flushes batch statements.<br/>
+     * Flushes batch statements.<br>
      * 
      * @return BatchResult list of updated records
      */
@@ -665,7 +643,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Closes the session.<br/>
+     * Closes the session.<br>
      */
     @Override
     public void close() {
@@ -673,7 +651,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Clears local session cache.<br/>
+     * Clears local session cache.<br>
      */
     @Override
     public void clearCache() {
@@ -684,7 +662,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieves current configuration.<br/>
+     * Retrieves current configuration.<br>
      * 
      * @return Configuration
      */
@@ -694,7 +672,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieves a mapper.<br/>
+     * Retrieves a mapper.<br>
      * 
      * @param <T> the mapper type
      * @param type Mapper interface class
@@ -706,7 +684,7 @@ public class SqlSessionProxy implements SqlSession {
     }
 
     /**
-     * Retrieves inner database connection.<br/>
+     * Retrieves inner database connection.<br>
      * 
      * @return Connection
      */

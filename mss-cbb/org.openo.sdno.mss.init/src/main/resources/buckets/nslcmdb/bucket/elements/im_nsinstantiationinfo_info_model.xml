@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+    <infomodel name="nsinstantiationinfo" datamodel="inv_nsinstantiationinfo" version="1.0">
+        <!--basic property -->
+        <basic>
+            <property name="instanceId" type="string" length="36" />
+            <property name="name" type="string" length="255" />
+            <property name="value" type="string" length="255" />
+            <property name="actionState" type="string" length="255" />
+        </basic>
+        <!-- extension -->
+        <extension>
+        </extension>
+    </infomodel>
+</inventory>

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,9 +21,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 
 /**
- * Inventory Data Handler Interface.<br/>
+ * Inventory Data Handler Interface.<br>
  * <p>
  * These Interfaces include following interfaces: add data,delete data,update data and query data.
  * </p>
@@ -34,7 +35,7 @@ import org.openo.sdno.mss.dao.entities.InvRespEntity;
 public interface IInvDataHandler {
 
     /**
-     * Data Query Interface.<br/>
+     * Data Query Interface.<br>
      * 
      * @param resType resource type.
      * @param uuid uuid of object.
@@ -45,7 +46,7 @@ public interface IInvDataHandler {
     InvRespEntity<List<Map<String, Object>>> get(final String resType, final String uuid, final String attr);
 
     /**
-     * Data batch query Interface, contains basic and extensive attributes.<br/>
+     * Data batch query Interface, contains basic and extensive attributes.<br>
      * 
      * @param resType resource name
      * @param attr attribute name
@@ -58,7 +59,7 @@ public interface IInvDataHandler {
             final String filterEx);
 
     /**
-     * Query Data by pages.<br/>
+     * Query Data by pages.<br>
      * 
      * @param resType resource type
      * @param attr attribute name
@@ -73,7 +74,7 @@ public interface IInvDataHandler {
             Object refValue, String refUniqueValue);
 
     /**
-     * Data Query by sort pages.<br/>
+     * Data Query by sort pages.<br>
      * 
      * @param resType resource type
      * @param attr attribute name
@@ -87,10 +88,10 @@ public interface IInvDataHandler {
      * @since SDNO 0.5
      */
     InvRespEntity<List<Map<String, Object>>> getSplitPage(String resType, String attr, String filter, String filterEx,
-            String sortAttrName, boolean isAsc, Object refValue, String refUnique);
+            String sortAttrName, Object refValue, String refUnique);
 
     /**
-     * Data Delete Interface.<br/>
+     * Data Delete Interface.<br>
      * 
      * @param resType resource type
      * @param uuid key id
@@ -100,7 +101,7 @@ public interface IInvDataHandler {
     InvRespEntity<Boolean> delete(final String resType, final String uuid);
 
     /**
-     * Data Batch Delete Interface.<br/>
+     * Data Batch Delete Interface.<br>
      * 
      * @param resType resource type
      * @param uuidList key id list
@@ -110,7 +111,7 @@ public interface IInvDataHandler {
     InvRespEntity<Boolean> batchDelete(final String resType, List<String> uuidList);
 
     /**
-     * Data Update Interface.<br/>
+     * Data Update Interface.<br>
      * 
      * @param resType resource type
      * @param uuid key id
@@ -121,7 +122,7 @@ public interface IInvDataHandler {
     InvRespEntity<Map<String, Object>> update(String resType, String uuid, Map<String, Object> value);
 
     /**
-     * Data batch Update Interface.<br/>
+     * Data batch Update Interface.<br>
      * 
      * @param resType resource type
      * @param values new values
@@ -131,7 +132,7 @@ public interface IInvDataHandler {
     InvRespEntity<List<Map<String, Object>>> batchUpdate(String resType, List<Map<String, Object>> values);
 
     /**
-     * Data Add Interface.<br/>
+     * Data Add Interface.<br>
      * 
      * @param resType resource type
      * @param values data need to be added
@@ -141,7 +142,7 @@ public interface IInvDataHandler {
     InvRespEntity<Map<String, Object>> add(String resType, Map<String, Object> values);
 
     /**
-     * Data Batch Add Interface.<br/>
+     * Data Batch Add Interface.<br>
      * 
      * @param resType resource type
      * @param values data list need to be added
@@ -151,7 +152,7 @@ public interface IInvDataHandler {
     InvRespEntity<List<Map<String, Object>>> batchAdd(String resType, List<Map<String, Object>> values);
 
     /**
-     * Count Extensive Data Interface.<br/>
+     * Count Extensive Data Interface.<br>
      * 
      * @param filter filter condition
      * @param resType resource type
@@ -161,25 +162,23 @@ public interface IInvDataHandler {
     int countExtData(String filter, String resType);
 
     /**
-     * Data Common Query Interface.<br/>
+     * Data Common Query Interface.<br>
      * 
      * @param resType resource type
      * @param attrsList attribute list
      * @param joinAttrList join attribute list
      * @param filterDsc filter Description
-     * @param filterData filter Data
      * @param sortList sort list
-     * @param pageNumber page number
-     * @param pageCapacity page size
+     * @param queryParam parameter class for query
      * @return InvRespEntity<List<Map<String, Object>>>
      * @since SDNO 0.5
      */
     InvRespEntity<List<Map<String, Object>>> commQueryGet(String resType, List<String> attrsList,
-            List<HashMap<String, Object>> joinAttrList, String filterDsc, String filterData, List<String> sortList,
-            String pageNumber, String pageCapacity);
+            List<HashMap<String, Object>> joinAttrList, String filterDsc, List<String> sortList,
+            QueryParamModel queryParam);
 
     /**
-     * Data Common Query Interface.<br/>
+     * Data Common Query Interface.<br>
      * 
      * @param resType resource type
      * @param joinAttrList join attribute list
@@ -192,7 +191,7 @@ public interface IInvDataHandler {
             String filterData);
 
     /**
-     * Query Relation Data Interface.<br/>
+     * Query Relation Data Interface.<br>
      * 
      * @param resType resource type
      * @param attrsList attribute list
@@ -207,7 +206,7 @@ public interface IInvDataHandler {
             String pageNum, String pageSize);
 
     /**
-     * Query Relation Data count Interface.<br/>
+     * Query Relation Data count Interface.<br>
      * 
      * @param resType resource type
      * @param attrsList attribute list
@@ -222,7 +221,7 @@ public interface IInvDataHandler {
             String pageNum, String pageSize);
 
     /**
-     * Check whether resource attribute exist.<br/>
+     * Check whether resource attribute exist.<br>
      * 
      * @param resType resource type
      * @param attrName attribute name

@@ -1,0 +1,10 @@
+{
+	"name": "nslcmdb",
+	"owner": "nslcmSvc",
+	"authorization": "private",
+	"allowread": [
+		"nslcmSvc"
+	]
+}
+
+

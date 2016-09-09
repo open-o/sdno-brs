@@ -1,612 +1,659 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2016 Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.openo.sdno.mss.dao.intf.IInvDataHandler">
-    
-    <!-- Puer自定义缓存，实现MyBatis Cache接口-->
+
+    <!-- Puer自定义缓存，实现MyBatis Cache接口 -->
     <!--
-    <cache type="com.huawei.inv.utils.cache.RedisCache">
+        <cache type="com.huawei.inv.utils.cache.RedisCache">
         <property name="cacheName" value="inventoryrdb"></property>
-    </cache>
-	-->
-    
-	<!-- 第一次启动的时候，清理表锁，避免某些异常情况下liquibase锁住了表，造成初始化失败 -->
-	<update id="clearLockTable">
-		DELETE FROM DATABASECHANGELOGLOCK
-	</update>	
-	<select id="queryLockTable" resultType="hashmap">
-		SELECT * FROM DATABASECHANGELOGLOCK
-	</select>
-    
-    <!-- 侦测数据库节点是可以正常连接动完成 -->    
-	<select id="isDBConnectedOK" resultType="string">
-		select * from `INFORMATION_SCHEMA`.`CHARACTER_SETS` LIMIT 0, 1
-	</select>
-    
+        </cache>
+    -->
+
+    <!-- 第一次启动的时候，清理表锁，避免某些异常情况下liquibase锁住了表，造成初始化失败 -->
+    <update id="clearLockTable">
+        DELETE FROM DATABASECHANGELOGLOCK
+    </update>
+    <select id="queryLockTable" resultType="hashmap">
+        SELECT * FROM DATABASECHANGELOGLOCK
+    </select>
+
+    <!-- 侦测数据库节点是可以正常连接动完成 -->
+    <select id="isDBConnectedOK" resultType="string">
+        select * from `INFORMATION_SCHEMA`.`CHARACTER_SETS` LIMIT 0, 1
+    </select>
+
     <!-- 侦测数据库节点是否具备写入属性 -->
     <update id="isDBWritable">
         CREATE TABLE testWritable (testID char(36) NOT NULL)
-	</update>
+    </update>
 
     <!-- 清空侦测数据库节点是否具备写入属性临时表 -->
     <update id="dropDBWritableTestTable">
         DROP TABLE IF EXISTS testWritable
-	</update>
-    
-	<!-- 检查DATABASECHANGELOG表是否存在，如果维护工具初始化了数据库，需要做相应处理. 此处目前只支持mysql -->
-	<select id="isDATABASECHANGELOGExist" resultType="string">
-		select `TABLE_NAME` from `INFORMATION_SCHEMA`.`TABLES` where `TABLE_SCHEMA`='inventory' and `TABLE_NAME`='DATABASECHANGELOG'
-	</select>
+    </update>
 
-	<!-- 是否空表 -->
-	<select id="isEmptyTable" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="string">
-		select ${emptyCheckColumn} from ${tableName} limit 0,1
-	</select>
+    <!-- 检查DATABASECHANGELOG表是否存在，如果维护工具初始化了数据库，需要做相应处理. 此处目前只支持mysql -->
+    <select id="isDATABASECHANGELOGExist" resultType="string">
+        select `TABLE_NAME` from `INFORMATION_SCHEMA`.`TABLES` where `TABLE_SCHEMA`='inventory' and `TABLE_NAME`='DATABASECHANGELOG'
+    </select>
+
+    <!-- 是否空表 -->
+    <select id="isEmptyTable" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="string">
+        select ${emptyCheckColumn} from ${tableName} limit 0,1
+    </select>
 
 
     <!-- 统计扩展表指定属性记录 -->
     <select id="countExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
-        select count(1) from ${tableName} where ${filter}
+        select
+        count(1) from ${tableName} where ${filter}
     </select>
 
-	<!-- 查询扩展表记录 -->
-	<select id="getExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
-		select uuid, attrname, attrvalue from ${tableName}
-		where uuid = #{uuid}
-	</select>
+    <!-- 查询扩展表记录 -->
+    <select id="getExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
+        select uuid, attrname, attrvalue from ${tableName}
+        where uuid = #{uuid}
+    </select>
 
-	<!-- 查询多个过滤条件的扩展表记录 -->
-	<select id="getExtDatas" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
-		select A.uuid, A.attrname, A.attrvalue from ${tableName}, tbl_inv_${resType}_ex as A
-		where A.uuid = ${tableName}.uuid
-	</select>
+    <!-- 查询多个过滤条件的扩展表记录 -->
+    <select id="getExtDatas" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
+        select A.uuid, A.attrname, A.attrvalue from ${tableName}, tbl_inv_${resType}_ex as A
+        where A.uuid = ${tableName}.uuid
+    </select>
 
-	<!-- 查询数据行数 -->
-	<select id="getRowCnt" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
-		select count(uuid) from ${tableName} where ${filter}
-	</select>
+    <!-- 查询数据行数 -->
+    <select id="getRowCnt" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
+        select count(uuid) from ${tableName} where ${filter}
+    </select>
 
-	<!-- 查询数据行数 -->
-	<select id="getStatCnt" parameterType="org.openo.sdno.mss.dao.pojo.InvStatPojo" resultType="int">
-		select count(${countAttrName}) from ${tableName}
-		<if test="filterAttrList != null">
-			<foreach item="item" collection="filterAttrList">
-				inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${tableName}.${item.attrProperty.attrName}
-			</foreach>
-		</if>
-		<where><if test="filter != null">${filter}</if></where>
-	</select>
+    <!-- 查询数据行数 -->
+    <select id="getStatCnt" parameterType="org.openo.sdno.mss.dao.pojo.InvStatPojo" resultType="int">
+        select count(${countAttrName}) from ${tableName}
+        <if test="filterAttrList != null">
+            <foreach item="item" collection="filterAttrList">
+                inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} =
+                ${tableName}.${item.attrProperty.attrName}
+            </foreach>
+        </if>
+        <where>
+            <if test="filter != null">${filter}</if>
+        </where>
+    </select>
 
-	<!-- 分页查询步骤1：先查询出排序字段等于x的数据（向下翻页）
-		SELECT top 1000 * FROM tbl_inv_xx where sortfield = 'x' and fdn > 'xx' order by sortfield asc, fdn -->
-	<select id="getDataWithSplitPage1" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
-		SELECT
-			<foreach item="item" collection="basic.attrEntityList" separator="," >
-				${basic.tableName}.${item.attrName}
-			</foreach>
-		FROM ${basic.tableName}
-		<if test="basic.filterAttrList != null">
-			<foreach item="item" collection="basic.filterAttrList">
-				inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${basic.tableName}.${item.attrProperty.attrName}
-			</foreach>
-		</if>
-		<where>
-			<if test="sortAttr != null and sortAttr.attrValue == null and uniqueAttr != null and uniqueAttr.attrValue != null">  
+    <!-- 分页查询步骤1：先查询出排序字段等于x的数据（向下翻页）
+        SELECT top 1000 * FROM tbl_inv_xx where sortfield = 'x' and fdn > 'xx' order by sortfield asc, fdn -->
+    <select id="getDataWithSplitPage1" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
+        SELECT
+        <foreach item="item" collection="basic.attrEntityList" separator=",">
+            ${basic.tableName}.${item.attrName}
+        </foreach>
+        FROM ${basic.tableName}
+        <if test="basic.filterAttrList != null">
+            <foreach item="item" collection="basic.filterAttrList">
+                inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} =
+                ${basic.tableName}.${item.attrProperty.attrName}
+            </foreach>
+        </if>
+        <where>
+            <if
+                test="sortAttr != null and sortAttr.attrValue == null and uniqueAttr != null and uniqueAttr.attrValue != null">
                 ${basic.tableName}.${sortAttr.attrName} IS NULL
-			</if>
-			<if test="sortAttr != null and sortAttr.attrValue != null">
-				${basic.tableName}.${sortAttr.attrName} = #{sortAttr.attrValue}
-			</if>
-			<if test="uniqueAttr != null and uniqueAttr.attrValue != null">
-				and ${basic.tableName}.${uniqueAttr.attrName} &gt; #{uniqueAttr.attrValue}
-			</if>
-			<if test="basic.filter != null">
-				and ${basic.filter}
-			</if>
-		</where>
-		<trim prefix=" order by " prefixOverrides=",">
-			<if test="sortAttr != null">
-				${basic.tableName}.${sortAttr.attrName} ${sort}
-			</if>
-			<if test="sortAttr != null and uniqueAttr != null and sortAttr.attrName != uniqueAttr.attrName">
-				, ${basic.tableName}.${uniqueAttr.attrName}
-			</if>
-			<if test="sortAttr == null and uniqueAttr != null">
-				, ${basic.tableName}.${uniqueAttr.attrName}
-			</if>
-		</trim>
-		limit 0,1000
-	</select>
+            </if>
+            <if test="sortAttr != null and sortAttr.attrValue != null">
+                ${basic.tableName}.${sortAttr.attrName} = #{sortAttr.attrValue}
+            </if>
+            <if test="uniqueAttr != null and uniqueAttr.attrValue != null">
+                and ${basic.tableName}.${uniqueAttr.attrName} &gt; #{uniqueAttr.attrValue}
+            </if>
+            <if test="basic.filter != null">
+                and ${basic.filter}
+            </if>
+        </where>
+        <trim prefix=" order by " prefixOverrides=",">
+            <if test="sortAttr != null">
+                ${basic.tableName}.${sortAttr.attrName} ${sort}
+            </if>
+            <if test="sortAttr != null and uniqueAttr != null and sortAttr.attrName != uniqueAttr.attrName">
+                , ${basic.tableName}.${uniqueAttr.attrName}
+            </if>
+            <if test="sortAttr == null and uniqueAttr != null">
+                , ${basic.tableName}.${uniqueAttr.attrName}
+            </if>
+        </trim>
+        limit 0,1000
+    </select>
 
-	<!-- 分页查询步骤2：查询出排序字段大于x的数据（向下翻页）
-		SELECT top 1000 * FROM tbl_inv_xx where sortfield > 'x' order by sortfield desc, fdn -->
-	<select id="getDataWithSplitPage2" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
-		SELECT
-			<foreach item="item" collection="basic.attrEntityList" separator="," >
-				${basic.tableName}.${item.attrName}
-			</foreach>
-		FROM ${basic.tableName}
-		<if test="basic.filterAttrList != null">
-			<foreach item="item" collection="basic.filterAttrList">
-				inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${basic.tableName}.${item.attrProperty.attrName}
-			</foreach>
-		</if>
-		<where>        
-			<if test="sortAttr != null and sortAttr.attrValue == null and uniqueAttr != null  and uniqueAttr.attrValue != null">
+    <!-- 分页查询步骤2：查询出排序字段大于x的数据（向下翻页）
+        SELECT top 1000 * FROM tbl_inv_xx where sortfield > 'x' order by sortfield desc, fdn -->
+    <select id="getDataWithSplitPage2" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
+        SELECT
+        <foreach item="item" collection="basic.attrEntityList" separator=",">
+            ${basic.tableName}.${item.attrName}
+        </foreach>
+        FROM ${basic.tableName}
+        <if test="basic.filterAttrList != null">
+            <foreach item="item" collection="basic.filterAttrList">
+                inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} =
+                ${basic.tableName}.${item.attrProperty.attrName}
+            </foreach>
+        </if>
+        <where>
+            <if
+                test="sortAttr != null and sortAttr.attrValue == null and uniqueAttr != null  and uniqueAttr.attrValue != null">
                 (${basic.tableName}.${sortAttr.attrName}
-				<choose>
-					<when test="sort == 'asc'"> IS NOT NULL )</when>
-					<otherwise> IS NULL and ${basic.tableName}.${uniqueAttr.attrName} &gt; #{uniqueAttr.attrValue} )</otherwise>
-				</choose>
-			</if>            
-			<if test="sortAttr != null and sortAttr.attrValue != null">
-				(${basic.tableName}.${sortAttr.attrName}
-				<choose>
-					<when test="sort == 'asc'"> &gt; #{sortAttr.attrValue})</when>
-					<otherwise> &lt;  #{sortAttr.attrValue} or ${basic.tableName}.${sortAttr.attrName} IS NULL )</otherwise>
-				</choose>
-			</if>
-			<if test="basic.filter != null">
-				and ${basic.filter}
-			</if>
-		</where>
-		<trim prefix=" order by " prefixOverrides=",">
-			<if test="sortAttr != null">
-				${basic.tableName}.${sortAttr.attrName} ${sort}
-			</if>
-			<if test="sortAttr != null and uniqueAttr != null and sortAttr.attrName != uniqueAttr.attrName">
-				, ${basic.tableName}.${uniqueAttr.attrName}
-			</if>
-			<if test="sortAttr == null and uniqueAttr != null">
-				, ${basic.tableName}.${uniqueAttr.attrName}
-			</if>
-		</trim>
-		limit 0, ${topCnt}
-	</select>
+                <choose>
+                    <when test="sort == 'asc'"> IS NOT NULL )</when>
+                    <otherwise> IS NULL and ${basic.tableName}.${uniqueAttr.attrName} &gt; #{uniqueAttr.attrValue} )
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="sortAttr != null and sortAttr.attrValue != null">
+                (${basic.tableName}.${sortAttr.attrName}
+                <choose>
+                    <when test="sort == 'asc'"> &gt; #{sortAttr.attrValue})</when>
+                    <otherwise> &lt; #{sortAttr.attrValue} or ${basic.tableName}.${sortAttr.attrName} IS NULL )
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="basic.filter != null">
+                and ${basic.filter}
+            </if>
+        </where>
+        <trim prefix=" order by " prefixOverrides=",">
+            <if test="sortAttr != null">
+                ${basic.tableName}.${sortAttr.attrName} ${sort}
+            </if>
+            <if test="sortAttr != null and uniqueAttr != null and sortAttr.attrName != uniqueAttr.attrName">
+                , ${basic.tableName}.${uniqueAttr.attrName}
+            </if>
+            <if test="sortAttr == null and uniqueAttr != null">
+                , ${basic.tableName}.${uniqueAttr.attrName}
+            </if>
+        </trim>
+        limit 0, ${topCnt}
+    </select>
 
-	<!-- 查询存量数据的过滤条件，使用UUID排序顺序分批 -->
-	<sql id="crossFilterSql">
-		${basic.tableName} right join 
-		(select ${basic.tableName}.uuid from ${basic.tableName} 
-			<if test="basic.filterAttrList != null">
-				<foreach item="item" collection="basic.filterAttrList"> inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${basic.tableName}.${item.attrProperty.attrName}</foreach>
-			</if>
-			<where>
-				<if test="basic.filter != null">(${basic.filter})</if>
-				<if test="fromUuid != ''">AND ${basic.tableName}.uuid &gt; #{fromUuid} </if>
-			</where>
-		  order by uuid limit 0, ${readCount}) b on ${basic.tableName}.uuid = b.uuid 
-	</sql>
-	<!-- 查询存量数据 -->
-	<select id="getData" parameterType="org.openo.sdno.mss.dao.pojo.InvCrossTablePojo" resultType="hashmap">
-		<if test="extensionList == null">
-			select <foreach item="item" collection="basic.attrEntityList" separator="," >${basic.tableName}.${item.attrName}</foreach>
-			from <include refid="crossFilterSql" />
-		</if>
-		<if test="extensionList != null">
-			select <foreach item="item" collection="basic.attrEntityList" separator="," >${basic.tableName}.${item.attrName}</foreach>,
-			<foreach item="item" collection="extensionList" separator="," >${item.attrName}.attrvalue as ${item.attrName}</foreach> 
-			from <include refid="crossFilterSql" />
-			<foreach item="item" collection="extensionList" separator=" " >
-				left join ${extensionList[0].tableName} ${item.attrName} on ${basic.tableName}.uuid = ${item.attrName}.uuid and ${item.attrName}.attrname = #{item.attrName}
-			</foreach>
-		</if>
-		order by ${basic.tableName}.uuid
-	</select>
+    <!-- 查询存量数据的过滤条件，使用UUID排序顺序分批 -->
+    <sql id="crossFilterSql">
+        ${basic.tableName} right join
+        (select ${basic.tableName}.uuid from ${basic.tableName}
+        <if test="basic.filterAttrList != null">
+            <foreach item="item" collection="basic.filterAttrList"> inner join ${item.tableName} on
+                ${item.tableName}.${item.attrProperty.attrName} = ${basic.tableName}.${item.attrProperty.attrName}
+            </foreach>
+        </if>
+        <where>
+            <if test="basic.filter != null">(${basic.filter})</if>
+            <if test="fromUuid != ''">AND ${basic.tableName}.uuid &gt; #{fromUuid} </if>
+        </where>
+        order by uuid limit 0, ${readCount}) b on ${basic.tableName}.uuid = b.uuid
+    </sql>
+    <!-- 查询存量数据 -->
+    <select id="getData" parameterType="org.openo.sdno.mss.dao.pojo.InvCrossTablePojo" resultType="hashmap">
+        <if test="extensionList == null">
+            select
+            <foreach item="item" collection="basic.attrEntityList" separator=",">${basic.tableName}.${item.attrName}
+            </foreach>
+            from
+            <include refid="crossFilterSql" />
+        </if>
+        <if test="extensionList != null">
+            select
+            <foreach item="item" collection="basic.attrEntityList" separator=",">${basic.tableName}.${item.attrName}
+            </foreach>
+            ,
+            <foreach item="item" collection="extensionList" separator=",">${item.attrName}.attrvalue as
+                ${item.attrName}</foreach>
+            from
+            <include refid="crossFilterSql" />
+            <foreach item="item" collection="extensionList" separator=" ">
+                left join ${extensionList[0].tableName} ${item.attrName} on ${basic.tableName}.uuid = ${item.attrName}.uuid and
+                ${item.attrName}.attrname = #{item.attrName}
+            </foreach>
+        </if>
+        order by ${basic.tableName}.uuid
+    </select>
 
-	<select id="selectByTableFilter" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="hashmap">
-    select distinct 
-		<if test="tableFilterList != null">
-			<foreach item="itemTable" collection="tableFilterList"> 
-				<foreach item="attritemCol" collection="itemTable.attrPropertyList" separator=", ">${tableName}.${attritemCol.attrName}</foreach>
-			</foreach>
-		</if>
-		 from ${tableName} 
-		<if test="tableFilterList != null">
-			<foreach item="item" collection="tableFilterList"> 
-				inner join ${item.tableName} on 
-				<foreach item="attritem" collection="item.attrPropertyList" open="(" separator=" and " close=")">
-					${tableName}.${attritem.attrName} = ${item.tableName}.${attritem.attrName}
-				</foreach>
-			</foreach>
-		</if>
-	</select>
+    <select id="selectByTableFilter" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="hashmap">
+        select distinct
+        <if test="tableFilterList != null">
+            <foreach item="itemTable" collection="tableFilterList">
+                <foreach item="attritemCol" collection="itemTable.attrPropertyList" separator=", ">${tableName}.${attritemCol.attrName}
+                </foreach>
+            </foreach>
+        </if>
+        from ${tableName}
+        <if test="tableFilterList != null">
+            <foreach item="item" collection="tableFilterList">
+                inner join ${item.tableName} on
+                <foreach item="attritem" collection="item.attrPropertyList" open="(" separator=" and " close=")">
+                    ${tableName}.${attritem.attrName} = ${item.tableName}.${attritem.attrName}
+                </foreach>
+            </foreach>
+        </if>
+    </select>
 
-	
 
-	<!-- 删除存量数据 ,删除关系数据也是用这个-->
-	<delete id="removeData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
-		delete from ${tableName}
-		<where>
-			<if test="filter != null">
-				${filter}
-			</if>
-		</where>
-	</delete>
-	
-	<delete id="batchDeleteData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
-	    delete from ${tableName} where uuid in
-	    <foreach item="item" index="index" collection="preDeleteUuidSet" open="(" separator="," close=")">
+
+    <!-- 删除存量数据 ,删除关系数据也是用这个 -->
+    <delete id="removeData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
+        delete from ${tableName}
+        <where>
+            <if test="filter != null">
+                ${filter}
+            </if>
+        </where>
+    </delete>
+
+    <delete id="batchDeleteData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
+        delete from ${tableName} where uuid in
+        <foreach item="item" index="index" collection="preDeleteUuidSet" open="(" separator="," close=")">
             #{item}
         </foreach>
-	</delete>
-	
-	<delete id="batchDeleteRelationData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
-	    delete from ${tableName} where ${delUuidType} in
-	    <foreach item="item" index="index" collection="preDeleteUuidSet" open="(" separator="," close=")">
+    </delete>
+
+    <delete id="batchDeleteRelationData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
+        delete from ${tableName} where ${delUuidType} in
+        <foreach item="item" index="index" collection="preDeleteUuidSet" open="(" separator="," close=")">
             #{item}
         </foreach>
-	</delete>
+    </delete>
 
-	<!-- 在基本表中增加数据 -->
-	<insert id="addDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
-		insert into ${tableName}
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				${item.attrName}
-			</foreach>
-		values
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				#{item.attrValue}
-			</foreach>
-	</insert>
+    <!-- 在基本表中增加数据 -->
+    <insert id="addDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
+        insert into ${tableName}
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            ${item.attrName}
+        </foreach>
+        values
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            #{item.attrValue}
+        </foreach>
+    </insert>
 
-	<insert id="batchInsertDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
-		insert into ${tableName}
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				${item.attrName}
-			</foreach>
-		values
-			<foreach item="itemRow" collection="tableRowList" separator=",">
-				<foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
-					#{attritem}
-				</foreach>
-			</foreach>
-	</insert>
+    <insert id="batchInsertDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
+        insert into ${tableName}
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            ${item.attrName}
+        </foreach>
+        values
+        <foreach item="itemRow" collection="tableRowList" separator=",">
+            <foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
+                #{attritem}
+            </foreach>
+        </foreach>
+    </insert>
 
-	<!-- 在扩展表中增加数据 -->
-	<insert id="addDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
-		insert into ${tableName}
-			(uuid, attrname, attrvalue)
-		values
-			(#{uuid}, #{attrName}, #{attrValue})
-	</insert>
+    <!-- 在扩展表中增加数据 -->
+    <insert id="addDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
+        insert into ${tableName}
+        (uuid, attrname, attrvalue)
+        values
+        (#{uuid}, #{attrName}, #{attrValue})
+    </insert>
 
-	<insert id="batchInsertDataInExt" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
-		insert into ${tableName}
-			(uuid, attrname, attrvalue)
-		values
-			<foreach item="itemRow" collection="tableRowList" separator=",">
-				<foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
-					#{attritem}
-				</foreach>
-			</foreach>
-	</insert>
+    <insert id="batchInsertDataInExt" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
+        insert into ${tableName}
+        (uuid, attrname, attrvalue)
+        values
+        <foreach item="itemRow" collection="tableRowList" separator=",">
+            <foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
+                #{attritem}
+            </foreach>
+        </foreach>
+    </insert>
 
-	<!-- 在基本表中更新数据 -->
-	<update id="updateDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
-		update ${tableName}
-		set
-			<foreach item="item" collection="attrEntityList" separator="," >
-				${item.attrName}=#{item.attrValue}
-			</foreach>
-		where ${filter}
-	</update>
+    <!-- 在基本表中更新数据 -->
+    <update id="updateDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
+        update ${tableName}
+        set
+        <foreach item="item" collection="attrEntityList" separator=",">
+            ${item.attrName}=#{item.attrValue}
+        </foreach>
+        where ${filter}
+    </update>
 
-	<!-- 在扩展表中更新数据 -->
-	<update id="updateDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
-		update ${tableName}
-		set attrvalue=#{attrValue}
-		where uuid = #{uuid} and attrname=#{attrName}
-	</update>
+    <!-- 在扩展表中更新数据 -->
+    <update id="updateDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
+        update ${tableName}
+        set attrvalue=#{attrValue}
+        where uuid = #{uuid} and attrname=#{attrName}
+    </update>
 
-	<!-- 创建临时表，用于对比UUID临时表 -->
-	<update id="createUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
-		CREATE TABLE ${tableName}
-		(
-			uuid char(36) NOT NULL
-		)
-	</update>
+    <!-- 创建临时表，用于对比UUID临时表 -->
+    <update id="createUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
+        CREATE TABLE ${tableName}
+        (
+        uuid char(36) NOT NULL
+        )
+    </update>
 
-	<!-- 在临时网元ID表中增加数据 -->
-	<insert id="addDataInUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
-		insert into ${tableName} ( uuid ) values ( #{uuid} )
-	</insert>
+    <!-- 在临时网元ID表中增加数据 -->
+    <insert id="addDataInUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
+        insert into ${tableName} ( uuid ) values ( #{uuid} )
+    </insert>
 
-	
 
-	
-	
-	
 
-	<!-- 删除临时表 -->
-	<update id="removeTable" parameterType="String">
-		DROP TABLE IF EXISTS ${value}
-	</update>
 
-	<!-- 创建网元ID临时表，用于数据比对入库 -->
-	<update id="createNeIdTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
-		CREATE TABLE ${tableName}
-		(
-			tempdevuuid char(36) NOT NULL
-		)
-	</update>
 
-	<!-- 在临时网元ID表中增加数据 -->
-	<insert id="addDataInNeIdTemp" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
-		insert into ${tableName} ( tempdevuuid ) values ( #{devUuid} )
-	</insert>
 
-	<!-- filter超长时创建临时表-->
-	<!-- 创建 属性临时表，用于联合查询 -->
-	<update id="creatAttrTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
-		CREATE TABLE ${tableName}
-		(
-			${attrProperty.attrName} ${attrProperty.attrType} NOT NULL
-		)
-	</update>
 
-	
+    <!-- 删除临时表 -->
+    <update id="removeTable" parameterType="String">
+        DROP TABLE IF EXISTS ${value}
+    </update>
 
-	
-	<!-- 解决按照uuid批量查询的效率优化 -->
-	<insert id="addValueList" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
-		insert into ${tableName}  values  
-		<foreach item="item" collection="valueListCommit" separator="," >
-			(#{item})
-		</foreach>
-	</insert>
-	
-	
+    <!-- 创建网元ID临时表，用于数据比对入库 -->
+    <update id="createNeIdTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
+        CREATE TABLE ${tableName}
+        (
+        tempdevuuid char(36) NOT NULL
+        )
+    </update>
 
-	<!-- 向关系表中增加数据 -->
-	<insert id="addDataToRelation" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
-		insert into ${tableName}
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				${item.attrName}
-			</foreach>
-		values
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				#{item.attrValue}
-			</foreach>
-	</insert>
+    <!-- 在临时网元ID表中增加数据 -->
+    <insert id="addDataInNeIdTemp" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
+        insert into ${tableName} ( tempdevuuid ) values ( #{devUuid} )
+    </insert>
 
-	<insert id="batchInsertRelation" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
-		insert into ${tableName}
-			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
-				${item.attrName}
-			</foreach>
-		values
-			<foreach item="itemRow" collection="tableRowList" separator=",">
-				<foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
-					#{attritem}
-				</foreach>
-			</foreach>
-	</insert>
+    <!-- filter超长时创建临时表 -->
+    <!-- 创建 属性临时表，用于联合查询 -->
+    <update id="creatAttrTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
+        CREATE TABLE ${tableName}
+        (
+        ${attrProperty.attrName} ${attrProperty.attrType} NOT NULL
+        )
+    </update>
 
-	<!-- 更新关系数据，仅仅用于同步的时候 -->
-	<update id="updateRelationData" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
-		update ${tableName}
-		set <foreach item="item" collection="attrEntityList" separator="," >
-				${item.attrName}=#{item.attrValue}
-			</foreach>
-		where ${filter}
-	</update>
 
-	<!-- 查询关系表：通过src_uuid查dst_uuid，或者反之 -->
-	<select id="getUuidbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
-		select ${queryUuidName} from ${tableName}
-		where ${filter}
-	</select>
-	<!-- 查询关系表-->
-	<select id="getRelationsbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
-		select src_uuid, dst_uuid, dst_type, servicetype,
-			(case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
-		from ${tableName} 
-		<if test="filter != null">where ${filter}</if>
-		
-	</select>
-	<!-- 批量查询关系表-->
-	<select id="getRelations" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
-		select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype,
-			(case ${tableName}.relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
-		from ${tableName} 
-		<if test="filterAttrList != null">
-			<foreach item="item" collection="filterAttrList"> inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${tableName}.${item.attrProperty.attrName}</foreach>
-		</if>
-		<where>
-		  <if test="filter != null">(${filter})
-				<choose>
-					<when test="fromRow.srcUuid != ''"> AND </when>
-				</choose>
-		  </if>
-		  <if test="fromRow.srcUuid != ''">
-		  	((${tableName}.src_uuid = #{fromRow.srcUuid} AND ${tableName}.dst_uuid = #{fromRow.dstUuid} AND ${tableName}.dst_type &gt; #{fromRow.dstType}) OR 
-		  	(${tableName}.src_uuid = #{fromRow.srcUuid} AND ${tableName}.dst_uuid &gt; #{fromRow.dstUuid}) OR 
-		  	(${tableName}.src_uuid &gt; #{fromRow.srcUuid}))
-		  </if>
-		</where>
-		order by ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type limit 0, ${readCount}
-	</select>
-	<!-- 查询关系表，指定一系列src_uuid，返回所有满足条件的关系数据-->
-	<select id="getRelationsbyBatchSrcUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
-		select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype, 
-			(case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
-		from ${tableName} 
-		<if test="filterAttrList != null">
-			<foreach item="item" collection="filterAttrList">
-				inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} = ${tableName}.${item.attrProperty.attrName}
-			</foreach>
-		</if>		
-		<if test="filter != null">where ${filter}</if>
-	</select>
-	
-	<!-- 创建资源同步状态的表 -->
-	<update id="createResSyncStatusTable">
-		IF NOT EXISTS (select name from sysobjects where name = 'tbl_ressyncstatus')
-			EXECUTE('create table tbl_ressyncstatus
-			(
-			uuid varchar(255) NOT NULL,
-			resType varchar(255) NOT NULL
-			)')
-	</update>
 
-	<!-- 更新资源的同步状态 -->
-	<insert id="updateSyncStatus" parameterType="hashmap">
-		insert into tbl_ressyncstatus (uuid, resType) values (#{uuid}, #{resType})
-	</insert>
 
-	<!-- 创建临时表，用于数据比对入库 -->
-	<update id="createLogTable" parameterType="string">
-		CREATE TABLE IF NOT EXISTS ${value}
-		(
-			resType varchar(255) NOT NULL,
-			uuid char(36) NOT NULL,
-			data varchar(255) NULL,
-			operType int NOT NULL,
-			serialType int NOT NULL,
-			serial decimal NOT NULL PRIMARY KEY,
-            INDEX indexResType (resType(100))
-		)
-	</update>
+    <!-- 解决按照uuid批量查询的效率优化 -->
+    <insert id="addValueList" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
+        insert into ${tableName} values
+        <foreach item="item" collection="valueListCommit" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
 
-	<update id="createEmSerialTable">
-		create table IF NOT EXISTS tbl_em_serial
-		(
-			uuid char(32) NOT NULL,
-			serial decimal NOT NULL
-		)
-	</update>
 
-	<!-- 情况存量日志表，用于记录日志 -->
-	<delete id="truncateLogTable" parameterType="long">
-		delete from tbl_log_1 where serial &lt; #{value}
-	</delete>
 
-	<!-- 获取当前的最大流水号 -->
-	<select id="getMaxSerial" parameterType="string" resultType="long">
-		select max(serial) from ${value}
-	</select>
+    <!-- 向关系表中增加数据 -->
+    <insert id="addDataToRelation" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
+        insert into ${tableName}
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            ${item.attrName}
+        </foreach>
+        values
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            #{item.attrValue}
+        </foreach>
+    </insert>
 
-	<!-- 获取最小流水号 -->
-	<select id="getMinSerial" parameterType="string" resultType="long">
-		select min(serial) from ${value}
-	</select>
+    <insert id="batchInsertRelation" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
+        insert into ${tableName}
+        <foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
+            ${item.attrName}
+        </foreach>
+        values
+        <foreach item="itemRow" collection="tableRowList" separator=",">
+            <foreach item="attritem" collection="itemRow.attrValueList" open="(" separator="," close=")">
+                #{attritem}
+            </foreach>
+        </foreach>
+    </insert>
 
-	
-	
+    <!-- 更新关系数据，仅仅用于同步的时候 -->
+    <update id="updateRelationData" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
+        update ${tableName}
+        set
+        <foreach item="item" collection="attrEntityList" separator=",">
+            ${item.attrName}=#{item.attrValue}
+        </foreach>
+        where ${filter}
+    </update>
 
-	
+    <!-- 查询关系表：通过src_uuid查dst_uuid，或者反之 -->
+    <select id="getUuidbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
+        select ${queryUuidName} from ${tableName}
+        where ${filter}
+    </select>
+    <!-- 查询关系表 -->
+    <select id="getRelationsbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo"
+        resultType="hashmap">
+        select src_uuid, dst_uuid, dst_type, servicetype,
+        (case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as
+        relation
+        from ${tableName}
+        <if test="filter != null">where ${filter}</if>
 
-	<delete id="deleteByTableFilter" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
-    delete ${tableName} from ${tableName}
-		<if test="tableFilterList != null">
-			<foreach item="item" collection="tableFilterList"> 
-				inner join ${item.tableName} on 
-				<foreach item="attritem" collection="item.attrPropertyList" open="(" separator=" and " close=")">
-					${tableName}.${attritem.attrName} = ${item.tableName}.${attritem.attrName}
-				</foreach>
-			</foreach>
-		</if>
-	</delete>
-	<!-- 通用数据查询 -->	
-	<select id="msDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvMasterSlavesQueryPojo"
-		resultType="hashmap">
-		select
-		<foreach item="item" collection="attrsList" separator=",">
-			${item.tableAlias}.${item.attrName}
-			<if test="item.attrAlias != null">
-				as ${item.attrAlias}
-			</if>
-		</foreach>
-		from ${tableName} ${tableAlias}
-		<if test="joinResList != null">
-			<foreach item="item" collection="joinResList" separator=" ">
-				left
-				join ${item.tableName} ${item.tableAlias} on
-				${tableAlias}.${item.key} = ${item.tableAlias}.${item.masterKey}
-			</foreach>
-		</if>
-		<where>
-			<if test="filterSql != null">
-				${filterSql}
-			</if>
-		</where>
-		<if test="orderFields != null">
-			order by
-			<foreach item="item" collection="orderFields" separator=",">
-				${item.attrName}
-			</foreach>
-		</if>
-		limit ${fromIndex}, ${count}
-	</select>
-	
-	
-	<select id="msDataQueryCount" parameterType="org.openo.sdno.mss.dao.pojo.InvMasterSlavesQueryPojo"
-		resultType="int">
-		select count(*) from ${tableName} ${tableAlias}
-		<if test="joinResList != null">
-			<foreach item="item" collection="joinResList" separator=" ">
-				left
-				join ${item.tableName} ${item.tableAlias} on
-				${tableAlias}.${item.key} = ${item.tableAlias}.${item.masterKey}
-			</foreach>
-		</if>
-		<where>
-			<if test="filterSql != null">
-				${filterSql}
-			</if>
-		</where>
-	</select>
+    </select>
+    <!-- 批量查询关系表 -->
+    <select id="getRelations" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
+        select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype,
+        (case ${tableName}.relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown'
+        end) as relation
+        from ${tableName}
+        <if test="filterAttrList != null">
+            <foreach item="item" collection="filterAttrList"> inner join ${item.tableName} on
+                ${item.tableName}.${item.attrProperty.attrName} = ${tableName}.${item.attrProperty.attrName}</foreach>
+        </if>
+        <where>
+            <if test="filter != null">
+                (${filter})
+                <choose>
+                    <when test="fromRow.srcUuid != ''"> AND </when>
+                </choose>
+            </if>
+            <if test="fromRow.srcUuid != ''">
+                ((${tableName}.src_uuid = #{fromRow.srcUuid} AND ${tableName}.dst_uuid = #{fromRow.dstUuid} AND ${tableName}.dst_type &gt;
+                #{fromRow.dstType}) OR
+                (${tableName}.src_uuid = #{fromRow.srcUuid} AND ${tableName}.dst_uuid &gt; #{fromRow.dstUuid}) OR
+                (${tableName}.src_uuid &gt; #{fromRow.srcUuid}))
+            </if>
+        </where>
+        order by ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type limit 0, ${readCount}
+    </select>
+    <!-- 查询关系表，指定一系列src_uuid，返回所有满足条件的关系数据 -->
+    <select id="getRelationsbyBatchSrcUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo"
+        resultType="hashmap">
+        select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype,
+        (case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as
+        relation
+        from ${tableName}
+        <if test="filterAttrList != null">
+            <foreach item="item" collection="filterAttrList">
+                inner join ${item.tableName} on ${item.tableName}.${item.attrProperty.attrName} =
+                ${tableName}.${item.attrProperty.attrName}
+            </foreach>
+        </if>
+        <if test="filter != null">where ${filter}</if>
+    </select>
 
-	<!-- 关联查询数据 -->
-	<select id="msRelationDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
-		resultType="hashmap">
-		select
-		<foreach item="item" collection="attrsList" separator=",">
-			${item.tableAlias}.${item.attrName}
-			<if test="item.attrAlias != null">
-				as ${item.attrAlias}
-			</if>
-		</foreach>
-		from ${tableName} ${tableAlias}
-		<if test="relationTmpTableSql != null">
-			inner join ${relationTmpTableSql} ${relationTempTableAlias}
-			on ${tableAlias}.${masterKey} =
-			${relationTempTableAlias}.${relationKey}
-		</if>
-		<where>
-			<if test="filterSql != null">
-				${filterSql}
-			</if>
-		</where>
-		<if test="orderFields != null">
-			order by
-			<foreach item="item" collection="orderFields" separator=",">
-				${item.attrName}
-			</foreach>
-		</if>
-		limit ${fromIndex}, ${count}
-	</select>
+    <!-- 创建资源同步状态的表 -->
+    <update id="createResSyncStatusTable">
+        IF NOT EXISTS (select name from sysobjects where name = 'tbl_ressyncstatus')
+        EXECUTE('create table tbl_ressyncstatus
+        (
+        uuid varchar(255) NOT NULL,
+        resType varchar(255) NOT NULL
+        )')
+    </update>
 
-	<!-- 关联查询数据总数 -->
-	<select id="msRelationDataQueryCount" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
-		resultType="int">
-		select count(*)
-		from ${tableName} ${tableAlias}
-		<if test="relationTmpTableSql != null">
-			inner join ${relationTmpTableSql} ${relationTempTableAlias}
-			on ${tableAlias}.${masterKey} =
-			${relationTempTableAlias}.${relationKey}
-		</if>
-		<where>
-			<if test="filterSql != null">
-				${filterSql}
-			</if>
-		</where>
-		<if test="orderFields != null">
-			order by
-			<foreach item="item" collection="orderFields" separator=",">
-				${item.attrName}
-			</foreach>
-		</if>
-	</select>
+    <!-- 更新资源的同步状态 -->
+    <insert id="updateSyncStatus" parameterType="hashmap">
+        insert into tbl_ressyncstatus (uuid, resType) values (#{uuid}, #{resType})
+    </insert>
+
+    <!-- 创建临时表，用于数据比对入库 -->
+    <update id="createLogTable" parameterType="string">
+        CREATE TABLE IF NOT EXISTS ${value}
+        (
+        resType varchar(255) NOT NULL,
+        uuid char(36) NOT NULL,
+        data varchar(255) NULL,
+        operType int NOT NULL,
+        serialType int NOT NULL,
+        serial decimal NOT NULL PRIMARY KEY,
+        INDEX indexResType (resType(100))
+        )
+    </update>
+
+    <update id="createEmSerialTable">
+        create table IF NOT EXISTS tbl_em_serial
+        (
+        uuid char(32) NOT NULL,
+        serial decimal NOT NULL
+        )
+    </update>
+
+    <!-- 情况存量日志表，用于记录日志 -->
+    <delete id="truncateLogTable" parameterType="long">
+        delete from tbl_log_1 where serial &lt; #{value}
+    </delete>
+
+    <!-- 获取当前的最大流水号 -->
+    <select id="getMaxSerial" parameterType="string" resultType="long">
+        select max(serial) from ${value}
+    </select>
+
+    <!-- 获取最小流水号 -->
+    <select id="getMinSerial" parameterType="string" resultType="long">
+        select min(serial) from ${value}
+    </select>
+
+
+
+
+
+
+    <delete id="deleteByTableFilter" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
+        delete ${tableName} from ${tableName}
+        <if test="tableFilterList != null">
+            <foreach item="item" collection="tableFilterList">
+                inner join ${item.tableName} on
+                <foreach item="attritem" collection="item.attrPropertyList" open="(" separator=" and " close=")">
+                    ${tableName}.${attritem.attrName} = ${item.tableName}.${attritem.attrName}
+                </foreach>
+            </foreach>
+        </if>
+    </delete>
+    <!-- 通用数据查询 -->
+    <select id="msDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvMasterSlavesQueryPojo" resultType="hashmap">
+        select
+        <foreach item="item" collection="attrsList" separator=",">
+            ${item.tableAlias}.${item.attrName}
+            <if test="item.attrAlias != null">
+                as ${item.attrAlias}
+            </if>
+        </foreach>
+        from ${tableName} ${tableAlias}
+        <if test="joinResList != null">
+            <foreach item="item" collection="joinResList" separator=" ">
+                left
+                join ${item.tableName} ${item.tableAlias} on
+                ${tableAlias}.${item.key} = ${item.tableAlias}.${item.masterKey}
+            </foreach>
+        </if>
+        <where>
+            <if test="filterSql != null">
+                ${filterSql}
+            </if>
+        </where>
+        <if test="orderFields != null">
+            order by
+            <foreach item="item" collection="orderFields" separator=",">
+                ${item.attrName}
+            </foreach>
+        </if>
+        limit ${fromIndex}, ${count}
+    </select>
+
+
+    <select id="msDataQueryCount" parameterType="org.openo.sdno.mss.dao.pojo.InvMasterSlavesQueryPojo"
+        resultType="int">
+        select count(*) from ${tableName} ${tableAlias}
+        <if test="joinResList != null">
+            <foreach item="item" collection="joinResList" separator=" ">
+                left
+                join ${item.tableName} ${item.tableAlias} on
+                ${tableAlias}.${item.key} = ${item.tableAlias}.${item.masterKey}
+            </foreach>
+        </if>
+        <where>
+            <if test="filterSql != null">
+                ${filterSql}
+            </if>
+        </where>
+    </select>
+
+    <!-- 关联查询数据 -->
+    <select id="msRelationDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
+        resultType="hashmap">
+        select
+        <foreach item="item" collection="attrsList" separator=",">
+            ${item.tableAlias}.${item.attrName}
+            <if test="item.attrAlias != null">
+                as ${item.attrAlias}
+            </if>
+        </foreach>
+        from ${tableName} ${tableAlias}
+        <if test="relationTmpTableSql != null">
+            inner join ${relationTmpTableSql} ${relationTempTableAlias}
+            on ${tableAlias}.${masterKey} =
+            ${relationTempTableAlias}.${relationKey}
+        </if>
+        <where>
+            <if test="filterSql != null">
+                ${filterSql}
+            </if>
+        </where>
+        <if test="orderFields != null">
+            order by
+            <foreach item="item" collection="orderFields" separator=",">
+                ${item.attrName}
+            </foreach>
+        </if>
+        limit ${fromIndex}, ${count}
+    </select>
+
+    <!-- 关联查询数据总数 -->
+    <select id="msRelationDataQueryCount" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
+        resultType="int">
+        select count(*)
+        from ${tableName} ${tableAlias}
+        <if test="relationTmpTableSql != null">
+            inner join ${relationTmpTableSql} ${relationTempTableAlias}
+            on ${tableAlias}.${masterKey} =
+            ${relationTempTableAlias}.${relationKey}
+        </if>
+        <where>
+            <if test="filterSql != null">
+                ${filterSql}
+            </if>
+        </where>
+        <if test="orderFields != null">
+            order by
+            <foreach item="item" collection="orderFields" separator=",">
+                ${item.attrName}
+            </foreach>
+        </if>
+    </select>
 </mapper>

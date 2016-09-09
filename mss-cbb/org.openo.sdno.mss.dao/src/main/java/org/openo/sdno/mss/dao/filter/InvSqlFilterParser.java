@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,18 +24,16 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.apache.ibatis.session.SqlSession;
 import org.codehaus.jackson.type.TypeReference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.dao.pojo.InvBasicTablePojo;
 import org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo;
 import org.openo.sdno.mss.dao.util.SQLUtil;
-import org.openo.sdno.mss.init.util.JsonUtil;
-import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Inventory Sql Filter Parser Class.<br/>
+ * Inventory Sql Filter Parser Class.<br>
  * <p>
  * This class provide functions to build InvAttrSqlFilter.
  * </p>
@@ -96,9 +94,7 @@ public class InvSqlFilterParser {
     private final String resType;
 
     /**
-     * Constructor<br/>
-     * <p>
-     * </p>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param session SQL Session
@@ -110,7 +106,7 @@ public class InvSqlFilterParser {
     }
 
     /**
-     * Build SQL Filter.<br/>
+     * Build SQL Filter.<br>
      * 
      * @param allWhereFilter where filter pattern
      * @param jsonStr Filter Object
@@ -128,10 +124,10 @@ public class InvSqlFilterParser {
             throw new IllegalArgumentException("Empty field. All filter:" + allWhereFilter);
         }
 
-        List<String> jsonValidFields = validJsonField(jsonFieldValueMap, fieldNames);
+        List<String> jsonValidFields = InvSqlFilterParserUtil.validJsonField(jsonFieldValueMap, fieldNames);
         if(jsonValidFields.isEmpty()) {
-            throw new IllegalArgumentException("Json value is invalid.Json value:" + jsonStr + ", All filter:"
-                    + allWhereFilter);
+            throw new IllegalArgumentException(
+                    "Json value is invalid.Json value:" + jsonStr + ", All filter:" + allWhereFilter);
         }
 
         StringBuilder sb = new StringBuilder(allWhereFilter);
@@ -151,41 +147,16 @@ public class InvSqlFilterParser {
                 Object jsonFieldValue = jsonFieldValueMap.get(field);
                 FilterReplaceReturn filterReplaceRet =
                         replaceFieldValue(newAllWhereFilter, field, jsonFieldValue, currentIndex);
-                newAllWhereFilter = filterReplaceRet.allWhereFilter;
-                currentIndex = filterReplaceRet.nextBeginIndex;
+                newAllWhereFilter = filterReplaceRet.getAllWhereFilter();
+                currentIndex = filterReplaceRet.getNextBeginIndex();
             }
         }
 
-        newAllWhereFilter = joinTableNameField(newAllWhereFilter);
+        newAllWhereFilter = InvSqlFilterParserUtil.joinTableNameField(newAllWhereFilter, resType);
         InvAttrSqlFilter attrSqlFilter = new InvAttrSqlFilter();
         attrSqlFilter.setWhereFilter(newAllWhereFilter);
         attrSqlFilter.setPojo(pojoList);
         return attrSqlFilter;
-    }
-
-    /**
-     * Join table name fields.<br/>
-     * 
-     * @param allWhereFilter where filter pattern
-     * @return filter sql
-     * @since SDNO 0.5
-     */
-    private String joinTableNameField(String allWhereFilter) {
-        if(StringUtils.isEmpty(allWhereFilter)) {
-            return allWhereFilter;
-        }
-
-        StringBuilder sb = new StringBuilder(allWhereFilter);
-        String newAllWhereFilter = sb.toString();
-
-        String tableName = PropertiesUtil.getInstance().getINVTABLEPREFIX() + resType + ".";
-        if(newAllWhereFilter.startsWith("uuid in ")) {
-            newAllWhereFilter = tableName + newAllWhereFilter;
-        } else if(newAllWhereFilter.indexOf(" uuid in ") != -1) {
-            newAllWhereFilter = StringUtils.replaceOnce(newAllWhereFilter, " uuid in ", " " + tableName + "uuid in ");
-        }
-
-        return newAllWhereFilter;
     }
 
     private FilterReplaceReturn replaceFieldValue(String inputFilter, String field, Object jsonFieldValue,
@@ -213,10 +184,10 @@ public class InvSqlFilterParser {
                 throw new IllegalArgumentException("Json value type is not string in like expresionn.Json value type:"
                         + jsonFieldValue.getClass());
             }
-            checkDataType(dataType, jsonFieldValue);
+            InvSqlFilterParserUtil.checkDataType(dataType, jsonFieldValue);
             outputFilter = processLikeExpression(outputFilter, field, fieldPairStr, jsonFieldValue);
         } else if(fieldPairStr.contains(EQAUL_SPERATOR)) {
-            checkDataType(dataType, jsonFieldValue);
+            InvSqlFilterParserUtil.checkDataType(dataType, jsonFieldValue);
             fieldValueStyle = fieldPairStr.split(EQAUL_SPERATOR)[1].trim();
 
             String jsonValue = jsonFieldValue.toString();
@@ -257,7 +228,7 @@ public class InvSqlFilterParser {
 
     private String processOrExpression(String sqlFilter, String field, String inputOrExp, Object jsonFieldValue,
             Datatype dataType) {
-        checkJsonValue(field, jsonFieldValue, dataType);
+        InvSqlFilterParserUtil.checkJsonValue(field, jsonFieldValue, dataType);
 
         @SuppressWarnings("unchecked")
         List<Object> fieldValueList = (List<Object>)jsonFieldValue;
@@ -266,8 +237,8 @@ public class InvSqlFilterParser {
         int fieldNum = fieldArry.length;
 
         if(fieldValueList.size() > fieldArry.length) {
-            throw new IllegalArgumentException("Json value size is out of bounds. Json value:" + jsonFieldValue
-                    + ", Filter:" + inputOrExp);
+            throw new IllegalArgumentException(
+                    "Json value size is out of bounds. Json value:" + jsonFieldValue + ", Filter:" + inputOrExp);
         }
 
         if(fieldValueList.size() < fieldArry.length) {
@@ -301,59 +272,9 @@ public class InvSqlFilterParser {
         return StringUtils.replace(sqlFilter, inputOrExp, replaceOrExp);
     }
 
-    private void checkJsonValue(String field, Object jsonFieldValue, Datatype dataType) {
-        if(!(jsonFieldValue instanceof List)) {
-            throw new IllegalArgumentException("Json value is not a list. Json value:" + jsonFieldValue + ", Field:"
-                    + field);
-        }
-
-        @SuppressWarnings("unchecked")
-        List<Object> fieldValueList = (List<Object>)jsonFieldValue;
-        if(fieldValueList.isEmpty()) {
-            throw new IllegalArgumentException("Json value is empty." + ", Field:" + field);
-        }
-
-        checkDataType(dataType, fieldValueList.get(0));
-    }
-
-    /**
-     * Check whether is valid DataType.<br/>
-     * 
-     * @param dataType data type
-     * @param value input Object
-     * @since SDNO 0.5
-     */
-    public static void checkDataType(Datatype dataType, Object value) {
-        boolean isValid = true;
-        switch(dataType) {
-            case STRING:
-                isValid = value.getClass().equals(String.class);
-                break;
-            case INTEGER:
-                isValid = value.getClass().equals(Integer.class);
-                break;
-            case DECIMAL:
-                break;
-            case DATETIME:
-                break;
-            case FLOAT:
-                break;
-            case DOUBLE:
-                isValid = value.getClass().equals(Double.class);
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown data type: " + value.getClass());
-        }
-
-        if(!isValid) {
-            throw new IllegalArgumentException("Json value type doesn't match with field data type."
-                    + ", Field data type:" + dataType);
-        }
-    }
-
     private String processInExpression(String sqlFilter, String field, String fieldPairStr, Object jsonFieldValue,
             Datatype dataType) {
-        checkJsonValue(field, jsonFieldValue, dataType);
+        InvSqlFilterParserUtil.checkJsonValue(field, jsonFieldValue, dataType);
 
         @SuppressWarnings("unchecked")
         List<Object> fieldValueList = (List<Object>)jsonFieldValue;
@@ -392,61 +313,11 @@ public class InvSqlFilterParser {
 
             String inExpession = fieldPairStr.split(IN_RELATION)[1].trim();
 
-            String prepareStr = replaceInValue(fieldValueList, dataType);
+            String prepareStr = InvSqlFilterParserUtil.replaceInValue(fieldValueList, dataType);
             outputFilter = StringUtils.replace(outputFilter, inExpession, prepareStr);
         }
 
         return outputFilter;
-    }
-
-    /**
-     * Get SQL by field List.<br/>
-     * 
-     * @param fieldValueList field value list
-     * @param dataType Data Type
-     * @return SQL returned
-     * @since SDNO 0.5
-     */
-    public static String replaceInValue(List<Object> fieldValueList, Datatype dataType) {
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0, size = fieldValueList.size(); i < size; i++) {
-            Object value = fieldValueList.get(i);
-
-            String escapeValue = value.toString();
-            escapeValue = SQLUtil.escapeSqlSlashAndQuotes(escapeValue);
-
-            switch(dataType) {
-                case STRING:
-                    sb.append('\'' + escapeValue + "',");
-                    break;
-                case INTEGER:
-                case DECIMAL:
-                case DATETIME:
-                case FLOAT:
-                case DOUBLE:
-                    sb.append(escapeValue).append(',');
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        if(sb.length() >= 1) {
-            sb.deleteCharAt(sb.length() - 1);
-        }
-
-        return "(" + sb.toString() + ")";
-    }
-
-    private List<String> validJsonField(Map<String, Object> jsonFieldPairs, List<String> fieldNames) {
-        List<String> jsonValidFields = new ArrayList<String>();
-        for(String field : fieldNames) {
-
-            if(jsonFieldPairs.containsKey(field)) {
-                jsonValidFields.add(field);
-            }
-        }
-        return jsonValidFields;
     }
 
     private String findRemoveField(String sqlFilter, String field) {
@@ -498,31 +369,5 @@ public class InvSqlFilterParser {
         }
 
         return fieldNameList;
-    }
-
-    /**
-     * Filter Replace Result Class.<br/>
-     * <p>
-     * </p>
-     * 
-     * @author
-     * @version SDNO 0.5 May 20, 2016
-     */
-    class FilterReplaceReturn {
-
-        /**
-         * where filter sql
-         */
-        private String allWhereFilter;
-
-        /**
-         * next begin index
-         */
-        private int nextBeginIndex;
-
-        FilterReplaceReturn(String filter, int index) {
-            allWhereFilter = filter;
-            nextBeginIndex = index;
-        }
     }
 }

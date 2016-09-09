@@ -1,11 +1,11 @@
 /*
- * Copyright 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,6 +26,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
+import org.openo.sdno.mss.dao.model.BaseModel;
 import org.openo.sdno.mss.dao.model.ModelMgrUtil;
 import org.openo.sdno.mss.dao.model.RelationGraphMgrUtil;
 import org.openo.sdno.mss.dao.pojo.InvRelationTablePojo;
@@ -100,8 +101,9 @@ public class InvRelationDataHandlerTest {
         InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
 
         // Get use empty srcUuid.
-        InvRespEntity<List<Map<String, Object>>> relationships = invRelationDataHandler.get(relationType, queryType, "",
-                dstUuid, srcAttribute, dstAttribute, serviceType, refUnique);
+        BaseModel baseModel = new BaseModel("", dstUuid, srcAttribute, dstAttribute, queryType, serviceType);
+        InvRespEntity<List<Map<String, Object>>> relationships =
+                invRelationDataHandler.get(relationType, refUnique, baseModel);
 
         Assert.assertTrue(relationships.isSuccess());
         Assert.assertEquals(relationships.getData().size(), 0);
@@ -127,8 +129,9 @@ public class InvRelationDataHandlerTest {
         InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
 
         // Get use empty destUuid.
-        InvRespEntity<List<Map<String, Object>>> relationships = invRelationDataHandler.get(relationType, queryType,
-                srcUuid, "", srcAttribute, dstAttribute, serviceType, refUnique);
+        BaseModel baseModel = new BaseModel(srcUuid, "", srcAttribute, dstAttribute, queryType, serviceType);
+        InvRespEntity<List<Map<String, Object>>> relationships =
+                invRelationDataHandler.get(relationType, refUnique, baseModel);
 
         Assert.assertTrue(relationships.isSuccess());
         Assert.assertEquals(relationships.getData().size(), 0);
@@ -147,8 +150,8 @@ public class InvRelationDataHandlerTest {
             InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
 
             // Get use empty UUIDs.
-            invRelationDataHandler.get(relationType, queryType, "", "", srcAttribute, dstAttribute, serviceType,
-                    refUnique);
+            BaseModel baseModel = new BaseModel("", "", srcAttribute, dstAttribute, queryType, serviceType);
+            invRelationDataHandler.get(relationType, refUnique, baseModel);
 
             Assert.assertTrue(false);
         } catch(IllegalArgumentException e) {
@@ -170,8 +173,8 @@ public class InvRelationDataHandlerTest {
             InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
 
             // Get use empty destUuid.
-            invRelationDataHandler.get(relationType, queryType, srcUuid, dstUuid, srcAttribute, dstAttribute,
-                    serviceType, refUnique);
+            BaseModel baseModel = new BaseModel(srcUuid, dstUuid, srcAttribute, dstAttribute, queryType, serviceType);
+            invRelationDataHandler.get(relationType, refUnique, baseModel);
 
             Assert.assertTrue(false);
         } catch(IllegalArgumentException e) {

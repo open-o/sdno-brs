@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,11 +20,10 @@ import java.util.Map;
 
 import org.openo.sdno.framework.container.util.DBInfoReader;
 import org.openo.sdno.framework.container.util.DefaultEnvUtil;
-
 import org.openo.sdno.mss.dao.constant.InvDbType;
 
 /**
- * Database information for oss platform. <br/>
+ * Database information for oss platform. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -41,7 +40,7 @@ public class DBInfo4OSSPlatForm implements IDBInfo {
 
     private static final String DEFAULT_DRIVER = "com.mysql.jdbc.Driver";
 
-    public static final String DEFAULT_IP = "127.0.0.1";
+    public static final String DEFAULT_IP = "localhost";
 
     private static final String DB_NAME = "bucketsys";
 
@@ -56,7 +55,7 @@ public class DBInfo4OSSPlatForm implements IDBInfo {
     private String pwd = null;
 
     /**
-     * Get inventory database type. <br/>
+     * Get inventory database type. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -121,9 +120,8 @@ public class DBInfo4OSSPlatForm implements IDBInfo {
 
         String dbPort = bucketSysMap.get(PORT).toString();
 
-        this.url =
-                "jdbc:mysql://" + dbNodeIP + ":" + dbPort + "/" + this.dbName
-                        + "?useUnicode=true&characterEncoding=UTF-8";
+        this.url = "jdbc:mysql://" + dbNodeIP + ":" + dbPort + "/" + this.dbName
+                + "?useUnicode=true&characterEncoding=UTF-8";
 
         this.user = (String)bucketSysMap.get(USER);
 

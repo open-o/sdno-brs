@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2016 Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
     xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
@@ -10,7 +26,7 @@
 
     <bean id="vxlandb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -24,7 +40,7 @@
 
     <bean id="brsdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -37,7 +53,7 @@
     </bean>
     <bean id="compositevpndb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -50,7 +66,7 @@
     </bean>
     <bean id="l3vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -63,7 +79,7 @@
     </bean>
     <bean id="l2vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -76,7 +92,7 @@
     </bean>
     <bean id="vpcdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -89,7 +105,7 @@
     </bean>
     <bean id="osdriverdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -102,7 +118,7 @@
     </bean>
     <bean id="ipsecdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -115,7 +131,7 @@
     </bean>
     <bean id="acbranchdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="user" value="root" />
         <property name="password" value="Test_12345" />
         <property name="acquireIncrement" value="10" />
@@ -126,7 +142,45 @@
         <property name="maxIdleTime" value="600" />
         <property name="preferredTestQuery" value="SELECT 1" />
     </bean>
-
+    <bean id="servicechaindb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+    <bean id="scdriverdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
+        <bean id="nslcmdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="user" value="root" />
+        <property name="password" value="Test_12345" />
+        <property name="acquireIncrement" value="10" />
+        <property name="idleConnectionTestPeriod" value="120" />
+        <property name="maxPoolSize" value="50" />
+        <property name="maxStatements" value="30" />
+        <property name="minPoolSize" value="10" />
+        <property name="maxIdleTime" value="600" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+    </bean>
     <bean id="dataSource" class="org.openo.sdno.mss.dao.multi.DynamicDataSource">
         <property name="targetDataSources">
             <map key-type="java.lang.String">
@@ -138,6 +192,10 @@
                 <entry value-ref="osdriverdb" key="osdriverdb"></entry>
                 <entry value-ref="ipsecdb" key="ipsecdb"></entry>
                 <entry value-ref="acbranchdb" key="acbranchdb"></entry>
+                <entry value-ref="servicechaindb" key="servicechaindb"></entry>
+                <entry value-ref="scdriverdb" key="scdriverdb"></entry>
+                <entry value-ref="vpcdb" key="vpcdb"></entry>
+                <entry value-ref="nslcmdb" key="nslcmdb"></entry>
             </map>
         </property>
         <property name="defaultTargetDataSource" ref="brsdb"></property>
@@ -169,7 +227,6 @@
         <property name="sqlSessionTemplate" ref="sqlSession" />
         <property name="relationDataHandler" ref="invRelationDataHandler"></property>
     </bean>
-
 
     <bean id="invRelationDataHandler" class="org.openo.sdno.mss.dao.impl.InvRelationDataHandler">
         <property name="sqlSessionTemplate" ref="sqlSession" />

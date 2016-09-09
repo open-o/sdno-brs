@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,24 +23,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import liquibase.database.DatabaseConnection;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.openo.sdno.mss.init.mybatis.handler.HandlerManagement;
 import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
 import org.openo.sdno.mss.init.mybatis.pojo.ResourcePojo;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.openo.sdno.mss.init.util.UUIDUtils;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import liquibase.database.DatabaseConnection;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.LiquibaseException;
 
 /**
- * Tool class to initialize model, it can also update the change of model. <br/>
+ * Tool class to initialize model, it can also update the change of model. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -53,11 +52,10 @@ public class ModelIniter extends ChangeLogBuilder {
 
     protected DBParam dbParam = null;
 
-
     private static final Object lock = new Object();
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param modelData
@@ -70,7 +68,7 @@ public class ModelIniter extends ChangeLogBuilder {
     }
 
     /**
-     * Initialize the model. <br/>
+     * Initialize the model. <br>
      * 
      * @since SDNO 0.5
      */
@@ -134,12 +132,12 @@ public class ModelIniter extends ChangeLogBuilder {
 
     private void saveRelation2Db() {
         RelationPojo relation =
-            HandlerManagement.getInstance().getRelationHandler().getRelation(this.modelData.getBktName());
-            LOGGER.warn("relation is null, now insert the latest relations");
-            relation = new RelationPojo();
-            relation.setBktName(this.modelData.getBktName());
-            relation.setRmspec(JsonUtil.toJson(this.modelData.getRelationModels()));
-            HandlerManagement.getInstance().getRelationHandler().addRelation(relation);
+                HandlerManagement.getInstance().getRelationHandler().getRelation(this.modelData.getBktName());
+        LOGGER.warn("relation is null, now insert the latest relations");
+        relation = new RelationPojo();
+        relation.setBktName(this.modelData.getBktName());
+        relation.setRmspec(JsonUtil.toJson(this.modelData.getRelationModels()));
+        HandlerManagement.getInstance().getRelationHandler().addRelation(relation);
     }
 
     private void initInfoModelChangeSet() {
@@ -186,9 +184,8 @@ public class ModelIniter extends ChangeLogBuilder {
             synchronized(lock) {
                 if(null == this.conn) {
                     this.dbParam.setDbName(modelData.getBktName());
-                    this.conn =
-                            DriverManager.getConnection(dbParam.getUrl(), dbParam.getDbUser(),
-                                    String.valueOf(dbParam.getDbPwd()));
+                    this.conn = DriverManager.getConnection(dbParam.getUrl(), dbParam.getDbUser(),
+                            String.valueOf(dbParam.getDbPwd()));
                 }
             }
         }

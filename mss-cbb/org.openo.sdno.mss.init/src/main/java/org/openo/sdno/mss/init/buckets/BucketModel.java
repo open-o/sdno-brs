@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,21 +22,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
 import org.openo.sdno.mss.init.util.FileUtil;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.openo.sdno.mss.model.ModelParser;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to process BucketModel, it scan and parse the model definition file then create the model
  * object for database. A bucket model contain all the information about a Java object and it's
- * relation map in the database.<br/>
+ * relation map in the database.<br>
  * <p>
  * </p>
  * 
@@ -68,7 +67,7 @@ public class BucketModel {
     private String modelBasicPath = "";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param modelBasicPath
@@ -85,7 +84,6 @@ public class BucketModel {
         return infoModels;
     }
 
-
     /**
      * @return Returns the dataModels.
      */
@@ -100,11 +98,8 @@ public class BucketModel {
         return relationModels;
     }
 
-
-
-
     /**
-     * initialize the bucket model. <br/>
+     * initialize the bucket model. <br>
      * 
      * @since SDNO 0.5
      */
@@ -193,7 +188,7 @@ public class BucketModel {
                 && fileName.replace(pattern, "").replace(MODEL_POSTFIX, "").equals(resource)) {
             return true;
         }
-        
+
         return false;
     }
 

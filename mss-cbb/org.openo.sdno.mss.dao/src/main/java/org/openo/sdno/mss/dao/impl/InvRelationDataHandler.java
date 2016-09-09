@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,20 +28,22 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.dao.entities.InvRelationEntity;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.dao.intf.IInvDataHandler;
 import org.openo.sdno.mss.dao.intf.IInvRelationDataHandler;
+import org.openo.sdno.mss.dao.model.BaseModel;
 import org.openo.sdno.mss.dao.model.RelationGraphMgrUtil;
 import org.openo.sdno.mss.dao.pojo.InvRelationTablePojo;
+import org.openo.sdno.mss.dao.util.InvRelationDataHandlerUtil;
 import org.openo.sdno.mss.dao.util.ValidUtil;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 
 /**
- * The class of relative data handler. <br/>
+ * The class of relative data handler. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -51,8 +53,6 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
     private static final Logger LOGGER = LoggerFactory.getLogger(InvRelationDataHandler.class);
 
     protected IInvDataHandler invDataHandler = null;
-
-    private static final int QUERYNUMLIMIT = 340;
 
     public void setInvDataHandler(IInvDataHandler invDataHandler) {
         this.invDataHandler = invDataHandler;
@@ -125,9 +125,11 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
     }
 
     @Override
-    public InvRespEntity<List<Map<String, Object>>> get(final String relationType, final String queryType, // NOPMD
-            final String srcUuid, final String dstUuid, final String srcAttribute, final String dstAttribute,
-            final String serviceType, final String refUnique) {
+    public InvRespEntity<List<Map<String, Object>>> get(final String relationType, final String refUnique,
+            BaseModel baseModel) {
+        String srcUuid = baseModel.getSrcUuid();
+        String dstUuid = baseModel.getDstUuid();
+
         String[] resTypes = ValidUtil.checkRelationType(relationType);
 
         if(StringUtils.isEmpty(srcUuid) && StringUtils.isEmpty(dstUuid)) {
@@ -146,8 +148,6 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
             List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
             return InvRespEntity.valueOfSuccess(result, result.size());
         }
-
-        BaseModel baseModel = new BaseModel(srcUuid, dstUuid, srcAttribute, dstAttribute, queryType, serviceType);
 
         return getDetail(baseModel, resTypes, paths, refUnique);
     }
@@ -196,7 +196,8 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
         List<String> refUuidList = new ArrayList<String>();
         refUuidList.add(refUuidValue);
         Iterator<String> it = paths.iterator();
-        List<String> queryUuidList = getQueryUuidList(it, refUuidList, relationPojo, serviceType);
+        List<String> queryUuidList = InvRelationDataHandlerUtil.getQueryUuidList(it, refUuidList, relationPojo,
+                serviceType, getSqlSession());
         if(CollectionUtils.isEmpty(queryUuidList)) {
             LOGGER.info("Target uuid list is empty!");
             List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
@@ -213,58 +214,8 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
                 refUnique);
     }
 
-    private List<String> getQueryUuidList(Iterator<String> it, List<String> refUuidList,
-            InvRelationTablePojo relationPojo, String serviceType) {
-        List<String> result = new ArrayList<String>();
-        if(it.hasNext()) {
-            // avert the sql is too long
-            List<List<String>> partList = splitList(refUuidList, QUERYNUMLIMIT);
-            String typeName = it.next();
-            String[] resTypes = ValidUtil.checkRelationType(typeName);
-            List<Map<String, Object>> queryResults = new ArrayList<Map<String, Object>>();
-            for(List<String> part : partList) {
-                relationPojo.buildServiceTypeFilter(serviceType);
-                relationPojo.buildDstTypeFilter(resTypes[1]).buildUuidFilter(part);
-                queryResults.addAll(relationPojo.getData(getSqlSession()));
-            }
-            result = getUuidListFromQueryResults(queryResults, relationPojo.getQueryUuidName());
-        }
-
-        if(CollectionUtils.isEmpty(result)) {
-            return null;
-        }
-
-        if(it.hasNext()) {
-            result = getQueryUuidList(it, result, relationPojo, serviceType);
-        }
-        return result;
-    }
-
-    private <T> List<List<T>> splitList(List<T> list, final int length) {
-        List<List<T>> partList = new ArrayList<List<T>>();
-        final int size = list.size();
-        for(int i = 0; i < size; i += length) {
-            partList.add(new ArrayList<T>(list.subList(i, Math.min(size, i + length))));
-        }
-        return partList;
-    }
-
-    private List<String> getUuidListFromQueryResults(List<Map<String, Object>> queryResults, String uuidName) {
-        List<String> result = new ArrayList<String>();
-        for(int i = 0, size = queryResults.size(); i < size; i++) {
-            Map<String, Object> valueMap = queryResults.get(i);
-            if(null != valueMap && !valueMap.isEmpty()) {
-                String uuid = (String)valueMap.get(uuidName);
-                if(!StringUtils.isEmpty(uuid)) {
-                    result.add(uuid);
-                }
-            }
-        }
-        return result;
-    }
-
     /**
-     * Update data. <br/>
+     * Update data. <br>
      * 
      * @param session The session for update
      * @param relationPojo The relative table
@@ -305,7 +256,7 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
     }
 
     /**
-     * Add data. <br/>
+     * Add data. <br>
      * 
      * @param session The session for add
      * @param relationPojo The relative table
@@ -320,7 +271,6 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
 
     private int doAdd(SqlSession session, InvRelationTablePojo relationPojo, Map<String, Object> valueMap) {
         return relationPojo.buildValue(valueMap).addData(session);
-
     }
 
     @Override
@@ -365,7 +315,7 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
     }
 
     /**
-     * Get the batch handle session and you must call close after use. <br/>
+     * Get the batch handle session and you must call close after use. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -418,91 +368,6 @@ public class InvRelationDataHandler extends AbstractHandler implements IInvRelat
             return nodeList;
         } finally {
             relationPojo.removeTempAttrTable(sqlSession);
-        }
-    }
-
-    /**
-     * The class of basic model. <br/>
-     * 
-     * @author
-     * @version SDNO 0.5 2016-5-21
-     */
-    private class BaseModel {
-
-        private final String srcUuid;
-
-        private final String dstUuid;
-
-        private final String srcAttribute;
-
-        private final String dstAttribute;
-
-        private final String queryType;
-
-        private final String serviceType;
-
-        /**
-         * Constructor<br/>
-         * 
-         * @since SDNO 0.5
-         * @param srcUuid The src uuid
-         * @param dstUuid The dst uuid
-         * @param srcAttribute The scr attribute
-         * @param dstAttribute the dst attribute
-         * @param queryType The query type
-         * @param serviceType The service type
-         */
-        public BaseModel(String srcUuid, String dstUuid, String srcAttribute, String dstAttribute, String queryType,
-                String serviceType) {
-            super();
-            this.srcUuid = srcUuid;
-            this.dstUuid = dstUuid;
-            this.srcAttribute = srcAttribute;
-            this.dstAttribute = dstAttribute;
-            this.queryType = queryType;
-            this.serviceType = serviceType;
-        }
-
-        /**
-         * @return Returns the srcUuid.
-         */
-        public String getSrcUuid() {
-            return srcUuid;
-        }
-
-        /**
-         * @return Returns the dstUuid.
-         */
-        public String getDstUuid() {
-            return dstUuid;
-        }
-
-        /**
-         * @return Returns the srcAttribute.
-         */
-        public String getSrcAttribute() {
-            return srcAttribute;
-        }
-
-        /**
-         * @return Returns the dstAttribute.
-         */
-        public String getDstAttribute() {
-            return dstAttribute;
-        }
-
-        /**
-         * @return Returns the queryType.
-         */
-        public String getQueryType() {
-            return queryType;
-        }
-
-        /**
-         * @return Returns the serviceType.
-         */
-        public String getServiceType() {
-            return serviceType;
         }
     }
 }

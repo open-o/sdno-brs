@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.mss.init.dbinfo.DBParam;
 import liquibase.exception.LiquibaseException;
 
 /**
- * <br/>
+ * Database Initialize Class.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-30
@@ -32,7 +32,7 @@ import liquibase.exception.LiquibaseException;
 public class StartInit {
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      *
      * @since SDNO 0.5
      */
@@ -41,13 +41,13 @@ public class StartInit {
     }
 
     /**
-     * <br/>
+     * Execution Enter Point of Database Initialization.<br>
      *
-     * @param args
-     * @throws SQLException
-     * @throws LiquibaseException
-     * @throws IOException
-     * @throws CloneNotSupportedException
+     * @param args parameter list
+     * @throws SQLException when initialize database failed
+     * @throws LiquibaseException when initialize database failed
+     * @throws IOException when initialize database failed
+     * @throws CloneNotSupportedException when when initialize database failed
      * @since SDNO 0.5
      */
     public static void main(String[] args)
@@ -58,7 +58,7 @@ public class StartInit {
         dbParam.setDbPwd("Test_12345".toCharArray());
         dbParam.setDbType("mysql");
         dbParam.setDbUser("root");
-        dbParam.setHost("127.0.0.1");
+        dbParam.setHost("localhost");
         dbParam.setPort(3306);
         DbIniter brsiniter = new DbIniter();
         brsiniter.init(dbParam);
@@ -92,7 +92,7 @@ public class StartInit {
         dbParam.setDbPwd("Test_12345".toCharArray());
         DbIniter ipseciniter = new DbIniter();
         ipseciniter.init(dbParam);
-        
+
         dbParam.setDbName("acbranchdb");
         dbParam.setDbPwd("Test_12345".toCharArray());
         DbIniter acbranchiniter = new DbIniter();
@@ -103,5 +103,19 @@ public class StartInit {
         DbIniter vpciniter = new DbIniter();
         vpciniter.init(dbParam);
 
+        dbParam.setDbName("servicechaindb");
+        dbParam.setDbPwd("Test_12345".toCharArray());
+        DbIniter servicechaininiter = new DbIniter();
+        servicechaininiter.init(dbParam);
+
+        dbParam.setDbName("scdriverdb");
+        dbParam.setDbPwd("Test_12345".toCharArray());
+        DbIniter dcdriveriniter = new DbIniter();
+        dcdriveriniter.init(dbParam);
+
+        dbParam.setDbName("nslcmdb");
+        dbParam.setDbPwd("Test_12345".toCharArray());
+        DbIniter nslcminiter = new DbIniter();
+        nslcminiter.init(dbParam);
     }
 }

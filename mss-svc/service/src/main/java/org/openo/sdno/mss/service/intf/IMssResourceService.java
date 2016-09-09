@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,9 +23,10 @@ import javax.ws.rs.core.Context;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.PageQueryResult;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 
 /**
- * The interface of mss service to deal with resource.<br/>
+ * The interface of mss service to deal with resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -33,7 +34,7 @@ import org.openo.sdno.framework.container.util.PageQueryResult;
 public interface IMssResourceService {
 
     /**
-     * Query a single resource data.<br/>
+     * Query a single resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -46,24 +47,18 @@ public interface IMssResourceService {
             throws ServiceException;
 
     /**
-     * Batch query data.<br/>
+     * Batch query data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
-     * @param fields Resource property list
-     * @param joinAttr JoinAttr
-     * @param filter Filter
-     * @param sort Sort
-     * @param pageSize The size of page
-     * @param pageNum The number of page
+     * @param queryParam The query parameter list
      * @return The batch query data as string
      * @since SDNO 0.5
      */
-    String getResources(String bktName, String resType, String fields, String joinAttr, String filter, String sort,
-            String pageSize, String pageNum);
+    String getResources(String bktName, String resType, QueryParamModel queryParam);
 
     /**
-     * Batch update resource.<br/>
+     * Batch update resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -75,7 +70,7 @@ public interface IMssResourceService {
             throws ServiceException;
 
     /**
-     * Batch delete resources.<br/>
+     * Batch delete resources.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -85,7 +80,7 @@ public interface IMssResourceService {
     void batchDeleteResources(String bktName, String resType, String uuids) throws ServiceException;
 
     /**
-     * Update single resource.<br/>
+     * Update single resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -98,20 +93,7 @@ public interface IMssResourceService {
             @Context HttpServletRequest request) throws ServiceException;
 
     /**
-     * Add resource.<br/>
-     * 
-     * @param bktName Bucket name
-     * @param resType Resource type name
-     * @param objectId Object id
-     * @param request Request input stream body
-     * @return The map of resource
-     * @since SDNO 0.5
-     */
-    Map<String, Object> addResouce(String bktName, String resType, String objectId, @Context HttpServletRequest request)
-            throws ServiceException;
-
-    /**
-     * Batch add resource.<br/>
+     * Batch add resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -123,7 +105,7 @@ public interface IMssResourceService {
             throws ServiceException;
 
     /**
-     * Delete resource.<br/>
+     * Delete resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -133,7 +115,7 @@ public interface IMssResourceService {
     void deleteResouce(String bktName, String resType, String uuid) throws ServiceException;
 
     /**
-     * Query relation data.<br/>
+     * Query relation data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -149,7 +131,7 @@ public interface IMssResourceService {
             String pageSize, String pageNum) throws ServiceException;
 
     /**
-     * Check whether a single resource attribute has a single data.<br/>
+     * Check whether a single resource attribute has a single data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -161,7 +143,7 @@ public interface IMssResourceService {
     Boolean exist(String bktName, String resType, @Context HttpServletRequest request) throws ServiceException;
 
     /**
-     * Total number of statistical resources.<br/>
+     * Total number of statistical resources.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name

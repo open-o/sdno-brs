@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,6 +20,7 @@ import java.io.File;
 import java.sql.SQLException;
 
 import org.openo.sdno.framework.container.util.Bucket;
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.openo.sdno.mss.init.modelprocess.ModelProcessor;
 import org.openo.sdno.mss.init.mybatis.MybatisManagement;
@@ -30,14 +31,13 @@ import org.openo.sdno.mss.init.mybatis.handler.ResourceHandler;
 import org.openo.sdno.mss.init.mybatis.pojo.BucketPojo;
 import org.openo.sdno.mss.init.util.AuthorityUtil;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import liquibase.exception.LiquibaseException;
 
 /**
- * Bucket management class,run as singleton model.<br/>
+ * Bucket management class,run as singleton model.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -56,7 +56,7 @@ public class BucketsMgrt {
     }
 
     /**
-     * Get singleton instance of bucket.<br/>
+     * Get singleton instance of bucket.<br>
      * 
      * @since SDNO 0.5
      */
@@ -69,7 +69,7 @@ public class BucketsMgrt {
     }
 
     /**
-     * To check whether the current app support Bucket management.<br/>
+     * To check whether the current app support Bucket management.<br>
      * 
      * @since SDNO 0.5
      */
@@ -84,7 +84,7 @@ public class BucketsMgrt {
     }
 
     /**
-     * Initialization method of Bucket.<br/>
+     * Initialization method of Bucket.<br>
      * 
      * @throws SQLException
      * @throws LiquibaseException

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,12 +33,13 @@ import javax.ws.rs.core.Context;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.service.IResource;
 import org.openo.sdno.framework.container.util.PageQueryResult;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 import org.openo.sdno.mss.service.intf.IMssRelationService;
 import org.openo.sdno.mss.service.intf.IMssResourceService;
 import org.openo.sdno.mss.service.intf.IMssSvcService;
 
 /**
- * MSS module implements interface layer based on CloudSop platform.<br/>
+ * MSS module implements interface layer based on CloudSop platform.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -73,7 +74,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Check whether there is data in the single resource and single attribute.<br/>
+     * Check whether there is data in the single resource and single attribute.<br>
      * 
      * @param bktName bucket name
      * @param resType resource type name
@@ -92,7 +93,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Query a single resource data.<br/>
+     * Query a single resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -112,7 +113,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Update single resource.<br/>
+     * Update single resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -132,7 +133,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Delete resource.<br/>
+     * Delete resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -149,7 +150,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Batch update resource.<br/>
+     * Batch update resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -164,12 +165,11 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     public Map<String, Object> batchUpdateResources(@PathParam("bucket-name") String bktName,
             @PathParam("resource-type-name") String resType, @Context HttpServletRequest request)
             throws ServiceException {
-
         return this.mssResourceService.batchUpdateResource(bktName, resType, request);
     }
 
     /**
-     * Batch delete resources.<br/>
+     * Batch delete resources.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -186,7 +186,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Create resource relationship.<br/>
+     * Create resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name
@@ -201,11 +201,10 @@ public class MssSvcResource extends IResource<IMssSvcService> {
             @PathParam("resource-type-name") String relationType, @Context HttpServletRequest request)
             throws ServiceException {
         this.mssRelationService.addRelation(bktName, relationType, request);
-
     }
 
     /**
-     * Delete resource relationship.<br/>
+     * Delete resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name
@@ -227,7 +226,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Query resource relationship.<br/>
+     * Query resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -249,7 +248,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Batch add resource.<br/>
+     * Batch add resource.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -268,16 +267,11 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Batch query data.<br/>
+     * Batch query data.<br>
      * 
+     * @param req HttpServletRequest Object
      * @param bktName Bucket name
      * @param resType Resource type name
-     * @param fields Resource property list
-     * @param joinAttr JoinAttr
-     * @param filter Filter
-     * @param sort Sort
-     * @param pageSize The size of page
-     * @param pageNum The number of page
      * @return The batch query data as string
      * @since SDNO 0.5
      */
@@ -285,17 +279,22 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     @Path("/{bucket-name}/resources/{resource-type-name}/objects")
     @Produces("application/json")
     @Consumes("application/json")
-    public String batchGetResouce(@PathParam("bucket-name") String bktName,
-            @PathParam("resource-type-name") String resType, @QueryParam("fields") String fields,
-            @QueryParam("joinAttr") String joinAttr, @QueryParam("filter") String filter,
-            @QueryParam("sort") String sort, @QueryParam("pagesize") String pageSize,
-            @QueryParam("pagenum") String pageNum) {
-        return this.mssResourceService.getResources(bktName, resType, fields, joinAttr, filter, sort, pageSize,
-                pageNum);
+    public String batchGetResouce(@Context HttpServletRequest req, @PathParam("bucket-name") String bktName,
+            @PathParam("resource-type-name") String resType) {
+
+        String fields = req.getParameter("fields");
+        String joinAttr = req.getParameter("joinAttr");
+        String filter = req.getParameter("filter");
+        String sort = req.getParameter("sort");
+        String pageSize = req.getParameter("pagesize");
+        String pageNum = req.getParameter("pagenum");
+
+        QueryParamModel queryParam = new QueryParamModel(fields, joinAttr, filter, sort, pageSize, pageNum);
+        return this.mssResourceService.getResources(bktName, resType, queryParam);
     }
 
     /**
-     * Query relation data.<br/>
+     * Query relation data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
@@ -319,7 +318,7 @@ public class MssSvcResource extends IResource<IMssSvcService> {
     }
 
     /**
-     * Total number of statistical resources.<br/>
+     * Total number of statistical resources.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type name

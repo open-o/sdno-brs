@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,16 +33,18 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.framework.container.util.PageQueryResult;
 import org.openo.sdno.mss.combine.intf.IInvDataService;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 import org.openo.sdno.mss.service.constant.Constant;
 import org.openo.sdno.mss.service.entities.BatchQueryFileterEntity;
 import org.openo.sdno.mss.service.intf.IMssResourceService;
+import org.openo.sdno.mss.service.util.BatchQueryUtil;
 import org.openo.sdno.mss.service.util.ExceptionArgsUtil;
 import org.openo.sdno.mss.service.util.ParamConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of mss service to deal with resource.<br/>
+ * The class of mss service to deal with resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -91,7 +93,6 @@ public class MssResourceService implements IMssResourceService {
             String errorMsg = "Get resource error!";
             LOGGER.error(errorMsg, e);
             throw new ServiceException(null, Constant.SERVICE_ERROR_CODE, ExceptionArgsUtil.getExceptionArgs(e));
-
         }
 
         List<Map<String, Object>> resourceMap = invRespEntity.getData();
@@ -109,8 +110,14 @@ public class MssResourceService implements IMssResourceService {
 
     @SuppressWarnings("unchecked")
     @Override
-    public String getResources(String bktName, String resType, String fields, String joinAttr, String filter,
-            String sort, String pageSize, String pageNum) {
+    public String getResources(String bktName, String resType, QueryParamModel queryParam) {
+        String fields = queryParam.getFields();
+        String joinAttr = queryParam.getJoinAttr();
+        String filter = queryParam.getFilter();
+        String sort = queryParam.getSort();
+        String pageSize = queryParam.getPageSize();
+        String pageNum = queryParam.getPageNum();
+
         List<String> attrList = new ArrayList<String>();
         if(!StringUtils.isEmpty(fields)) {
             String[] attrArray = StringUtils.split(fields.trim(), ", ");
@@ -149,12 +156,14 @@ public class MssResourceService implements IMssResourceService {
         List<Object> countList = this.invDataService.commQueryGetCount(bktName, resType, joinAttrTemp,
                 filterEntity.getFilterDsc(), filterEntity.getFilterData());
 
-        Object obj = this.invDataService.commQueryGet(bktName, resType, fieldsTemp, joinAttrTemp,
-                filterEntity.getFilterDsc(), filterEntity.getFilterData(), sortTemp, pageNum, pageSize);
+        QueryParamModel newQueryParam = new QueryParamModel(fieldsTemp, joinAttrTemp, filterEntity.getFilterData(),
+                sortTemp, pageSize, pageNum);
+
+        Object obj = this.invDataService.commQueryGet(bktName, resType, filterEntity.getFilterDsc(), newQueryParam);
         List<Map<String, Object>> data = ((InvRespEntity<List<Map<String, Object>>>)obj).getData();
         ParamConverter.replaceMapsUUID2ID(data);
 
-        PageQueryResult<Object> resEntity = getBatchQueryResEntity(pageNum, pageSize, countList);
+        PageQueryResult<Object> resEntity = BatchQueryUtil.getBatchQueryResEntity(pageNum, pageSize, countList);
         resEntity.setObjects(data);
 
         return JsonUtil.toJson(resEntity);
@@ -283,33 +292,6 @@ public class MssResourceService implements IMssResourceService {
         }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public Map<String, Object> addResouce(String bktName, String resType, String objectId,
-            @Context HttpServletRequest request) throws ServiceException {
-        String urlBody = RestUtils.getRequestBody(request);
-
-        Map<String, Object> values = JsonUtil.fromJson(urlBody, Map.class);
-        values.put(Constant.KEY_ID, objectId);
-        List<Map<String, Object>> listValues = new ArrayList<Map<String, Object>>();
-        listValues.add(values);
-
-        try {
-            ParamConverter.replaceMapsUUID2ID(listValues);
-            InvRespEntity<List<Map<String, Object>>> invRespEntity =
-                    this.invDataService.add(bktName, resType, listValues);
-            ParamConverter.replaceEntitysUUID2ID(invRespEntity);
-            if(null != invRespEntity && !invRespEntity.getData().isEmpty()) {
-                return invRespEntity.getData().get(0);
-            } else {
-                throw new ServiceException("", 599);
-            }
-        } catch(Exception e) {
-            LOGGER.error("exception catched while add data.", e);
-            throw new ServiceException("", 599);
-        }
-    }
-
     @SuppressWarnings("unchecked")
     @Override
     public PageQueryResult<Object> getRelationData(String bktName, String resType, String fields, String filter,
@@ -337,7 +319,7 @@ public class MssResourceService implements IMssResourceService {
         List<Object> countList =
                 this.invDataService.queryRelationDataCount(bktName, resType, fieldsTemp, filter, "", pageNum, pageSize);
 
-        PageQueryResult<Object> resEntity = getBatchQueryResEntity(pageNum, pageSize, countList);
+        PageQueryResult<Object> resEntity = BatchQueryUtil.getBatchQueryResEntity(pageNum, pageSize, countList);
 
         // When the total number is greater than 0, then check
         if(resEntity.getTotal() > 0) {
@@ -395,34 +377,5 @@ public class MssResourceService implements IMssResourceService {
         } catch(IllegalArgumentException e) {
             throw new ServiceException(null, Constant.SERVICE_ERROR_CODE, ExceptionArgsUtil.getExceptionArgs(e));
         }
-    }
-
-    private PageQueryResult<Object> getBatchQueryResEntity(String pageNum, String pageSize, List<Object> countList) {
-        PageQueryResult<Object> resEntity = new PageQueryResult<Object>();
-
-        int page = 0;
-        if(!StringUtils.isEmpty(pageNum)) {
-            page = Integer.parseInt(pageNum);
-        }
-
-        // The default method of general query shows 1000 data in a page
-        int size = Constant.DEFAULT_PAGESIZE;
-        if(!StringUtils.isEmpty(pageSize)) {
-            size = Integer.parseInt(pageSize);
-        }
-
-        int total = 0;
-        if(null != countList && !countList.isEmpty()) {
-            total = (int)countList.get(0);
-        }
-
-        int totalPageNum = total % size > 0 ? ((total / size) + 1) : (total / size);
-
-        resEntity.setTotalPageNum(totalPageNum);
-        resEntity.setCurrentPage(page);
-        resEntity.setPageSize(size);
-        resEntity.setTotal(total);
-
-        return resEntity;
     }
 }

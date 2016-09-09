@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.dao.exception.ServerInnerException;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 
 /**
- * Inventory data service interface.<br/>
+ * Inventory data service interface.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-25
@@ -33,7 +33,7 @@ import org.openo.sdno.mss.dao.exception.ServerInnerException;
 public interface IInvDataService {
 
     /**
-     * Query a single resource data.<br/>
+     * Query a single resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -47,32 +47,7 @@ public interface IInvDataService {
             final String attr) throws ServiceException;
 
     /**
-     * According to the filter conditions, batch query multiple resource data.<br/>
-     * <p>
-     * If the message header is formatted with text/csv, then returns the zip compressed file.<br/>
-     * </p>
-     * 
-     * @param bktName Bucket name
-     * @param acceptHeader Used to determine downloading file or not
-     * @param queryType Query type
-     * @param resType Resource type
-     * @param attr Resource attribute
-     * @param filter Filter conditions
-     * @param filterEx Extension filter conditions
-     * @param sortAttrName Sort attribute name
-     * @param sortType "asc" or "desc", default "asc"
-     * @param refValue The value of the last (or first) data, used for paging
-     * @param refUnique The unique index of the last (or first) data, used for paging
-     * @return batch query results.
-     * @throws ServiceException when query failed
-     * @since SDNO 0.5
-     */
-    Object batchGet(String bktName, final String acceptHeader, final String queryType, final String resType,
-            final String attr, final String filter, final String filterEx, final String sortAttrName,
-            final String sortType, final String refValue, final String refUnique) throws ServiceException;
-
-    /**
-     * Delete a resource data.<br/>
+     * Delete a resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -83,7 +58,7 @@ public interface IInvDataService {
     InvRespEntity<Boolean> delete(String bktName, String resType, String uuid);
 
     /**
-     * Batch delete resource and resource relation.<br/>
+     * Batch delete resource and resource relation.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -94,7 +69,7 @@ public interface IInvDataService {
     InvRespEntity<Boolean> batchDelete(String bktName, String resType, List<String> uuidList);
 
     /**
-     * Update a resource data.<br/>
+     * Update a resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -108,7 +83,7 @@ public interface IInvDataService {
             throws ServerInnerException;
 
     /**
-     * Batch update resource data.<br/>
+     * Batch update resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -121,7 +96,7 @@ public interface IInvDataService {
             List<Map<String, Object>> values) throws ServerInnerException;
 
     /**
-     * Batch add resource data.<br/>
+     * Batch add resource data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -134,25 +109,20 @@ public interface IInvDataService {
             throws ServerInnerException;
 
     /**
-     * Common query, support the query mode of one main table and Multiple subordinate tables.<br/>
+     * Common query, support the query mode of one main table and Multiple subordinate tables.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
-     * @param attr Collection of attributes
-     * @param joinAttr Collection of join attributes
-     * @param filterDsc Filter string
-     * @param filterData Filter string
-     * @param sort Sort string
-     * @param pageNumber Page number
+     * @param filterDsc Filter strin
+     * @param queryParam Query parameters
      * @param pageCapacity Page capacity
      * @return Collection of query results
      * @since SDNO 0.5
      */
-    Object commQueryGet(String bktName, String resType, String attr, String joinAttr, String filterDsc,
-            String filterData, String sort, String pageNumber, String pageCapacity);
+    Object commQueryGet(String bktName, String resType, String filterDsc, QueryParamModel queryParam);
 
     /**
-     * Common query, get statistics count of records.<br/>
+     * Common query, get statistics count of records.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -162,11 +132,11 @@ public interface IInvDataService {
      * @return Collection of query results
      * @since SDNO 0.5
      */
-    List<Object>
-            commQueryGetCount(String bktName, String resType, String joinAttr, String filterDsc, String filterData);
+    List<Object> commQueryGetCount(String bktName, String resType, String joinAttr, String filterDsc,
+            String filterData);
 
     /**
-     * Query the total amount of relation data.<br/>
+     * Query the total amount of relation data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -182,7 +152,7 @@ public interface IInvDataService {
             String pageNum, String pageSize);
 
     /**
-     * Query relation data.<br/>
+     * Query relation data.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type
@@ -198,7 +168,7 @@ public interface IInvDataService {
             String pageSize);
 
     /**
-     * Check whether the single attribute exists.<br/>
+     * Check whether the single attribute exists.<br>
      * 
      * @param bktName Bucket name
      * @param resType Resource type

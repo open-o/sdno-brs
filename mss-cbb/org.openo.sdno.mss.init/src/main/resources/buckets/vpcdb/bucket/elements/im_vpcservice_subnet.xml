@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
+<!--
+    Copyright 2016 Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
     <infomodel name="vpcservice_subnet" datamodel="inv_vpcservice_subnet" version="1.0">
-        <!--basic property-->
+        <!--basic property -->
         <basic>
-            <property name="name" type="string" length="128"/>
-            <property name="description" type="string" length="256"/>
-            <property name="gatewayIp" type="string" length="64"/>
-            <property name="vpcId" type="string" length="36"/>
-            <property name="status" type="string" length="36"/>
-            <property name="adminStatus" type="string" length="36"/>
+            <property name="name" type="string" length="128" />
+            <property name="description" type="string" length="256" />
+            <property name="gatewayIp" type="string" length="64" />
+            <property name="cidr" type="string" length="64" />
+            <property name="vni" type="integer" />
+            <property name="vpcId" type="string" length="36" />
+            <property name="status" type="string" length="36" />
+            <property name="adminStatus" type="string" length="36" />
         </basic>
-        <!-- extension  -->
+        <!-- extension -->
         <extension>
         </extension>
-      </infomodel>
+    </infomodel>
 </inventory>

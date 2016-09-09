@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,6 +37,7 @@ import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.codehaus.jackson.type.TypeReference;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.mss.dao.constant.InvAttrDefine;
 import org.openo.sdno.mss.dao.constant.InvErrorCodeDefine;
@@ -46,10 +47,11 @@ import org.openo.sdno.mss.dao.entities.InvRelationEntity;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.dao.exception.InvSqlException;
 import org.openo.sdno.mss.dao.exception.ServerInnerException;
-import org.openo.sdno.mss.dao.filter.InvSqlFilterParser;
+import org.openo.sdno.mss.dao.filter.InvSqlFilterParserUtil;
 import org.openo.sdno.mss.dao.intf.IInvDataHandler;
 import org.openo.sdno.mss.dao.intf.IInvRelationDataHandler;
 import org.openo.sdno.mss.dao.io.SqlSessionProxy;
+import org.openo.sdno.mss.dao.model.QueryParamModel;
 import org.openo.sdno.mss.dao.model.RelationGraphMgrUtil;
 import org.openo.sdno.mss.dao.pojo.AInvCheckerPojo;
 import org.openo.sdno.mss.dao.pojo.InvAttrEntityPojo;
@@ -68,14 +70,13 @@ import org.openo.sdno.mss.dao.util.DateTimeUtil;
 import org.openo.sdno.mss.dao.util.FilterUtil;
 import org.openo.sdno.mss.dao.util.ValidUtil;
 import org.openo.sdno.mss.dao.util.ValidateUtil;
-import org.openo.sdno.mss.init.util.JsonUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of handle inventory, such as add, delete, modify, query, export and import. <br/>
+ * The class of handle inventory, such as add, delete, modify, query, export and import. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -115,7 +116,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     IInvRelationDataHandler relationDataHandler;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -128,7 +129,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     }
 
     /**
-     * Get the batch handle session and you must call close after use. <br/>
+     * Get the batch handle session and you must call close after use. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -168,12 +169,12 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     @Override
     public InvRespEntity<List<Map<String, Object>>> getSplitPage(String resType, String attr, String filter,
             String filterEx, Object refValue, String refUniqueValue) {
-        return this.getSplitPage(resType, attr, filter, filterEx, null, true, refValue, refUniqueValue);
+        return this.getSplitPage(resType, attr, filter, filterEx, null, refValue, refUniqueValue);
     }
 
     @Override
     public InvRespEntity<List<Map<String, Object>>> getSplitPage(String resType, String attr, String filter,
-            String filterEx, String sortAttrName, boolean isAsc, Object refValue, String refUnique) {
+            String filterEx, String sortAttrName, Object refValue, String refUnique) {
         ValidUtil.checkResType(resType);
         ValidUtil.checkAttributes(resType, attr, true);
         ValidUtil.checkFilter(resType, filter);
@@ -190,7 +191,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
         }
 
         if(!StringUtils.isEmpty(sortAttrName)) {
-            pojo.buildSortAttr(sortAttrName, refValue, isAsc);
+            pojo.buildSortAttr(sortAttrName, refValue, true);
         }
 
         List<Map<String, Object>> data = pojo.getData(getSqlSession());
@@ -257,7 +258,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     }
 
     /**
-     * Delete data. <br/>
+     * Delete data. <br>
      * 
      * @param session The session for delete
      * @param basicPojo The basic table
@@ -343,7 +344,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     }
 
     /**
-     * Update data. <br/>
+     * Update data. <br>
      * 
      * @param session The session for update
      * @param time The begin time
@@ -899,7 +900,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
     }
 
     /**
-     * Add Data. <br/>
+     * Add Data. <br>
      * 
      * @param session The session for add
      * @param curTime The begin time
@@ -940,16 +941,17 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
 
     @Override
     public InvRespEntity<List<Map<String, Object>>> commQueryGet(String resType, List<String> attrsList,
-            List<HashMap<String, Object>> joinAttrList, String filterDsc, String filterData, List<String> sortList,
-            String pageNumber, String pageCapacity) {
+            List<HashMap<String, Object>> joinAttrList, String filterDsc, List<String> sortList,
+            QueryParamModel queryParam) {
         InvMasterSlavesQueryPojo msPojo = new InvMasterSlavesQueryPojo(resType);
         msPojo.setResType(resType);
         String masterTableAlias = "A";
         // set the alias of basic table, the default is A
         msPojo.setTableAlias(masterTableAlias);
         // check parameters
-        checkAndSetMasterResType(resType, attrsList, fillFilterData(resType, masterTableAlias, filterDsc, filterData),
-                sortList, msPojo, pageNumber, pageCapacity);
+        checkAndSetMasterResType(resType, attrsList,
+                fillFilterData(resType, masterTableAlias, filterDsc, queryParam.getFilter()), sortList, msPojo,
+                queryParam.getPageNum(), queryParam.getPageSize());
 
         // check joinAttrList
         checkAndSetJoinResType(joinAttrList, msPojo);
@@ -1711,7 +1713,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
         if(fieldValue.getValue() instanceof List) {
             @SuppressWarnings("unchecked")
             List<Object> fieldValueList = (List<Object>)fieldValue.getValue();
-            return InvSqlFilterParser.replaceInValue(fieldValueList, dataType).replace("(", "").replace(")", "");
+            return InvSqlFilterParserUtil.replaceInValue(fieldValueList, dataType).replace("(", "").replace(")", "");
         } else {
             return StringEscapeUtils.escapeSql(fieldValue.getValue().toString());
         }
@@ -1725,9 +1727,9 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
             if(fieldValueList.isEmpty()) {
                 throw new IllegalArgumentException("Json value is empty." + ", Field:" + field);
             }
-            InvSqlFilterParser.checkDataType(dataType, fieldValueList.get(0));
+            InvSqlFilterParserUtil.checkDataType(dataType, fieldValueList.get(0));
         } else {
-            InvSqlFilterParser.checkDataType(dataType, value);
+            InvSqlFilterParserUtil.checkDataType(dataType, value);
         }
     }
 
@@ -1821,7 +1823,7 @@ public class InvDataHandler extends AbstractHandler implements IInvDataHandler {
         private final Object value;
 
         /**
-         * Constructor<br/>
+         * Constructor<br>
          * 
          * @since SDNO 0.5
          * @param pos The position

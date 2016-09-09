@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,16 +19,16 @@ package org.openo.sdno.mss.combine.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.combine.intf.IInvRelationDataService;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.dao.intf.IInvRelationDataHandler;
+import org.openo.sdno.mss.dao.model.BaseModel;
 import org.openo.sdno.mss.dao.multi.DataSourceCtrler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Inventory relation data service class.<br/>
+ * Inventory relation data service class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -49,12 +49,10 @@ public class InvRelationDataService implements IInvRelationDataService {
 
     @Override
     public InvRespEntity<List<Map<String, Object>>> get(String bktName, final String relationType,
-            final String queryType, final String srcUuid, final String dstUuid, final String srcAttr,
-            final String dstAttr, final String serviceType, final String refUnique) {
+            final String refUnique, BaseModel baseModel) {
         DataSourceCtrler.add(bktName);
         try {
-            return relationDataHandler.get(relationType, queryType, srcUuid, dstUuid, srcAttr, dstAttr, serviceType,
-                    refUnique);
+            return relationDataHandler.get(relationType, refUnique, baseModel);
         } finally {
             DataSourceCtrler.remove();
         }
