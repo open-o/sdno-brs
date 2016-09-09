@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/brs/v1/sites",
+		"uri": "/openoapi/sdnobrs/v1/sites",
 		"method": "post",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

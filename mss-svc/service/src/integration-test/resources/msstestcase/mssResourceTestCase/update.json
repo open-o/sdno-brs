@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/objects/{objectId}",
+		"uri": "/openoapi/sdnomss/v1/buckets/{bucket-name}/resources/{resource-type-name}/objects/{objectId}",
 		"method": "put",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"},
 		"json":

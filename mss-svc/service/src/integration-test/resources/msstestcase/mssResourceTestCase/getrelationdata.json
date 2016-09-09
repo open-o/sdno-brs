@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri": "/rest/svc/mss/v2/buckets/{bucket-name}/resources/{resource-type-name}/relation-objects?filter={\"name\":\"ACController1\"}",
+		"uri": "/openoapi/sdnomss/v1/buckets/{bucket-name}/resources/{resource-type-name}/relation-objects?filter={\"name\":\"ACController1\"}",
 		"method": "get",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},

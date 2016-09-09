@@ -1,7 +1,7 @@
 {
 	"request":
 	{
-		"uri":"/rest/svc/mss/v2/buckets/brsdb/resources/site/statistics",
+		"uri":"/openoapi/sdnomss/v1/buckets/brsdb/resources/site/statistics",
 		"method": "get",
 		"headers":{"Content-Type":"application/json;charset=UTF-8"}
 	},
