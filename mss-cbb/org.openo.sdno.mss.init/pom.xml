@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.openo.sdno.brs</groupId>
             <artifactId>liquibasemodel</artifactId>
-            <version>0.0.1-RELEASE</version>
+            <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>

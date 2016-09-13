@@ -42,37 +42,37 @@ public class PropertiesUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    private static final String MYBAITS_PROPERTIES_PATH = "/META-INF/conf/bucket.properties";
+    private static PropertiesUtil INSTANCE = null;
 
-    private static String INVTABLEPREFIX = null;
+    private final String MYBAITS_PROPERTIES_PATH = "/META-INF/conf/bucket.properties";
 
-    private static String EXTENSIONTABLEPOSTFIX = null;
+    private String INVTABLEPREFIX = null;
 
-    private static String RELATIONTABLEPOSTFIX = null;
+    private String EXTENSIONTABLEPOSTFIX = null;
 
-    private static String CHANGESETAUTHOR = null;
+    private String RELATIONTABLEPOSTFIX = null;
 
-    private static String DEFAULTSCHEMA = null;
+    private String CHANGESETAUTHOR = null;
 
-    private static String[] BASICTABLEFIXEDCOLIMN = null;
+    private String DEFAULTSCHEMA = null;
 
-    private static String[] EXRENSIONTABLECOLUMN = null;
+    private String[] BASICTABLEFIXEDCOLIMN = null;
 
-    private static String[] EXTENDINDEXS = null;
+    private String[] EXRENSIONTABLECOLUMN = null;
 
-    private static String[] RELATIONTABLECOLUMN = null;
+    private String[] EXTENDINDEXS = null;
 
-    private static HashMap<String, Integer> RELATIONTYPEVALUES = null;
+    private String[] RELATIONTABLECOLUMN = null;
 
-    private static String[] RELATIONINDEXS = null;
+    private HashMap<String, Integer> RELATIONTYPEVALUES = null;
 
-    private static String INFOMODELPREFIX = null;
+    private String[] RELATIONINDEXS = null;
 
-    private static String DATAMODELPREFIX = null;
+    private String INFOMODELPREFIX = null;
 
-    private static String RELAMODELPREFIX = null;
+    private String DATAMODELPREFIX = null;
 
-    private static final PropertiesUtil INSTANCE = new PropertiesUtil();
+    private String RELAMODELPREFIX = null;
 
     private PropertiesUtil() {
         URL url = getClass().getResource(MYBAITS_PROPERTIES_PATH);
@@ -141,7 +141,11 @@ public class PropertiesUtil {
      * @return a singleton of PropertiesUtil.
      * @since SDNO 0.5
      */
-    public static PropertiesUtil getInstance() {
+    public synchronized static PropertiesUtil getInstance() {
+        if (INSTANCE == null)
+        {
+            INSTANCE = new PropertiesUtil();
+        }
         return INSTANCE;
     }
 
@@ -151,7 +155,7 @@ public class PropertiesUtil {
      * @param url the url of configure file.
      * @since SDNO 0.5
      */
-    private static void initProperties(URL url) {
+    private void initProperties(URL url) {
         if(null == url) {
             LOGGER.error("Can Load empty path.");
             return;
