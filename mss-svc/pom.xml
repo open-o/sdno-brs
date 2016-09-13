@@ -13,4 +13,7 @@
         <module>service</module>
         <module>deployment</module>
     </modules>
+    <properties>
+        <package.name>mssservice</package.name>
+    </properties>
 </project>

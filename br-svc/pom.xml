@@ -13,4 +13,7 @@
         <module>service</module>
         <module>deployment</module>
     </modules>
+    <properties>
+        <package.name>brsservice</package.name>
+    </properties>
 </project>

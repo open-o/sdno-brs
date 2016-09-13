@@ -127,4 +127,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>${package.name}</finalName>
+    </build>
 </project>
