@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Index.<br/>
+ * This is xml model class of Index.<br>
  * <p>
  * This xml model has two attributes: name: the index name value: the index field name isunique:
  * whether this filed is unique
@@ -61,7 +61,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     protected Boolean isunique;
 
     /**
-     * Get name attribute.<br/>
+     * Get name attribute.<br>
      * 
      * @return name attribute
      * @since SDNO 0.5
@@ -71,7 +71,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Set name attribute.<br/>
+     * Set name attribute.<br>
      * 
      * @param value name content
      * @since SDNO 0.5
@@ -81,7 +81,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get value attribute.<br/>
+     * Get value attribute.<br>
      * 
      * @return value attribute
      * @since SDNO 0.5
@@ -91,7 +91,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Set value attribute.<br/>
+     * Set value attribute.<br>
      * 
      * @param value value
      * @since SDNO 0.5
@@ -101,7 +101,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get isunique attribute.<br/>
+     * Get isunique attribute.<br>
      * 
      * @return isunique attribute
      * @since SDNO 0.5
@@ -111,7 +111,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Set isunique attribute.<br/>
+     * Set isunique attribute.<br>
      * 
      * @param value isunique
      * @since SDNO 0.5
@@ -121,7 +121,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Check whether this object equals to other object.<br/>
+     * Check whether this object equals to other object.<br>
      * 
      * @param thisLocator the ObjectLocator of this object
      * @param thatLocator the ObjectLocator of other object
@@ -167,7 +167,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Check whether current index object equals to other object.<br/>
+     * Check whether current index object equals to other object.<br>
      * 
      * @param object other Object
      * @return true if current index object equals to other index object,false otherwise
@@ -180,7 +180,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get hash code by locator and strategy.<br/>
+     * Get hash code by locator and strategy.<br>
      * 
      * @param locator ObjectLocator object
      * @param strategy HashCodeStrategy object
@@ -209,7 +209,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get hash code by INSTANCE HashCodeStrategy.<br/>
+     * Get hash code by INSTANCE HashCodeStrategy.<br>
      * 
      * @return hash code of current object
      * @since SDNO 0.5
@@ -220,7 +220,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get xml description of current index object.<br/>
+     * Get xml description of current index object.<br>
      * 
      * @return xml description of current object
      * @since SDNO 0.5
@@ -233,7 +233,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Append current object to buffer.<br/>
+     * Append current object to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param stringBuilder String buffer current object appended to
@@ -249,7 +249,7 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Append all attributes to buffer.<br/>
+     * Append all attributes to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param buffer String buffer all attributes appended to

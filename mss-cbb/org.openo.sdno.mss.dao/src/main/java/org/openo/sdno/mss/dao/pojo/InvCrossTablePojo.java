@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
 /**
- * POJO for Basic and Extension table, usually use for combine table query. <br/>
+ * POJO for Basic and Extension table, usually use for combine table query. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-22
@@ -67,7 +67,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     public static final int DEFAULT_READ_COUN = 100000;
 
     /**
-     * Constructor <br/>
+     * Constructor <br>
      * 
      * @since SDNO 0.5
      * @param resType Resurce type.
@@ -84,7 +84,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Get all the attributes. <br/>
+     * Get all the attributes. <br>
      * 
      * @param resType Resurce type.
      * @param hasHiddenAttr True if any attribute is hidden.
@@ -117,7 +117,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Build filter string.<br/>
+     * Build filter string.<br>
      * 
      * @param field Field.
      * @param dt Data type.
@@ -146,7 +146,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Create filter. <br/>
+     * Create filter. <br>
      * 
      * @param filter Filter
      * @return this.
@@ -158,7 +158,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Build filter extension. <br/>
+     * Build filter extension. <br>
      * 
      * @param filterEx Filter extension.
      * @return this.
@@ -170,7 +170,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Build filter description. <br/>
+     * Build filter description. <br>
      * 
      * @param filterDesc Filter description.
      * @return this.
@@ -182,7 +182,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Build UUIDfilter. <br/>
+     * Build UUIDfilter. <br>
      * 
      * @param uuid UUID.
      * @return this.
@@ -194,7 +194,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * build device UUID. <br/>
+     * build device UUID. <br>
      * 
      * @param device Device.
      * @return this.

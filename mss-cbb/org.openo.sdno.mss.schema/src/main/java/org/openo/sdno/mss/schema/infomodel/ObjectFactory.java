@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each
  * Java content interface and Java element interface
- * generated in the org.openo.sdno.model.infomodel package. <br/>
+ * generated in the org.openo.sdno.model.infomodel package. <br>
  * <p>
  * An ObjectFactory allows you to construct new instances of the Java representation for XML
  * content. The Java representation of XML content can consist of schema derived interfaces and
@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 public class ObjectFactory {
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes
      * for package: org.openo.sdno.model.infomodel
@@ -49,7 +49,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Extension instance.<br/>
+     * Create a Extension instance.<br>
      * 
      * @return Extension instance created
      * @since SDNO 0.5
@@ -59,7 +59,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Extension.Property instance.<br/>
+     * Create a Extension.Property instance.<br>
      * 
      * @return Extension.Property instance created
      * @since SDNO 0.5
@@ -69,7 +69,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Infomodel instance.<br/>
+     * Create a Infomodel instance.<br>
      * 
      * @return Infomodel instance created
      * @since SDNO 0.5
@@ -79,7 +79,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Basic instance.<br/>
+     * Create a Basic instance.<br>
      * 
      * @return Basic instance created
      * @since SDNO 0.5
@@ -89,7 +89,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a infomodel.Property instance.<br/>
+     * Create a infomodel.Property instance.<br>
      * 
      * @return infomodel.Property instance created
      * @since SDNO 0.5
@@ -99,7 +99,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Inventory instance.<br/>
+     * Create a Inventory instance.<br>
      * 
      * @return Inventory instance created
      * @since SDNO 0.5

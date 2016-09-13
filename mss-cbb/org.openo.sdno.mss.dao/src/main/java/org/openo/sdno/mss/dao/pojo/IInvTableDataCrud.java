@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 /**
- * Functions for database operation. <br/>
+ * Functions for database operation. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -30,7 +30,7 @@ import org.apache.ibatis.session.SqlSession;
 public interface IInvTableDataCrud {
 
     /**
-     * Insert data to database. <br/>
+     * Insert data to database. <br>
      * 
      * @param session SQL session.
      * @return Status code of operation.
@@ -39,7 +39,7 @@ public interface IInvTableDataCrud {
     int addData(SqlSession session);
 
     /**
-     * Delete data. <br/>
+     * Delete data. <br>
      * 
      * @param session SQL session
      * @return Status code of operation.
@@ -48,7 +48,7 @@ public interface IInvTableDataCrud {
     int removeData(SqlSession session);
 
     /**
-     * Batch deleting of the data. <br/>
+     * Batch deleting of the data. <br>
      * 
      * @param session SQL session.
      * @return Status code of operation.
@@ -57,7 +57,7 @@ public interface IInvTableDataCrud {
     int batchDelete(SqlSession session);
 
     /**
-     * Update. <br/>
+     * Update. <br>
      * 
      * @param session SQL session.
      * @return Status code of operation.
@@ -66,7 +66,7 @@ public interface IInvTableDataCrud {
     int updateData(SqlSession session);
 
     /**
-     * Get data from database. <br/>
+     * Get data from database. <br>
      * 
      * @param session SQL session.
      * @return

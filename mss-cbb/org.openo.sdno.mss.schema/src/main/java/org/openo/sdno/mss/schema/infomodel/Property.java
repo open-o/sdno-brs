@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of basic Property in info model.<br/>
+ * This is xml model class of basic Property in info model.<br>
  * <p>
  * This xml model has six attributes: name: the name of property type: the data type of property
  * length: the length of property scale: the scale of property encrypt: the encrypt of property
@@ -62,7 +62,7 @@ public class Property implements Serializable {
     protected String defaultfield;
 
     /**
-     * Get name attribute.<br/>
+     * Get name attribute.<br>
      * 
      * @return name attribute
      * @since SDNO 0.5
@@ -72,7 +72,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set name attribute.<br/>
+     * Set name attribute.<br>
      * 
      * @param value String object
      * @since SDNO 0.5
@@ -82,7 +82,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Get type attribute.<br/>
+     * Get type attribute.<br>
      * 
      * @return type attribute
      * @since SDNO 0.5
@@ -92,7 +92,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set type attribute.<br/>
+     * Set type attribute.<br>
      * 
      * @param value Datatype object
      * @since SDNO 0.5
@@ -102,7 +102,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Get length attribute.<br/>
+     * Get length attribute.<br>
      * 
      * @return length attribute
      * @since SDNO 0.5
@@ -112,7 +112,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set length attribute.<br/>
+     * Set length attribute.<br>
      * 
      * @param value BigInteger Object
      * @since SDNO 0.5
@@ -122,7 +122,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Get scale attribute.<br/>
+     * Get scale attribute.<br>
      * 
      * @return scale attribute
      * @since SDNO 0.5
@@ -132,7 +132,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set scale attribute.<br/>
+     * Set scale attribute.<br>
      * 
      * @param value BigInteger Object
      * @since SDNO 0.5
@@ -142,7 +142,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Get encrypt attribute.<br/>
+     * Get encrypt attribute.<br>
      * 
      * @return encrypt attribute.
      * @since SDNO 0.5
@@ -152,7 +152,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set encrypt attribute.<br/>
+     * Set encrypt attribute.<br>
      * 
      * @param value BigInteger Object
      * @since SDNO 0.5
@@ -162,7 +162,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Get _default attribute.<br/>
+     * Get _default attribute.<br>
      * 
      * @return _default attribute
      * @since SDNO 0.5
@@ -172,7 +172,7 @@ public class Property implements Serializable {
     }
 
     /**
-     * Set _default attribute.<br/>
+     * Set _default attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5

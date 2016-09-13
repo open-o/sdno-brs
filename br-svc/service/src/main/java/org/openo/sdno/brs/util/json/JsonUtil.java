@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 import net.sf.json.JSON;
 
 /**
- * JSON util class.<br/>
+ * JSON util class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -57,7 +57,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Parsing JSON string. Use for the service interface to parse request data.<br/>
+     * Parsing JSON string. Use for the service interface to parse request data.<br>
      * 
      * @param jsonstr request data
      * @param type target type
@@ -71,7 +71,7 @@ public final class JsonUtil {
 
     /**
      * Parsing JSON string(For generic object types). Use for the service interface to parse request
-     * data.<br/>
+     * data.<br>
      * 
      * @param jsonstr request data
      * @param type target type
@@ -84,7 +84,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Converts an object to a JSON format string.<br/>
+     * Converts an object to a JSON format string.<br>
      * 
      * @param srcObj object to be converted
      * @return JSON string
@@ -99,7 +99,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Get the MAPPER.<br/>
+     * Get the MAPPER.<br>
      * 
      * @return MAPPER
      * @since SDNO 0.5
@@ -109,7 +109,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Check two JSON objects lists are equal or not.<br/>
+     * Check two JSON objects lists are equal or not.<br>
      * 
      * @param jsonObj list of JSON objects
      * @param jsonObjAnother list of JSON objects
@@ -133,7 +133,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Check two JSON objects are equal or not.<br/>
+     * Check two JSON objects are equal or not.<br>
      * 
      * @param obj JSON object
      * @param anotherObj JSON object
@@ -162,7 +162,7 @@ public final class JsonUtil {
     }
 
     /**
-     * Check two JSON objects are equal or not.<br/>
+     * Check two JSON objects are equal or not.<br>
      * 
      * @param jsonObj JSON object
      * @param jsonObjAnother JSON object

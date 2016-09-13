@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.openo.sdno.mss.dao.model.entity.RelaGraphRedisEntity;
 
 /**
- * Relation Graph Manage class.<br/>
+ * Relation Graph Manage class.<br>
  * <p>
  * </p>
  * 
@@ -43,7 +43,7 @@ public class RelationGraphMgr {
     private ModelManagement modelMgr = null;
 
     /**
-     * Set ModelManagement attribute.<br/>
+     * Set ModelManagement attribute.<br>
      * 
      * @param modelMgr ModelManagement attribute
      * @since SDNO 0.5
@@ -53,7 +53,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Get RelaGraphRedisEntity instance.<br/>
+     * Get RelaGraphRedisEntity instance.<br>
      * 
      * @param bktName bucket name
      * @return RelaGraphRedisEntity instance
@@ -76,7 +76,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Find Path between src_res and dst_res.<br/>
+     * Find Path between src_res and dst_res.<br>
      * 
      * @param bktName bucket name
      * @param srcRes source resource name
@@ -89,7 +89,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Get resource types which have COMPOSITION relation with res.<br/>
+     * Get resource types which have COMPOSITION relation with res.<br>
      * 
      * @param bktName bucket name
      * @param res resource name
@@ -101,7 +101,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Get all resource types which are source resource type of given resource type.<br/>
+     * Get all resource types which are source resource type of given resource type.<br>
      * 
      * @param bktName bucket name
      * @param res resource name
@@ -113,7 +113,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Get all resource types which have non-COMPOSITION relation with given res.<br/>
+     * Get all resource types which have non-COMPOSITION relation with given res.<br>
      * 
      * @param bktName bucket name
      * @param res resource name
@@ -125,7 +125,7 @@ public class RelationGraphMgr {
     }
 
     /**
-     * Check whether res is end of the graph Entity.<br/>
+     * Check whether res is end of the graph Entity.<br>
      * 
      * @param bktName bucket name
      * @param res resource name

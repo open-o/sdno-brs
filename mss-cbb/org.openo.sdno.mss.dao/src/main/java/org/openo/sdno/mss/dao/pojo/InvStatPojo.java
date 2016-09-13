@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.mss.dao.pojo;
 import org.apache.ibatis.session.SqlSession;
 
 /**
- * Inventory count PoJo. <br/>
+ * Inventory count PoJo. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -32,7 +32,7 @@ public class InvStatPojo extends InvBasicTablePojo {
     private String countAttrName = "*";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -42,7 +42,7 @@ public class InvStatPojo extends InvBasicTablePojo {
     }
 
     /**
-     * Set count attribute name. <br/>
+     * Set count attribute name. <br>
      * 
      * @param countAttrName
      * @since SDNO 0.5
@@ -52,7 +52,7 @@ public class InvStatPojo extends InvBasicTablePojo {
     }
 
     /**
-     * Get count attribute name. <br/>
+     * Get count attribute name. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -62,7 +62,7 @@ public class InvStatPojo extends InvBasicTablePojo {
     }
 
     /**
-     * Count. <br/>
+     * Count. <br>
      * 
      * @param session SQL session.
      * @return count

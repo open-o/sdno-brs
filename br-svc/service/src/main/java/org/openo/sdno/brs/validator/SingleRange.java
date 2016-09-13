@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.openo.sdno.brs.validator;
 
 /**
- * Class of single range, such as from 1 to 4, or just one digit.<br/>
+ * Class of single range, such as from 1 to 4, or just one digit.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -33,7 +33,7 @@ public class SingleRange implements Cloneable {
     private int mEnd;
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      */
@@ -42,7 +42,7 @@ public class SingleRange implements Cloneable {
     }
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      * @param start Start value
@@ -54,7 +54,7 @@ public class SingleRange implements Cloneable {
     }
 
     /**
-     * Get intersection with other single range.<br/>
+     * Get intersection with other single range.<br>
      * 
      * @param range The intersection to get intersection with
      * @return The intersection range
@@ -108,7 +108,7 @@ public class SingleRange implements Cloneable {
     }
 
     /**
-     * Check if the value is contained in the range or not.<br/>
+     * Check if the value is contained in the range or not.<br>
      * 
      * @param value The value to be checked
      * @return True if contains, false if not.
@@ -144,7 +144,7 @@ public class SingleRange implements Cloneable {
     }
 
     /**
-     * Parse range string and build a SingleRange object.<br/>
+     * Parse range string and build a SingleRange object.<br>
      * 
      * @param rangeStr Range string
      * @param spliter Spliter
@@ -176,7 +176,7 @@ public class SingleRange implements Cloneable {
     }
 
     /**
-     * Parse range string and build a SingleRange object.<br/>
+     * Parse range string and build a SingleRange object.<br>
      * 
      * @param rangeStr Range string
      * @return SingleRange object

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.openo.sdno.mss.dao.util.intf.ParaCallable;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 
 /**
- * Inventory type convert. <br/>
+ * Inventory type convert. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -43,7 +43,7 @@ public final class InvTypeConvertor {
     private static final InvTypeConvertor INSTANCE = new InvTypeConvertor();
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -99,7 +99,7 @@ public final class InvTypeConvertor {
     }
 
     /**
-     * Get instance. <br/>
+     * Get instance. <br>
      * 
      * @return INSTANCE
      * @since SDNO 0.5
@@ -109,7 +109,7 @@ public final class InvTypeConvertor {
     }
 
     /**
-     * Data convertion. <br/>
+     * Data convertion. <br>
      * 
      * @param type Type.
      * @param value Value.
@@ -125,7 +125,7 @@ public final class InvTypeConvertor {
     }
 
     /**
-     * data convert. <br/>
+     * data convert. <br>
      * 
      * @param resType Resource type.
      * @param attrName Attribute name.

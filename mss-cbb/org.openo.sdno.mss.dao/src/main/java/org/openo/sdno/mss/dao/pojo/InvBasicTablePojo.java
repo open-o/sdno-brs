@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 
 /**
- * Basic table of inventory. <br/>
+ * Basic table of inventory. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -60,7 +60,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     private List<InvTableRowPojo> tableRowList = null;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -76,7 +76,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Copy basic attributes. <br/>
+     * Copy basic attributes. <br>
      * 
      * @return Copy
      * @since SDNO 0.5
@@ -93,7 +93,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Get all include hidden attributes in basic table. <br/>
+     * Get all include hidden attributes in basic table. <br>
      * 
      * @param resType Resource type.
      * @return Attribute map.
@@ -113,7 +113,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Initialize attribute. <br/>
+     * Initialize attribute. <br>
      * 
      * @param attributes Attributes.
      * @return this
@@ -151,7 +151,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Build attribute value. <br/>
+     * Build attribute value. <br>
      * 
      * @param valueMap Value map.
      * @return this.
@@ -184,7 +184,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Build filter condition based on uuid. <br/>
+     * Build filter condition based on uuid. <br>
      * 
      * @param uuid UUID.
      * @return this.
@@ -233,7 +233,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Batch update. <br/>
+     * Batch update. <br>
      * 
      * @param session SQL session.
      * @param basicRecords Basic records.
@@ -264,7 +264,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Analysis data. <br/>
+     * Analysis data. <br>
      * 
      * @param valueMap Value map.
      * @return Row data

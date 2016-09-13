@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +27,7 @@ import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
 /**
- * Inventory attribute entity POJO. <br/>
+ * Inventory attribute entity POJO. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -57,7 +57,7 @@ public class InvAttrEntityPojo {
     private Datatype dataType;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param attrName
@@ -67,7 +67,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param attrName
@@ -79,7 +79,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param property
@@ -123,7 +123,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Set value.<br/>
+     * Set value.<br>
      * 
      * @param attrValue
      * @return
@@ -135,7 +135,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Set name of attribute. <br/>
+     * Set name of attribute. <br>
      * 
      * @param attrName
      * @return
@@ -164,7 +164,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Get the attribute name. <br/>
+     * Get the attribute name. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -174,7 +174,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Get the attribute. <br/>
+     * Get the attribute. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -184,7 +184,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Get attribute type. <br/>
+     * Get attribute type. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -194,7 +194,7 @@ public class InvAttrEntityPojo {
     }
 
     /**
-     * Get data type. <br/>
+     * Get data type. <br>
      * 
      * @return Data type.
      * @since SDNO 0.5

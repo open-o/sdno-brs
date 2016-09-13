@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import org.openo.sdno.mss.dao.exception.GeneralException;
 import org.openo.sdno.mss.dao.model.entity.ModelRedisEntity;
 
 /**
- * This is class of model Jedis Cache.<br/>
+ * This is class of model Jedis Cache.<br>
  * <p>
  * </p>
  * 
@@ -46,7 +46,7 @@ public class ModelJedisCache {
     }
 
     /**
-     * Get ModelJedisCache singleton instance.<br/>
+     * Get ModelJedisCache singleton instance.<br>
      * 
      * @return ModelJedisCache singleton instance
      * @since SDNO 0.5
@@ -69,7 +69,7 @@ public class ModelJedisCache {
     }
 
     /**
-     * Get ModelRedisEntity instance.<br/>
+     * Get ModelRedisEntity instance.<br>
      * 
      * @param bktName bucket name
      * @return ModelRedisEntity instance
@@ -80,7 +80,7 @@ public class ModelJedisCache {
     }
 
     /**
-     * Put ModelRedisEntity instance.<br/>
+     * Put ModelRedisEntity instance.<br>
      * 
      * @param bktName bucket name
      * @param entity ModelRedisEntity object
@@ -91,7 +91,7 @@ public class ModelJedisCache {
     }
 
     /**
-     * Get RedisKey of Bucket.<br/>
+     * Get RedisKey of Bucket.<br>
      * 
      * @param bktName bucket name
      * @return RedisKey of Bucket

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.dao.multi;
 
 /**
- * Inventory database information. <br/>
+ * Inventory database information. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -25,7 +25,7 @@ package org.openo.sdno.mss.dao.multi;
 public interface IDBInfo {
 
     /**
-     * Get database driver.<br/>
+     * Get database driver.<br>
      * 
      * @return
      * @since SDNO 0.5
@@ -33,7 +33,7 @@ public interface IDBInfo {
     String getDriver();
 
     /**
-     * Get URL of database. <br/>
+     * Get URL of database. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -41,7 +41,7 @@ public interface IDBInfo {
     String getUrl();
 
     /**
-     * Get database user name. <br/>
+     * Get database user name. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -49,7 +49,7 @@ public interface IDBInfo {
     String getUserName();
 
     /**
-     * Get password of database. <br/>
+     * Get password of database. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -57,7 +57,7 @@ public interface IDBInfo {
     String getPassword();
 
     /**
-     * Get name of database. <br/>
+     * Get name of database. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -65,7 +65,7 @@ public interface IDBInfo {
     String getDBName();
 
     /**
-     * Set database name. <br/>
+     * Set database name. <br>
      * 
      * @param dbName
      * @since SDNO 0.5
@@ -73,14 +73,14 @@ public interface IDBInfo {
     void setDBName(String dbName);
 
     /**
-     * Clean plaintext password in buffer. <br/>
+     * Clean plaintext password in buffer. <br>
      * 
      * @since SDNO 0.5
      */
     void destroyPassword();
 
     /**
-     * Database initiation. <br/>
+     * Database initiation. <br>
      * 
      * @param path
      * @since SDNO 0.5

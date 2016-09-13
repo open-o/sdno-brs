@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,9 +22,7 @@ import org.openo.sdno.mss.dao.multi.DataSourceCtrler;
 import org.openo.sdno.mss.dao.util.SpringContextUtil;
 
 /**
- * Relation Graph Manager Util class.<br/>
- * <p>
- * </p>
+ * Relation Graph Manager Util class.<br>
  * 
  * @author
  * @version SDNO 0.5 May 20, 2016
@@ -42,7 +40,7 @@ public final class RelationGraphMgrUtil {
     private RelationGraphMgr relaGraphMgr = null;
 
     /**
-     * Get Singleton instance of RelationGraphMgrUtil.<br/>
+     * Get Singleton instance of RelationGraphMgrUtil.<br>
      * 
      * @return Singleton instance of RelationGraphMgrUtil
      * @since SDNO 0.5
@@ -52,7 +50,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Get RelationGraphMgr instance.<br/>
+     * Get RelationGraphMgr instance.<br>
      * 
      * @return RelationGraphMgr instance
      * @since SDNO 0.5
@@ -70,7 +68,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Get bucket name.<br/>
+     * Get bucket name.<br>
      * 
      * @return bucket name
      * @since SDNO 0.5
@@ -80,7 +78,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Find Path between src_res and dst_res.<br/>
+     * Find Path between src_res and dst_res.<br>
      * 
      * @param srcRes source res name
      * @param dstRes destination res name
@@ -92,7 +90,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Get resource types which have COMPOSITION relation with given res.<br/>
+     * Get resource types which have COMPOSITION relation with given res.<br>
      * 
      * @param res resource type
      * @return resource types which have COMPOSITION relation with given res
@@ -103,7 +101,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Get all resource types which are source resource type of given resource type.<br/>
+     * Get all resource types which are source resource type of given resource type.<br>
      * 
      * @param res resource type
      * @return all resource types which are source resource type of given resource type
@@ -114,7 +112,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Get all resource types which have non-COMPOSITION relation with given res.<br/>
+     * Get all resource types which have non-COMPOSITION relation with given res.<br>
      * 
      * @param res resource type
      * @return all resource types which have non-COMPOSITION relation with given res
@@ -125,7 +123,7 @@ public final class RelationGraphMgrUtil {
     }
 
     /**
-     * Check whether res is end of the graph Entity.<br/>
+     * Check whether res is end of the graph Entity.<br>
      * 
      * @param res resource type
      * @return true if res is end of the graph,false otherwise

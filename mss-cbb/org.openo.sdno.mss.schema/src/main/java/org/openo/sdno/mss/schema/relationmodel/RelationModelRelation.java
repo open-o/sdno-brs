@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Relation.<br/>
+ * This is xml model class of Relation.<br>
  * <p>
  * This xml model has four attributes: src: the source data model name dst: the destination data
  * model name type: the relation type owner: the owner of the relation
@@ -64,7 +64,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     protected String owner;
 
     /**
-     * Get src attribute.<br/>
+     * Get src attribute.<br>
      * 
      * @return src attribute
      * @since SDNO 0.5
@@ -74,7 +74,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set src attribute.<br/>
+     * Set src attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -84,7 +84,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get dst attribute.<br/>
+     * Get dst attribute.<br>
      * 
      * @return dst attribute
      * @since SDNO 0.5
@@ -94,7 +94,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set dst attribute.<br/>
+     * Set dst attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -104,7 +104,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get type attribute.<br/>
+     * Get type attribute.<br>
      * 
      * @return type attribute
      * @since SDNO 0.5
@@ -114,7 +114,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set type attribute.<br/>
+     * Set type attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -124,7 +124,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get owner attribute.<br/>
+     * Get owner attribute.<br>
      * 
      * @return owner attribute
      * @since SDNO 0.5
@@ -134,7 +134,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set owner attribute.<br/>
+     * Set owner attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -144,7 +144,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Check whether this object equals to other object.<br/>
+     * Check whether this object equals to other object.<br>
      * 
      * @param thisLocator the ObjectLocator of this object
      * @param thatLocator the ObjectLocator of other object
@@ -206,7 +206,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Check whether this object equals to other object.<br/>
+     * Check whether this object equals to other object.<br>
      * 
      * @param object other object
      * @return true if this object equals to other object
@@ -219,7 +219,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get hash code by locator and strategy.<br/>
+     * Get hash code by locator and strategy.<br>
      * 
      * @param locator ObjectLocator object
      * @param strategy HashCodeStrategy object
@@ -252,7 +252,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get hash code by INSTANCE HashCodeStrategy.<br/>
+     * Get hash code by INSTANCE HashCodeStrategy.<br>
      * 
      * @return hash code of this object
      * @since SDNO 0.5
@@ -263,7 +263,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get xml description of current Relation object.<br/>
+     * Get xml description of current Relation object.<br>
      * 
      * @return xml description of current object
      * @since SDNO 0.5
@@ -276,7 +276,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Append current object to buffer.<br/>
+     * Append current object to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param buffer String buffer current object appended to
@@ -292,7 +292,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Append all attributes to buffer.<br/>
+     * Append all attributes to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param buffer String buffer all attributes appended to

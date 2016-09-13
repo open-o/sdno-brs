@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -49,7 +49,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Restful interface class of ManagedElement, provide CRUD service of ManagedElement resource.<br/>
+ * Restful interface class of ManagedElement, provide CRUD service of ManagedElement resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -60,7 +60,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ManagedElementResource.class);
 
     /**
-     * Get managed element from db.<br/>
+     * Get managed element from db.<br>
      * 
      * @param objectId uuid of object need to query.
      * @param request context of http request.
@@ -85,7 +85,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     }
 
     /**
-     * Paged query ME list.<br/>
+     * Paged query ME list.<br>
      * 
      * @param tenantID uuid of object need to query.
      * @param request context of http request.
@@ -118,7 +118,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     }
 
     /**
-     * Add ME to db.<br/>
+     * Add ME to db.<br>
      * 
      * @param request context of http request.
      * @return object get from data base.
@@ -158,7 +158,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     }
 
     /**
-     * Update ME by uuid.<br/>
+     * Update ME by uuid.<br>
      * 
      * @param objectId uuid of the ME need to update.
      * @param request context of http request.
@@ -204,7 +204,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     }
 
     /**
-     * Delete object by uuid.<br/>
+     * Delete object by uuid.<br>
      * 
      * @param objectId uuid of the object need to delete.
      * @param request context of http request.
@@ -245,7 +245,7 @@ public class ManagedElementResource extends IResource<IManagedElementService> {
     }
 
     /**
-     * Get data from request.<br/>
+     * Get data from request.<br>
      * 
      * @param strRequest request string.
      * @param strKey key of the value.

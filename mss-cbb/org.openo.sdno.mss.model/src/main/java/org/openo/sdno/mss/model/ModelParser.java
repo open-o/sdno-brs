@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
  * Model parser class, 1. call construct function, 2. call parser to parse the xml file, 3. get the
- * parsed result. <br/>
+ * parsed result. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -39,7 +39,7 @@ public class ModelParser {
 
     /**
      * Construction function, use default file path.
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param models model file.
@@ -58,7 +58,7 @@ public class ModelParser {
     }
 
     /**
-     * Specify the model. <br/>
+     * Specify the model. <br>
      * 
      * @since SDNO 0.5
      */
@@ -67,7 +67,7 @@ public class ModelParser {
     }
 
     /**
-     * Get infomodel parsing result. <br/>
+     * Get infomodel parsing result. <br>
      * 
      * @return result contain infomodel.
      * @since SDNO 0.5
@@ -77,7 +77,7 @@ public class ModelParser {
     }
 
     /**
-     * Get datamodel parsing result. <br/>
+     * Get datamodel parsing result. <br>
      * 
      * @return result contain datamodel.
      * @since SDNO 0.5
@@ -87,7 +87,7 @@ public class ModelParser {
     }
 
     /**
-     * Get relation model parsing result. <br/>
+     * Get relation model parsing result. <br>
      * 
      * @return result contain relation model.
      * @since SDNO 0.5

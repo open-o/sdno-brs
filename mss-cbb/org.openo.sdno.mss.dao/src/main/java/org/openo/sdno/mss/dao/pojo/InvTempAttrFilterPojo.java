@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +27,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
 /**
- * Inventory temporary filter PoJo. <br/>
+ * Inventory temporary filter PoJo. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -52,7 +52,7 @@ public class InvTempAttrFilterPojo {
     public static final int BATCH_COMMIT_CNT = 10000;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param attrName Attribute name.
@@ -72,7 +72,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -89,7 +89,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Build value. <br/>
+     * Build value. <br>
      * 
      * @param value Value
      * @return this
@@ -101,7 +101,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Create temporary table. <br/>
+     * Create temporary table. <br>
      * 
      * @param session SQL session.
      * @since SDNO 0.5
@@ -112,7 +112,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Add data. <br/>
+     * Add data. <br>
      * 
      * @param session SQL session.
      * @return Operation result.
@@ -123,7 +123,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Batch insert. <br/>
+     * Batch insert. <br>
      * 
      * @param session SQL session.
      * @param attrValueList Attribute value list.
@@ -147,7 +147,7 @@ public class InvTempAttrFilterPojo {
     }
 
     /**
-     * Delete temporary table. <br/>
+     * Delete temporary table. <br>
      * 
      * @param session SQL session.
      * @since SDNO 0.5

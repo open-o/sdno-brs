@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 
 /**
- * Interface of mss service proxy.<br/>
+ * Interface of mss service proxy.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -28,7 +28,7 @@ import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 public interface IMSSProxy {
 
     /**
-     * Get resource data.<br/>
+     * Get resource data.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -40,7 +40,7 @@ public interface IMSSProxy {
     RestfulResponse getResource(String bucketName, String resourceTypeName, String objectID) throws ServiceException;
 
     /**
-     * Get relation data.<br/>
+     * Get relation data.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -55,7 +55,7 @@ public interface IMSSProxy {
             String dstIds) throws ServiceException;
 
     /**
-     * Batch get relation data.<br/>
+     * Batch get relation data.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -71,7 +71,7 @@ public interface IMSSProxy {
             int pagesize, int pagenum) throws ServiceException;
 
     /**
-     * Batch get resource datas.<br/>
+     * Batch get resource datas.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -87,7 +87,7 @@ public interface IMSSProxy {
             int pagesize, int pagenum) throws ServiceException;
 
     /**
-     * Batch add resources.<br/>
+     * Batch add resources.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -99,7 +99,7 @@ public interface IMSSProxy {
     RestfulResponse addResources(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
 
     /**
-     * Update the resource.<br/>
+     * Update the resource.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -113,7 +113,7 @@ public interface IMSSProxy {
             throws ServiceException;
 
     /**
-     * Delete resource from db.<br/>
+     * Delete resource from db.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -125,7 +125,7 @@ public interface IMSSProxy {
     RestfulResponse deleteResource(String bucketName, String resourceTypeName, String objectId) throws ServiceException;
 
     /**
-     * Delete relation from db.<br/>
+     * Delete relation from db.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -140,7 +140,7 @@ public interface IMSSProxy {
             String strDstType) throws ServiceException;
 
     /**
-     * Create relation.<br/>
+     * Create relation.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -152,7 +152,7 @@ public interface IMSSProxy {
     RestfulResponse createRelation(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
 
     /**
-     * Check if the given object exist.<br/>
+     * Check if the given object exist.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
@@ -164,7 +164,7 @@ public interface IMSSProxy {
     RestfulResponse checkObjExsit(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
 
     /**
-     * Get ME by relation.<br/>
+     * Get ME by relation.<br>
      * 
      * @param bucketName name of bucket.
      * @param siteResTypeName name of resource type of site.
@@ -178,7 +178,7 @@ public interface IMSSProxy {
             String dstIds) throws ServiceException;
 
     /**
-     * Count common query.<br/>
+     * Count common query.<br>
      * 
      * @param bucketName name of bucket.
      * @param resourceTypeName name of resource type.
@@ -192,7 +192,7 @@ public interface IMSSProxy {
             throws ServiceException;
 
     /**
-     * Get resource list which match the filter condition.<br/>
+     * Get resource list which match the filter condition.<br>
      * 
      * @param bucketName name of bucket.
      * @param resourceTypeName name of resource type.

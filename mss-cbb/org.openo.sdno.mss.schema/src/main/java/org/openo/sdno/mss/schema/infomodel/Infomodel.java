@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of infomodel in info model.<br/>
+ * This is xml model class of infomodel in info model.<br>
  * <p>
  * This xml model has five attributes: basic: basic property of info model extension: extension
  * property of info model name: the name of info model datamodel: the name of data model related to
@@ -60,7 +60,7 @@ public class Infomodel implements Serializable {
     protected BigDecimal version;
 
     /**
-     * Get basic attribute.<br/>
+     * Get basic attribute.<br>
      * 
      * @return basic attribute
      * @since SDNO 0.5
@@ -70,7 +70,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Set basic attribute.<br/>
+     * Set basic attribute.<br>
      * 
      * @param value basic object
      * @since SDNO 0.5
@@ -80,7 +80,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Get extension attribute.<br/>
+     * Get extension attribute.<br>
      * 
      * @return extension attribute
      * @since SDNO 0.5
@@ -90,7 +90,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Set extension attribute.<br/>
+     * Set extension attribute.<br>
      * 
      * @param value Extension object
      * @since SDNO 0.5
@@ -100,7 +100,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Get name attribute.<br/>
+     * Get name attribute.<br>
      * 
      * @return name attribute
      * @since SDNO 0.5
@@ -110,7 +110,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Set name attribute.<br/>
+     * Set name attribute.<br>
      * 
      * @param value String
      * @since SDNO 0.5
@@ -120,7 +120,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Get datamodel attribute.<br/>
+     * Get datamodel attribute.<br>
      * 
      * @return datamodel attribute
      * @since SDNO 0.5
@@ -130,7 +130,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Set datamodel attribute.<br/>
+     * Set datamodel attribute.<br>
      * 
      * @param value String
      * @since SDNO 0.5
@@ -140,7 +140,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Get Version attribute.<br/>
+     * Get Version attribute.<br>
      * 
      * @return Version attribute
      * @since SDNO 0.5
@@ -150,7 +150,7 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Set Version attribute.<br/>
+     * Set Version attribute.<br>
      * 
      * @param value BigDecimal Object
      * @since SDNO 0.5

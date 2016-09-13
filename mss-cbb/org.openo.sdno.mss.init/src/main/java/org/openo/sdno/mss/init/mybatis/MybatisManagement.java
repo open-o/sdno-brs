@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,7 +31,7 @@ import org.openo.sdno.mss.init.dbinfo.DBParam;
 
 /**
  * Mybatis management class, it call the mybatis'API to initialize the basic parameter of db from
- * configure file and get sql session from session factory. <br/>
+ * configure file and get sql session from session factory. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -55,7 +55,7 @@ public class MybatisManagement {
     }
 
     /**
-     * Get a singleton of class. <br/>
+     * Get a singleton of class. <br>
      * 
      * @since SDNO 0.5
      */
@@ -88,7 +88,7 @@ public class MybatisManagement {
     }
 
     /**
-     * Get session for sql. <br/>
+     * Get session for sql. <br>
      * 
      * @since SDNO 0.5
      */
@@ -140,7 +140,7 @@ public class MybatisManagement {
     }
 
     /**
-     * Clear the key in the memory. <br/>
+     * Clear the key in the memory. <br>
      * 
      * @since SDNO 0.5
      */

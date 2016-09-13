@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.mss.init.mybatis.mappers;
 import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
 
 /**
- * Relation map class, used to create, insert, select, update a relation pojo. <br/>
+ * Relation map class, used to create, insert, select, update a relation pojo. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -27,7 +27,7 @@ import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
 public interface RelationMapper {
 
     /**
-     * Create a new table. <br/>
+     * Create a new table. <br>
      * 
      * @return effected line number.
      * @since SDNO 0.5
@@ -35,7 +35,7 @@ public interface RelationMapper {
     int createTable();
 
     /**
-     * Delete a relation pojo by it's primary key got by the bucket name. <br/>
+     * Delete a relation pojo by it's primary key got by the bucket name. <br>
      * 
      * @param bktName name of the bucket.
      * @return Primaty key if success, 0 if failed.
@@ -44,7 +44,7 @@ public interface RelationMapper {
     int deleteByPrimaryKey(String bktName);
 
     /**
-     * Add a new relation pojo. <br/>
+     * Add a new relation pojo. <br>
      * 
      * @param record the new relation pojo.
      * @return Primaty key if success, 0 if failed.
@@ -53,7 +53,7 @@ public interface RelationMapper {
     int insert(RelationPojo record);
 
     /**
-     * Add a new row in the specific table. <br/>
+     * Add a new row in the specific table. <br>
      * 
      * @param record the new pojo.
      * @return Primaty key if success, 0 if failed.
@@ -62,7 +62,7 @@ public interface RelationMapper {
     int insertSelective(RelationPojo record);
 
     /**
-     * Get the relation pojo by it's primary key. <br/>
+     * Get the relation pojo by it's primary key. <br>
      * 
      * @param bktName bucket name, used to get the primary key.
      * @return Primaty key if success, 0 if failed.
@@ -71,7 +71,7 @@ public interface RelationMapper {
     RelationPojo selectByPrimaryKey(String bktName);
 
     /**
-     * Update the specific row in the pojo by it's primary key. <br/>
+     * Update the specific row in the pojo by it's primary key. <br>
      * 
      * @param record the new pojo.
      * @return Primaty key if success, 0 if failed.
@@ -80,7 +80,7 @@ public interface RelationMapper {
     int updateByPrimaryKeySelective(RelationPojo record);
 
     /**
-     * Update all the rows in the pojo by it's primary key. <br/>
+     * Update all the rows in the pojo by it's primary key. <br>
      * 
      * @param record the new pojo.
      * @return Primaty key if success, 0 if failed.

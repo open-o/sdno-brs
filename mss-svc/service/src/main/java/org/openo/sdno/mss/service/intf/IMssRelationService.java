@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import javax.ws.rs.core.Context;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 
 /**
- * The interface of mss service to deal with relation.<br/>
+ * The interface of mss service to deal with relation.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -32,7 +32,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 public interface IMssRelationService {
 
     /**
-     * Query resource relationship.<br/>
+     * Query resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param srcResType Source resource type
@@ -46,7 +46,7 @@ public interface IMssRelationService {
             final String srcUuids, final String dstUuids) throws ServiceException;
 
     /**
-     * Create resource relationship.<br/>
+     * Create resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name
@@ -57,7 +57,7 @@ public interface IMssRelationService {
             throws ServiceException;
 
     /**
-     * Delete resource relationship.<br/>
+     * Delete resource relationship.<br>
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name

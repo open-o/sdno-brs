@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import java.util.List;
 import org.openo.sdno.mss.init.mybatis.pojo.ResourcePojo;
 
 /**
- * Resource mapper class, used to create, insert, update, delete a resource pojo in db. <br/>
+ * Resource mapper class, used to create, insert, update, delete a resource pojo in db. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -29,7 +29,7 @@ import org.openo.sdno.mss.init.mybatis.pojo.ResourcePojo;
 public interface ResourceMapper {
 
     /**
-     * Create a new table. <br/>
+     * Create a new table. <br>
      * 
      * @return effected line number.
      * @since SDNO 0.5
@@ -37,7 +37,7 @@ public interface ResourceMapper {
     int createTable();
 
     /**
-     * Delete a row by its uuid. <br/>
+     * Delete a row by its uuid. <br>
      * 
      * @param uuid uuid of the resource.
      * @return Primary key if success, 0 if failed.
@@ -46,7 +46,7 @@ public interface ResourceMapper {
     int deleteByPrimaryKey(String uuid);
 
     /**
-     * Insert a new record. <br/>
+     * Insert a new record. <br>
      * 
      * @param record the new record.
      * @return Primary key if success, 0 if failed.
@@ -55,7 +55,7 @@ public interface ResourceMapper {
     int insert(ResourcePojo record);
 
     /**
-     * Insert a new field, and it can not be empty. <br/>
+     * Insert a new field, and it can not be empty. <br>
      * 
      * @param record the new recored.
      * @return Primary key if success, 0 if failed.
@@ -64,7 +64,7 @@ public interface ResourceMapper {
     int insertSelective(ResourcePojo record);
 
     /**
-     * Get all the resource by the bucket name. <br/>
+     * Get all the resource by the bucket name. <br>
      * 
      * @param bktName name of the bucket.
      * @return List of resource pojo.
@@ -73,7 +73,7 @@ public interface ResourceMapper {
     List<ResourcePojo> selectByBktName(String bktName);
 
     /**
-     * Update a field by its primary key. <br/>
+     * Update a field by its primary key. <br>
      * 
      * @param record the new record.
      * @return Primary key if success, 0 if failed.
@@ -82,7 +82,7 @@ public interface ResourceMapper {
     int updateByPrimaryKeySelective(ResourcePojo record);
 
     /**
-     * Update a record by its primary key. <br/>
+     * Update a record by its primary key. <br>
      * 
      * @param record the new record.
      * @return Primary key if success, 0 if failed.

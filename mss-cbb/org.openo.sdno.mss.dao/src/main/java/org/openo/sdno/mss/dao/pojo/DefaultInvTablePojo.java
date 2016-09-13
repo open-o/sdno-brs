@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.openo.sdno.mss.dao.model.ModelMgrUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 
 /**
- * Default inventory table.<br/>
+ * Default inventory table.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -98,7 +98,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     protected String emptyCheckColumn = "uuid";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Protected constructor, only can be instanced in son classes.
      * </p>
@@ -109,7 +109,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Protected constructor, only can be instanced in son classes.
      * </p>
@@ -146,7 +146,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Set filter conditions. <br/>
+     * Set filter conditions. <br>
      * 
      * @param filterJson Filter condition jason.
      * @since SDNO 0.5
@@ -164,7 +164,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Create temporary table. <br/>
+     * Create temporary table. <br>
      * 
      * @param session Sql session.
      * @since SDNO 0.5
@@ -195,7 +195,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Delete temporary table. <br/>
+     * Delete temporary table. <br>
      * 
      * @param session SQL session.
      * @since SDNO 0.5
@@ -216,7 +216,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Get row count. <br/>
+     * Get row count. <br>
      * 
      * @param session SQL session.
      * @return
@@ -229,7 +229,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Is it a empty table?<br/>
+     * Is it a empty table?<br>
      * 
      * @param session
      * @return true if it is a empty table.
@@ -249,7 +249,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     }
 
     /**
-     * Set filter condition. <br/>
+     * Set filter condition. <br>
      * 
      * @param uuid UUID
      * @since SDNO 0.5

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 
 /**
- * Validate tool class.<br/>
+ * Validate tool class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -42,7 +42,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Check if the object is null.<br/>
+     * Check if the object is null.<br>
      * 
      * @param object The object to be checked
      * @param name Object name
@@ -57,7 +57,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Check if the parameter is empty.<br/>
+     * Check if the parameter is empty.<br>
      * 
      * @param param The parameter to be checked
      * @param name Parameter name
@@ -72,7 +72,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Check if the object is a list.<br/>
+     * Check if the object is a list.<br>
      * 
      * @param obj The object to be checked
      * @param name Object name
@@ -88,7 +88,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Check if the UUID is valid or not.<br/>
+     * Check if the UUID is valid or not.<br>
      * 
      * @param uuid UUID
      * @throws ServiceException if the UUID is not valid
@@ -106,7 +106,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Check if the tenant id is null or empty.<br/>
+     * Check if the tenant id is null or empty.<br>
      * 
      * @param tenantId Tenant id
      * @throws ServiceException if the tenant id is null or empty

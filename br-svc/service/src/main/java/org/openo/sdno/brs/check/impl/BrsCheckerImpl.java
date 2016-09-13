@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.openo.sdno.brs.service.inf.IResourceService;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 
 /**
- * Checker of brs service, check if the resources are being used.<br/>
+ * Checker of brs service, check if the resources are being used.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -45,7 +45,7 @@ public class BrsCheckerImpl implements IBrsChecker {
     private IResourceService service;
 
     /**
-     * Check if the NE is being used.<br/>
+     * Check if the NE is being used.<br>
      * 
      * @param managedElementId uuid of the manage element object.
      * @throws ServiceException if exception happens in the db service.
@@ -100,7 +100,7 @@ public class BrsCheckerImpl implements IBrsChecker {
     }
 
     /**
-     * Check if the TP is being used.<br/>
+     * Check if the TP is being used.<br>
      * 
      * @param logicalTPId uuid of the TP.
      * @throws ServiceException if exception happens in the db service.
@@ -153,7 +153,7 @@ public class BrsCheckerImpl implements IBrsChecker {
     }
 
     /**
-     * Check if the resource is being used.<br/>
+     * Check if the resource is being used.<br>
      * 
      * @param objectID uuid of the object.
      * @param classType Resource type.

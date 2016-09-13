@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,7 +36,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of filter.<br/>
+ * This is xml model class of filter.<br>
  * <p>
  * this xml model has two attributes: name: the name of the filter value: the content value of the
  * filter
@@ -58,7 +58,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     protected String value;
 
     /**
-     * Get name attribute.<br/>
+     * Get name attribute.<br>
      * 
      * @return name attribute
      * @since SDNO 0.5
@@ -68,7 +68,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Set name attribute.<br/>
+     * Set name attribute.<br>
      * 
      * @param value name value
      * @since SDNO 0.5
@@ -78,7 +78,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Get value attribute.<br/>
+     * Get value attribute.<br>
      * 
      * @return value attribute
      * @since SDNO 0.5
@@ -88,7 +88,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Set value attribute.<br/>
+     * Set value attribute.<br>
      * 
      * @param value value content
      * @since SDNO 0.5
@@ -98,7 +98,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Check whether this filter object equals to other object.<br/>
+     * Check whether this filter object equals to other object.<br>
      * 
      * @param thisLocator the ObjectLocator of this object
      * @param thatLocator the ObjectLocator of other object
@@ -136,7 +136,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Check whether current filter equals to other filter.<br/>
+     * Check whether current filter equals to other filter.<br>
      * 
      * @param theOtherObject other filter object
      * @return true if current filter equals to object
@@ -148,7 +148,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Get hash code of filter by locator and strategy.<br/>
+     * Get hash code of filter by locator and strategy.<br>
      * 
      * @param locator ObjectLocator object
      * @param strategy HashCodeStrategy object
@@ -172,7 +172,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Get hash code of filter by INSTANCE strategy.<br/>
+     * Get hash code of filter by INSTANCE strategy.<br>
      * 
      * @return hash code of filter
      * @since SDNO 0.5
@@ -183,7 +183,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Get xml description of current filter object.<br/>
+     * Get xml description of current filter object.<br>
      * 
      * @return xml description of current filter object
      * @since SDNO 0.5
@@ -196,7 +196,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Append this object to buffer.<br/>
+     * Append this object to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param appendedBuffer String buffer appended to
@@ -212,7 +212,7 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Append all attributes to buffer.<br/>
+     * Append all attributes to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param buffer String buffer appended to

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import org.openo.sdno.framework.container.service.IService;
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 
 /**
- * LogicalTP service interface.<br/>
+ * LogicalTP service interface.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -30,7 +30,7 @@ import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 public interface ILogicalTPService extends IService {
 
     /**
-     * Get logical Tp by Id.<br/>
+     * Get logical Tp by Id.<br>
      * 
      * @param objectID Object Id
      * @return The logical Tp
@@ -39,7 +39,7 @@ public interface ILogicalTPService extends IService {
     LogicalTerminationPointMO getLogicalTPByID(String objectID) throws ServiceException;
 
     /**
-     * Get TP list.<br/>
+     * Get TP list.<br>
      * 
      * @param queryString Query string object
      * @param key The query key
@@ -49,7 +49,7 @@ public interface ILogicalTPService extends IService {
     Object getLogicalTPs(String queryString, String key) throws ServiceException;
 
     /**
-     * Get Id of Tp.<br/>
+     * Get Id of Tp.<br>
      * 
      * @param logicalTP The logical Tp
      * @return The Id of Tp
@@ -58,7 +58,7 @@ public interface ILogicalTPService extends IService {
     String getObjectId(LogicalTerminationPointMO logicalTP) throws ServiceException;
 
     /**
-     * Update the Tp information though the Id.<br/>
+     * Update the Tp information though the Id.<br>
      * 
      * @param objectID The object Id
      * @param logicalTP The logical Tp
@@ -69,7 +69,7 @@ public interface ILogicalTPService extends IService {
             throws ServiceException;
 
     /**
-     * Add logical Tp.<br/>
+     * Add logical Tp.<br>
      * 
      * @param logicalTP The logical Tp object
      * @return Logical Tp object
@@ -78,7 +78,7 @@ public interface ILogicalTPService extends IService {
     LogicalTerminationPointMO addLogicalTP(LogicalTerminationPointMO logicalTP) throws ServiceException;
 
     /**
-     * Delete logical Tp though Id.<br/>
+     * Delete logical Tp though Id.<br>
      * 
      * @param objectID The object Id
      * @return true when delete success

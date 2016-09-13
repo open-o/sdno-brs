@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.mss.dao.impl.InvDataHandler;
 
 /**
- * Temporary table for network element. <br/>
+ * Temporary table for network element. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -43,7 +43,7 @@ public class InvTempDevUuidTablePojo implements IInvTableCrud {
     private String devUuid;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType resource type.
@@ -54,7 +54,7 @@ public class InvTempDevUuidTablePojo implements IInvTableCrud {
     }
 
     /**
-     * Build value. <br/>
+     * Build value. <br>
      * 
      * @param devUuid Device UUID.
      * @return this.
@@ -70,7 +70,7 @@ public class InvTempDevUuidTablePojo implements IInvTableCrud {
     }
 
     /**
-     * Get device UUID. <br/>
+     * Get device UUID. <br>
      * 
      * @return device UUID.
      * @since SDNO 0.5
@@ -86,7 +86,7 @@ public class InvTempDevUuidTablePojo implements IInvTableCrud {
     }
 
     /**
-     * Insert data to network element ID temprary table. <br/>
+     * Insert data to network element ID temprary table. <br>
      * 
      * @param session SQL session.
      * @param devUuidList Device UUID list.

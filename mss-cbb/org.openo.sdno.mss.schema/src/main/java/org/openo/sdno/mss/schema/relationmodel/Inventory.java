@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Inventory in relation model.<br/>
+ * This is xml model class of Inventory in relation model.<br>
  * <p>
  * This xml model has one attribute: relationmodel: relation model list in Inventory
  * </p>
@@ -58,7 +58,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     protected List<Relationmodel> relationmodel;
 
     /**
-     * Get relationmodel attribute.<br/>
+     * Get relationmodel attribute.<br>
      * 
      * @return relationmodel attribute
      * @since SDNO 0.5
@@ -71,7 +71,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Check whether this object equals to other object.<br/>
+     * Check whether this object equals to other object.<br>
      * 
      * @param thisLocator the ObjectLocator of this object
      * @param thatLocator the ObjectLocator of other object
@@ -104,7 +104,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Check whether this object equals to other object.<br/>
+     * Check whether this object equals to other object.<br>
      * 
      * @param otherObject other object
      * @return true if this object equals to other object
@@ -116,7 +116,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get hash code by locator and strategy.<br/>
+     * Get hash code by locator and strategy.<br>
      * 
      * @param locator ObjectLocator object
      * @param strategy HashCodeStrategy object
@@ -136,7 +136,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get hash code by INSTANCE HashCodeStrategy.<br/>
+     * Get hash code by INSTANCE HashCodeStrategy.<br>
      * 
      * @return hash code of this object
      * @since SDNO 0.5
@@ -147,7 +147,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get xml description of current inventory object.<br/>
+     * Get xml description of current inventory object.<br>
      * 
      * @return xml description of current object
      * @since SDNO 0.5
@@ -159,7 +159,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Append current object to buffer.<br/>
+     * Append current object to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param appendBuffer String buffer current object appended to
@@ -175,7 +175,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Append all attributes to buffer.<br/>
+     * Append all attributes to buffer.<br>
      * 
      * @param locator ObjectLocator object
      * @param buffer String buffer all attributes appended to

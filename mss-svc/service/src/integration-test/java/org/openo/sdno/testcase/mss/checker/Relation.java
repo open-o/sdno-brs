@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.testcase.mss.checker;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * Relation definition class, describe the relation between two object.<br/>
+ * Relation definition class, describe the relation between two object.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -32,21 +32,20 @@ public class Relation {
     @JsonProperty("dst_id")
     private String dstId;
 
-
     private String relation;
 
     private String serviceType;
-    
+
     @JsonProperty("dst_type")
     private String dstType;
-    
+
     /**
      * @param srcId The srcId to set.
      */
     public void setSrcId(String srcId) {
         this.srcId = srcId;
     }
-    
+
     /**
      * @return Returns the srcId.
      */
@@ -74,7 +73,7 @@ public class Relation {
     public void setDstType(String dstType) {
         this.dstType = dstType;
     }
-    
+
     /**
      * @return Returns the dstType.
      */
@@ -95,7 +94,7 @@ public class Relation {
     public String getServiceType() {
         return serviceType;
     }
-  
+
     /**
      * @return Returns the relation.
      */
@@ -111,16 +110,6 @@ public class Relation {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((srcId == null) ? 0 : srcId.hashCode());
-        result = prime * result + ((dstId == null) ? 0 : dstId.hashCode());
-        result = prime * result + ((dstType == null) ? 0 : dstType.hashCode());
-        return result;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if(this == obj) {
             return true;
@@ -132,7 +121,7 @@ public class Relation {
             return false;
         }
         Relation other = (Relation)obj;
-        
+
         if(srcId == null) {
             if(other.srcId != null) {
                 return false;
@@ -154,8 +143,17 @@ public class Relation {
         } else if(!dstType.equals(other.dstType)) {
             return false;
         }
-        
+
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((srcId == null) ? 0 : srcId.hashCode());
+        result = prime * result + ((dstId == null) ? 0 : dstId.hashCode());
+        result = prime * result + ((dstType == null) ? 0 : dstType.hashCode());
+        return result;
+    }
 }

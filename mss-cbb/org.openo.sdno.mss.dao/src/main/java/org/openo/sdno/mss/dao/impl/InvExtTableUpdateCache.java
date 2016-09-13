@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.openo.sdno.mss.dao.constant.InvAttrDefine;
 import org.openo.sdno.mss.dao.pojo.InvExtTablePojo;
 
 /**
- * Update cache of extended table class. <br/>
+ * Update cache of extended table class. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -50,7 +50,7 @@ public class InvExtTableUpdateCache {
         private final String attrName;
 
         /**
-         * Constructor<br/>
+         * Constructor<br>
          * 
          * @since SDNO 0.5
          * @param resType The resource type
@@ -94,7 +94,7 @@ public class InvExtTableUpdateCache {
     private final Callable<SqlSession> callable;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param session The session
@@ -106,7 +106,7 @@ public class InvExtTableUpdateCache {
     }
 
     /**
-     * Query and store in cache. <br/>
+     * Query and store in cache. <br>
      * 
      * @param resType Resource type
      * @param datas Data
@@ -160,7 +160,7 @@ public class InvExtTableUpdateCache {
     }
 
     /**
-     * Get value from cache. <br/>
+     * Get value from cache. <br>
      * 
      * @param resType Resource type
      * @param uuid UUID

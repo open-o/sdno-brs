@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,7 +33,7 @@ import org.openo.sdno.mss.schema.infomodel.ObjectFactory;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
 /**
- * Model static utility class to clone and turn it to whole info model. <br/>
+ * Model static utility class to clone and turn it to whole info model. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -65,7 +65,7 @@ public class ModelUtil {
     }
 
     /**
-     * Turn infomodel to wholeinfomodel. <br/>
+     * Turn infomodel to wholeinfomodel. <br>
      * 
      * @param infoModel model which contain the data field of pojo.
      * @return WholeInfoModel model which contain the data field of pojo.
@@ -90,7 +90,7 @@ public class ModelUtil {
     }
 
     /**
-     * Use serialization to deep clone a infomodel. <br/>
+     * Use serialization to deep clone a infomodel. <br>
      * 
      * @param infoModel infomodel need to clone.
      * @return the cloned infomodel.
@@ -127,7 +127,7 @@ public class ModelUtil {
     }
 
     /**
-     * Close the stream. <br/>
+     * Close the stream. <br>
      * 
      * @param stream stream need to close.
      * @since SDNO 0.5

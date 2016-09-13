@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ import org.openo.sdno.mss.schema.infomodel.Property;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
 
 /**
- * Inventory relation table. <br/>
+ * Inventory relation table. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23
@@ -80,7 +80,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     private List<InvTableRowPojo> tableRowList = null;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -97,7 +97,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -115,7 +115,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Set beginning row.<br/>
+     * Set beginning row.<br>
      * 
      * @param relEntity Relation entity.
      * @since SDNO 0.5
@@ -141,7 +141,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Set filter. <br/>
+     * Set filter. <br>
      * 
      * @param filter Filter condition.
      * @since SDNO 0.5
@@ -155,7 +155,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Get relation table attribute information. <br/>
+     * Get relation table attribute information. <br>
      * 
      * @return Attribute map.
      * @since SDNO 0.5
@@ -171,7 +171,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Create temporary table. <br/>
+     * Create temporary table. <br>
      * 
      * @param srcUuidSet Source UUID set.
      * @param session SQL session.
@@ -182,7 +182,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Create temporary attribute table by field name. <br/>
+     * Create temporary attribute table by field name. <br>
      * 
      * @param uuidSet UUID set.
      * @param session SQL session.
@@ -233,7 +233,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Inventory relation table Pojo. <br/>
+     * Inventory relation table Pojo. <br>
      * 
      * @param valueMap Value map.
      * @return Table PoJo.
@@ -337,7 +337,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Batch get source UUID. <br/>
+     * Batch get source UUID. <br>
      * 
      * @param session SQL session.
      * @return Relations.
@@ -348,7 +348,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Get relation records by source UUID. <br/>
+     * Get relation records by source UUID. <br>
      * 
      * @param session SQL session.
      * @return Relation.
@@ -365,8 +365,8 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Build interface of UUID condition deletion. <br/>
-     * <br/>
+     * Build interface of UUID condition deletion. <br>
+     * <br>
      * 
      * @param srcUuid Source UUID.
      * @param dstUuid Destination UUID.
@@ -402,7 +402,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Create type for filter.<br/>
+     * Create type for filter.<br>
      * 
      * @param typeName Type name.
      * @return this
@@ -415,7 +415,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Create Range condition for select. <br/>
+     * Create Range condition for select. <br>
      * 
      * @param dstTypeList Destination type list.
      * @return this
@@ -440,7 +440,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Build service type for filter.<br/>
+     * Build service type for filter.<br>
      * 
      * @param serviceType
      * @return
@@ -455,7 +455,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Build UUID for filter. <br/>
+     * Build UUID for filter. <br>
      * 
      * @param uuids
      * @return
@@ -468,7 +468,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Batch add. <br/>
+     * Batch add. <br>
      * 
      * @param session SQL session.
      * @param records Records.
@@ -516,7 +516,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Batch insert. <br/>
+     * Batch insert. <br>
      * 
      * @param session
      * @param relationRecords
@@ -555,7 +555,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Analysis one row of data. <br/>
+     * Analysis one row of data. <br>
      * 
      * @param valueMap Value map.
      * @return Row PoJo.

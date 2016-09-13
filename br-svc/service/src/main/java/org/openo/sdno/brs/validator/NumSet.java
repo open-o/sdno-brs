@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Number set class.<br/>
+ * Number set class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -43,7 +43,7 @@ public class NumSet implements Cloneable {
     private final List<SingleRange> singleRanges = new ArrayList<SingleRange>();
 
     /**
-     * Check the single range list is empty or not.<br/>
+     * Check the single range list is empty or not.<br>
      * 
      * @return True if empty, false if not.
      * @since SDNO 0.5
@@ -53,7 +53,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Get max value of the single range list. Return 0 if the list if empty.<br/>
+     * Get max value of the single range list. Return 0 if the list if empty.<br>
      * 
      * @return Max value of the single range list
      * @since SDNO 0.5
@@ -67,7 +67,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Get min value of the single range list. Return 0 if the list if empty.<br/>
+     * Get min value of the single range list. Return 0 if the list if empty.<br>
      * 
      * @return Min value of the single range list
      * @since SDNO 0.5
@@ -81,7 +81,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Sort the ranges in the collection and merge.<br/>
+     * Sort the ranges in the collection and merge.<br>
      * 
      * @since SDNO 0.5
      */
@@ -126,7 +126,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Check if the number is contained in the range.<br/>
+     * Check if the number is contained in the range.<br>
      * 
      * @param value The value to be checked
      * @return True if contains, false if not.
@@ -178,7 +178,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Set spliter of single range.<br/>
+     * Set spliter of single range.<br>
      * 
      * @param spliter Spliter
      * @since SDNO 0.5
@@ -215,7 +215,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Parse set string and build a NumSet object.<br/>
+     * Parse set string and build a NumSet object.<br>
      * 
      * @param setString Set string
      * @param setSpliter Set spliter
@@ -266,7 +266,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Parse set string and build a NumSet object, using default spliter.<br/>
+     * Parse set string and build a NumSet object, using default spliter.<br>
      * 
      * @param setString Set string
      * @return NumSet object

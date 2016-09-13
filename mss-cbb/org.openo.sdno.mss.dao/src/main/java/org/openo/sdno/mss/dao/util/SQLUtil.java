@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.mss.dao.util;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * SQL special character handle. <br/>
+ * SQL special character handle. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -31,7 +31,7 @@ public class SQLUtil {
     }
 
     /**
-     * Change \\ to \\\\ <br/>
+     * Change \\ to \\\\ <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -42,7 +42,7 @@ public class SQLUtil {
     }
 
     /**
-     * Change ' to \\' <br/>
+     * Change ' to \\' <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -53,7 +53,7 @@ public class SQLUtil {
     }
 
     /**
-     * Change \" to \\\" <br/>
+     * Change \" to \\\" <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -64,7 +64,7 @@ public class SQLUtil {
     }
 
     /**
-     * Change % to \\% <br/>
+     * Change % to \\% <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -75,7 +75,7 @@ public class SQLUtil {
     }
 
     /**
-     * Change _ to \\_ <br/>
+     * Change _ to \\_ <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -86,7 +86,7 @@ public class SQLUtil {
     }
 
     /**
-     * Convert SQL special character, single quote mark then double quote mark. <br/>
+     * Convert SQL special character, single quote mark then double quote mark. <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -101,7 +101,7 @@ public class SQLUtil {
     }
 
     /**
-     * Convert SQL special character, single quote mark then double quote mark. <br/>
+     * Convert SQL special character, single quote mark then double quote mark. <br>
      * 
      * @param str String for convert.
      * @return String after convert.
@@ -117,7 +117,7 @@ public class SQLUtil {
     }
 
     /**
-     * Replace special character in SQL, Order to convert : / ' " % _ <br/>
+     * Replace special character in SQL, Order to convert : / ' " % _ <br>
      * 
      * @param str String for convert.
      * @return String after convert.

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Inventory extension table. <br/>
+ * Inventory extension table. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-22
@@ -62,7 +62,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     public static final int BATCH_INSERT_LIMIT = 500;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      */
@@ -71,7 +71,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -83,7 +83,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Copy basic attribute. <br/>
+     * Copy basic attribute. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -100,7 +100,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Copy all the attributes, return multiple instance. <br/>
+     * Copy all the attributes, return multiple instance. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -115,7 +115,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Pre-handle analysis. <br/>
+     * Pre-handle analysis. <br>
      * 
      * @param resType
      * @return
@@ -134,7 +134,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build attribute. <br/>
+     * Build attribute. <br>
      * 
      * @param attrName
      * @return
@@ -146,7 +146,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Attributes batch build, return multiple instance. <br/>
+     * Attributes batch build, return multiple instance. <br>
      * 
      * @param attributes Attributes.
      * @return
@@ -174,7 +174,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build value. <br/>
+     * Build value. <br>
      * 
      * @param value Value.
      * @return
@@ -186,7 +186,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build multiple values, return value list. <br/>
+     * Build multiple values, return value list. <br>
      * 
      * @param valueMap Values
      * @return
@@ -217,7 +217,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build UUID filter condition. <br/>
+     * Build UUID filter condition. <br>
      * 
      * @param uuid UUID
      * @return
@@ -229,7 +229,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build all conditions of filter. <br/>
+     * Build all conditions of filter. <br>
      * 
      * @return Filter condition.
      * @since SDNO 0.5
@@ -258,7 +258,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Get extension data. <br/>
+     * Get extension data. <br>
      * 
      * @param session SQL session.
      * @return Query result.
@@ -271,7 +271,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Batch query extension data. <br/>
+     * Batch query extension data. <br>
      * 
      * @param session SQL session.
      * @param batchSession SQL session.
@@ -306,7 +306,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Query quantity of extensional data. <br/>
+     * Query quantity of extensional data. <br>
      * 
      * @param session SQL session.
      * @return quantity.
@@ -319,7 +319,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Build attribute filter condition. <br/>
+     * Build attribute filter condition. <br>
      * 
      * @return Query result.
      * @since SDNO 0.5

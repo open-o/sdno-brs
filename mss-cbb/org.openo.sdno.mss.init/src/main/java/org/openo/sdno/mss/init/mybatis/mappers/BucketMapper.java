@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import java.util.List;
 import org.openo.sdno.mss.init.mybatis.pojo.BucketPojo;
 
 /**
- * Mapper of bucket,used to create, insert, select and update a bucket pojo in the database. <br/>
+ * Mapper of bucket,used to create, insert, select and update a bucket pojo in the database. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -29,7 +29,7 @@ import org.openo.sdno.mss.init.mybatis.pojo.BucketPojo;
 public interface BucketMapper {
 
     /**
-     * Create a new table. <br/>
+     * Create a new table. <br>
      * 
      * @return effected line number.
      * @since SDNO 0.5
@@ -37,7 +37,7 @@ public interface BucketMapper {
     int createTable();
 
     /**
-     * Delete a bucket by its primary key. <br/>
+     * Delete a bucket by its primary key. <br>
      * 
      * @param name name of bucket.
      * @return Primary key if success, 0 if failed.
@@ -46,7 +46,7 @@ public interface BucketMapper {
     int deleteByPrimaryKey(String name);
 
     /**
-     * Add a new bucket into the db. <br/>
+     * Add a new bucket into the db. <br>
      * 
      * @param record the new bucket.
      * @return Primary key if success, 0 if failed.
@@ -55,7 +55,7 @@ public interface BucketMapper {
     int insert(BucketPojo record);
 
     /**
-     * Insert a new record in the specific row. <br/>
+     * Insert a new record in the specific row. <br>
      * 
      * @param record the new pojo.
      * @return Primary key if success, 0 if failed.
@@ -64,7 +64,7 @@ public interface BucketMapper {
     int insertSelective(BucketPojo record);
 
     /**
-     * Get a bucket by its name. <br/>
+     * Get a bucket by its name. <br>
      * 
      * @param name name of the bucket.
      * @return Primary key if success, 0 if failed.
@@ -73,7 +73,7 @@ public interface BucketMapper {
     BucketPojo selectByPrimaryKey(String name);
 
     /**
-     * Query all the bucket. <br/>
+     * Query all the bucket. <br>
      * 
      * @return List of the buckets.
      * @since SDNO 0.5
@@ -81,7 +81,7 @@ public interface BucketMapper {
     List<BucketPojo> selectAll();
 
     /**
-     * Update the specific field by its primary key. <br/>
+     * Update the specific field by its primary key. <br>
      * 
      * @param record the new pojo.
      * @return Primary key if success, 0 if failed.
@@ -90,7 +90,7 @@ public interface BucketMapper {
     int updateByPrimaryKeySelective(BucketPojo record);
 
     /**
-     * Update the bucket by its primary key.<br/>
+     * Update the bucket by its primary key.<br>
      * 
      * @param record the new pojo
      * @return Primary key if success, 0 if failed.

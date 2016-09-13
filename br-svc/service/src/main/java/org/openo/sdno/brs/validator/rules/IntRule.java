@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Integer rule.<br/>
+ * Integer rule.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
 public @interface IntRule {
 
     /**
-     * Get max value.<br/>
+     * Get max value.<br>
      * 
      * @return Max value
      * @since SDNO 0.5
@@ -40,7 +40,7 @@ public @interface IntRule {
     public int max() default Integer.MAX_VALUE;
 
     /**
-     * Get min value.<br/>
+     * Get min value.<br>
      * 
      * @return Min value
      * @since SDNO 0.5
@@ -48,7 +48,7 @@ public @interface IntRule {
     public int min() default Integer.MIN_VALUE;
 
     /**
-     * Get parameter name.<br/>
+     * Get parameter name.<br>
      * 
      * @return Parameter name
      * @since SDNO 0.5

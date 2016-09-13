@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Relation Type for relation model<br/>
+ * Relation Type for relation model<br>
  * <p>
  * Three relation types are defined : composition/aggregation/association composition: a special
  * relationship type of aggregation aggregation: a relationship between two classes. When object of
@@ -45,7 +45,7 @@ public enum Relationtype {
     private final String value;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Relation type instance can be constructed by v
      * </p>
@@ -58,7 +58,7 @@ public enum Relationtype {
     }
 
     /**
-     * Get value attribute.<br/>
+     * Get value attribute.<br>
      * 
      * @return value attribute
      * @since SDNO 0.5
@@ -68,7 +68,7 @@ public enum Relationtype {
     }
 
     /**
-     * Get Relation type by value<br/>
+     * Get Relation type by value<br>
      * 
      * @param v Relation type
      * @return Relation type instance returned

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * String rule.<br/>
+ * String rule.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
 public @interface StrRule {
 
     /**
-     * Check if the null is allowed.<br/>
+     * Check if the null is allowed.<br>
      * 
      * @return True if allowed, false if not.
      * @since SDNO 0.5
@@ -40,7 +40,7 @@ public @interface StrRule {
     public boolean nullable() default true;
 
     /**
-     * Get the range of string value.<br/>
+     * Get the range of string value.<br>
      * 
      * @return the range of string value
      * @since SDNO 0.5
@@ -48,7 +48,7 @@ public @interface StrRule {
     public String range() default "";
 
     /**
-     * Get the regex string.<br/>
+     * Get the regex string.<br>
      * 
      * @return Regex string
      * @since SDNO 0.5
@@ -56,7 +56,7 @@ public @interface StrRule {
     public String regex() default "";
 
     /**
-     * Get the default vaule.<br/>
+     * Get the default vaule.<br>
      * 
      * @return Default vaule
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public @interface StrRule {
     public String defaultValue() default "";
 
     /**
-     * Check if the regex is matched or not.<br/>
+     * Check if the regex is matched or not.<br>
      * 
      * @return True if matched, false if not.
      * @since SDNO 0.5
@@ -72,7 +72,7 @@ public @interface StrRule {
     public boolean matches() default false;
 
     /**
-     * Get parameter name.<br/>
+     * Get parameter name.<br>
      * 
      * @return Parameter name
      * @since SDNO 0.5

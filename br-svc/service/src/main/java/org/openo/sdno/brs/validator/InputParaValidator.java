@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -42,7 +42,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Validator class for input parameter.<br/>
+ * Validator class for input parameter.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -63,7 +63,7 @@ public final class InputParaValidator {
             new HashMap<Class, Class<? extends AbstractRuleValidator>>();
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      */
@@ -75,7 +75,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Get attribute validator by object class type.<br/>
+     * Get attribute validator by object class type.<br>
      * 
      * @param type Class type
      * @return Collection of attribute validator info.
@@ -86,7 +86,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * validate the specific attribute of the given class.<br/>
+     * validate the specific attribute of the given class.<br>
      * 
      * @param field field to check.
      * @param value data need to check.
@@ -116,7 +116,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Validate the imput object.<br/>
+     * Validate the imput object.<br>
      * 
      * @param validData The object to be validated
      * @return Collection of validating results
@@ -127,7 +127,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Validate the imput object.<br/>
+     * Validate the imput object.<br>
      * 
      * @param validData The object to be validated
      * @param isEdit Edit flag, some rules need special processing when editing, such as
@@ -173,7 +173,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Validate the input object.<br/>
+     * Validate the input object.<br>
      * 
      * @param task Current task
      * @param attrValidateInfo The attribute to be validated
@@ -206,7 +206,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Init a trace item of validator.<br/>
+     * Init a trace item of validator.<br>
      * 
      * @param task Current task
      * @param validDataTraceItem The trace item to be initialized
@@ -230,7 +230,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Init validator list by object class type.<br/>
+     * Init validator list by object class type.<br>
      * 
      * @param task Current task
      * @param validDataType Object class type
@@ -322,7 +322,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Class of input parameter check.<br/>
+     * Class of input parameter check.<br>
      * 
      * @author
      * @version SDNO 0.5 2016-5-20
@@ -333,7 +333,7 @@ public final class InputParaValidator {
         }
 
         /**
-         * Validate parameters of input object.<br/>
+         * Validate parameters of input object.<br>
          * 
          * @param validData The object to be validated
          * @throws ServiceException if validate parameters failed
@@ -344,7 +344,7 @@ public final class InputParaValidator {
         }
 
         /**
-         * Validate parameters of input object.<br/>
+         * Validate parameters of input object.<br>
          * 
          * @param validData The object to be validated
          * @param isEdit Edit flag, some rules need special processing when editing, such as
@@ -359,7 +359,7 @@ public final class InputParaValidator {
         }
 
         /**
-         * validate the given attribute.<br/>
+         * validate the given attribute.<br>
          * 
          * @param attrName name of the attribute.
          * @param attrValue value to check.

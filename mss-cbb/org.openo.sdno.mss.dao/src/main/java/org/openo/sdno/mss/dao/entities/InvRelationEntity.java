@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.mss.dao.entities;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * Inventory Relation Entity.<br/>
+ * Inventory Relation Entity.<br>
  * <p>
  * </p>
  * 
@@ -54,7 +54,7 @@ public class InvRelationEntity {
     private String relation;
 
     /**
-     * Get srcUuid attribute.<br/>
+     * Get srcUuid attribute.<br>
      * 
      * @return srcUuid attribute
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Set srcUuid attribute.<br/>
+     * Set srcUuid attribute.<br>
      * 
      * @param srcUuid String Object
      * @since SDNO 0.5
@@ -74,7 +74,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Get dstUuid attribute.<br/>
+     * Get dstUuid attribute.<br>
      * 
      * @return dstUuid attribute
      * @since SDNO 0.5
@@ -84,7 +84,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Set dstUuid attribute.<br/>
+     * Set dstUuid attribute.<br>
      * 
      * @param dstUuid String Object
      * @since SDNO 0.5
@@ -94,7 +94,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Get dstType attribute.<br/>
+     * Get dstType attribute.<br>
      * 
      * @return dstType attribute
      * @since SDNO 0.5
@@ -104,7 +104,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Set dstType attribute.<br/>
+     * Set dstType attribute.<br>
      * 
      * @param dstType String Object
      * @since SDNO 0.5
@@ -114,7 +114,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Get serviceType attribute.<br/>
+     * Get serviceType attribute.<br>
      * 
      * @return serviceType attribute
      * @since SDNO 0.5
@@ -124,7 +124,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Set serviceType attribute.<br/>
+     * Set serviceType attribute.<br>
      * 
      * @param serviceType String Object
      * @since SDNO 0.5
@@ -134,7 +134,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Get relation attribute.<br/>
+     * Get relation attribute.<br>
      * 
      * @return relation attribute
      * @since SDNO 0.5
@@ -144,7 +144,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Set relation attribute.<br/>
+     * Set relation attribute.<br>
      * 
      * @param relation String Object
      * @since SDNO 0.5
@@ -154,7 +154,7 @@ public class InvRelationEntity {
     }
 
     /**
-     * Override toString Function.<br/>
+     * Override toString Function.<br>
      * 
      * @return toString Content
      * @since SDNO 0.5

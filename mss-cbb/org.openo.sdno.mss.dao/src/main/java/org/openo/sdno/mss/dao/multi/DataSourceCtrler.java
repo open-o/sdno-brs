@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Data source controller. <br/>
+ * Data source controller. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -37,7 +37,7 @@ public class DataSourceCtrler {
     }
 
     /**
-     * Add a bucket name to buffer. <br/>
+     * Add a bucket name to buffer. <br>
      * 
      * @param bktName Bucket name.
      * @since SDNO 0.5
@@ -47,7 +47,7 @@ public class DataSourceCtrler {
     }
 
     /**
-     * Get a bucket from buffer. <br/>
+     * Get a bucket from buffer. <br>
      * 
      * @return
      * @since SDNO 0.5
@@ -57,7 +57,7 @@ public class DataSourceCtrler {
     }
 
     /**
-     * Delete a bucket from buffer. <br/>
+     * Delete a bucket from buffer. <br>
      * 
      * @since SDNO 0.5
      */

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,7 +30,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
- * Model data processing class to initialize and update the model. <br/>
+ * Model data processing class to initialize and update the model. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -50,7 +50,7 @@ public class ModelData {
     private String bktName = "";
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param bktModel
@@ -105,7 +105,7 @@ public class ModelData {
     }
 
     /**
-     * Initialize the model data. <br/>
+     * Initialize the model data. <br>
      * 
      * @since SDNO 0.5
      */
@@ -116,7 +116,7 @@ public class ModelData {
     }
 
     /**
-     * Replace the key in dataModelMap to the name of infoname. <br/>
+     * Replace the key in dataModelMap to the name of infoname. <br>
      * 
      * @param dataModelMap data model set
      * @param dataName2InfoName mapping from datamodel to infomodel
@@ -160,7 +160,7 @@ public class ModelData {
         }
     }
     /**
-     * Read the info model from file. <br/>
+     * Read the info model from file. <br>
      * 
      * @return map of the info model
      * @since SDNO 0.5

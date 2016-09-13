@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -38,7 +38,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Model Memory Data Management.<br/>
+ * Model Memory Data Management.<br>
  * <p>
  * </p>
  * 
@@ -65,7 +65,7 @@ public class ModelManagement {
     private IBucketHandler bucketHandler = null;
 
     /**
-     * Set metaHanlder attribute.<br/>
+     * Set metaHanlder attribute.<br>
      * 
      * @param metaHanlder IMetaHandler Object
      * @since SDNO 0.5
@@ -75,7 +75,7 @@ public class ModelManagement {
     }
 
     /**
-     * Set bucketHandler attribute.<br/>
+     * Set bucketHandler attribute.<br>
      * 
      * @param bucketHandler IBucketHandler Object
      * @since SDNO 0.5
@@ -85,7 +85,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get ModelRedisEntity of bucket.<br/>
+     * Get ModelRedisEntity of bucket.<br>
      * 
      * @param bktName bucket name
      * @return ModelRedisEntity of bucket
@@ -110,7 +110,7 @@ public class ModelManagement {
     }
 
     /**
-     * Initialize model entity and returned.<br/>
+     * Initialize model entity and returned.<br>
      * 
      * @param bktName bucket name
      * @return model entity after initialization
@@ -136,7 +136,7 @@ public class ModelManagement {
     }
 
     /**
-     * Initialize model entity and returned.<br/>
+     * Initialize model entity and returned.<br>
      * 
      * @param relationPojo RelationPojo Object
      * @param resourcePojoList ResourcePojo List
@@ -170,7 +170,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get info model Map of the bucket.<br/>
+     * Get info model Map of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return info model Map of the bucket
@@ -181,7 +181,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get dataFields of the bucket.<br/>
+     * Get dataFields of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return dataFields of the bucket
@@ -192,7 +192,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get listBktValues of the bucket.<br/>
+     * Get listBktValues of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return listBktValues of the bucket
@@ -203,7 +203,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get wholeInfoModelMap of the bucket.<br/>
+     * Get wholeInfoModelMap of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return wholeInfoModelMap of the bucket
@@ -214,7 +214,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get dataModelMap of the bucket.<br/>
+     * Get dataModelMap of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return dataModelMap of the bucket
@@ -225,7 +225,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get relaModelMap of the bucket.<br/>
+     * Get relaModelMap of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return relaModelMap of the bucket
@@ -236,7 +236,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get dataName2InfoNames Map of the bucket.<br/>
+     * Get dataName2InfoNames Map of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return dataName2InfoNames Map of the bucket
@@ -247,7 +247,7 @@ public class ModelManagement {
     }
 
     /**
-     * Get resUniqueIndexMap of of the bucket.<br/>
+     * Get resUniqueIndexMap of of the bucket.<br>
      * 
      * @param bktName bucket name
      * @return resUniqueIndexMap of of the bucket
@@ -258,7 +258,7 @@ public class ModelManagement {
     }
 
     /**
-     * Initialize models of all buckets<br/>
+     * Initialize models of all buckets<br>
      * 
      * @since SDNO 0.5
      */

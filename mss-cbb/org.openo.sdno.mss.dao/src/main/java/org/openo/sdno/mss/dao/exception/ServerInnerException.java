@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import org.openo.sdno.mss.dao.constant.InvErrorCodeDefine;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 
 /**
- * Server Inner Exception class.<br/>
+ * Server Inner Exception class.<br>
  * <p>
  * Server internal error,may be caused by bug,system context or environment
  * </p>
@@ -39,7 +39,7 @@ public class ServerInnerException extends WebApplicationException implements IRe
     private InvRespEntity<Object> entity;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -54,7 +54,7 @@ public class ServerInnerException extends WebApplicationException implements IRe
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -68,7 +68,7 @@ public class ServerInnerException extends WebApplicationException implements IRe
     }
 
     /**
-     * Get entity attribute.<br/>
+     * Get entity attribute.<br>
      * 
      * @return entity attribute
      * @since SDNO 0.5

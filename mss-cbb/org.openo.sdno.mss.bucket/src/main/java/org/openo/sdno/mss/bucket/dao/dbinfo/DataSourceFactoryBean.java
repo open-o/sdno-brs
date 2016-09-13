@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import org.springframework.beans.factory.FactoryBean;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
- * Factory class for data source.<br/>
+ * Factory class for data source.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -44,7 +44,7 @@ public class DataSourceFactoryBean implements FactoryBean {
     }
 
     /**
-     * Get the data source after setting the basic attributes.<br/>
+     * Get the data source after setting the basic attributes.<br>
      * 
      * @return Data source
      * @throws Exception if set driver class failed.
@@ -110,7 +110,7 @@ public class DataSourceFactoryBean implements FactoryBean {
     }
 
     /**
-     * Get data source type.<br/>
+     * Get data source type.<br>
      * 
      * @return Data source type
      * @since SDNO 0.5
@@ -121,7 +121,7 @@ public class DataSourceFactoryBean implements FactoryBean {
     }
 
     /**
-     * Check the object is singleton or not.<br/>
+     * Check the object is singleton or not.<br>
      * 
      * @return True if is singleton, otherwise return false.
      * @since SDNO 0.5

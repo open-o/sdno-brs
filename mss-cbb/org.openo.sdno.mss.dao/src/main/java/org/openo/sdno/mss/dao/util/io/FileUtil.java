@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * File utility functions.<br/>
+ * File utility functions.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -56,7 +56,7 @@ public final class FileUtil {
     }
 
     /**
-     * Get file in user's directory. <br/>
+     * Get file in user's directory. <br>
      * 
      * @param path URL of user.path
      * @return File object of user file
@@ -64,12 +64,11 @@ public final class FileUtil {
      */
     public static File getUserDirFile(String path) {
         Validate.notEmpty(path);
-
         return new File(DefaultEnvUtil.getAppShareDir() + File.separator + path);
     }
 
     /**
-     * Get absolute directory file object. <br/>
+     * Get absolute directory file object. <br>
      * 
      * @param absolutePath Absolute path
      * @return File
@@ -82,7 +81,7 @@ public final class FileUtil {
     }
 
     /**
-     * Delete file which is overdue. <br/>
+     * Delete file which is overdue. <br>
      * 
      * @param file File object of overdue file.
      * @since SDNO 0.5
@@ -98,7 +97,7 @@ public final class FileUtil {
     }
 
     /**
-     * Delete all the sub elements if the file is a folder. <br/>
+     * Delete all the sub elements if the file is a folder. <br>
      * 
      * @param file File object.
      * @param overdue Overdue time.
@@ -128,7 +127,7 @@ public final class FileUtil {
     }
 
     /**
-     * Delete overdue time file. <br/>
+     * Delete overdue time file. <br>
      * 
      * @param file File object.
      * @param overdueMills Overdue time(millisecond).
@@ -164,7 +163,7 @@ public final class FileUtil {
     }
 
     /**
-     * Get full path of file. <br/>
+     * Get full path of file. <br>
      * 
      * @param path Path string
      * @return File path
@@ -176,7 +175,7 @@ public final class FileUtil {
     }
 
     /**
-     * Create file URL, profile is var/xxx/YY/MM/DD/uuid.<br/>
+     * Create file URL, profile is var/xxx/YY/MM/DD/uuid.<br>
      * 
      * @param subDir Sub directory.
      * @return URL of file

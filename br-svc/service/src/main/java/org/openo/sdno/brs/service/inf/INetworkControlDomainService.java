@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import org.openo.sdno.framework.container.service.IService;
 import org.openo.sdno.brs.model.NetworkControlDomainMO;
 
 /**
- * Interface of network controller domain service.<br/>
+ * Interface of network controller domain service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -30,7 +30,7 @@ import org.openo.sdno.brs.model.NetworkControlDomainMO;
 public interface INetworkControlDomainService extends IService {
 
     /**
-     * Get NCDs.<br/>
+     * Get NCDs.<br>
      * 
      * @param field The field to query
      * @return The NCD object
@@ -39,7 +39,7 @@ public interface INetworkControlDomainService extends IService {
     Object getNCDs(String field) throws ServiceException;
 
     /**
-     * Get object Id.<br/>
+     * Get object Id.<br>
      * 
      * @param ncdMO The NetworkControlDomainMO object
      * @return The object Id
@@ -48,7 +48,7 @@ public interface INetworkControlDomainService extends IService {
     String getObjectId(NetworkControlDomainMO ncdMO) throws ServiceException;
 
     /**
-     * Add NCD.<br/>
+     * Add NCD.<br>
      * 
      * @param ncdMO The NetworkControlDomainMO object
      * @return The NetworkControlDomainMO object
@@ -57,7 +57,7 @@ public interface INetworkControlDomainService extends IService {
     NetworkControlDomainMO addNCD(NetworkControlDomainMO ncdMO) throws ServiceException;
 
     /**
-     * Get NCD according Id.<br/>
+     * Get NCD according Id.<br>
      * 
      * @param objectId The object Id
      * @return The NetworkControlDomainMO object
@@ -66,7 +66,7 @@ public interface INetworkControlDomainService extends IService {
     NetworkControlDomainMO getNCDById(String objectId) throws ServiceException;
 
     /**
-     * Update NCD according Id.<br/>
+     * Update NCD according Id.<br>
      * 
      * @param objectId The object Id
      * @param dataModelFromReqStr Data model from request
@@ -77,7 +77,7 @@ public interface INetworkControlDomainService extends IService {
             throws ServiceException;
 
     /**
-     * Delete NCD according Id.<br/>
+     * Delete NCD according Id.<br>
      * 
      * @param objectId The object Id
      * @return true when delete success

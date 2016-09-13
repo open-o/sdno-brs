@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -53,7 +53,7 @@ import org.openo.sdno.mss.schema.infomodel.Extension;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 
 /**
- * Generate the database log when changing the set. <br/>
+ * Generate the database log when changing the set. <br>
  * <p>
  * </p>
  * 
@@ -94,7 +94,7 @@ public abstract class ChangeLogBuilder {
     }
 
     /**
-     * Generate the change set of the infomodel.<br/>
+     * Generate the change set of the infomodel.<br>
      * 
      * @param keyStr Type of the resource.
      * @param infoModel informodel of the type.
@@ -219,7 +219,7 @@ public abstract class ChangeLogBuilder {
     }
 
     /**
-     * Generate the information of the changeset.<br/>
+     * Generate the information of the changeset.<br>
      * 
      * @return the detail of the info, including time and index.
      * @since SDNO 0.5
@@ -235,7 +235,7 @@ public abstract class ChangeLogBuilder {
     }
 
     /**
-     * Generate the change set of the data model.<br/>
+     * Generate the change set of the data model.<br>
      * 
      * @param keyStr resource type.
      * @param dataModel data model to change.
@@ -268,7 +268,7 @@ public abstract class ChangeLogBuilder {
     }
 
     /**
-     * Save the change set to a xml file.<br/>
+     * Save the change set to a xml file.<br>
      * 
      * @throws LiquibaseException if getting a Liquibase object is invalid.
      * @throws SQLException if sql syntax is wrong.
@@ -308,7 +308,7 @@ public abstract class ChangeLogBuilder {
     }
 
     /**
-     * Get the directory path of change.<br/>
+     * Get the directory path of change.<br>
      * 
      * @return the directory path of change.
      * @since SDNO 0.5

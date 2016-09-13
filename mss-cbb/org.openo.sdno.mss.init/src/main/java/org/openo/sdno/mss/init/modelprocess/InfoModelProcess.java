@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -41,7 +41,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
 /**
- * Class to handle the infomodel. <br/>
+ * Class to handle the infomodel. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -55,7 +55,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * Generate the precondition of infomodel. <br/>
+     * Generate the precondition of infomodel. <br>
      * 
      * @param factory object factory
      * @param tableName name of table
@@ -79,7 +79,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * Create basic information table. <br/>
+     * Create basic information table. <br>
      * 
      * @param factory object factory
      * @param tableName name of table
@@ -110,7 +110,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * get the data type string from db. <br/>
+     * get the data type string from db. <br>
      * 
      * @param type data type
      * @param length length of type string
@@ -160,7 +160,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * generate the roll back object. <br/>
+     * generate the roll back object. <br>
      * 
      * @param factory factory class
      * @param tableName name of table
@@ -178,7 +178,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * Generate the extend table. <br/>
+     * Generate the extend table. <br>
      * 
      * @param factory object factory
      * @param tableNameEx name of extend table
@@ -209,7 +209,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * Create relation table <br/>
+     * Create relation table <br>
      * 
      * @param factory object factory
      * @param tableName name of table

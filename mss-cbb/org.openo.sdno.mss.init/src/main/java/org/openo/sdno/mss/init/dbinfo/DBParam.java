@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class for initialization parameter of database.<br/>
+ * Class for initialization parameter of database.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -147,7 +147,7 @@ public class DBParam implements Cloneable {
     }
 
     /**
-     * Return the driver class of the Corresponding db.<br/>
+     * Return the driver class of the Corresponding db.<br>
      * 
      * @return driver url of the given db.
      * @since SDNO 0.5
@@ -168,7 +168,7 @@ public class DBParam implements Cloneable {
     }
 
     /**
-     * clear the pass word in the memory.<br/>
+     * clear the pass word in the memory.<br>
      * 
      * @since SDNO 0.5
      */
@@ -181,7 +181,7 @@ public class DBParam implements Cloneable {
     }
 
     /**
-     * Deep clone method.<br/>
+     * Deep clone method.<br>
      * 
      * @return DBParam copied.
      * @since SDNO 0.5

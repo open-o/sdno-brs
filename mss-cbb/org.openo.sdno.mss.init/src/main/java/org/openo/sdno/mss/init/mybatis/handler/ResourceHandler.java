@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Mybatis resource handler class, use Bucket class to get all the resource(key-value pair) from
- * configure file. <br/>
+ * configure file. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -40,7 +40,7 @@ public class ResourceHandler extends AHandler {
     }
 
     /**
-     * Create resource table.<br/>
+     * Create resource table.<br>
      * 
      * @return the effect row of data base.
      * @since SDNO 0.5
@@ -57,7 +57,7 @@ public class ResourceHandler extends AHandler {
     }
 
     /**
-     * Batch add new resources.<br/>
+     * Batch add new resources.<br>
      * 
      * @param resources resource list need to added.
      * @return the effect row of data base.
@@ -78,7 +78,7 @@ public class ResourceHandler extends AHandler {
     }
 
     /**
-     * Add new resources.<br/>
+     * Add new resources.<br>
      * 
      * @param resource resource need to added.
      * @return the effect row of data base.

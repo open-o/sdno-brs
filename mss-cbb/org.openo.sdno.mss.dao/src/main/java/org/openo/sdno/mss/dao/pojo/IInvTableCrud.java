@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.openo.sdno.mss.dao.pojo;
 import org.apache.ibatis.session.SqlSession;
 
 /**
- * Functions for database table Operations. <br/>
+ * Functions for database table Operations. <br>
  * <p>
  * </p>
  * 
@@ -29,7 +29,7 @@ import org.apache.ibatis.session.SqlSession;
 public interface IInvTableCrud {
 
     /**
-     * Create a table. <br/>
+     * Create a table. <br>
      * 
      * @param session SQL session.
      * @since SDNO 0.5
@@ -37,7 +37,7 @@ public interface IInvTableCrud {
     void createTable(SqlSession session);
 
     /**
-     * Delete table. <br/>
+     * Delete table. <br>
      * 
      * @param session SQL session.
      * @since SDNO 0.5

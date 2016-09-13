@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2016, Huawei Technologies Co., Ltd.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
 <inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
     <infomodel name="managedelement" datamodel="inv_managedelement" version="1.0">
         <basic>
-            <property name="name" type="string" length="255"/>
-            <property name="version" type="string" length="64"/>
-            <property name="logicID" type="string" length="64"/>
-            <property name="phyNeID" type="string" length="36"/>
-            <property name="productName" type="string" length="32"/>
-            <property name="isVirtual" type="string" length="32"/>
-            <property name="ipAddress" type="string" length="128"/>
-            <property name="source" type="string" length="64"/>
-            <property name="owner" type="string" length="36"/>
-            <property name="adminState" type="string" length="32"/>
-            <property name="nativeID" type="string" length="64"/>
+            <property name="name" type="string" length="255" />
+            <property name="version" type="string" length="64" />
+            <property name="logicID" type="string" length="64" />
+            <property name="phyNeID" type="string" length="36" />
+            <property name="productName" type="string" length="32" />
+            <property name="isVirtual" type="string" length="32" />
+            <property name="ipAddress" type="string" length="128" />
+            <property name="source" type="string" length="64" />
+            <property name="owner" type="string" length="36" />
+            <property name="adminState" type="string" length="32" />
+            <property name="nativeID" type="string" length="64" />
         </basic>
         <extension>
-            <property name="description" type="string" length="255"/>
-            <property name="operState" type="string" length="32"/>
-            <property name="location" type="string" length="255"/>
-            <property name="serialNumber" type="string" length="32"/>
-            <property name="manufacturer" type="string" length="32"/>
-            <property name="manufactureDate" type="string" length="32"/>
+            <property name="description" type="string" length="255" />
+            <property name="operState" type="string" length="32" />
+            <property name="location" type="string" length="255" />
+            <property name="serialNumber" type="string" length="32" />
+            <property name="manufacturer" type="string" length="32" />
+            <property name="manufactureDate" type="string" length="32" />
         </extension>
     </infomodel>
 </inventory>

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,7 +30,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
- * Redius model Entity class.<br/>
+ * Redius model Entity class.<br>
  * <p>
  * </p>
  * 
@@ -90,7 +90,7 @@ public class ModelRedisEntity {
     private Map<String, List<String>> listBktValues = new ConcurrentHashMap<String, List<String>>();
 
     /**
-     * Get dataFields attribute.<br/>
+     * Get dataFields attribute.<br>
      * 
      * @return dataFields attribute
      * @since SDNO 0.5
@@ -100,7 +100,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set dataFields attribute.<br/>
+     * Set dataFields attribute.<br>
      * 
      * @param dataFields Map Object
      * @since SDNO 0.5
@@ -110,7 +110,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get listBktValues attribute.<br/>
+     * Get listBktValues attribute.<br>
      * 
      * @return listBktValues attribute
      * @since SDNO 0.5
@@ -120,7 +120,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set listBktValues attribute.<br/>
+     * Set listBktValues attribute.<br>
      * 
      * @param listBktValues Map Object
      * @since SDNO 0.5
@@ -130,7 +130,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get inited attribute.<br/>
+     * Get inited attribute.<br>
      * 
      * @return inited attribute
      * @since SDNO 0.5
@@ -140,7 +140,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set inited attribute<br/>
+     * Set inited attribute<br>
      * 
      * @param inited
      * @since SDNO 0.5
@@ -150,7 +150,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get infoModelMap attribute.<br/>
+     * Get infoModelMap attribute.<br>
      * 
      * @return infoModelMap attribute
      * @since SDNO 0.5
@@ -160,7 +160,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set infoModelMap attribute.<br/>
+     * Set infoModelMap attribute.<br>
      * 
      * @param infoModelMap Map Object
      * @since SDNO 0.5
@@ -170,7 +170,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get wholeInfoModelMap attribute.<br/>
+     * Get wholeInfoModelMap attribute.<br>
      * 
      * @return wholeInfoModelMap attribute
      * @since SDNO 0.5
@@ -180,7 +180,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set wholeInfoModelMap attribute.<br/>
+     * Set wholeInfoModelMap attribute.<br>
      * 
      * @param wholeInfoModelMap Map Object
      * @since SDNO 0.5
@@ -190,7 +190,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get dataModelMap attribute.<br/>
+     * Get dataModelMap attribute.<br>
      * 
      * @return dataModelMap attribute
      * @since SDNO 0.5
@@ -200,7 +200,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set dataModelMap attribute.<br/>
+     * Set dataModelMap attribute.<br>
      * 
      * @param dataModelMap Map Object
      * @since SDNO 0.5
@@ -210,7 +210,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get relaModelMap attribute.<br/>
+     * Get relaModelMap attribute.<br>
      * 
      * @return relaModelMap attribute
      * @since SDNO 0.5
@@ -220,7 +220,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set relaModelMap attribute.<br/>
+     * Set relaModelMap attribute.<br>
      * 
      * @param relaModelMap Map object
      * @since SDNO 0.5
@@ -230,7 +230,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get dataName2InfoNames attribute.<br/>
+     * Get dataName2InfoNames attribute.<br>
      * 
      * @return dataName2InfoNames attribute
      * @since SDNO 0.5
@@ -240,7 +240,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set dataName2InfoNames attribute.<br/>
+     * Set dataName2InfoNames attribute.<br>
      * 
      * @param dataName2InfoNames Map Object
      * @since SDNO 0.5
@@ -250,7 +250,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get resUniqueIndexMap attribute.<br/>
+     * Get resUniqueIndexMap attribute.<br>
      * 
      * @return resUniqueIndexMap attribute
      * @since SDNO 0.5
@@ -260,7 +260,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set resUniqueIndexMap attribute.<br/>
+     * Set resUniqueIndexMap attribute.<br>
      * 
      * @param resUniqueIndexMap Map Object
      * @since SDNO 0.5
@@ -270,7 +270,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Initialize redis model.<br/>
+     * Initialize redis model.<br>
      * 
      * @since SDNO 0.5
      */
@@ -286,7 +286,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Initialize dataModelMap and resUniqueIndexMap.<br/>
+     * Initialize dataModelMap and resUniqueIndexMap.<br>
      * 
      * @since SDNO 0.5
      */
@@ -315,7 +315,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Initialize whole info model.<br/>
+     * Initialize whole info model.<br>
      * 
      * @since SDNO 0.5
      */

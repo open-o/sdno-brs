@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Class of validating task.<br/>
+ * Class of validating task.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -40,7 +40,7 @@ public class ValidateTask {
     private final List<RuleErrorInfo> lstErr = new ArrayList<RuleErrorInfo>();
 
     /**
-     * Constructor.<br/>
+     * Constructor.<br>
      * 
      * @since SDNO 0.5
      * @param validator Validator of input parameter
@@ -52,7 +52,7 @@ public class ValidateTask {
     }
 
     /**
-     * Add error message.<br/>
+     * Add error message.<br>
      * 
      * @param attrNameKey Key value of attribute
      * @param errorMsgKey Key value of error message

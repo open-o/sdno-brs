@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * Inventory Response Entity class.<br/>
+ * Inventory Response Entity class.<br>
  * <p>
  * 1.if you don't care http body,just return this response 2.if you care http body,you can return
  * the http response and this response. 3.The business can extend this message body.
@@ -65,7 +65,7 @@ public class InvRespEntity<T> {
     protected T data;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * Call by JSON.
      * </p>
@@ -77,7 +77,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -94,7 +94,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Set retCode and return.<br/>
+     * Set retCode and return.<br>
      * 
      * @param retcode retCode value
      * @return this object
@@ -106,7 +106,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Set message and return.<br/>
+     * Set message and return.<br>
      * 
      * @param message error message
      * @return this object
@@ -118,7 +118,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Set data and return.<br/>
+     * Set data and return.<br>
      * 
      * @param data data value
      * @return this object
@@ -130,7 +130,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Check whether this is success response.<br/>
+     * Check whether this is success response.<br>
      * 
      * @return true if this is success response, false otherwise
      * @since SDNO 0.5
@@ -141,7 +141,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get retcode attribute.<br/>
+     * Get retcode attribute.<br>
      * 
      * @return retcode attribute
      * @since SDNO 0.5
@@ -152,7 +152,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get message attribute.<br/>
+     * Get message attribute.<br>
      * 
      * @return message attribute
      * @since SDNO 0.5
@@ -163,7 +163,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get data attribute.<br/>
+     * Get data attribute.<br>
      * 
      * @return data attribute
      * @since SDNO 0.5
@@ -174,7 +174,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Set message attribute.<br/>
+     * Set message attribute.<br>
      * 
      * @param message String Object
      * @since SDNO 0.5
@@ -185,7 +185,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get row attribute.<br/>
+     * Get row attribute.<br>
      * 
      * @return row attribute
      * @since SDNO 0.5
@@ -196,7 +196,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Override toString Function.<br/>
+     * Override toString Function.<br>
      * 
      * @return toString Content
      * @since SDNO 0.5
@@ -207,7 +207,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get a simple success response.<br/>
+     * Get a simple success response.<br>
      * 
      * @param data data value
      * @return response instance
@@ -218,7 +218,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get a simple success response.<br/>
+     * Get a simple success response.<br>
      * 
      * @param data data value
      * @param row row number
@@ -230,7 +230,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get a simple fail response.<br/>
+     * Get a simple fail response.<br>
      * 
      * @param data data value
      * @param row row number
@@ -242,7 +242,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get a simple fail response.<br/>
+     * Get a simple fail response.<br>
      * 
      * @param message error message
      * @return response instance
@@ -255,7 +255,7 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get a simple fail response.<br/>
+     * Get a simple fail response.<br>
      * 
      * @param retcode error code
      * @return response instance

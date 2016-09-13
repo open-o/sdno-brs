@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 
 /**
- * Inventory master slaver query PoJo. <br/>>
+ * Inventory master slaver query PoJo. <br>>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -69,7 +69,7 @@ public class InvRelationCombinePojo extends InvMasterSlavesQueryPojo {
     private static Map<String, Datatype> relationModel;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * 
      * @since SDNO 0.5
      * @param resType Resource type.
@@ -121,7 +121,7 @@ public class InvRelationCombinePojo extends InvMasterSlavesQueryPojo {
     }
 
     /**
-     * Set relation table filter. <br/>
+     * Set relation table filter. <br>
      * 
      * @param relationFilter
      * @since SDNO 0.5

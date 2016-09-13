@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.mss.init.mybatis.mappers.RelationMapper;
 import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
 
 /**
- * Relation handler class, used to get, add, delete, and updat the relation map. <br/>
+ * Relation handler class, used to get, add, delete, and updat the relation map. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -38,7 +38,7 @@ public class RelationHandler extends AHandler {
     }
 
     /**
-     * Add a new relation model. <br/>
+     * Add a new relation model. <br>
      * 
      * @param relation new relation pojo need to add.
      * @return primary key if success, 0 if failed.
@@ -61,7 +61,7 @@ public class RelationHandler extends AHandler {
         return row;
     }
     /**
-     * Get the model by Bucket name. <br/>
+     * Get the model by Bucket name. <br>
      * 
      * @param bktName name of the Bucket object.
      * @return RelationPojo object.
@@ -86,7 +86,7 @@ public class RelationHandler extends AHandler {
     }
 
     /**
-     * Create a new table. <br/>
+     * Create a new table. <br>
      * 
      * @return primary key if success, 0 if failed.
      * @since SDNO 0.5

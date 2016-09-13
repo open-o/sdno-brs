@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -43,7 +43,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 /**
- * Modle parser class, parse model from its configure file. <br/>
+ * Modle parser class, parse model from its configure file. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -78,7 +78,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Get a singleton of this class. <br/>
+     * Get a singleton of this class. <br>
      * 
      * @return singleton of this class.
      * @since SDNO 0.5
@@ -88,7 +88,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Clear the cache. <br/>
+     * Clear the cache. <br>
      * 
      * @since SDNO 0.5
      */
@@ -99,7 +99,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse the model file. <br/>
+     * Parse the model file. <br>
      * 
      * @param files List of file to be parsed.
      * @since SDNO 0.5
@@ -119,7 +119,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse a single file. <br/>
+     * Parse a single file. <br>
      * 
      * @param file wait to be parsed.
      * @since SDNO 0.5
@@ -156,7 +156,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse the infomodel xml file to get a infomodel. <br/>
+     * Parse the infomodel xml file to get a infomodel. <br>
      * 
      * @param file model file.
      * @throws JAXBException if model file is invalid.
@@ -201,7 +201,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Save model to cache. <br/>
+     * Save model to cache. <br>
      * 
      * @param infoModelList List of parsed model
      * @since SDNO 0.5
@@ -213,7 +213,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse the datamodel file. <br/>
+     * Parse the datamodel file. <br>
      * 
      * @param file file wait to be parsed.
      * @throws JAXBException if the file is invalid.
@@ -257,7 +257,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Save datamodel to cache. <br/>
+     * Save datamodel to cache. <br>
      * 
      * @param dataModelList List of parsed model.
      * @since SDNO 0.5
@@ -269,7 +269,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse the relation model from file. <br/>
+     * Parse the relation model from file. <br>
      * 
      * @param file file need to be parsed.
      * @throws JAXBException if the file is invalid.
@@ -315,7 +315,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Save relationmodel to cache. <br/>
+     * Save relationmodel to cache. <br>
      * 
      * @param relationModelList List of parsed model.
      * @since SDNO 0.5

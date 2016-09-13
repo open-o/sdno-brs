@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
- * Model Manage Util class.<br/>
+ * Model Manage Util class.<br>
  * <p>
  * manage a instance of ModelManagement
  * </p>
@@ -47,7 +47,7 @@ public final class ModelMgrUtil {
     private ModelManagement modelMgr = null;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -57,7 +57,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get Singleton instance of ModelMgrUtil.<br/>
+     * Get Singleton instance of ModelMgrUtil.<br>
      * 
      * @return singleton instance
      * @since SDNO 0.5
@@ -67,7 +67,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get bucket name.<br/>
+     * Get bucket name.<br>
      * 
      * @return bucket name
      * @since SDNO 0.5
@@ -78,7 +78,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get ModelManagement instance.<br/>
+     * Get ModelManagement instance.<br>
      * 
      * @return ModelManagement instance
      * @since SDNO 0.5
@@ -95,7 +95,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get infoModelMap of this bucket.<br/>
+     * Get infoModelMap of this bucket.<br>
      * 
      * @return infoModelMap of this bucket
      * @since SDNO 0.5
@@ -105,7 +105,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get dataFields of this bucket.<br/>
+     * Get dataFields of this bucket.<br>
      * 
      * @return dataFields of this bucket
      * @since SDNO 0.5
@@ -115,7 +115,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get listBktValues of this bucket.<br/>
+     * Get listBktValues of this bucket.<br>
      * 
      * @return listBktValues of this bucket
      * @since SDNO 0.5
@@ -125,7 +125,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get wholeInfoModelMap of this bucket,info contains uuid/createtime/updatetime.<br/>
+     * Get wholeInfoModelMap of this bucket,info contains uuid/createtime/updatetime.<br>
      * 
      * @return wholeInfoModelMap of this bucket
      * @since SDNO 0.5
@@ -135,7 +135,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get dataModelMap of this bucket.<br/>
+     * Get dataModelMap of this bucket.<br>
      * 
      * @return dataModelMap of this bucket
      * @since SDNO 0.5
@@ -145,7 +145,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get relaModelMap of this bucket.<br/>
+     * Get relaModelMap of this bucket.<br>
      * 
      * @return relaModelMap of this bucket
      * @since SDNO 0.5
@@ -155,7 +155,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get dataName2InfoNames of this bucket.<br/>
+     * Get dataName2InfoNames of this bucket.<br>
      * 
      * @return dataName2InfoNames of this bucket
      * @since SDNO 0.5
@@ -165,7 +165,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get resUniqueIndexMap of this bucket.<br/>
+     * Get resUniqueIndexMap of this bucket.<br>
      * 
      * @return resUniqueIndexMap of this bucket
      * @since SDNO 0.5
@@ -175,7 +175,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get filter description of res.<br/>
+     * Get filter description of res.<br>
      * 
      * @param resType resource type
      * @param filterName filter name
@@ -198,7 +198,7 @@ public final class ModelMgrUtil {
     }
 
     /**
-     * Get Unique attribute of res.<br/>
+     * Get Unique attribute of res.<br>
      * 
      * @param resType resource type
      * @return unique attribute of res

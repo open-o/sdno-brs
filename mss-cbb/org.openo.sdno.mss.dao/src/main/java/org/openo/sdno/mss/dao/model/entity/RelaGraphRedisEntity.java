@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,7 +32,7 @@ import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
 
 /**
- * Relation Graph Redius Entity Class.<br/>
+ * Relation Graph Redius Entity Class.<br>
  * <p>
  * </p>
  * 
@@ -47,7 +47,7 @@ public class RelaGraphRedisEntity {
     private ModelManagement modelMgr = null;
 
     /**
-     * Constructor<br/>
+     * Constructor<br>
      * <p>
      * </p>
      * 
@@ -60,7 +60,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Get the path between src_res and dst_res.<br/>
+     * Get the path between src_res and dst_res.<br>
      * 
      * @param srcRes source resource type
      * @param dtsRes destination resource type
@@ -87,7 +87,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Get resource types which have COMPOSITION relation with res.<br/>
+     * Get resource types which have COMPOSITION relation with res.<br>
      * 
      * @param bktName bucket name
      * @param res resource type
@@ -108,7 +108,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Get all resource types which are source resource type of given resource type.<br/>
+     * Get all resource types which are source resource type of given resource type.<br>
      * 
      * @param bktName bucket name
      * @param res resource type
@@ -127,7 +127,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Get all resource types which have non-COMPOSITION relation with given res.<br/>
+     * Get all resource types which have non-COMPOSITION relation with given res.<br>
      * 
      * @param bktName bucket name
      * @param res resource type
@@ -148,7 +148,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Build Relation Graph of one Bucket.<br/>
+     * Build Relation Graph of one Bucket.<br>
      * 
      * @param bktName Bucket name
      * @since SDNO 0.5
@@ -173,7 +173,7 @@ public class RelaGraphRedisEntity {
     }
 
     /**
-     * Check whether this resource is end of the graph.<br/>
+     * Check whether this resource is end of the graph.<br>
      * 
      * @param res resource type
      * @return true if this resource is end of the graph,false otherwise

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * File handle class, used to get file path and the file list. <br/>
+ * File handle class, used to get file path and the file list. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -39,7 +39,7 @@ public class FileUtil {
     }
 
     /**
-     * Get all the files in the given dir. <br/>
+     * Get all the files in the given dir. <br>
      * 
      * @param dirPath the directory path you want to serach.
      * @return List of all files in the given dir.

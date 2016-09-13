@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import org.apache.commons.lang.Validate;
 import org.openo.sdno.mss.dao.util.io.FileUtil;
 
 /**
- * Validate Utility class. <br/>
+ * Validate Utility class. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -37,7 +37,7 @@ public final class ValidateUtil {
     }
 
     /**
-     * Check size. <br/>
+     * Check size. <br>
      * 
      * @param size size
      * @param min minimum
@@ -52,7 +52,7 @@ public final class ValidateUtil {
     }
 
     /**
-     * Check if file is existed. <br/>
+     * Check if file is existed. <br>
      * 
      * @param file File
      * @since SDNO 0.5
@@ -65,7 +65,7 @@ public final class ValidateUtil {
     }
 
     /**
-     * Check if file in the directory for safe. <br/>
+     * Check if file in the directory for safe. <br>
      * 
      * @param subDir Sub directory.
      * @param file file

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.datamodel.DataModelIndex;
 
 /**
- * Data model processing class, it can create index of data model. <br/>
+ * Data model processing class, it can create index of data model. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25
@@ -41,7 +41,7 @@ public class DataModelProcess {
     }
 
     /**
-     * Generate the precondition of index. <br/>
+     * Generate the precondition of index. <br>
      * 
      * @param factory factory class of object.
      * @param indexName name of the index.
@@ -66,7 +66,7 @@ public class DataModelProcess {
     }
 
     /**
-     * Get the created index.<br/>
+     * Get the created index.<br>
      * 
      * @param factory factory class of object.
      * @param index the index class
@@ -86,7 +86,7 @@ public class DataModelProcess {
     }
 
     /**
-     * Construct the log of changing index.<br/>
+     * Construct the log of changing index.<br>
      * 
      * @param factory factory class of object.
      * @param indexInfo information of the index.
@@ -125,7 +125,7 @@ public class DataModelProcess {
     }
 
     /**
-     * Generating log of the rollback. <br/>
+     * Generating log of the rollback. <br>
      * 
      * @param factory factory class of object.
      * @param name name of the object.

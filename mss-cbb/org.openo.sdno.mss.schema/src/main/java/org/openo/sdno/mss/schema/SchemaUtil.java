@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 /**
- * Schema static class that verify model file.<br/>
+ * Schema static class that verify model file.<br>
  * <p>
  * </p>
  * 
@@ -58,7 +58,7 @@ public final class SchemaUtil {
     }
 
     /**
-     * Verify the validity of Info Model.<br/>
+     * Verify the validity of Info Model.<br>
      * 
      * @param jaxbCongtext JAXBContext Object
      * @param file info model file
@@ -76,7 +76,7 @@ public final class SchemaUtil {
     }
 
     /**
-     * Verify the validity of Data Model.<br/>
+     * Verify the validity of Data Model.<br>
      * 
      * @param jaxbCongtext JAXBContext Object
      * @param file data model file
@@ -94,7 +94,7 @@ public final class SchemaUtil {
     }
 
     /**
-     * Verify the validity of Relation Model.<br/>
+     * Verify the validity of Relation Model.<br>
      * 
      * @param jaxbCongtext JAXBContext Object
      * @param file relation model file
@@ -112,7 +112,7 @@ public final class SchemaUtil {
     }
 
     /**
-     * Verify the validity of xml File.<br/>
+     * Verify the validity of xml File.<br>
      * 
      * @param jaxbCongtext the JAXBContext Object
      * @param file xml file
@@ -147,7 +147,7 @@ public final class SchemaUtil {
     }
 
     /**
-     * Create BuilderFactory.<br/>
+     * Create BuilderFactory.<br>
      * 
      * @return DocumentBuilderFactory object created
      * @since SDNO 0.5

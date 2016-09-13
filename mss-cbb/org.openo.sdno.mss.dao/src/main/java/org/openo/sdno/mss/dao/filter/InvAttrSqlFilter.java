@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ import java.util.List;
 import org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo;
 
 /**
- * Inventory Attribute Sql Filter Class.<br/>
+ * Inventory Attribute Sql Filter Class.<br>
  * <p>
  * </p>
  * 
@@ -42,7 +42,7 @@ public class InvAttrSqlFilter {
     private List<InvTempAttrFilterPojo> pojoList = new ArrayList<InvTempAttrFilterPojo>();
 
     /**
-     * Get whereFilter attribute.<br/>
+     * Get whereFilter attribute.<br>
      * 
      * @return whereFilter attribute
      * @since SDNO 0.5
@@ -52,7 +52,7 @@ public class InvAttrSqlFilter {
     }
 
     /**
-     * Set whereFilter attribute.<br/>
+     * Set whereFilter attribute.<br>
      * 
      * @param whereFilter String Object
      * @since SDNO 0.5
@@ -62,7 +62,7 @@ public class InvAttrSqlFilter {
     }
 
     /**
-     * Get pojoList attribute.<br/>
+     * Get pojoList attribute.<br>
      * 
      * @return pojoList attribute
      * @since SDNO 0.5
@@ -72,7 +72,7 @@ public class InvAttrSqlFilter {
     }
 
     /**
-     * Set pojoList attribute.<br/>
+     * Set pojoList attribute.<br>
      * 
      * @param pojoList AttrFilter list
      * @since SDNO 0.5
@@ -82,7 +82,7 @@ public class InvAttrSqlFilter {
     }
 
     /**
-     * Override toString Function.<br/>
+     * Override toString Function.<br>
      * 
      * @return toString content
      * @since SDNO 0.5

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.service.constant.Constant;
 
 /**
- * The class to do a parameter transformation.<br/>
+ * The class to do a parameter transformation.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -36,7 +36,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replaces the Uuid field in the returned data list into the Id field.<br/>
+     * Replaces the Uuid field in the returned data list into the Id field.<br>
      * 
      * @param invRespEntity The returned data list
      * @since SDNO 0.5
@@ -50,7 +50,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replaces the Uuid field in the returned data into the Id field.<br/>
+     * Replaces the Uuid field in the returned data into the Id field.<br>
      * 
      * @param invRespEntity The returned data
      * @since SDNO 0.5
@@ -64,7 +64,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replaces the Uuid in the returned data list as Id.<br/>
+     * Replaces the Uuid in the returned data list as Id.<br>
      * 
      * @param respData The returned data list
      * @since SDNO 0.5
@@ -80,7 +80,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replaces the Uuid field in the property to the Id field.<br/>
+     * Replaces the Uuid field in the property to the Id field.<br>
      * 
      * @param props The property
      * @since SDNO 0.5
@@ -101,7 +101,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replace the Id in the request parameter list to Uuid.<br/>
+     * Replace the Id in the request parameter list to Uuid.<br>
      * 
      * @param reqData The request parameter list
      * @since SDNO 0.5
@@ -117,7 +117,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replace the Id in the request parameter to Uuid.<br/>
+     * Replace the Id in the request parameter to Uuid.<br>
      * 
      * @param props The request parameter
      * @since SDNO 0.5
@@ -138,7 +138,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replace the Id in the data list to Uuid.<br/>
+     * Replace the Id in the data list to Uuid.<br>
      * 
      * @param attrList The data list
      * @since SDNO 0.5
@@ -163,7 +163,7 @@ public class ParamConverter {
     }
 
     /**
-     * Replace the Id in the data to Uuid.<br/>
+     * Replace the Id in the data to Uuid.<br>
      * 
      * @param attr The data as string
      * @return The converted data as string

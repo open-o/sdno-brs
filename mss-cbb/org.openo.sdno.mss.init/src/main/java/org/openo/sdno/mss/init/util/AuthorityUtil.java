@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Authority util class, used to normalize the authority and check the authority is valid. <br/>
+ * Authority util class, used to normalize the authority and check the authority is valid. <br>
  * <p>
  * </p>
  * 
@@ -41,7 +41,7 @@ public class AuthorityUtil {
     }
 
     /**
-     * Normalize the authority of bucket, if its auth is not in the list, give it a default one. <br/>
+     * Normalize the authority of bucket, if its auth is not in the list, give it a default one. <br>
      * 
      * @param auth the bucket object's authority.
      * @return bucket object's auth if it is in the auth list, default auth if it's not.
@@ -60,7 +60,7 @@ public class AuthorityUtil {
     }
 
     /**
-     * Check if it's a valid auth <br/>
+     * Check if it's a valid auth <br>
      * 
      * @param auth the bucket's auth.
      * @return true if it's valid, false if not.
@@ -77,7 +77,7 @@ public class AuthorityUtil {
     }
 
     /**
-     * Check whether a auth is in the auth list. <br/>
+     * Check whether a auth is in the auth list. <br>
      * 
      * @param auth auth need to check.
      * @return true if the auth is in the list, false if not.
