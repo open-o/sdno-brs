@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>org.openo.sdno.brs</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
     <name>BRSServiceService</name>
     <packaging>war</packaging>
 
@@ -127,7 +126,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>${package.name}</finalName>
     </build>
+
 </project>

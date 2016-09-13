@@ -7,9 +7,10 @@
         <artifactId>br-svc</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
-    <!-- <groupId>com.puer</groupId> -->
+
     <artifactId>com.puer.svc.brs-deployment</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
     <profiles>
         <profile>
             <activation>
@@ -57,8 +58,10 @@
                                         System.out.println("******** Going to make release zip ********")
 
                                         deployFolder = "${project.build.directory}/deployoutput"
-                                        deployUnzip = "${project.build.directory}/deployunzip"
-                                        outfileName = "${package.name}-${project.version}.zip"
+                                        deployUnzip =
+                                        "${project.build.directory}/deployunzip"
+                                        outfileName =
+                                        "${package.name}-${project.version}.zip"
 
                                         ant.delete(dir: "${deployFolder}")
                                         ant.mkdir(dir: "${deployFolder}")
@@ -76,11 +79,13 @@
                                         }
 
                                         ant.copy(todir: "${deployUnzip}/webapps/ROOT") {
-                                        fileset(dir: "${project.build.directory}/../../service/target/${package.name}")
+                                        fileset(dir:
+                                        "${project.build.directory}/../../service/target/${package.name}")
                                         }
 
                                         ant.zip(destfile: "${deployFolder}/${outfileName}") {
-                                        fileset(dir: "${deployUnzip}")
+                                        fileset(dir:
+                                        "${deployUnzip}")
                                         }
                                         System.out.println("******** completed. ************")
                                     </source>
@@ -92,4 +97,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>

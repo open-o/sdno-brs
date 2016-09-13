@@ -6,14 +6,17 @@
         <artifactId>res-manage</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>br-svc</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <properties>
+        <package.name>brsservice</package.name>
+    </properties>
+
     <modules>
         <module>service</module>
         <module>deployment</module>
     </modules>
-    <properties>
-        <package.name>brsservice</package.name>
-    </properties>
+
 </project>

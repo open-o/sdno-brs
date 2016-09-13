@@ -6,8 +6,8 @@
         <groupId>org.openo.sdno.brs</groupId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>org.openo.sdno.mss.service</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <dependencies>
@@ -165,7 +165,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>${package.name}</finalName>
     </build>
+
 </project>

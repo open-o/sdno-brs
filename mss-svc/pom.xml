@@ -6,14 +6,16 @@
         <artifactId>res-manage</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>mss-svc</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+
+    <properties>
+        <package.name>mssservice</package.name>
+    </properties>
+
     <modules>
         <module>service</module>
         <module>deployment</module>
     </modules>
-    <properties>
-        <package.name>mssservice</package.name>
-    </properties>
 </project>

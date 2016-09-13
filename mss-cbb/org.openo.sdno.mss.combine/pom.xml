@@ -6,8 +6,9 @@
         <artifactId>mss-cbb</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>org.openo.sdno.mss.combine</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>net.sf.supercsv</groupId>
@@ -41,8 +42,10 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <properties>
         <dir.run>${basedir}/../release/</dir.run>
         <resources.dir>${basedir}/src/main/resources</resources.dir>
     </properties>
+
 </project>

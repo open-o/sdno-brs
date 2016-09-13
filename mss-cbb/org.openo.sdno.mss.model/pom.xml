@@ -6,8 +6,8 @@
         <artifactId>mss-cbb</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>org.openo.sdno.mss.model</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -47,4 +47,5 @@
         <dir.run>${basedir}/../release/</dir.run>
         <resources.dir>${basedir}/src/main/resources</resources.dir>
     </properties>
+
 </project>

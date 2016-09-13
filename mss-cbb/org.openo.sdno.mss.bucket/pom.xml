@@ -6,8 +6,9 @@
         <artifactId>mss-cbb</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>org.openo.sdno.mss.bucket</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>org.mybatis</groupId>

@@ -6,8 +6,8 @@
         <artifactId>mss-cbb</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>org.openo.sdno.mss.init</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
