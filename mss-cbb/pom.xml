@@ -4,16 +4,16 @@
     <parent>
         <groupId>org.openo.sdno.brs</groupId>
         <artifactId>res-manage</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>mss-cbb</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.framework.base</artifactId>
-            <version>0.0.1-SNAPSHOT </version>
+            <version>1.0.0-SNAPSHOT </version>
             <scope>compile</scope>
         </dependency>
         <dependency>
