@@ -136,7 +136,6 @@ public class BucketsMgrt {
         if(!AuthorityUtil.isValidAuth(this.bucket.getAuthorization())) {
             LOGGER.error("authorization:{} of bucket:{} is invalid, now normalize it", this.bucket.getName(),
                     this.bucket.getAuthorization());
-
             this.bucket.setAuthorization(AuthorityUtil.normalizeAuth(this.bucket.getAuthorization()));
         }
     }

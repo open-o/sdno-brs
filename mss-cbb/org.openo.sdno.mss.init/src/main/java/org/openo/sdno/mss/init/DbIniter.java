@@ -42,8 +42,8 @@ public class DbIniter {
      * Initialization of database.<br>
      * 
      * @param dbParam parameter for database.
-     * @throws IOException
-     * @throws CloneNotSupportedException 
+     * @throws IOException when database init failed
+     * @throws CloneNotSupportedException when database init failed
      * @since SDNO 0.5
      */
     public void init(DBParam dbParam) throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
