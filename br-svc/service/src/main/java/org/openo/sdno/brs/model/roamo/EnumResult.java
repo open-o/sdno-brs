@@ -26,7 +26,7 @@ public enum EnumResult {
     SUCCESS("success", 0), FAIL("fail", 1);
 
     /**
-     * result ：success|fail|
+     * result: success|fail|
      */
     private String name;
 

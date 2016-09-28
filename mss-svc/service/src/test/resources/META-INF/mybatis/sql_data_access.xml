@@ -2,14 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.openo.sdno.mss.dao.intf.IInvDataHandler">
     
-    <!-- Puer自定义缓存，实现MyBatis Cache接口-->
-    <!--
-    <cache type="com.huawei.inv.utils.cache.RedisCache">
-        <property name="cacheName" value="inventoryrdb"></property>
-    </cache>
-	-->
-    
-	<!-- 第一次启动的时候，清理表锁，避免某些异常情况下liquibase锁住了表，造成初始化失败 -->
+  <!-- Clean up table locks when rebooting at the first time. 
+       It is used to avoid initialization failure in case that liquibase locked tables under some exceptional situations. 
+  -->
 	<update id="clearLockTable">
 		DELETE FROM DATABASECHANGELOGLOCK
 	</update>	
@@ -17,55 +12,58 @@
 		SELECT * FROM DATABASECHANGELOGLOCK
 	</select>
     
-    <!-- 侦测数据库节点是可以正常连接动完成 -->    
+  <!-- Check whether a database can be connected successfully. -->   
 	<select id="isDBConnectedOK" resultType="string">
 		select * from `INFORMATION_SCHEMA`.`CHARACTER_SETS` LIMIT 0, 1
 	</select>
     
-    <!-- 侦测数据库节点是否具备写入属性 -->
-    <update id="isDBWritable">
+  <!-- Check whether a database is writable. -->
+  <update id="isDBWritable">
         CREATE TABLE testWritable (testID char(36) NOT NULL)
 	</update>
 
-    <!-- 清空侦测数据库节点是否具备写入属性临时表 -->
-    <update id="dropDBWritableTestTable">
+  <!-- Delete the temporary table created for detecting whether a database is writable. -->
+  <update id="dropDBWritableTestTable">
         DROP TABLE IF EXISTS testWritable
 	</update>
     
-	<!-- 检查DATABASECHANGELOG表是否存在，如果维护工具初始化了数据库，需要做相应处理. 此处目前只支持mysql -->
+  <!-- Check whether the DATABASECHANGELOG table exists. 
+       If mainenance tool has initialized the database, corresponding process must be done. 
+       Note that it only supports mysql.
+  -->
 	<select id="isDATABASECHANGELOGExist" resultType="string">
 		select `TABLE_NAME` from `INFORMATION_SCHEMA`.`TABLES` where `TABLE_SCHEMA`='inventory' and `TABLE_NAME`='DATABASECHANGELOG'
 	</select>
 
-	<!-- 是否空表 -->
+	<!-- Check whether a table is empty -->
 	<select id="isEmptyTable" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="string">
 		select ${emptyCheckColumn} from ${tableName} limit 0,1
 	</select>
 
 
-    <!-- 统计扩展表指定属性记录 -->
-    <select id="countExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
-        select count(1) from ${tableName} where ${filter}
-    </select>
+  <!-- Query the number of the specified field of extention table -->
+  <select id="countExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
+      select count(1) from ${tableName} where ${filter}
+  </select>
 
-	<!-- 查询扩展表记录 -->
+	<!-- Query one record of the extension table with uuid -->
 	<select id="getExtData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
 		select uuid, attrname, attrvalue from ${tableName}
 		where uuid = #{uuid}
 	</select>
 
-	<!-- 查询多个过滤条件的扩展表记录 -->
+	<!-- Query record of extension table with multiple fitering conditions -->
 	<select id="getExtDatas" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo" resultType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
 		select A.uuid, A.attrname, A.attrvalue from ${tableName}, tbl_inv_${resType}_ex as A
 		where A.uuid = ${tableName}.uuid
 	</select>
 
-	<!-- 查询数据行数 -->
+	<!-- Query the number of records that satisfy the filtering condition. -->
 	<select id="getRowCnt" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo" resultType="int">
 		select count(uuid) from ${tableName} where ${filter}
 	</select>
 
-	<!-- 查询数据行数 -->
+	<!-- Query the number of the specified attibute that satisfy filtering conditions -->
 	<select id="getStatCnt" parameterType="org.openo.sdno.mss.dao.pojo.InvStatPojo" resultType="int">
 		select count(${countAttrName}) from ${tableName}
 		<if test="filterAttrList != null">
@@ -76,9 +74,9 @@
 		<where><if test="filter != null">${filter}</if></where>
 	</select>
 
-	<!-- 分页查询步骤1：先查询出排序字段等于x的数据（向下翻页）
-		SELECT top 1000 * FROM tbl_inv_xx where sortfield = 'x' and fdn > 'xx' order by sortfield asc, fdn -->
-	<select id="getDataWithSplitPage1" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
+  <!-- Step 1 for paginated query: first get the records whose sorting field equals "x" (asc order, turn down page)
+      SELECT top 1000 * FROM tbl_inv_xx where sortfield = 'x' and fdn > 'xx' order by sortfield asc, fdn -->
+  <select id="getDataWithSplitPage1" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
 		SELECT
 			<foreach item="item" collection="basic.attrEntityList" separator="," >
 				${basic.tableName}.${item.attrName}
@@ -117,8 +115,8 @@
 		limit 0,1000
 	</select>
 
-	<!-- 分页查询步骤2：查询出排序字段大于x的数据（向下翻页）
-		SELECT top 1000 * FROM tbl_inv_xx where sortfield > 'x' order by sortfield desc, fdn -->
+	<!-- Step 2 for paginated query: first get the records whose sorting field is larger than "x" (desc order, turn down page)
+        SELECT top 1000 * FROM tbl_inv_xx where sortfield > 'x' order by sortfield desc, fdn -->
 	<select id="getDataWithSplitPage2" parameterType="org.openo.sdno.mss.dao.pojo.InvSplitPagePojo" resultType="hashmap">
 		SELECT
 			<foreach item="item" collection="basic.attrEntityList" separator="," >
@@ -163,7 +161,7 @@
 		limit 0, ${topCnt}
 	</select>
 
-	<!-- 查询存量数据的过滤条件，使用UUID排序顺序分批 -->
+	<!-- Query inventory data based on filtering conditions. Result sets are ordered and paginated by UUID -->
 	<sql id="crossFilterSql">
 		${basic.tableName} right join 
 		(select ${basic.tableName}.uuid from ${basic.tableName} 
@@ -176,7 +174,7 @@
 			</where>
 		  order by uuid limit 0, ${readCount}) b on ${basic.tableName}.uuid = b.uuid 
 	</sql>
-	<!-- 查询存量数据 -->
+	<!-- Query inventory data -->
 	<select id="getData" parameterType="org.openo.sdno.mss.dao.pojo.InvCrossTablePojo" resultType="hashmap">
 		<if test="extensionList == null">
 			select <foreach item="item" collection="basic.attrEntityList" separator="," >${basic.tableName}.${item.attrName}</foreach>
@@ -213,7 +211,7 @@
 
 	
 
-	<!-- 删除存量数据 ,删除关系数据也是用这个-->
+	<!-- Delete inventory data. It is also used to delete relation data. -->
 	<delete id="removeData" parameterType="org.openo.sdno.mss.dao.pojo.DefaultInvTablePojo">
 		delete from ${tableName}
 		<where>
@@ -237,7 +235,7 @@
         </foreach>
 	</delete>
 
-	<!-- 在基本表中增加数据 -->
+	<!-- Insert data into basic table -->
 	<insert id="addDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
 		insert into ${tableName}
 			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
@@ -262,7 +260,7 @@
 			</foreach>
 	</insert>
 
-	<!-- 在扩展表中增加数据 -->
+	<!-- Insert data into extension table -->
 	<insert id="addDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
 		insert into ${tableName}
 			(uuid, attrname, attrvalue)
@@ -281,7 +279,7 @@
 			</foreach>
 	</insert>
 
-	<!-- 在基本表中更新数据 -->
+	<!-- Update data in basic table -->
 	<update id="updateDataInBasic" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicTablePojo">
 		update ${tableName}
 		set
@@ -291,14 +289,14 @@
 		where ${filter}
 	</update>
 
-	<!-- 在扩展表中更新数据 -->
+	<!-- Update data in extension table -->
 	<update id="updateDataInExtension" parameterType="org.openo.sdno.mss.dao.pojo.InvExtTablePojo">
 		update ${tableName}
 		set attrvalue=#{attrValue}
 		where uuid = #{uuid} and attrname=#{attrName}
 	</update>
 
-	<!-- 创建临时表，用于对比UUID临时表 -->
+	<!-- Crete temporary table used to compare with UUID temprary table -->
 	<update id="createUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
 		CREATE TABLE ${tableName}
 		(
@@ -306,7 +304,7 @@
 		)
 	</update>
 
-	<!-- 在临时网元ID表中增加数据 -->
+	<!-- Insert data into the temporary table for network equipment ID -->
 	<insert id="addDataInUuidTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempUuidTablePojo">
 		insert into ${tableName} ( uuid ) values ( #{uuid} )
 	</insert>
@@ -317,12 +315,12 @@
 	
 	
 
-	<!-- 删除临时表 -->
+	<!-- Delete temporary table -->
 	<update id="removeTable" parameterType="String">
 		DROP TABLE IF EXISTS ${value}
 	</update>
 
-	<!-- 创建网元ID临时表，用于数据比对入库 -->
+	<!-- Create the temporary table for network equipment ID. Used to log database data insersion. -->
 	<update id="createNeIdTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
 		CREATE TABLE ${tableName}
 		(
@@ -330,13 +328,12 @@
 		)
 	</update>
 
-	<!-- 在临时网元ID表中增加数据 -->
+	<!-- Insert data into the temporary table for network equipment ID. -->
 	<insert id="addDataInNeIdTemp" parameterType="org.openo.sdno.mss.dao.pojo.InvTempDevUuidTablePojo">
 		insert into ${tableName} ( tempdevuuid ) values ( #{devUuid} )
 	</insert>
 
-	<!-- filter超长时创建临时表-->
-	<!-- 创建 属性临时表，用于联合查询 -->
+	<!-- Create the temporary table for attribute. It is used by joined-query. -->
 	<update id="creatAttrTempTable" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
 		CREATE TABLE ${tableName}
 		(
@@ -347,7 +344,7 @@
 	
 
 	
-	<!-- 解决按照uuid批量查询的效率优化 -->
+	<!-- For solving he performance issue of batch query by UUID -->
 	<insert id="addValueList" parameterType="org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo">
 		insert into ${tableName}  values  
 		<foreach item="item" collection="valueListCommit" separator="," >
@@ -357,7 +354,7 @@
 	
 	
 
-	<!-- 向关系表中增加数据 -->
+	<!-- Insert data to relation table -->
 	<insert id="addDataToRelation" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
 		insert into ${tableName}
 			<foreach item="item" collection="attrEntityList" open="(" separator="," close=")">
@@ -382,7 +379,7 @@
 			</foreach>
 	</insert>
 
-	<!-- 更新关系数据，仅仅用于同步的时候 -->
+	<!-- Update relation table. Used only during synchronization. -->
 	<update id="updateRelationData" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo">
 		update ${tableName}
 		set <foreach item="item" collection="attrEntityList" separator="," >
@@ -391,12 +388,12 @@
 		where ${filter}
 	</update>
 
-	<!-- 查询关系表：通过src_uuid查dst_uuid，或者反之 -->
+	<!-- Query relation table: get dst_uuid through src_uuis, or vice versa -->
 	<select id="getUuidbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
 		select ${queryUuidName} from ${tableName}
 		where ${filter}
 	</select>
-	<!-- 查询关系表-->
+	<!-- Query relation table -->
 	<select id="getRelationsbyRefUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
 		select src_uuid, dst_uuid, dst_type, servicetype,
 			(case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
@@ -404,7 +401,7 @@
 		<if test="filter != null">where ${filter}</if>
 		
 	</select>
-	<!-- 批量查询关系表-->
+	<!-- Batch query relation table -->
 	<select id="getRelations" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
 		select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype,
 			(case ${tableName}.relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
@@ -426,7 +423,7 @@
 		</where>
 		order by ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type limit 0, ${readCount}
 	</select>
-	<!-- 查询关系表，指定一系列src_uuid，返回所有满足条件的关系数据-->
+	<!-- Query relation table with a group of src_uuid. It will return all relation data that satisfy conditions. -->
 	<select id="getRelationsbyBatchSrcUuid" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationTablePojo" resultType="hashmap">
 		select ${tableName}.src_uuid, ${tableName}.dst_uuid, ${tableName}.dst_type, ${tableName}.servicetype, 
 			(case relation when 0 then 'composition' when 1 then 'aggregation' when 2 then 'association' else 'unknown' end) as relation
@@ -439,7 +436,7 @@
 		<if test="filter != null">where ${filter}</if>
 	</select>
 	
-	<!-- 创建资源同步状态的表 -->
+	<!-- Create the table for resource synchronization status -->
 	<update id="createResSyncStatusTable">
 		IF NOT EXISTS (select name from sysobjects where name = 'tbl_ressyncstatus')
 			EXECUTE('create table tbl_ressyncstatus
@@ -449,12 +446,12 @@
 			)')
 	</update>
 
-	<!-- 更新资源的同步状态 -->
+	<!-- Update the synchrinous state of resource. -->
 	<insert id="updateSyncStatus" parameterType="hashmap">
 		insert into tbl_ressyncstatus (uuid, resType) values (#{uuid}, #{resType})
 	</insert>
 
-	<!-- 创建临时表，用于数据比对入库 -->
+	<!-- Create the temporary table used to log data insertion -->
 	<update id="createLogTable" parameterType="string">
 		CREATE TABLE IF NOT EXISTS ${value}
 		(
@@ -476,17 +473,17 @@
 		)
 	</update>
 
-	<!-- 情况存量日志表，用于记录日志 -->
+	<!-- Reduce log table size be removing old records -->
 	<delete id="truncateLogTable" parameterType="long">
 		delete from tbl_log_1 where serial &lt; #{value}
 	</delete>
 
-	<!-- 获取当前的最大流水号 -->
+	<!-- Get the current maximal serial number -->
 	<select id="getMaxSerial" parameterType="string" resultType="long">
 		select max(serial) from ${value}
 	</select>
 
-	<!-- 获取最小流水号 -->
+	<!-- Get the minimal serial number -->
 	<select id="getMinSerial" parameterType="string" resultType="long">
 		select min(serial) from ${value}
 	</select>
@@ -507,7 +504,7 @@
 			</foreach>
 		</if>
 	</delete>
-	<!-- 通用数据查询 -->	
+	<!-- Generic data query -->	
 	<select id="msDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvMasterSlavesQueryPojo"
 		resultType="hashmap">
 		select
@@ -557,7 +554,7 @@
 		</where>
 	</select>
 
-	<!-- 关联查询数据 -->
+	<!-- Relation data query -->
 	<select id="msRelationDataQuery" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
 		resultType="hashmap">
 		select
@@ -587,7 +584,7 @@
 		limit ${fromIndex}, ${count}
 	</select>
 
-	<!-- 关联查询数据总数 -->
+	<!-- Relation data query: count -->
 	<select id="msRelationDataQueryCount" parameterType="org.openo.sdno.mss.dao.pojo.InvRelationCombinePojo"
 		resultType="int">
 		select count(*)

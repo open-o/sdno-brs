@@ -273,7 +273,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
         }
 
         if(attrEntityList.size() != allAttrMap.size()) {
-            LOGGER.warn("relation data is incomplete when buildValue：" + attrEntityList.toString());
+            LOGGER.warn("relation data is incomplete when buildValue:" + attrEntityList.toString());
             attrEntityList.clear();
         }
 

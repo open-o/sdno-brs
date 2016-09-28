@@ -143,12 +143,12 @@ public class MSSProxyImpl implements IMSSProxy {
                 .append(FORWARD_SLASH).append(MSS_REST_URL_RELATIONSHIPS).append(Constant.PARAM_SPLIT_LABLE)
                 .append(MSS_REST_URL_DST_TYPE).append(Constant.EQUIVALENT).append(strDstType);
 
-        // 原端
+        // Source
         if(!StringUtils.isEmpty(strSrcID)) {
             strBuilder.append(Constant.AND).append(MSS_SRC_ID).append(Constant.EQUIVALENT).append(strSrcID);
         }
 
-        // 宿端
+        // Destination
         if(!StringUtils.isEmpty(strDstID)) {
             strBuilder.append(Constant.AND).append(MSS_DST_ID).append(Constant.EQUIVALENT).append(strDstID);
         }

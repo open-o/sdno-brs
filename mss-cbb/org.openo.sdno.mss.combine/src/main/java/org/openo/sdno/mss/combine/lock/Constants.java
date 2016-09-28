@@ -30,12 +30,12 @@ public class Constants {
     public static final int LOCK_SUCCESS = 0;
 
     /**
-     * Can't get the lock，mutex.
+     * Can't get the lock, mutex.
      */
     public static final int LOCK_MUTEX = 1;
 
     /**
-     * Can't get the lock，exception.
+     * Can't get the lock, exception.
      */
     public static final int LOCK_EXCEPTION = 2;
 

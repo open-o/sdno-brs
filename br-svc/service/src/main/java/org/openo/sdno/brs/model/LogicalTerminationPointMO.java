@@ -367,13 +367,13 @@ public final class LogicalTerminationPointMO extends RootEntity {
         // Unknown
         public static final String UNKNOWN = "D_NA";
 
-        // Carries Traffic Bi-directionally（transmit and receive）
+        // Carries Traffic Bi-directionally(transmit and receive)
         public static final String BIDIRECTIONAL = "D_BIDIRECTIONAL";
 
         // Carries Sources Traffic(transmit)
         public static final String TRANSMIT = "D_SOURCE";
 
-        // Carries Sinks Traffic（receive）
+        // Carries Sinks Traffic(receive)
         public static final String RECEIVE = "D_SINK";
 
         private DirectionNum() {

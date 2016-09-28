@@ -50,7 +50,7 @@ public final class ManagedElementMO extends Resource {
     private String phyNeID;
 
     /**
-     * Product name, such like：NE40E、CX600.
+     * Product name, such like: NE40E, CX600.
      */
     @StrRule(range = "0-32", paramName = "productName")
     @SupportFilter
@@ -70,15 +70,15 @@ public final class ManagedElementMO extends Resource {
     private String ipAddress;
 
     /**
-     * source of NE. scope：NETWORK_ME（get from network）、OS（get from controller）、NETWORK_EMS（get from
-     * EMS）、USER（user import）.
+     * source of NE. scope: NETWORK_ME(get from network), OS(get from controller), NETWORK_EMS(get from
+     * EMS), USER(user import).
      */
     @StrEnumRule(range = "network_me,os,network_ems,user", paramName = "source")
     @SupportFilter
     private String source;
 
     /**
-     * owner. like：from controller，fill in controller UUID；from NE，fill in NE UUID.
+     * owner. like: from controller, fill in controller UUID; from NE, fill in NE UUID.
      */
     @StrRule(range = "0-36", paramName = "owner")
     @SupportFilter

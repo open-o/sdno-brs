@@ -49,7 +49,7 @@ public class InvRelationEntity {
     private String serviceType;
 
     /**
-     * relation type,composition，aggregation，association
+     * relation type, composition, aggregation, association
      */
     private String relation;
 
