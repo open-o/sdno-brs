@@ -24,7 +24,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>com.puer.svc.mss-deployment</artifactId>
+    <artifactId>mss-deployment</artifactId>
     <packaging>pom</packaging>
 
     <build>
