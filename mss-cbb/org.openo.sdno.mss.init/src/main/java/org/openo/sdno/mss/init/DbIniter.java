@@ -49,10 +49,8 @@ public class DbIniter {
     public void init(DBParam dbParam) throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
         try {
             LOGGER.warn("DBiniter is running.....");
-            File f = new File(this.getClass().getResource("/").getPath());
 
-            String appRoot = f.getCanonicalPath() + File.separator + "buckets" + File.separator + dbParam.getDbName();
-            BucketStaticUtil.setAppRootPath(appRoot);
+            BucketStaticUtil.setAppRootPath("buckets/" + dbParam.getDbName());
 
             if(!BucketsMgrt.getInstance().isBucketSupport()) {
                 LOGGER.warn("App is Not Bucket Management support, nothing to do.");
