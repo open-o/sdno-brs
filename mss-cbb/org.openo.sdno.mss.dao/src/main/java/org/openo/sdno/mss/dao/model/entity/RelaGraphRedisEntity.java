@@ -22,10 +22,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.jgrapht.DirectedGraph;
-import org.jgrapht.alg.DijkstraShortestPath;
-import org.jgrapht.graph.DefaultDirectedGraph;
-import org.jgrapht.graph.DefaultEdge;
+import java.util.Map;
+import java.util.HashMap;
+
+import edu.uci.ics.jung.graph.Graph; 
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph; 
+import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
+
 
 import org.openo.sdno.mss.dao.model.ModelManagement;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
@@ -40,9 +43,10 @@ import org.openo.sdno.mss.schema.relationmodel.Relationtype;
  * @version SDNO 0.5 May 20, 2016
  */
 public class RelaGraphRedisEntity {
-
-    private final DirectedGraph<String, DefaultEdge> relationGraph = new DefaultDirectedGraph<String, DefaultEdge>(
-            DefaultEdge.class);
+    private final Graph<String,Integer> relationGraph = new DirectedSparseMultigraph<String,Integer>();  //directed graph
+    private final Map<Integer, String> edgeSourceMap = new HashMap<Integer, String>();  //map between edge and its source
+    private final Map<Integer, String> edgeTargetMap = new HashMap<Integer, String>();  //map between edge and its target
+    private static int nextEdgeId = 1;  //used to generate id for one edge. Although "src-target" looks like a good candidate, parallel links cannot be supported.
 
     private ModelManagement modelMgr = null;
 
@@ -63,23 +67,25 @@ public class RelaGraphRedisEntity {
      * Get the path between src_res and dst_res.<br>
      * 
      * @param srcRes source resource type
-     * @param dtsRes destination resource type
+     * @param dstRes destination resource type
      * @return the path between src_res and dst_res
      * @since SDNO 0.5
      */
-    public List<String> findPathBetweenRes(String srcRes, String dtsRes) {
-        if(srcRes.equals(dtsRes)) {
+    public List<String> findPathBetweenRes(String srcRes, String dstRes) {
+        if(srcRes.equals(dstRes)) {
             List<String> res = new ArrayList<String>();
-            res.add(srcRes + "-" + dtsRes);
+            res.add(srcRes + "-" + dstRes);
             return res;
         }
-
-        List<DefaultEdge> paths = DijkstraShortestPath.findPathBetween(relationGraph, srcRes, dtsRes);
+        
+        DijkstraShortestPath<String, Integer> dsp = new DijkstraShortestPath(relationGraph); 
+        List<Integer> shortestPath = dsp.getPath(srcRes, dstRes);
+        
         List<String> relationPath = new ArrayList<String>();
-        if(null != paths) {
-            for(DefaultEdge edge : paths) {
-                String source = relationGraph.getEdgeSource(edge);
-                String target = relationGraph.getEdgeTarget(edge);
+        if(null != shortestPath) {
+            for(Integer edge : shortestPath) {
+                String source = edgeSourceMap.get(edge);
+                String target = edgeTargetMap.get(edge);
                 relationPath.add(source + "-" + target);
             }
         }
@@ -155,7 +161,12 @@ public class RelaGraphRedisEntity {
      */
     public void buildRelationGraph(String bktName) {
         Collection<RelationModelRelation> relations = this.modelMgr.getRelaModelMap(bktName).values();
-
+        buildRelationGraph(relations);
+    }
+    //added for facilitaing test.
+    void buildRelationGraph(Collection<RelationModelRelation> relations) {
+        if(relations == null) return;
+        
         // remove duplicated vertex
         Set<String> vertexs = new HashSet<String>();
         for(RelationModelRelation relation : relations) {
@@ -168,7 +179,12 @@ public class RelaGraphRedisEntity {
             relationGraph.addVertex(vertex);
         }
         for(RelationModelRelation relation : relations) {
-            relationGraph.addEdge(relation.getSrc(), relation.getDst());
+            Integer edgeId = new Integer(nextEdgeId++);
+            String src = relation.getSrc();
+            String target = relation.getDst();
+            relationGraph.addEdge(edgeId, src, target);
+            edgeSourceMap.put(edgeId, src);
+            edgeTargetMap.put(edgeId, target);
         }
     }
 
@@ -180,6 +196,11 @@ public class RelaGraphRedisEntity {
      * @since SDNO 0.5
      */
     public boolean isEnd(String res) {
-        return relationGraph.outDegreeOf(res) == 0;
+        for(Integer edgeId : edgeSourceMap.keySet()) {
+            if(edgeSourceMap.get(edgeId).equals(res)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
