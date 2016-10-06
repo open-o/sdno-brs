@@ -26,7 +26,7 @@ import org.apache.cxf.common.util.CollectionUtils;
 import org.apache.cxf.common.util.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.brs.check.inf.IBrsChecker;
+import org.openo.sdno.brs.check.inf.BrsChecker;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
@@ -34,7 +34,7 @@ import org.openo.sdno.brs.model.RootEntity;
 import org.openo.sdno.brs.model.roamo.PageResponseData;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
-import org.openo.sdno.brs.service.inf.IResourceService;
+import org.openo.sdno.brs.service.inf.ResourceService;
 import org.openo.sdno.brs.util.PagingQueryCheckUtil;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.json.JsonUtil;
@@ -50,7 +50,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-public class ResourceServiceImpl implements IResourceService {
+public class ResourceServiceImpl implements ResourceService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ResourceServiceImpl.class);
 
@@ -60,7 +60,7 @@ public class ResourceServiceImpl implements IResourceService {
 
     private String resourceTypeName;
 
-    private IBrsChecker brsCheckerService;
+    private BrsChecker brsCheckerService;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -199,7 +199,7 @@ public class ResourceServiceImpl implements IResourceService {
     /**
      * @param brsCheckerService The brsCheckerService to set.
      */
-    public void setBrsCheckerService(IBrsChecker brsCheckerService) {
+    public void setBrsCheckerService(BrsChecker brsCheckerService) {
         this.brsCheckerService = brsCheckerService;
     }
 

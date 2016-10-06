@@ -25,11 +25,11 @@
 	http://www.huawei.com/schema/oms
 	http://www.huawei.com/schema/oms/oms.xsd">
 
-    <bean id="invDataService" class="org.openo.sdno.mss.combine.impl.InvDataService">
+    <bean id="invDataService" class="org.openo.sdno.mss.combine.impl.InvDataServiceImpl">
         <property name="dataHandler" ref="invDataHandler"></property>
     </bean>
 
-    <bean id="invRelationDataService" class="org.openo.sdno.mss.combine.impl.InvRelationDataService">
+    <bean id="invRelationDataService" class="org.openo.sdno.mss.combine.impl.InvRelationDataServiceImpl">
         <property name="relationDataHandler" ref="invRelationDataHandler"></property>
     </bean>
 </beans>

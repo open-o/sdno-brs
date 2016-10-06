@@ -98,7 +98,7 @@ public class InvRelationDataHandlerTest {
 
         };
 
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         // Get use empty srcUuid.
         BaseModel baseModel = new BaseModel("", dstUuid, srcAttribute, dstAttribute, queryType, serviceType);
@@ -126,7 +126,7 @@ public class InvRelationDataHandlerTest {
             }
         };
 
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         // Get use empty destUuid.
         BaseModel baseModel = new BaseModel(srcUuid, "", srcAttribute, dstAttribute, queryType, serviceType);
@@ -147,7 +147,7 @@ public class InvRelationDataHandlerTest {
     public void testGetUuidBothEmpty() {
 
         try {
-            InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+            InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
             // Get use empty UUIDs.
             BaseModel baseModel = new BaseModel("", "", srcAttribute, dstAttribute, queryType, serviceType);
@@ -170,7 +170,7 @@ public class InvRelationDataHandlerTest {
     public void testGetUuidBothNonempty() {
         try {
 
-            InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+            InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
             // Get use empty destUuid.
             BaseModel baseModel = new BaseModel(srcUuid, dstUuid, srcAttribute, dstAttribute, queryType, serviceType);
@@ -186,7 +186,7 @@ public class InvRelationDataHandlerTest {
     @Test
     public void testAddOneDataSuccess() {
 
-        new MockUp<InvRelationDataHandler>() {
+        new MockUp<InvRelationDataHandlerImpl>() {
 
             @Mock
             public int doAdd(SqlSession session, InvRelationTablePojo relationPojo, Map<String, Object> valueMap) {
@@ -195,7 +195,7 @@ public class InvRelationDataHandlerTest {
             }
         };
 
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         HashMap<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("key", null);
@@ -206,7 +206,7 @@ public class InvRelationDataHandlerTest {
     @Test
     public void testAddOneDataFailed() {
 
-        new MockUp<InvRelationDataHandler>() {
+        new MockUp<InvRelationDataHandlerImpl>() {
 
             @Mock
             public int doAdd(SqlSession session, InvRelationTablePojo relationPojo, Map<String, Object> valueMap) {
@@ -215,7 +215,7 @@ public class InvRelationDataHandlerTest {
             }
         };
 
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         HashMap<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("key", null);
@@ -225,7 +225,7 @@ public class InvRelationDataHandlerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testDeleteEmptyTypes() {
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         HashMap<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("key", null);
@@ -235,7 +235,7 @@ public class InvRelationDataHandlerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testDeleteUuidsEmpty() {
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         HashMap<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("key", null);
@@ -245,7 +245,7 @@ public class InvRelationDataHandlerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testDeleteDesEmpty() {
-        InvRelationDataHandler invRelationDataHandler = new InvRelationDataHandler();
+        InvRelationDataHandlerImpl invRelationDataHandler = new InvRelationDataHandlerImpl();
 
         HashMap<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("key", null);

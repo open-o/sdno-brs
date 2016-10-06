@@ -34,7 +34,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.NetworkControlDomainMO;
-import org.openo.sdno.brs.service.inf.INetworkControlDomainService;
+import org.openo.sdno.brs.service.inf.NetworkControlDomainService;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
@@ -49,7 +49,7 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 @Path("/sdnobrs/v1/network-control-domains")
-public class NetworkControlDomainResource extends IResource<INetworkControlDomainService> {
+public class NetworkControlDomainResource extends IResource<NetworkControlDomainService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NetworkControlDomainResource.class);
 

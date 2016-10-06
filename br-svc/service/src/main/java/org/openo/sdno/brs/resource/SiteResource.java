@@ -35,7 +35,7 @@ import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
-import org.openo.sdno.brs.service.inf.ISiteService;
+import org.openo.sdno.brs.service.inf.SiteService;
 import org.openo.sdno.brs.util.PagingQueryCheckUtil;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
@@ -50,7 +50,7 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 @Path("/sdnobrs/v1/sites")
-public class SiteResource extends IResource<ISiteService> {
+public class SiteResource extends IResource<SiteService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteResource.class);
 

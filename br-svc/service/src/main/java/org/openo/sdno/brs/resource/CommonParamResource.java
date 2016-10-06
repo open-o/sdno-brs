@@ -33,7 +33,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.CommParamMo;
-import org.openo.sdno.brs.service.inf.ICommParamService;
+import org.openo.sdno.brs.service.inf.CommParamService;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.framework.container.service.IResource;
 
@@ -46,7 +46,7 @@ import org.openo.sdno.framework.container.service.IResource;
  * @version SDNO 0.5 07-Jun-2016
  */
 @Path("/sdnobrs/v1/commparammgmt")
-public class CommonParamResource extends IResource<ICommParamService> {
+public class CommonParamResource extends IResource<CommParamService> {
 
     /**
      * Get resource URI<br>

@@ -27,7 +27,7 @@ import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.ResTypeEnum;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
-import org.openo.sdno.brs.service.inf.IStatisticsService;
+import org.openo.sdno.brs.service.inf.StatisticsService;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.rest.ResponseUtils;
 import org.slf4j.Logger;
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-public class StatisticsServiceImpl implements IStatisticsService {
+public class StatisticsServiceImpl implements StatisticsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StatisticsServiceImpl.class);
 

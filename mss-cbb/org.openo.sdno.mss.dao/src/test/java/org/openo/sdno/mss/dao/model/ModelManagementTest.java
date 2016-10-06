@@ -25,7 +25,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.framework.container.util.Bucket;
-import org.openo.sdno.mss.bucket.intf.IBucketHandler;
+import org.openo.sdno.mss.bucket.intf.BucketHandler;
 import org.openo.sdno.mss.dao.model.entity.ModelRedisEntity;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 
@@ -143,7 +143,7 @@ public class ModelManagementTest {
         mock.tearDown();
     }
 
-    private class PriBucketHandler implements IBucketHandler {
+    private class PriBucketHandler implements BucketHandler {
 
         @Override
         public List<Bucket> getBucket() {

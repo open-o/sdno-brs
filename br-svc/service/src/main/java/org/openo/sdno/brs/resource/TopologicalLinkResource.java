@@ -38,7 +38,7 @@ import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.TopologicalLinkMO;
-import org.openo.sdno.brs.service.inf.IResourceService;
+import org.openo.sdno.brs.service.inf.ResourceService;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
@@ -52,7 +52,7 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 @Path("/sdnobrs/v1/topological-links")
-public class TopologicalLinkResource extends IResource<IResourceService> {
+public class TopologicalLinkResource extends IResource<ResourceService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TopologicalLinkResource.class);
 

@@ -223,17 +223,17 @@
         <property name="modelMgr" ref="mssModelManagement"></property>
     </bean>
 
-    <bean id="invDataHandler" class="org.openo.sdno.mss.dao.impl.InvDataHandler">
+    <bean id="invDataHandler" class="org.openo.sdno.mss.dao.impl.InvDataHandlerImpl">
         <property name="sqlSessionTemplate" ref="sqlSession" />
         <property name="relationDataHandler" ref="invRelationDataHandler"></property>
     </bean>
 
-    <bean id="invRelationDataHandler" class="org.openo.sdno.mss.dao.impl.InvRelationDataHandler">
+    <bean id="invRelationDataHandler" class="org.openo.sdno.mss.dao.impl.InvRelationDataHandlerImpl">
         <property name="sqlSessionTemplate" ref="sqlSession" />
         <property name="invDataHandler" ref="invDataHandler"></property>
     </bean>
 
-    <bean id="invStatisticsHandler" class="org.openo.sdno.mss.dao.impl.InvStatisticsHandler">
+    <bean id="invStatisticsHandler" class="org.openo.sdno.mss.dao.impl.InvStatisticsHandlerImpl">
         <property name="sqlSessionTemplate" ref="sqlSession" />
     </bean>
 </beans>

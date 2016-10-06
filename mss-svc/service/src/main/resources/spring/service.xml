@@ -46,11 +46,11 @@
         <property name="mssRelationService" ref="mssRelationService"></property>
     </bean>
 
-    <bean id="mssResourceService" class="org.openo.sdno.mss.service.impl.MssResourceService">
+    <bean id="mssResourceService" class="org.openo.sdno.mss.service.impl.MssResourceServiceImpl">
         <property name="invDataService" ref="invDataService"></property>
     </bean>
 
-    <bean id="mssRelationService" class="org.openo.sdno.mss.service.impl.MssRelationService">
+    <bean id="mssRelationService" class="org.openo.sdno.mss.service.impl.MssRelationServiceImpl">
         <property name="invRelationDataService" ref="invRelationDataService"></property>
     </bean>
 

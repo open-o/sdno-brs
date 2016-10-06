@@ -21,14 +21,14 @@ import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 
-import org.openo.sdno.brs.check.inf.IBrsChecker;
+import org.openo.sdno.brs.check.inf.BrsChecker;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 import org.openo.sdno.brs.model.ManagedElementMO;
 import org.openo.sdno.brs.model.TopologicalLinkMO;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
-import org.openo.sdno.brs.service.inf.IResourceService;
+import org.openo.sdno.brs.service.inf.ResourceService;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 
 /**
@@ -37,12 +37,12 @@ import org.openo.sdno.brs.util.validate.ValidateUtil;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-public class BrsCheckerImpl implements IBrsChecker {
+public class BrsCheckerImpl implements BrsChecker {
 
     /**
      * ResourceService proxy
      */
-    private IResourceService service;
+    private ResourceService service;
 
     /**
      * Check if the NE is being used.<br>
@@ -176,7 +176,7 @@ public class BrsCheckerImpl implements IBrsChecker {
     /**
      * @param service The service to set.
      */
-    public void setService(IResourceService service) {
+    public void setService(ResourceService service) {
         this.service = service;
     }
 }

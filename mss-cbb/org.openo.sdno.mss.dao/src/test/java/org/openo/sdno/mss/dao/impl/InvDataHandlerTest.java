@@ -30,7 +30,7 @@ import org.junit.Test;
 import org.openo.sdno.model.liquibasemodel.ObjectFactory;
 import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog.ChangeSet.PreConditions;
 import org.openo.sdno.mss.dao.entities.InvRelationEntity;
-import org.openo.sdno.mss.dao.intf.IInvRelationDataHandler;
+import org.openo.sdno.mss.dao.intf.InvRelationDataHandler;
 import org.openo.sdno.mss.dao.pojo.InvRelationTablePojo;
 import org.openo.sdno.mss.dao.util.ValidUtil;
 import org.openo.sdno.mss.init.modelprocess.DataModelProcess;
@@ -40,7 +40,7 @@ import mockit.MockUp;
 
 public class InvDataHandlerTest {
 
-    IInvRelationDataHandler relationDataHandler;
+    InvRelationDataHandler relationDataHandler;
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
@@ -73,7 +73,7 @@ public class InvDataHandlerTest {
             }
         };
 
-        new MockUp<InvRelationDataHandler>() {
+        new MockUp<InvRelationDataHandlerImpl>() {
 
             @Mock
             public List<InvRelationEntity> querySubNode(String resType, List<String> uuidList) {
@@ -86,7 +86,7 @@ public class InvDataHandlerTest {
 
     }
 
-    InvDataHandler demo = new InvDataHandler();
+    InvDataHandlerImpl demo = new InvDataHandlerImpl();
 
     @Test
     public void testGetSplitPageNull() throws IllegalAccessException, IllegalArgumentException,

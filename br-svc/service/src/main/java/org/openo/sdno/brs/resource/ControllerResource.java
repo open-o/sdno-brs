@@ -31,7 +31,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.ControllerMo;
-import org.openo.sdno.brs.service.inf.IControllerService;
+import org.openo.sdno.brs.service.inf.ControllerService;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.framework.container.service.IResource;
 
@@ -43,7 +43,7 @@ import org.openo.sdno.framework.container.service.IResource;
  */
 
 @Path("/sdnobrs/v1/controller")
-public class ControllerResource extends IResource<IControllerService> {
+public class ControllerResource extends IResource<ControllerService> {
 
     /**
      * add controller.<br>

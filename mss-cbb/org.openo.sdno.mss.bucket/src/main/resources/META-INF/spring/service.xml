@@ -67,20 +67,20 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
     </bean>
 
-    <bean id="mssBucketHandler" class="org.openo.sdno.mss.bucket.impl.BucketHandler" init-method="init">
+    <bean id="mssBucketHandler" class="org.openo.sdno.mss.bucket.impl.BucketHandlerImpl" init-method="init">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
     </bean>
 
 
-    <bean id="mssResourceHandler" class="org.openo.sdno.mss.bucket.impl.ResourceHandler" init-method="init">
+    <bean id="mssResourceHandler" class="org.openo.sdno.mss.bucket.impl.ResourceHandlerImpl" init-method="init">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
     </bean>
 
-    <bean id="mssRealtionHandler" class="org.openo.sdno.mss.bucket.impl.RelationHandler" init-method="init">
+    <bean id="mssRealtionHandler" class="org.openo.sdno.mss.bucket.impl.RelationHandlerImpl" init-method="init">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
     </bean>
 
-    <bean id="mssMetaHandler" class="org.openo.sdno.mss.bucket.impl.MetaHandler">
+    <bean id="mssMetaHandler" class="org.openo.sdno.mss.bucket.impl.MetaHandlerImpl">
         <property name="resourceHandler" ref="mssResourceHandler" />
         <property name="relationHandler" ref="mssRealtionHandler" />
     </bean>

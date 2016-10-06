@@ -34,9 +34,9 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.service.IResource;
 import org.openo.sdno.framework.container.util.PageQueryResult;
 import org.openo.sdno.mss.dao.model.QueryParamModel;
-import org.openo.sdno.mss.service.intf.IMssRelationService;
-import org.openo.sdno.mss.service.intf.IMssResourceService;
-import org.openo.sdno.mss.service.intf.IMssSvcService;
+import org.openo.sdno.mss.service.intf.MssRelationService;
+import org.openo.sdno.mss.service.intf.MssResourceService;
+import org.openo.sdno.mss.service.intf.MssSvcService;
 
 /**
  * MSS module implements interface layer based on CloudSop platform.<br>
@@ -45,17 +45,17 @@ import org.openo.sdno.mss.service.intf.IMssSvcService;
  * @version SDNO 0.5 2016-5-19
  */
 @Path("/sdnomss/v1/buckets")
-public class MssSvcResource extends IResource<IMssSvcService> {
+public class MssSvcResource extends IResource<MssSvcService> {
 
     /**
      * Resource operation service.
      */
-    private IMssResourceService mssResourceService;
+    private MssResourceService mssResourceService;
 
     /**
      * Relation operation service.
      */
-    private IMssRelationService mssRelationService;
+    private MssRelationService mssRelationService;
 
     @GET
     @Consumes({"application/json"})
@@ -65,11 +65,11 @@ public class MssSvcResource extends IResource<IMssSvcService> {
         return "/sdnomss/v1/buckets";
     }
 
-    public void setMssResourceService(IMssResourceService mssResourceService) {
+    public void setMssResourceService(MssResourceService mssResourceService) {
         this.mssResourceService = mssResourceService;
     }
 
-    public void setMssRelationService(IMssRelationService mssRelationService) {
+    public void setMssRelationService(MssRelationService mssRelationService) {
         this.mssRelationService = mssRelationService;
     }
 

@@ -27,8 +27,8 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.bucket.dao.pojo.MetaPojo;
 import org.openo.sdno.mss.bucket.dao.pojo.RelationPojo;
 import org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo;
-import org.openo.sdno.mss.bucket.intf.IBucketHandler;
-import org.openo.sdno.mss.bucket.intf.IMetaHandler;
+import org.openo.sdno.mss.bucket.intf.BucketHandler;
+import org.openo.sdno.mss.bucket.intf.MetaHandler;
 import org.openo.sdno.mss.dao.model.entity.ModelRedisEntity;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
@@ -57,12 +57,12 @@ public class ModelManagement {
     /**
      * Spring injected, read the model
      */
-    private IMetaHandler metaHanlder = null;
+    private MetaHandler metaHanlder = null;
 
     /**
      * Spring injected, read the bucket
      */
-    private IBucketHandler bucketHandler = null;
+    private BucketHandler bucketHandler = null;
 
     /**
      * Set metaHanlder attribute.<br>
@@ -70,7 +70,7 @@ public class ModelManagement {
      * @param metaHanlder IMetaHandler Object
      * @since SDNO 0.5
      */
-    public void setMetaHanlder(IMetaHandler metaHanlder) {
+    public void setMetaHanlder(MetaHandler metaHanlder) {
         this.metaHanlder = metaHanlder;
     }
 
@@ -80,7 +80,7 @@ public class ModelManagement {
      * @param bucketHandler IBucketHandler Object
      * @since SDNO 0.5
      */
-    public void setBucketHandler(IBucketHandler bucketHandler) {
+    public void setBucketHandler(BucketHandler bucketHandler) {
         this.bucketHandler = bucketHandler;
     }
 

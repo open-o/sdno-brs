@@ -26,7 +26,7 @@ import org.apache.cxf.common.util.CollectionUtils;
 import org.apache.cxf.common.util.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.brs.check.inf.IBrsChecker;
+import org.openo.sdno.brs.check.inf.BrsChecker;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
@@ -35,10 +35,10 @@ import org.openo.sdno.brs.model.Relation;
 import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.PageResponseData;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
-import org.openo.sdno.brs.service.inf.IMEQueryServiceEx;
-import org.openo.sdno.brs.service.inf.IManagedElementService;
-import org.openo.sdno.brs.service.inf.IRelationService;
-import org.openo.sdno.brs.service.inf.IResWithRelationQueryService;
+import org.openo.sdno.brs.service.inf.MEQueryServiceEx;
+import org.openo.sdno.brs.service.inf.ManagedElementService;
+import org.openo.sdno.brs.service.inf.RelationService;
+import org.openo.sdno.brs.service.inf.ResWithRelationQueryService;
 import org.openo.sdno.brs.util.RelationUtil;
 import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
@@ -55,7 +55,7 @@ import org.slf4j.LoggerFactory;
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-public final class ManagedElementServiceImpl implements IManagedElementService {
+public final class ManagedElementServiceImpl implements ManagedElementService {
 
     private String bucketName;
 
@@ -71,13 +71,13 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
 
     private String controllerResTypeName;
 
-    private IBrsChecker brsCheckerService;
+    private BrsChecker brsCheckerService;
 
-    private IRelationService relationService;
+    private RelationService relationService;
 
-    private IMEQueryServiceEx meQueryServiceEx;
+    private MEQueryServiceEx meQueryServiceEx;
 
-    private IResWithRelationQueryService meQueryService;
+    private ResWithRelationQueryService meQueryService;
 
     private static String RELATION_MDID = "managementDomainID";
 
@@ -271,22 +271,22 @@ public final class ManagedElementServiceImpl implements IManagedElementService {
         return mapRelation;
     }
 
-    public void setBrsCheckerService(IBrsChecker brsCheckerService) {
+    public void setBrsCheckerService(BrsChecker brsCheckerService) {
         this.brsCheckerService = brsCheckerService;
     }
 
     /**
      * @param meQueryService The meQueryService to set.
      */
-    public void setMeQueryService(IResWithRelationQueryService meQueryService) {
+    public void setMeQueryService(ResWithRelationQueryService meQueryService) {
         this.meQueryService = meQueryService;
     }
 
-    public void setMeQueryServiceEx(IMEQueryServiceEx meQueryServiceEx) {
+    public void setMeQueryServiceEx(MEQueryServiceEx meQueryServiceEx) {
         this.meQueryServiceEx = meQueryServiceEx;
     }
 
-    public void setRelationService(IRelationService relationService) {
+    public void setRelationService(RelationService relationService) {
         this.relationService = relationService;
     }
 

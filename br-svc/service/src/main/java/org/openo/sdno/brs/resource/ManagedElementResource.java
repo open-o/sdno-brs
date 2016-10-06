@@ -40,7 +40,7 @@ import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.brs.model.ManagedElementMO;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
-import org.openo.sdno.brs.service.inf.IManagedElementService;
+import org.openo.sdno.brs.service.inf.ManagedElementService;
 import org.openo.sdno.brs.util.PagingQueryCheckUtil;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 import org.openo.sdno.framework.container.service.IResource;
@@ -55,7 +55,7 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 @Path("/sdnobrs/v1/managed-elements")
-public class ManagedElementResource extends IResource<IManagedElementService> {
+public class ManagedElementResource extends IResource<ManagedElementService> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ManagedElementResource.class);
 

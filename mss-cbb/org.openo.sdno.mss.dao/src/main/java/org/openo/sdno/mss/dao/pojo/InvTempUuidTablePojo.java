@@ -22,7 +22,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.apache.ibatis.session.SqlSession;
 import org.openo.sdno.framework.container.util.UuidUtils;
-import org.openo.sdno.mss.dao.impl.InvDataHandler;
+import org.openo.sdno.mss.dao.impl.InvDataHandlerImpl;
 
 /**
  * Temporary table for UUID. <br>
@@ -105,7 +105,7 @@ public class InvTempUuidTablePojo implements IInvTableCrud {
         int i = 0;
         for(String tempUuid : uuidList) {
             session.insert("addDataInUuidTempTable", copy(tempUuid));
-            if(++i % InvDataHandler.BATCH_COMMIT_CNT == 0) {
+            if(++i % InvDataHandlerImpl.BATCH_COMMIT_CNT == 0) {
                 session.commit();
                 session.clearCache();
             }
