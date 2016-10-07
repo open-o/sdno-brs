@@ -53,7 +53,7 @@
         <property name="service" ref="controllerService" />
     </bean>
 
-    <bean id="commParamResource" class="org.openo.sdno.brs.resource.CommonParamResourceImpl">
+    <bean id="commParamResource" class="org.openo.sdno.brs.resource.CommonParamResource">
         <property name="service" ref="commParamService" />
     </bean>
 
@@ -145,7 +145,7 @@
         <property name="resourceTypeName" value="managedelement"></property>
     </bean>
 
-    <bean id="managedElementResource" class="org.openo.sdno.brs.resource.ManagedElementResourceImpl">
+    <bean id="managedElementResource" class="org.openo.sdno.brs.resource.ManagedElementResource">
         <property name="service" ref="managedElementService" />
     </bean>
 
