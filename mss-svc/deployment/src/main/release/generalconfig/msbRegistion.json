@@ -1,0 +1,14 @@
+{
+  "serviceName": "sdnomss",
+  "version": "v1",
+  "url": "/openoapi/sdnomss/v1",
+  "protocol": "REST",
+  "visualRange": "1",
+  "nodes": [
+    {
+      "ip": "",
+      "port": "8530",
+      "ttl": 0
+    }
+  ]
+}
