@@ -24,6 +24,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * NetworkControlDomainMO test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class NetworkControlDomainMOTest {
 
     @Before

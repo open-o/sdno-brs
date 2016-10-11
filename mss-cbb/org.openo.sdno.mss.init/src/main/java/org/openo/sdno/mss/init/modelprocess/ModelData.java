@@ -19,15 +19,14 @@ package org.openo.sdno.mss.init.modelprocess;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.init.buckets.BucketModel;
 import org.openo.sdno.mss.model.util.ModelUtil;
-import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.datamodel.DataModelIndex;
+import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Model data processing class to initialize and update the model. <br>
@@ -61,14 +60,13 @@ public class ModelData {
         this.bktModel = bktModel;
         this.bktName = bktName;
     }
-    
+
     /**
      * @return Returns the wholeInfoModels.
      */
     public Map<String, Infomodel> getWholeInfoModels() {
         return wholeInfoModels;
     }
-
 
     /**
      * @return Returns the dataName2InfoNames.
@@ -77,15 +75,12 @@ public class ModelData {
         return dataName2InfoNames;
     }
 
-
-
     /**
      * @return Returns the bktName.
      */
     public String getBktName() {
         return bktName;
     }
-
 
     /**
      * @return The data models.
@@ -116,10 +111,10 @@ public class ModelData {
     }
 
     /**
-     * Replace the key in dataModelMap to the name of infoname. <br>
+     * Replace the key in dataModelMap to the name of info name. <br>
      * 
      * @param dataModelMap data model set
-     * @param dataName2InfoName mapping from datamodel to infomodel
+     * @param dataName2InfoName mapping from data model to information model
      * @param resUniqueIndexMap unique index of map
      * @return true if success, false if failed
      * @since SDNO 0.5
@@ -159,6 +154,7 @@ public class ModelData {
             this.dataName2InfoNames.put(model.getDatamodel(), model.getName());
         }
     }
+
     /**
      * Read the info model from file. <br>
      * 

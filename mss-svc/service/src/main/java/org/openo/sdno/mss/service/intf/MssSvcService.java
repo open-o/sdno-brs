@@ -19,11 +19,11 @@ package org.openo.sdno.mss.service.intf;
 import org.openo.sdno.framework.container.service.IService;
 
 /**
- * The interface of mss service.<br>
+ * The interface of MSS service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
  */
-public interface MssSvcService extends IService{
+public interface MssSvcService extends IService {
 
 }

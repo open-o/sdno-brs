@@ -175,7 +175,7 @@ public final class FileUtil {
     }
 
     /**
-     * Create file URL, profile is var/xxx/YY/MM/DD/uuid.<br>
+     * Create file URL, profile is var/xxx/YY/MM/DD/UUIDs.<br>
      * 
      * @param subDir Sub directory.
      * @return URL of file

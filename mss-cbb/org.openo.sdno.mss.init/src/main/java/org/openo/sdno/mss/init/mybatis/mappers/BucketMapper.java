@@ -21,7 +21,7 @@ import java.util.List;
 import org.openo.sdno.mss.init.mybatis.pojo.BucketPojo;
 
 /**
- * Mapper of bucket,used to create, insert, select and update a bucket pojo in the database. <br>
+ * Mapper of bucket,used to create, insert, select and update a bucket PoJo in the database. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -46,7 +46,7 @@ public interface BucketMapper {
     int deleteByPrimaryKey(String name);
 
     /**
-     * Add a new bucket into the db. <br>
+     * Add a new bucket into the DB. <br>
      * 
      * @param record the new bucket.
      * @return Primary key if success, 0 if failed.
@@ -57,7 +57,7 @@ public interface BucketMapper {
     /**
      * Insert a new record in the specific row. <br>
      * 
-     * @param record the new pojo.
+     * @param record the new PoJo.
      * @return Primary key if success, 0 if failed.
      * @since SDNO 0.5
      */
@@ -83,7 +83,7 @@ public interface BucketMapper {
     /**
      * Update the specific field by its primary key. <br>
      * 
-     * @param record the new pojo.
+     * @param record the new PoJo.
      * @return Primary key if success, 0 if failed.
      * @since SDNO 0.5
      */
@@ -92,7 +92,7 @@ public interface BucketMapper {
     /**
      * Update the bucket by its primary key.<br>
      * 
-     * @param record the new pojo
+     * @param record the new PoJo
      * @return Primary key if success, 0 if failed.
      * @since SDNO 0.5
      */

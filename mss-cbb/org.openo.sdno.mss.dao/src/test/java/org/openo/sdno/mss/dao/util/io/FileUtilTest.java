@@ -28,6 +28,12 @@ import org.openo.sdno.framework.container.util.DefaultEnvUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * FileUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class FileUtilTest {
 
     private static final String PATH1 = "src/test/java/org/openo/sdno/mss/dao/util/testfile/TestFile.json";

@@ -69,9 +69,9 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a Infomodel instance.<br>
+     * Create a Info model instance.<br>
      * 
-     * @return Infomodel instance created
+     * @return Info model instance created
      * @since SDNO 0.5
      */
     public Infomodel createInfomodel() {

@@ -33,6 +33,12 @@ import org.openo.sdno.mss.model.util.ModelParserUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * ModelParser test class. <br/>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-3-26
+ */
 public class ModelParserTest {
 
     private ModelParser modelParser;

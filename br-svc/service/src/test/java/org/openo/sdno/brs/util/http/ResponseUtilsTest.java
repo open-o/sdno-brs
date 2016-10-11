@@ -37,6 +37,12 @@ import org.openo.sdno.framework.container.util.PageQueryResult;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * ResponseUtils test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class ResponseUtilsTest {
 
     @Test

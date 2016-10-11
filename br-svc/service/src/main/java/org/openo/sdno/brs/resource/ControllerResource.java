@@ -48,8 +48,8 @@ public class ControllerResource extends IResource<ControllerService> {
     /**
      * add controller.<br>
      * 
-     * @param request http request.
-     * @return uuid of the added controller.
+     * @param request HTTP request.
+     * @return UUID of the added controller.
      * @throws ServiceException if add controller failed.
      * @since SDNO 0.5
      */
@@ -64,10 +64,10 @@ public class ControllerResource extends IResource<ControllerService> {
     }
 
     /**
-     * query controller by uuid.<br>
+     * query controller by UUID.<br>
      * 
-     * @param objectId uuid of controller.
-     * @return controller of the given uuid.
+     * @param objectId UUID of controller.
+     * @return controller of the given UUID.
      * @throws ServiceException if exception happens in data base.
      * @since SDNO 0.5
      */
@@ -80,10 +80,10 @@ public class ControllerResource extends IResource<ControllerService> {
     }
 
     /**
-     * update controller by uuid.<br>
+     * update controller by UUID.<br>
      * 
-     * @param objectId uuid of controller.
-     * @param request http request.
+     * @param objectId UUID of controller.
+     * @param request HTTP request.
      * @throws ServiceException if exception happens in data base.
      * @since SDNO 0.5
      */
@@ -100,9 +100,9 @@ public class ControllerResource extends IResource<ControllerService> {
     }
 
     /**
-     * delete controller by uuid.<br>
+     * delete controller by UUID.<br>
      * 
-     * @param objectId uuid of the controller.
+     * @param objectId UUID of the controller.
      * @throws ServiceException if exception happens in data base.
      * @since SDNO 0.5
      */
@@ -115,7 +115,7 @@ public class ControllerResource extends IResource<ControllerService> {
     }
 
     /**
-     * query the url.<br>
+     * query the URL.<br>
      * 
      * @return uri of this service.
      * @since SDNO 0.5

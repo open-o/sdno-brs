@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.dao.model;
 
 /**
- * The query paramter model.<br>
+ * The query parameter model.<br>
  * 
  * @author
  * @version SDNO 0.5 May 20, 2016

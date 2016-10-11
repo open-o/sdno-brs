@@ -184,7 +184,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
     }
 
     /**
-     * Build filter condition based on uuid. <br>
+     * Build filter condition based on UUID. <br>
      * 
      * @param uuid UUID.
      * @return this.

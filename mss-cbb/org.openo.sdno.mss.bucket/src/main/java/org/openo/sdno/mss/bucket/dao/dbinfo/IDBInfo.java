@@ -30,7 +30,7 @@ public interface IDBInfo {
     String getDriver();
 
     /**
-     * @return Returns the url.
+     * @return Returns the URL.
      */
     String getUrl();
 

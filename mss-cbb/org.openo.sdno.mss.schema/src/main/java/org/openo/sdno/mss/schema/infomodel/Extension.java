@@ -28,9 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of extension data in info model.<br>
+ * This is XML model class of extension data in info model.<br>
  * <p>
- * This xml model has one attribute: property: extension properties of info model
+ * This XML model has one attribute: property: extension properties of info model
  * </p>
  * 
  * @author
@@ -59,9 +59,9 @@ public class Extension implements Serializable {
     }
 
     /**
-     * This is xml model class of Extension Property in info model.<br>
+     * This is XML model class of Extension Property in info model.<br>
      * <p>
-     * This xml model has six attributes: name: the name of property type: the data type of property
+     * This XML model has six attributes: name: the name of property type: the data type of property
      * length: the length of property scale: the scale of property encrypt: if the property is
      * encrypted empty: can be set to null or not
      * </p>
@@ -126,7 +126,7 @@ public class Extension implements Serializable {
         /**
          * Set type attribute.<br>
          * 
-         * @param value Datatype object
+         * @param value Data type object
          * @since SDNO 0.5
          */
         public void setType(Datatype value) {

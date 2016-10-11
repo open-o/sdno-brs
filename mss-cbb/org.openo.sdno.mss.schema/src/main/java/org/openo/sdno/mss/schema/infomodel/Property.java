@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of basic Property in info model.<br>
+ * This is XML model class of basic Property in info model.<br>
  * <p>
- * This xml model has six attributes: name: the name of property type: the data type of property
+ * This XML model has six attributes: name: the name of property type: the data type of property
  * length: the length of property scale: the scale of property encrypt: the encrypt of property
  * _default: the _default of property
  * </p>
@@ -94,7 +94,7 @@ public class Property implements Serializable {
     /**
      * Set type attribute.<br>
      * 
-     * @param value Datatype object
+     * @param value Data type object
      * @since SDNO 0.5
      */
     public void setType(Datatype value) {

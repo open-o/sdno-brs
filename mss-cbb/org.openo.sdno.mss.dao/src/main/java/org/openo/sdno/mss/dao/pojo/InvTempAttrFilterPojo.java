@@ -45,7 +45,7 @@ public class InvTempAttrFilterPojo {
     private InvAttrEntityPojo attrProperty;
 
     /**
-     * Temorary valuelist.
+     * Temporary value list.
      */
     private final List<Object> valueListCommit = new ArrayList<Object>();
 

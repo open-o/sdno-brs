@@ -36,9 +36,9 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Index.<br>
+ * This is XML model class of Index.<br>
  * <p>
- * This xml model has two attributes: name: the index name value: the index field name isunique:
+ * This XML model has two attributes: name: the index name value: the index field name isunique:
  * whether this filed is unique
  * </p>
  * 
@@ -101,9 +101,9 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get isunique attribute.<br>
+     * Get is unique attribute.<br>
      * 
-     * @return isunique attribute
+     * @return is unique attribute
      * @since SDNO 0.5
      */
     public Boolean isIsunique() {
@@ -111,9 +111,9 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Set isunique attribute.<br>
+     * Set is unique attribute.<br>
      * 
-     * @param value isunique
+     * @param value is unique
      * @since SDNO 0.5
      */
     public void setIsunique(Boolean value) {
@@ -131,7 +131,8 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof DataModelIndex)) {
             return false;
         }
@@ -201,9 +202,8 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
         }
         {
             Boolean thisIsunique = this.isIsunique();
-            currentHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "isunique", thisIsunique), currentHashCode,
-                            thisIsunique);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "isunique", thisIsunique),
+                    currentHashCode, thisIsunique);
         }
         return currentHashCode;
     }
@@ -220,9 +220,9 @@ public class DataModelIndex implements Serializable, Equals, HashCode, ToString 
     }
 
     /**
-     * Get xml description of current index object.<br>
+     * Get XML description of current index object.<br>
      * 
-     * @return xml description of current object
+     * @return XML description of current object
      * @since SDNO 0.5
      */
     public String toString() {

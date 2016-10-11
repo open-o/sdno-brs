@@ -44,7 +44,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The class of mss service to deal with resource.<br>
+ * The class of MSS service to deal with resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19

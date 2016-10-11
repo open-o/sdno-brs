@@ -81,8 +81,8 @@ public class ControllerServiceImpl implements ControllerService {
     /**
      * Query Controller by Id.<br>
      * 
-     * @param objectId uuid of controller.
-     * @return controller of the given uuid.
+     * @param objectId UUID of controller.
+     * @return controller of the given UUID.
      * @throws ServiceException when query failed
      * @since SDNO 0.5
      */
@@ -99,8 +99,8 @@ public class ControllerServiceImpl implements ControllerService {
      * add controller.<br>
      * 
      * @param controller controller to add.
-     * @return uuid of the given controller.
-     * @throws ServiceException if exception happens in db.
+     * @return UUID of the given controller.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     @Override
@@ -125,10 +125,10 @@ public class ControllerServiceImpl implements ControllerService {
     }
 
     /**
-     * delete controller by uuid.<br>
+     * delete controller by UUID.<br>
      * 
-     * @param objectId uuid of controller.
-     * @throws ServiceException if exception happens in db.
+     * @param objectId UUID of controller.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     @Override
@@ -142,9 +142,9 @@ public class ControllerServiceImpl implements ControllerService {
     /**
      * update controller.<br>
      * 
-     * @param objectId uuid of controller.
+     * @param objectId UUID of controller.
      * @param controller the controller information to update.
-     * @throws ServiceException if exception happens in db.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     @Override

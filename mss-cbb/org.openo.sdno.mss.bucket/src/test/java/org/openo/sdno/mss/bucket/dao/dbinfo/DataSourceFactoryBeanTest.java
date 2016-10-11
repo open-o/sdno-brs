@@ -16,12 +16,19 @@
 
 package org.openo.sdno.mss.bucket.dao.dbinfo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ * DataSourceFactoryBean test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class DataSourceFactoryBeanTest {
 
     private DataSourceFactoryBean dataSourceBean = new DataSourceFactoryBean();

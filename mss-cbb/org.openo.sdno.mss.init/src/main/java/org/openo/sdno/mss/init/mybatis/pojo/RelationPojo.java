@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.init.mybatis.pojo;
 
 /**
- * ralation pojo class.<br>
+ * Relation PoJo class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24

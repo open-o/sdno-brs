@@ -17,9 +17,8 @@
 package org.openo.sdno.brs.service.inf;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.service.IService;
-
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
+import org.openo.sdno.framework.container.service.IService;
 
 /**
  * LogicalTP service interface.<br>
@@ -30,10 +29,10 @@ import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 public interface LogicalTPService extends IService {
 
     /**
-     * Get logical Tp by Id.<br>
+     * Get logical TP by Id.<br>
      * 
      * @param objectID Object Id
-     * @return The logical Tp
+     * @return The logical TP
      * @since SDNO 0.5
      */
     LogicalTerminationPointMO getLogicalTPByID(String objectID) throws ServiceException;
@@ -49,36 +48,36 @@ public interface LogicalTPService extends IService {
     Object getLogicalTPs(String queryString, String key) throws ServiceException;
 
     /**
-     * Get Id of Tp.<br>
+     * Get Id of TP.<br>
      * 
-     * @param logicalTP The logical Tp
-     * @return The Id of Tp
+     * @param logicalTP The logical TP
+     * @return The Id of TP
      * @since SDNO 0.5
      */
     String getObjectId(LogicalTerminationPointMO logicalTP) throws ServiceException;
 
     /**
-     * Update the Tp information though the Id.<br>
+     * Update the TP information though the Id.<br>
      * 
      * @param objectID The object Id
-     * @param logicalTP The logical Tp
-     * @return Logical Tp object
+     * @param logicalTP The logical TP
+     * @return Logical TP object
      * @since SDNO 0.5
      */
     LogicalTerminationPointMO updateTPByID(String objectID, LogicalTerminationPointMO logicalTP)
             throws ServiceException;
 
     /**
-     * Add logical Tp.<br>
+     * Add logical TP.<br>
      * 
-     * @param logicalTP The logical Tp object
-     * @return Logical Tp object
+     * @param logicalTP The logical TP object
+     * @return Logical TP object
      * @since SDNO 0.5
      */
     LogicalTerminationPointMO addLogicalTP(LogicalTerminationPointMO logicalTP) throws ServiceException;
 
     /**
-     * Delete logical Tp though Id.<br>
+     * Delete logical TP though Id.<br>
      * 
      * @param objectID The object Id
      * @return true when delete success

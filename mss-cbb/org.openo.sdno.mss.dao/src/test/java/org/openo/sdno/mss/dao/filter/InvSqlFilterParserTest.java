@@ -16,28 +16,19 @@
 
 package org.openo.sdno.mss.dao.filter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.framework.container.util.JsonUtil;
-import org.openo.sdno.mss.dao.pojo.InvBasicTablePojo;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
-
-import mockit.Mock;
-import mockit.MockUp;
 
 /**
  * InvSqlFilterParserTest class.<br>
  * 
  * @author
- * @version SDNO 0.5 Jul 26, 2016
+ * @version SDNO 0.5 July 26, 2016
  */
 public class InvSqlFilterParserTest {
 

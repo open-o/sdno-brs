@@ -116,7 +116,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Validate the imput object.<br>
+     * Validate the input object.<br>
      * 
      * @param validData The object to be validated
      * @return Collection of validating results
@@ -127,7 +127,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Validate the imput object.<br>
+     * Validate the input object.<br>
      * 
      * @param validData The object to be validated
      * @param isEdit Edit flag, some rules need special processing when editing, such as
@@ -188,7 +188,7 @@ public final class InputParaValidator {
         try {
             Object attrValue = attrValidateInfo.getAttrValue(validateData);
 
-            // The excuted validator, for processing scene.
+            // The executed validator, for processing scene.
             Map<Class<? extends AbstractRuleValidator>, String> mapExecutedValidator =
                     new HashMap<Class<? extends AbstractRuleValidator>, String>();
 
@@ -206,7 +206,7 @@ public final class InputParaValidator {
     }
 
     /**
-     * Init a trace item of validator.<br>
+     * Initialize a trace item of validator.<br>
      * 
      * @param task Current task
      * @param validDataTraceItem The trace item to be initialized
@@ -221,7 +221,7 @@ public final class InputParaValidator {
             mapObjAttrInfo.put(validDataTraceItem.getValidData().getClass(), lstAttrValidInfo);
         }
 
-        // If the trace item of validatot is not initialized, to initialize it.
+        // If the trace item of validator is not initialized, to initialize it.
         if(validDataTraceItem.getLstAttrValidInfo() == null) {
             validDataTraceItem.setLstAttrValidInfo(new ArrayList<AttrValidateInfo>());
         }

@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.init.mybatis.pojo;
 
 /**
- * resource pojo class.<br>
+ * Resource PoJo class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -35,14 +35,14 @@ public class ResourcePojo {
     private String dmspec;
 
     /**
-     * @return Returns the uuid.
+     * @return Returns the UUID.
      */
     public String getUuid() {
         return uuid;
     }
 
     /**
-     * @param uuid The uuid to set.
+     * @param uuid The UUID to set.
      */
     public void setUuid(String uuid) {
         this.uuid = uuid.trim();
@@ -63,14 +63,14 @@ public class ResourcePojo {
     }
 
     /**
-     * @return Returns the restype.
+     * @return Returns the res type.
      */
     public String getRestype() {
         return restype;
     }
 
     /**
-     * @param restype The restype to set.
+     * @param restype The res type to set.
      */
     public void setRestype(String restype) {
         this.restype = restype.trim();

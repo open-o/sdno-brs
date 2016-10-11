@@ -29,12 +29,12 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class InvRelationEntity {
 
     /**
-     * source uuid
+     * source UUID
      */
     private String srcUuid;
 
     /**
-     * destination uuid
+     * destination UUID
      */
     private String dstUuid;
 

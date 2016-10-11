@@ -19,17 +19,16 @@ package org.openo.sdno.mss.init;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openo.sdno.model.liquibasemodel.ObjectFactory;
 import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog.ChangeSet.PreConditions;
+import org.openo.sdno.model.liquibasemodel.ObjectFactory;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.openo.sdno.mss.init.modelprocess.DataModelProcess;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
-import org.apache.commons.io.FileUtils;
 
 import liquibase.exception.LiquibaseException;
 import mockit.Mock;

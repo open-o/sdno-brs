@@ -19,7 +19,7 @@ package org.openo.sdno.mss.init.util;
 import java.util.UUID;
 
 /**
- * Uuid tool class, used to create a uuid. <br>
+ * UUID utility class, used to create a UUID. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -31,10 +31,10 @@ public class UUIDUtils {
     }
 
     /**
-     * Create uuid, not case sensitive in windows, in the style like:
+     * Create UUID, not case sensitive in windows, in the style like:
      * a12e7652-4b11-4c28-8158-82f4082b3e2b <br>
      * 
-     * @return the created uuid.
+     * @return the created UUID.
      * @since SDNO 0.5
      */
     public static String createUuid() {

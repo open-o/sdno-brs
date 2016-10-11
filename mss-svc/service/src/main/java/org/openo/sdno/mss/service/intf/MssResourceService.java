@@ -26,7 +26,7 @@ import org.openo.sdno.framework.container.util.PageQueryResult;
 import org.openo.sdno.mss.dao.model.QueryParamModel;
 
 /**
- * The interface of mss service to deal with resource.<br>
+ * The interface of MSS service to deal with resource.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -109,7 +109,7 @@ public interface MssResourceService {
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
-     * @param uuid Uuid
+     * @param uuid UUID
      * @since SDNO 0.5
      */
     void deleteResouce(String bktName, String resType, String uuid) throws ServiceException;

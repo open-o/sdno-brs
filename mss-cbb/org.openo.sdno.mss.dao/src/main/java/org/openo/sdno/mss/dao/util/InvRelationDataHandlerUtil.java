@@ -27,7 +27,7 @@ import org.openo.sdno.mss.dao.pojo.InvRelationTablePojo;
 import org.springframework.util.CollectionUtils;
 
 /**
- * Util class of InvRelationDataHandler.<br>
+ * Utility class of InvRelationDataHandler.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-08-23
@@ -65,8 +65,7 @@ public class InvRelationDataHandlerUtil {
                 relationPojo.buildDstTypeFilter(resTypes[1]).buildUuidFilter(part);
                 queryResults.addAll(relationPojo.getData(session));
             }
-            result = getUuidListFromQueryResults(queryResults,
-                    relationPojo.getQueryUuidName());
+            result = getUuidListFromQueryResults(queryResults, relationPojo.getQueryUuidName());
         }
 
         if(CollectionUtils.isEmpty(result)) {
@@ -83,8 +82,8 @@ public class InvRelationDataHandlerUtil {
      * Get UUID from Query Results.<br>
      * 
      * @param queryResults query result
-     * @param uuidName uuid name
-     * @return list of uuid
+     * @param uuidName UUID name
+     * @return list of UUID
      * @since SDNO 0.5
      */
     private static List<String> getUuidListFromQueryResults(List<Map<String, Object>> queryResults, String uuidName) {
@@ -106,7 +105,7 @@ public class InvRelationDataHandlerUtil {
      * 
      * @param list list object
      * @param length length of list
-     * @return list splited
+     * @return list split
      * @since SDNO 0.5
      */
     public static <T> List<List<T>> splitList(List<T> list, final int length) {

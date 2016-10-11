@@ -16,13 +16,19 @@
 
 package org.openo.sdno.mss.bucket.dao.pojo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * MetaPojo test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class MetaPojoTest {
 
     private String BUCKET = "bucketName";

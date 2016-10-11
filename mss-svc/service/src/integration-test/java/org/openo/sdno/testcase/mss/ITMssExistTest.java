@@ -35,6 +35,12 @@ import org.openo.sdno.testframework.replace.PathReplace;
 import org.openo.sdno.testframework.testmanager.TestManager;
 import org.openo.sdno.testframework.util.file.FileUtils;
 
+/**
+ * ITMssExist test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-19
+ */
 public class ITMssExistTest extends TestManager {
 
     private static final String CREATE_EXIST_PATH =

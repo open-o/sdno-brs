@@ -27,7 +27,7 @@ import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.util.http.HttpClientUtil;
 
 /**
- * Proxy of mss service.<br>
+ * Proxy of MSS service.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19

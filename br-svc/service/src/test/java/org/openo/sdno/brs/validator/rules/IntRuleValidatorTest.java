@@ -21,10 +21,15 @@ import static org.junit.Assert.assertTrue;
 import java.lang.annotation.Annotation;
 
 import org.junit.Test;
-
 import org.openo.sdno.brs.validator.ErrorMessageKey;
 import org.openo.sdno.brs.validator.ValidateTask;
 
+/**
+ * IntRuleValidator test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class IntRuleValidatorTest {
 
     @Test

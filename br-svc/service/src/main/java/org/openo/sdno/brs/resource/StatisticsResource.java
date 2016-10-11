@@ -42,7 +42,7 @@ public class StatisticsResource extends IResource<StatisticsService> {
      * get total count of the given type of resource.<br>
      * 
      * @param resType resource type.
-     * @param tenantId uuid of the tenant.
+     * @param tenantId UUID of the tenant.
      * @return total count of the given resource.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

@@ -22,10 +22,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.openo.sdno.mss.init.util.ValidUtil;
-
 /**
- * Valid util test class.<br>
+ * Valid utility test class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-27

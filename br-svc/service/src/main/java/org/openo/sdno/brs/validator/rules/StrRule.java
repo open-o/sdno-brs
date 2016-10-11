@@ -56,9 +56,9 @@ public @interface StrRule {
     public String regex() default "";
 
     /**
-     * Get the default vaule.<br>
+     * Get the default value.<br>
      * 
-     * @return Default vaule
+     * @return Default value
      * @since SDNO 0.5
      */
     public String defaultValue() default "";

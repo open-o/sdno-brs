@@ -16,10 +16,17 @@
 
 package org.openo.sdno.mss.bucket.dao.pojo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
+/**
+ * BucketPojo test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class BucketPojoTest {
 
     private BucketPojo bucket = new BucketPojo();

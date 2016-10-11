@@ -26,6 +26,12 @@ import org.openo.sdno.testframework.http.model.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Send utility class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-19
+ */
 public class SendUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SendUtil.class);

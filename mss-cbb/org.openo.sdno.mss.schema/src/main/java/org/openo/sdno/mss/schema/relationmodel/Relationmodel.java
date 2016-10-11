@@ -39,9 +39,9 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Relationmodel.<br>
+ * This is XML model class of Relation model.<br>
  * <p>
- * This xml model has one attribute: relation: Relation list of relation model
+ * This XML model has one attribute: relation: Relation list of relation model
  * </p>
  * 
  * @author
@@ -129,9 +129,8 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
         {
             List<RelationModelRelation> thisRelation;
             thisRelation = ((this.relation != null) && (!this.relation.isEmpty())) ? this.getRelation() : null;
-            resultHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "relation", thisRelation), resultHashCode,
-                            thisRelation);
+            resultHashCode = strategy.hashCode(LocatorUtils.property(locator, "relation", thisRelation), resultHashCode,
+                    thisRelation);
         }
         return resultHashCode;
     }
@@ -148,9 +147,9 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get xml description of inventory object.<br>
+     * Get XML description of inventory object.<br>
      * 
-     * @return xml description of current object
+     * @return XML description of current object
      * @since SDNO 0.5
      */
     public String toString() {

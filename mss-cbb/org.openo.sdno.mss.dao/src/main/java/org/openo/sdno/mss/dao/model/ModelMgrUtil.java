@@ -20,16 +20,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-
 import org.openo.sdno.mss.dao.multi.DataSourceCtrler;
 import org.openo.sdno.mss.dao.util.SpringContextUtil;
-import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.datamodel.DataModelFilter;
+import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
- * Model Manage Util class.<br>
+ * Model Manage Utility class.<br>
  * <p>
  * manage a instance of ModelManagement
  * </p>
@@ -193,8 +192,8 @@ public final class ModelMgrUtil {
             }
         }
 
-        throw new IllegalArgumentException("Cannot find filter value, resType = " + resType + ", filterName = "
-                + realFilterName);
+        throw new IllegalArgumentException(
+                "Cannot find filter value, resType = " + resType + ", filterName = " + realFilterName);
     }
 
     /**

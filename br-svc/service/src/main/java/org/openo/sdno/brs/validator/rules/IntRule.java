@@ -40,9 +40,9 @@ public @interface IntRule {
     public int max() default Integer.MAX_VALUE;
 
     /**
-     * Get min value.<br>
+     * Get minimum value.<br>
      * 
-     * @return Min value
+     * @return Minimum value
      * @since SDNO 0.5
      */
     public int min() default Integer.MIN_VALUE;

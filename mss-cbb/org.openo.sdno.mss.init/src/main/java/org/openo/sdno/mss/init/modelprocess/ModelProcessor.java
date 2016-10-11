@@ -18,13 +18,12 @@ package org.openo.sdno.mss.init.modelprocess;
 
 import java.sql.SQLException;
 
-import liquibase.exception.LiquibaseException;
-
+import org.openo.sdno.mss.init.buckets.BucketModel;
+import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.openo.sdno.mss.init.buckets.BucketModel;
-import org.openo.sdno.mss.init.dbinfo.DBParam;
+import liquibase.exception.LiquibaseException;
 
 /**
  * Class to modify or add a new model. <br>
@@ -54,7 +53,7 @@ public class ModelProcessor {
     }
 
     /**
-     * Load model from file or db. <br>
+     * Load model from file or DB. <br>
      * 
      * @param bktName model file name
      * @param modelBasicPath path to the file

@@ -23,7 +23,7 @@ import org.openo.sdno.framework.container.util.DefaultEnvUtil;
 import org.openo.sdno.mss.dao.constant.InvDbType;
 
 /**
- * Database information for oss platform. <br>
+ * Database information for OSS platform. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24

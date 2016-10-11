@@ -41,6 +41,12 @@ import org.openo.sdno.mss.schema.relationmodel.Relationtype;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * ValidUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class ValidUtilTest {
 
     @Test(expected = IllegalArgumentException.class)

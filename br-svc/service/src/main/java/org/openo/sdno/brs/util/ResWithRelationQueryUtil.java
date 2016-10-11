@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Util class of ResWithRelationQuery.<br>
+ * Utility class of ResWithRelationQuery.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-8-22
@@ -97,7 +97,7 @@ public class ResWithRelationQueryUtil {
      * Get resource UUid.<br>
      * 
      * @param resourceList list of resource
-     * @return resource uuid string
+     * @return resource UUID string
      * @since SDNO 0.5
      */
     public static <T extends RootEntity> String getResourcesIds(List<T> resourceList) {

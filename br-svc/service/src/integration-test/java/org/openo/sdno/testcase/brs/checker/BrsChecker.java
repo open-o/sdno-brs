@@ -28,6 +28,12 @@ import org.openo.sdno.testframework.http.model.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * BrsChecker class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class BrsChecker implements IChecker {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BrsChecker.class);

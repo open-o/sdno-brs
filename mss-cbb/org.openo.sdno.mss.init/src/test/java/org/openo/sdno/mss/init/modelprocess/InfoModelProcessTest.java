@@ -16,7 +16,7 @@
 
 package org.openo.sdno.mss.init.modelprocess;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -26,6 +26,12 @@ import org.junit.Test;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Property;
 
+/**
+ * InfoModelProcess test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-27
+ */
 public class InfoModelProcessTest {
 
     @Test

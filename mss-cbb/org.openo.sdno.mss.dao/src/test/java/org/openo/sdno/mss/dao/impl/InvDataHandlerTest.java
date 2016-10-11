@@ -16,7 +16,7 @@
 
 package org.openo.sdno.mss.dao.impl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -27,17 +27,19 @@ import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openo.sdno.model.liquibasemodel.ObjectFactory;
-import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog.ChangeSet.PreConditions;
 import org.openo.sdno.mss.dao.entities.InvRelationEntity;
 import org.openo.sdno.mss.dao.intf.InvRelationDataHandler;
-import org.openo.sdno.mss.dao.pojo.InvRelationTablePojo;
 import org.openo.sdno.mss.dao.util.ValidUtil;
-import org.openo.sdno.mss.init.modelprocess.DataModelProcess;
 
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * InvDataHandler test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class InvDataHandlerTest {
 
     InvRelationDataHandler relationDataHandler;

@@ -16,6 +16,12 @@
 
 package org.openo.sdno.brs.validator;
 
+/**
+ * ValidateTask test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;

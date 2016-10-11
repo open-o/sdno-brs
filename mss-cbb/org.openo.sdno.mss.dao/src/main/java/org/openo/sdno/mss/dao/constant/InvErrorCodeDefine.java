@@ -27,7 +27,7 @@ package org.openo.sdno.mss.dao.constant;
 public enum InvErrorCodeDefine {
 
     /**
-     * url not found
+     * URL not found
      */
     INV_NOT_FOUND_URL_ERROR(1107316829),
 
@@ -52,7 +52,7 @@ public enum InvErrorCodeDefine {
     INV_INVALID_INPUT_ERROR(1107316837),
 
     /**
-     * network element sync error, is syncing
+     * network element sync error, is synchronizing
      */
     INV_NE_SYNCING_ERROR(1107316838),
 

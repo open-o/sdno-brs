@@ -112,10 +112,10 @@ public final class SchemaUtil {
     }
 
     /**
-     * Verify the validity of xml File.<br>
+     * Verify the validity of XML File.<br>
      * 
      * @param jaxbCongtext the JAXBContext Object
-     * @param file xml file
+     * @param file XML file
      * @param xsdUrl URL that represents a schema.
      * @return true if the file is valid, false otherwise
      * @since SDNO 0.5

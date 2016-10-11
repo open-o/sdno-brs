@@ -36,6 +36,12 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * InvRelationDataHandler test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class InvRelationDataHandlerTest {
 
     private final String relationType = "srcType-desType";

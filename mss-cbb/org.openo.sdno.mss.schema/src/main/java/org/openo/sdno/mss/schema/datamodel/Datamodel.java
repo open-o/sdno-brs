@@ -40,7 +40,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of the datamodel.<br>
+ * This is XML model class of the data model.<br>
  * <p>
  * The data model has three attributes: name: the data model name index: the index of the data model
  * filter: filter rule of the data model
@@ -122,7 +122,8 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof Datamodel)) {
             return false;
         }
@@ -227,9 +228,9 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get xml description string of the Object.<br>
+     * Get XML description string of the Object.<br>
      * 
-     * @return xml description of the Object
+     * @return XML description of the Object
      * @since SDNO 0.5
      */
     public String toString() {
@@ -244,7 +245,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * 
      * @param locator ObjectLocator object
      * @param buffer string buffer appended to
-     * @param strStrategy tostring strategy
+     * @param strStrategy to string strategy
      * @return string buffer after appending
      * @since SDNO 0.5
      */

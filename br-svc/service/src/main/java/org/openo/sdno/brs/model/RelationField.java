@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Relation field store db parameter.<br>
+ * Relation field store DB parameter.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -40,9 +40,9 @@ public @interface RelationField {
     String modelName() default "";
 
     /**
-     * Set db name,default name is empty.<br>
+     * Set DB name,default name is empty.<br>
      * 
-     * @return Db name
+     * @return DB name
      * @since SDNO 0.5
      */
     String dbName() default "";

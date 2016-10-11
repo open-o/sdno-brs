@@ -31,6 +31,12 @@ import org.openo.sdno.framework.container.resthelper.RestfulProxy;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * HttpClientUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class HttpClientUtilTest {
 
     private String URL = "/rest/test/v1/ipsec";

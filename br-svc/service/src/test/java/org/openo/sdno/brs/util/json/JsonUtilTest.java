@@ -35,7 +35,7 @@ import org.openo.sdno.brs.model.SiteMO;
 import net.sf.json.JSONArray;
 
 /**
- * JSON util test class.<br>
+ * JSON utility test class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-25

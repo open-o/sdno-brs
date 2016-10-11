@@ -19,8 +19,13 @@ package org.openo.sdno.mss.dao.util;
 import java.io.File;
 
 import org.junit.Test;
-import org.openo.sdno.mss.dao.util.ValidateUtil;
 
+/**
+ * ValidateUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class ValidateUtilTest {
 
     @Test

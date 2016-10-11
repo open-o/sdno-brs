@@ -20,14 +20,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.model.util.ModelUtil;
-import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.datamodel.DataModelIndex;
+import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Redius model Entity class.<br>
@@ -130,9 +129,9 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Get inited attribute.<br>
+     * Get initialized attribute.<br>
      * 
-     * @return inited attribute
+     * @return initialized attribute
      * @since SDNO 0.5
      */
     public boolean isInited() {
@@ -140,7 +139,7 @@ public class ModelRedisEntity {
     }
 
     /**
-     * Set inited attribute<br>
+     * Set initialized attribute<br>
      * 
      * @param inited
      * @since SDNO 0.5

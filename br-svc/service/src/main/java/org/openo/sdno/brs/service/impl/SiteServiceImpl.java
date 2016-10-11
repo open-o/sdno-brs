@@ -150,7 +150,7 @@ public class SiteServiceImpl implements SiteService {
      * Check whether is the given object exist.<br>
      * 
      * @param key Object to check
-     * @throws ServiceException if data base service encouter some problem
+     * @throws ServiceException if data base service encounter some problem
      * @since SDNO 0.5
      */
     public void checkObjExsit(Object key) throws ServiceException {

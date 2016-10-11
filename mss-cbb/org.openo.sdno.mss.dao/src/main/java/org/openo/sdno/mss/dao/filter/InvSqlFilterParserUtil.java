@@ -26,7 +26,7 @@ import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 
 /**
- * Util class of InvSqlFilterParser.<br>
+ * Utility class of InvSqlFilterParser.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-08-23
@@ -38,7 +38,7 @@ public class InvSqlFilterParserUtil {
     }
 
     /**
-     * Check Json Value.<br>
+     * Check JSON Value.<br>
      * 
      * @param field field name
      * @param jsonFieldValue field value
@@ -61,7 +61,7 @@ public class InvSqlFilterParserUtil {
     }
 
     /**
-     * Check Json Field.<br>
+     * Check JSON Field.<br>
      * 
      * @param jsonFieldPairs Pair of field value and name
      * @param fieldNames list of field name
@@ -122,7 +122,7 @@ public class InvSqlFilterParserUtil {
      * 
      * @param allWhereFilter where filter pattern
      * @param resType resource type
-     * @return filter sql
+     * @return filter SQL
      * @since SDNO 0.5
      */
     public static String joinTableNameField(String allWhereFilter, String resType) {

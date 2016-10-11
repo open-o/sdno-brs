@@ -36,9 +36,9 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of filter.<br>
+ * This is XML model class of filter.<br>
  * <p>
- * this xml model has two attributes: name: the name of the filter value: the content value of the
+ * this XML model has two attributes: name: the name of the filter value: the content value of the
  * filter
  * </p>
  * 
@@ -108,7 +108,8 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof DataModelFilter)) {
             return false;
         }
@@ -159,14 +160,13 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
         int currentHashCode = 1;
         {
             String thisObjName = this.getName();
-            currentHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "name", thisObjName), currentHashCode, thisObjName);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "name", thisObjName), currentHashCode,
+                    thisObjName);
         }
         {
             String thisObjValue = this.getValue();
-            currentHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "value", thisObjValue), currentHashCode,
-                            thisObjValue);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "value", thisObjValue), currentHashCode,
+                    thisObjValue);
         }
         return currentHashCode;
     }
@@ -183,9 +183,9 @@ public class DataModelFilter implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * Get xml description of current filter object.<br>
+     * Get XML description of current filter object.<br>
      * 
-     * @return xml description of current filter object
+     * @return XML description of current filter object
      * @since SDNO 0.5
      */
     public String toString() {

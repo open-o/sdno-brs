@@ -71,7 +71,7 @@ public class DataModelProcess {
      * @param factory factory class of object.
      * @param index the index class
      * @param tableName name of the table.
-     * @return sqlInstance instance of sql.
+     * @return sqlInstance instance of SQL.
      * @since SDNO 0.5
      */
     public static Object getCreateIndex(ObjectFactory factory, DataModelIndex index, String tableName) {
@@ -81,8 +81,8 @@ public class DataModelProcess {
     }
 
     private static Serializable getCreateIndexSql(DataModelIndex index, String tableName) {
-        return "create " + (index.isIsunique() ? "unique" : "") + " index " + index.getName() + " on " + tableName
-                + "(" + index.getValue() + ")";
+        return "create " + (index.isIsunique() ? "unique" : "") + " index " + index.getName() + " on " + tableName + "("
+                + index.getValue() + ")";
     }
 
     /**
@@ -92,7 +92,7 @@ public class DataModelProcess {
      * @param indexInfo information of the index.
      * @param tableName name of the table.
      * @param indexName name of the index.
-     * @return sqlInstance instance of sql.
+     * @return sqlInstance instance of SQL.
      * @since SDNO 0.5
      */
     public static Object getCreateCustomizedIndex(ObjectFactory factory, String[] indexInfo, String tableName,

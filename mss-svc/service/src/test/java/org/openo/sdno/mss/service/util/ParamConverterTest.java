@@ -24,11 +24,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.service.constant.Constant;
-import org.openo.sdno.mss.service.util.ParamConverter;
 
+/**
+ * ParamConverter test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-19
+ */
 public class ParamConverterTest {
 
     @Test

@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Bucket static information management class, maintain paths of its configure files and the db
+ * Bucket static information management class, maintain paths of its configure files and the DB
  * name.<br>
  * 
  * @author

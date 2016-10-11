@@ -24,14 +24,13 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.openo.sdno.mss.init.dbinfo.DBParam;
-
 /**
- * Mybatis management class, it call the mybatis'API to initialize the basic parameter of db from
- * configure file and get sql session from session factory. <br>
+ * Mybatis management class, it call the mybatis'API to initialize the basic parameter of DB from
+ * configure file and get SQL session from session factory. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -63,10 +62,8 @@ public class MybatisManagement {
         return INSTANCE;
     }
 
-
-
     /**
-     * @param dbParam the db parameter to set.
+     * @param dbParam the DB parameter to set.
      * @since SDNO 0.5
      */
     public synchronized void setDbParam(DBParam dbParam) {
@@ -88,7 +85,7 @@ public class MybatisManagement {
     }
 
     /**
-     * Get session for sql. <br>
+     * Get session for SQL. <br>
      * 
      * @since SDNO 0.5
      */

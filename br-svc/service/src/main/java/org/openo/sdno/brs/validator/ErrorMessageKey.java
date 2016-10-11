@@ -35,7 +35,7 @@ public final class ErrorMessageKey {
     public static final String CREATE_VALIDATOR_FAILED = "brs.attrCheckMsg.CreateValidatorFailed";
 
     /**
-     * Init attribute {0} failed for not find method {1}.
+     * Initialize attribute {0} failed for not find method {1}.
      */
     public static final String INIT_ATTR_FAILED = "brs.attrCheckMsg.InitAttrFailed";
 
@@ -45,7 +45,7 @@ public final class ErrorMessageKey {
     public static final String NOT_NULLABLE = "brs.attrCheckMsg.NotNullable";
 
     /**
-     * Enum value out of range.
+     * Enumeration value out of range.
      */
     public static final String SIMPLE_ENUM_OUT_OF_RANGE = "brs.attrCheckMsg.SimpleEnumOutOfRange";
 
@@ -70,7 +70,7 @@ public final class ErrorMessageKey {
     public static final String INT_LESS_THAN_MIN_VALUE = "brs.attrCheckMsg.LessThanMinValue";
 
     /**
-     * ip address do not match
+     * IP address do not match
      */
     public static final String NOT_MATCH_IP_ADDR = "brs.attrCheckMsg.IpAddrNotMatch";
 

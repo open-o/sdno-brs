@@ -115,7 +115,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Pre-handle analysis. <br>
+     * Pre handle analysis. <br>
      * 
      * @param resType
      * @return
@@ -306,7 +306,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
     }
 
     /**
-     * Query quantity of extensional data. <br>
+     * Query quantity of extension data. <br>
      * 
      * @param session SQL session.
      * @return quantity.

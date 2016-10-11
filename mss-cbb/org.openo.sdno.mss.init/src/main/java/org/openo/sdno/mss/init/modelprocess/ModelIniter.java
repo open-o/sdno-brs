@@ -161,7 +161,7 @@ public class ModelIniter extends ChangeLogBuilder {
 
     /**
      * @return The DB connection.
-     * @throws SQLException if the sql syntax is wrong.
+     * @throws SQLException if the SQL syntax is wrong.
      * @since SDNO 0.5
      */
     @Override
@@ -175,8 +175,8 @@ public class ModelIniter extends ChangeLogBuilder {
     }
 
     /**
-     * @return The db connection built from DbPara.
-     * @throws SQLException if the sql syntax is wrong.
+     * @return The DB connection built from DbPara.
+     * @throws SQLException if the SQL syntax is wrong.
      * @since SDNO 0.5
      */
     protected Connection getConnection() throws SQLException {

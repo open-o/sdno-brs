@@ -25,7 +25,7 @@ import org.junit.Test;
  * RelationFilterCombineTest class.<br>
  * 
  * @author
- * @version SDNO 0.5 Jul 26, 2016
+ * @version SDNO 0.5 July 26, 2016
  */
 public class RelationFilterCombineTest {
 

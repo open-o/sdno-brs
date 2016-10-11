@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of infomodel in info model.<br>
+ * This is XML model class of info model in info model.<br>
  * <p>
- * This xml model has five attributes: basic: basic property of info model extension: extension
- * property of info model name: the name of info model datamodel: the name of data model related to
+ * This XML model has five attributes: basic: basic property of info model extension: extension
+ * property of info model name: the name of info model data model: the name of data model related to
  * info model version: the version of info model
  * </p>
  * 
@@ -120,9 +120,9 @@ public class Infomodel implements Serializable {
     }
 
     /**
-     * Get datamodel attribute.<br>
+     * Get data model attribute.<br>
      * 
-     * @return datamodel attribute
+     * @return data model attribute
      * @since SDNO 0.5
      */
     public String getDatamodel() {

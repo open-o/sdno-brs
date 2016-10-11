@@ -69,7 +69,7 @@ public class BucketsMgrt {
     }
 
     /**
-     * To check whether the current app support Bucket management.<br>
+     * To check whether the current application support Bucket management.<br>
      * 
      * @since SDNO 0.5
      */

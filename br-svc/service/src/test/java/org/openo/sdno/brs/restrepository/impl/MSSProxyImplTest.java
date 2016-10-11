@@ -29,6 +29,12 @@ import org.openo.sdno.brs.util.http.HttpClientUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * MSSProxyImpl test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class MSSProxyImplTest {
 
     MSSProxyImpl mssProxyImpl = new MSSProxyImpl();

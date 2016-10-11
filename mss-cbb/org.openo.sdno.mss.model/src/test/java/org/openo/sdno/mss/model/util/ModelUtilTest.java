@@ -34,6 +34,12 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * ModelUtil test class. <br/>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-3-26
+ */
 public class ModelUtilTest {
 
     private ModelParser modelParser;

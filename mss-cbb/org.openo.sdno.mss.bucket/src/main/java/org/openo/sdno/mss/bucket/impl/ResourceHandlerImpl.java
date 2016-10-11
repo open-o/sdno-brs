@@ -48,9 +48,9 @@ public class ResourceHandlerImpl extends AHandlerImpl {
     }
 
     /**
-     * Init the mapper.<br>
+     * Initialize the mapper.<br>
      * 
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public void init() {
         this.mapper = getMapper();

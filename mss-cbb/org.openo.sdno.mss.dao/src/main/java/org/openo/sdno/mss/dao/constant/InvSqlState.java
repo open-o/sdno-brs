@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.dao.constant;
 
 /**
- * This class defines several Inventory Sql States.<br>
+ * This class defines several Inventory SQL States.<br>
  * <p>
  * </p>
  * 
@@ -47,7 +47,7 @@ public enum InvSqlState {
     private int sybaseCode;
 
     /**
-     * status code of sqlserver
+     * status code of SQL server
      */
     private int sqlserverCode;
 
@@ -58,7 +58,7 @@ public enum InvSqlState {
      * 
      * @since SDNO 0.5
      * @param sybaseCode status code of sybase
-     * @param sqlserverCode status code of sqlserver
+     * @param sqlserverCode status code of SQL server
      */
     private InvSqlState(int sybaseCode, int sqlserverCode) {
 

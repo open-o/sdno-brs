@@ -24,7 +24,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.ibatis.session.SqlSession;
-
 import org.openo.sdno.mss.dao.exception.MethodNotSupportException;
 import org.openo.sdno.mss.dao.model.ModelMgrUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
@@ -70,7 +69,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
      * Constructor <br>
      * 
      * @since SDNO 0.5
-     * @param resType Resurce type.
+     * @param resType Resource type.
      * @param attributes Attributes.
      */
     public InvCrossTablePojo(String resType, String attributes) {
@@ -86,15 +85,14 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
     /**
      * Get all the attributes. <br>
      * 
-     * @param resType Resurce type.
+     * @param resType Resource type.
      * @param hasHiddenAttr True if any attribute is hidden.
      * @return
      * @since SDNO 0.5
      */
     public static Map<String, Datatype> getAllAttributes(String resType, boolean hasHiddenAttr) {
-        Infomodel model =
-                hasHiddenAttr ? ModelMgrUtil.getInstance().getWholeInfoModelMap().get(resType) : ModelMgrUtil
-                        .getInstance().getInfoModelMap().get(resType);
+        Infomodel model = hasHiddenAttr ? ModelMgrUtil.getInstance().getWholeInfoModelMap().get(resType)
+                : ModelMgrUtil.getInstance().getInfoModelMap().get(resType);
 
         if(model == null) {
             throw new IllegalArgumentException("Cannot find info model, resType = " + resType);
@@ -121,7 +119,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
      * 
      * @param field Field.
      * @param dt Data type.
-     * @param propSet Promp set.
+     * @param propSet Proper set.
      * @return this.
      * @since SDNO 0.5
      */

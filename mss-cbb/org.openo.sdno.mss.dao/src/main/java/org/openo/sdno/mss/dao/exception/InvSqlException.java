@@ -17,11 +17,10 @@
 package org.openo.sdno.mss.dao.exception;
 
 import org.apache.ibatis.exceptions.PersistenceException;
-
 import org.openo.sdno.mss.dao.constant.InvSqlState;
 
 /**
- * Inventory Sql Exception.<br>
+ * Inventory SQL Exception.<br>
  * <p>
  * </p>
  * 

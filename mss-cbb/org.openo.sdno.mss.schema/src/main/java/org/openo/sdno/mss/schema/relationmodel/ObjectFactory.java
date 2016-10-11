@@ -49,9 +49,9 @@ public class ObjectFactory {
     }
 
     /**
-     * Create a instance of Relationmodel.<br>
+     * Create a instance of Relation model.<br>
      * 
-     * @return Relationmodel instance created
+     * @return Relation model instance created
      * @since SDNO 0.5
      */
     public Relationmodel createRelationmodel() {

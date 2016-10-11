@@ -25,11 +25,10 @@ import java.util.concurrent.Callable;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.dao.constant.InvAttrDefine;
 import org.openo.sdno.mss.dao.pojo.InvExtTablePojo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Update cache of extended table class. <br>
@@ -54,7 +53,7 @@ public class InvExtTableUpdateCacheImpl {
          * 
          * @since SDNO 0.5
          * @param resType The resource type
-         * @param uuid The uuid
+         * @param uuid The UUID
          * @param attrName The attribute name
          */
         public ExtEntity(String resType, String uuid, String attrName) {

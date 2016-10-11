@@ -28,6 +28,12 @@ import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * InputParaValidator test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class InputParaValidatorTest {
 
     private InputParaValidator inputParaValidator = new InputParaValidator();

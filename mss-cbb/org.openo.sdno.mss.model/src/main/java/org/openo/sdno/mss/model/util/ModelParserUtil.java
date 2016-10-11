@@ -43,7 +43,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 /**
- * Modle parser class, parse model from its configure file. <br>
+ * Model parser class, parse model from its configure file. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -156,7 +156,7 @@ public class ModelParserUtil {
     }
 
     /**
-     * Parse the infomodel xml file to get a infomodel. <br>
+     * Parse the information model XML file to get a information model. <br>
      * 
      * @param file model file.
      * @throws JAXBException if model file is invalid.

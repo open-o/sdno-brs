@@ -39,7 +39,7 @@ import mockit.MockUp;
  * DefaultInvTablePojoTest class.<br>
  * 
  * @author
- * @version SDNO 0.5 Jul 27, 2016
+ * @version SDNO 0.5 July 27, 2016
  */
 public class DefaultInvTablePojoTest {
 

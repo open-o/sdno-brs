@@ -39,10 +39,10 @@ public class FileUtil {
     }
 
     /**
-     * Get all the files in the given dir. <br>
+     * Get all the files in the given directory. <br>
      * 
-     * @param dirPath the directory path you want to serach.
-     * @return List of all files in the given dir.
+     * @param dirPath the directory path you want to search.
+     * @return List of all files in the given directory.
      * @since SDNO 0.5
      */
     public static List<File> getDirFileList(String dirPath) {

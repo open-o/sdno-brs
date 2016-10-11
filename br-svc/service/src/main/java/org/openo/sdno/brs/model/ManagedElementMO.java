@@ -70,7 +70,8 @@ public final class ManagedElementMO extends Resource {
     private String ipAddress;
 
     /**
-     * source of NE. scope: NETWORK_ME(get from network), OS(get from controller), NETWORK_EMS(get from
+     * source of NE. scope: NETWORK_ME(get from network), OS(get from controller), NETWORK_EMS(get
+     * from
      * EMS), USER(user import).
      */
     @StrEnumRule(range = "network_me,os,network_ems,user", paramName = "source")
@@ -92,7 +93,7 @@ public final class ManagedElementMO extends Resource {
     private String adminState;
 
     /**
-     * running state: up/down/unkonwn.
+     * running state: up/down/unknown.
      */
     @StrEnumRule(range = "up,down,unknown", paramName = "operState")
     private String operState;
@@ -152,7 +153,7 @@ public final class ManagedElementMO extends Resource {
     private List<String> siteID;
 
     /**
-     * native id from outer system,distributed when get resource from outer system. Like the uuid of
+     * native id from outer system,distributed when get resource from outer system. Like the UUID of
      * NE allocated from AC controller.
      */
     @StrRule(range = "0-64", paramName = "nativeID")

@@ -38,7 +38,7 @@ public interface InvDataHandler {
      * Data Query Interface.<br>
      * 
      * @param resType resource type.
-     * @param uuid uuid of object.
+     * @param uuid UUID of object.
      * @param attr attribute name.
      * @return list of the entity.
      * @since SDNO 0.5

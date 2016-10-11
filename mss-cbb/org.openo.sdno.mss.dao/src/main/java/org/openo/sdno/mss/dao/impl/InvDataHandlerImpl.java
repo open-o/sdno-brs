@@ -350,7 +350,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
      * @param time The begin time
      * @param basicPojo The basic table
      * @param extPojo The extended table
-     * @param uuid The record uuid
+     * @param uuid The record UUID
      * @param valueMap The data that want to update
      * @param extCache The cache data
      * @return 0 if do nothing.
@@ -912,13 +912,13 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
      */
     public int doAdd(SqlSession session, int curTime, InvBasicTablePojo basicPojo, InvExtTablePojo extPojo,
             Map<String, Object> valueMap) {
-        // create the uuid
+        // create the UUID
         String uuid = (String)valueMap.get(InvAttrDefine.UUID.getValue());
         if(StringUtils.isEmpty(uuid)) {
             uuid = UuidUtils.createUuid();
             valueMap.put(InvAttrDefine.UUID.getValue(), uuid);
         } else {
-            // check uuid
+            // check UUID
             ValidUtil.checkUuid(uuid);
         }
 
@@ -1543,7 +1543,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             if(sortItem.indexOf('-') >= 0) {
                 sortItem = sortItem.replace("-", "") + " desc";
             } else {
-                // default is asc
+                // default is ascending
                 sortItem += " asc";
             }
             sortEntity.setAttrName(sortItem);

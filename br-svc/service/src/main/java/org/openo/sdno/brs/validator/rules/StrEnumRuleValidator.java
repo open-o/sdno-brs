@@ -20,12 +20,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-
 import org.openo.sdno.brs.validator.ErrorMessageKey;
 import org.openo.sdno.brs.validator.ValidateTask;
 
 /**
- * Validator class of string enum rule.<br>
+ * Validator class of string enumeration rule.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20
@@ -38,7 +37,7 @@ public class StrEnumRuleValidator extends AbstractRuleValidator<StrEnumRule, Str
     private String rangeDesc;
 
     /**
-     * Collection of enum values.
+     * Collection of enumeration values.
      */
     private Map<String, String> mapEnum;
 
@@ -46,7 +45,7 @@ public class StrEnumRuleValidator extends AbstractRuleValidator<StrEnumRule, Str
      * Constructor.<br>
      * 
      * @since SDNO 0.5
-     * @param rule String enum rule
+     * @param rule String enumeration rule
      */
     public StrEnumRuleValidator(StrEnumRule rule) {
         super(rule);

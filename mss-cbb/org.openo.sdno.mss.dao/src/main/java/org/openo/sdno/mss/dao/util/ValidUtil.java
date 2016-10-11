@@ -188,7 +188,7 @@ public final class ValidUtil {
             return;
         }
 
-        // Convert filter condition from Json to map.
+        // Convert filter condition from JSON to map.
         Map<String, Object> filterMap = JsonUtil.fromJson(filter, new TypeReference<HashMap<String, Object>>() {});
         Set<String> keySet = filterMap.keySet();
 
@@ -281,7 +281,7 @@ public final class ValidUtil {
     }
 
     /**
-     * Check enum. <br>
+     * Check enumeration. <br>
      * 
      * @param relationTypeIntValue
      * @since SDNO 0.5

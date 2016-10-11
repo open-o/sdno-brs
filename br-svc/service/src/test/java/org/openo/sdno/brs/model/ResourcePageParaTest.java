@@ -29,6 +29,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.brs.constant.Constant;
 
+/**
+ * ResourcePagePara test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class ResourcePageParaTest {
 
     @Before

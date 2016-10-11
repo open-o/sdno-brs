@@ -39,9 +39,9 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of inventory in data model.<br>
+ * This is XML model class of inventory in data model.<br>
  * <p>
- * This xml model has one attribute: datamodel:datamodel of Inventory
+ * This XML model has one attribute: datamodel:datamodel of Inventory
  * </p>
  * 
  * @author
@@ -81,7 +81,8 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof Inventory)) {
             return false;
         }
@@ -127,9 +128,8 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
         {
             List<Datamodel> currentDataMOdel;
             currentDataMOdel = ((this.datamodel != null) && (!this.datamodel.isEmpty())) ? this.getDatamodel() : null;
-            curHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "datamodel", currentDataMOdel), curHashCode,
-                            currentDataMOdel);
+            curHashCode = strategy.hashCode(LocatorUtils.property(locator, "datamodel", currentDataMOdel), curHashCode,
+                    currentDataMOdel);
         }
         return curHashCode;
     }
@@ -146,9 +146,9 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get xml description of current inventory object.<br>
+     * Get XML description of current inventory object.<br>
      * 
-     * @return xml description of current object
+     * @return XML description of current object
      * @since SDNO 0.5
      */
     public String toString() {
@@ -183,7 +183,8 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return String buffer after appending
      * @since SDNO 0.5
      */
-    public StringBuilder appendFields(ObjectLocator objLocator, StringBuilder stringBuilder, ToStringStrategy strategy) {
+    public StringBuilder appendFields(ObjectLocator objLocator, StringBuilder stringBuilder,
+            ToStringStrategy strategy) {
         {
             List<Datamodel> theDatamodel;
             theDatamodel = ((this.datamodel != null) && (!this.datamodel.isEmpty())) ? this.getDatamodel() : null;

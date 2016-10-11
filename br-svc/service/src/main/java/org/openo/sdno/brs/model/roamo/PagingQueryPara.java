@@ -37,7 +37,7 @@ public class PagingQueryPara {
     private int pageSize = 1000;
 
     /**
-     * default is base, support all,base,or name/id/location, mss support ext,brs not for now.
+     * default is base, support all,base,or name/id/location, MSS support ext, BRS not for now.
      */
     private String fields = "base";
 

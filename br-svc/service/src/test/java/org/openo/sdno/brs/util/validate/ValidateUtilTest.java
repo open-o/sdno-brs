@@ -25,6 +25,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 
+/**
+ * ValidateUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class ValidateUtilTest {
 
     @Before

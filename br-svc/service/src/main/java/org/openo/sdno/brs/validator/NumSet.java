@@ -67,9 +67,9 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Get min value of the single range list. Return 0 if the list if empty.<br>
+     * Get minimum value of the single range list. Return 0 if the list if empty.<br>
      * 
-     * @return Min value of the single range list
+     * @return Minimum value of the single range list
      * @since SDNO 0.5
      */
     public int getMin() {
@@ -178,9 +178,9 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Set spliter of single range.<br>
+     * Set splitter of single range.<br>
      * 
-     * @param spliter Spliter
+     * @param spliter Splitter
      * @since SDNO 0.5
      */
     public void setRangeSpliter(final String spliter) {
@@ -218,8 +218,8 @@ public class NumSet implements Cloneable {
      * Parse set string and build a NumSet object.<br>
      * 
      * @param setString Set string
-     * @param setSpliter Set spliter
-     * @param rangeSpliter Range spliter
+     * @param setSpliter Set splitter
+     * @param rangeSpliter Range splitter
      * @return NumSet object
      * @since SDNO 0.5
      */
@@ -233,7 +233,7 @@ public class NumSet implements Cloneable {
             useRangeSpliter = SingleRange.DEFAULTSPLITER;
         }
 
-        // Set spliter can not equal with range spliter.
+        // Set splitter can not equal with range splitter.
         if(useSetSpliter.equals(useRangeSpliter)) {
             throw new IllegalArgumentException();
         }
@@ -244,16 +244,15 @@ public class NumSet implements Cloneable {
         if(!StringUtils.isEmpty(setStr)) {
             setStr = setStr.trim();
 
-            // Change user set spliter to default spliter.
+            // Change user set splitter to default splitter.
             if(useRangeSpliter.contains(useSetSpliter)) {
-                setStr =
-                        setStr.replaceAll(useRangeSpliter, SingleRange.DEFAULTSPLITER).replaceAll(useSetSpliter,
-                                NumSet.DEFAULTSPLITER);
+                setStr = setStr.replaceAll(useRangeSpliter, SingleRange.DEFAULTSPLITER).replaceAll(useSetSpliter,
+                        NumSet.DEFAULTSPLITER);
                 useSetSpliter = NumSet.DEFAULTSPLITER;
                 useRangeSpliter = SingleRange.DEFAULTSPLITER;
             }
 
-            // Parse set spliter.
+            // Parse set splitter.
             String[] rangeStr = Normalizer.normalize(setStr, Normalizer.Form.NFC).split(useSetSpliter);
             for(int i = 0; i < rangeStr.length; i++) {
                 SingleRange sr = SingleRange.parse(rangeStr[i], useRangeSpliter);
@@ -266,7 +265,7 @@ public class NumSet implements Cloneable {
     }
 
     /**
-     * Parse set string and build a NumSet object, using default spliter.<br>
+     * Parse set string and build a NumSet object, using default splitter.<br>
      * 
      * @param setString Set string
      * @return NumSet object

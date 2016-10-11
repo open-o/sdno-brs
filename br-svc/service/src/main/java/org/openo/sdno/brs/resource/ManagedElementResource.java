@@ -60,10 +60,10 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ManagedElementResource.class);
 
     /**
-     * Get managed element from db.<br>
+     * Get managed element from DB.<br>
      * 
-     * @param objectId uuid of object need to query.
-     * @param request context of http request.
+     * @param objectId UUID of object need to query.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -87,8 +87,8 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     /**
      * Paged query ME list.<br>
      * 
-     * @param tenantID uuid of object need to query.
-     * @param request context of http request.
+     * @param tenantID UUID of object need to query.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -118,9 +118,9 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     }
 
     /**
-     * Add ME to db.<br>
+     * Add ME to DB.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -160,8 +160,8 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     /**
      * Update ME by uuid.<br>
      * 
-     * @param objectId uuid of the ME need to update.
-     * @param request context of http request.
+     * @param objectId UUID of the ME need to update.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -204,10 +204,10 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     }
 
     /**
-     * Delete object by uuid.<br>
+     * Delete object by UUID.<br>
      * 
-     * @param objectId uuid of the object need to delete.
-     * @param request context of http request.
+     * @param objectId UUID of the object need to delete.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

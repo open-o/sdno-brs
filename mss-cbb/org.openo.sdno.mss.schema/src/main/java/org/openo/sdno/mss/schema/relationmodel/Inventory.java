@@ -39,9 +39,9 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Inventory in relation model.<br>
+ * This is XML model class of Inventory in relation model.<br>
  * <p>
- * This xml model has one attribute: relationmodel: relation model list in Inventory
+ * This XML model has one attribute: relation model: relation model list in Inventory
  * </p>
  * 
  * @author
@@ -58,9 +58,9 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     protected List<Relationmodel> relationmodel;
 
     /**
-     * Get relationmodel attribute.<br>
+     * Get relation model attribute.<br>
      * 
-     * @return relationmodel attribute
+     * @return relation model attribute
      * @since SDNO 0.5
      */
     public List<Relationmodel> getRelationmodel() {
@@ -81,7 +81,8 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof Inventory)) {
             return false;
         }
@@ -128,9 +129,8 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
         {
             List<Relationmodel> theRelationmodel =
                     ((this.relationmodel != null) && (!this.relationmodel.isEmpty())) ? this.getRelationmodel() : null;
-            retHashCode =
-                    strategy.hashCode(LocatorUtils.property(locator, "relationmodel", theRelationmodel), retHashCode,
-                            theRelationmodel);
+            retHashCode = strategy.hashCode(LocatorUtils.property(locator, "relationmodel", theRelationmodel),
+                    retHashCode, theRelationmodel);
         }
         return retHashCode;
     }
@@ -147,9 +147,9 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Get xml description of current inventory object.<br>
+     * Get XML description of current inventory object.<br>
      * 
-     * @return xml description of current object
+     * @return XML description of current object
      * @since SDNO 0.5
      */
     public String toString() {

@@ -34,6 +34,12 @@ import org.junit.Test;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * PropertiesUtil test class. <br/>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-3-26
+ */
 public class PropertiesUtilTest {
 
     private static final String MYBAITS_PROPERTIES_PATH = "/META-INF/conf/bucket.properties";

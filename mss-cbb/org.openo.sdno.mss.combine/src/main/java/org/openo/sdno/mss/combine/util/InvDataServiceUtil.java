@@ -27,7 +27,7 @@ import org.openo.sdno.mss.dao.util.ValidUtil;
 import org.openo.sdno.mss.dao.util.io.FileUtil;
 
 /**
- * Util class of InvDataService.<br>
+ * Utility class of InvDataService.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-08-23

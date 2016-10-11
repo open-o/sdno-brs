@@ -35,49 +35,49 @@ public interface CommParamService extends IService {
      * 
      * @param parameter CommParamMo to add.
      * @param objectId controller id.
-     * @return uuid of the parameter.
-     * @throws ServiceException if exception happens in db.
+     * @return UUID of the parameter.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     String createCommParams(CommParamMo parameter, String objectId) throws ServiceException;
 
     /**
-     * query common parameter by uuid.<br>
+     * query common parameter by UUID.<br>
      * 
-     * @param paramId uuid of parameter.
+     * @param paramId UUID of parameter.
      * @param objectId controller id.
-     * @return CommParamMo with the given uuid.
-     * @throws ServiceException if exception happens in db.
+     * @return CommParamMo with the given UUID.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     CommParamMo queryCommParamsDetail(String paramId, String objectId) throws ServiceException;
 
     /**
-     * batch query parameter by controller uuid.<br>
+     * batch query parameter by controller UUID.<br>
      * 
-     * @param objectid controller uuid.
-     * @return list of commonparameter.
-     * @throws ServiceException if exception happens in db.
+     * @param objectid controller UUID.
+     * @return list of common parameter.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     List<CommParamMo> queryCommParamsList(String objectid) throws ServiceException;
 
     /**
-     * update parameter by uuid.<br>
+     * update parameter by UUID.<br>
      * 
-     * @param commparams commonparameter object to update.
-     * @param objectId uuid of the objcet to update.
+     * @param commparams common parameter object to update.
+     * @param objectId UUID of the object to update.
      * @param paramId The id of the parameter
-     * @throws ServiceException if exception happens in db.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     void updateCommParams(CommParamMo commparams, String objectId, String paramId) throws ServiceException;
 
     /**
-     * delete parameter by uuid.<br>
+     * delete parameter by UUID.<br>
      * 
-     * @param paramId uuid of the object to delete.
-     * @throws ServiceException if exception happens in db.
+     * @param paramId UUID of the object to delete.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     void deleteCommParams(String paramId) throws ServiceException;
@@ -86,7 +86,7 @@ public interface CommParamService extends IService {
      * delete parameter object by controller id.<br>
      * 
      * @param objId controller id.
-     * @throws ServiceException if exception happens in db.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     void deleteCommParamsByObjId(String objId) throws ServiceException;

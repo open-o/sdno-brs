@@ -27,7 +27,7 @@ import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 
 /**
- * Model parser class, 1. call construct function, 2. call parser to parse the xml file, 3. get the
+ * Model parser class, 1. call construct function, 2. call parser to parse the XML file, 3. get the
  * parsed result. <br>
  * 
  * @author
@@ -67,9 +67,9 @@ public class ModelParser {
     }
 
     /**
-     * Get infomodel parsing result. <br>
+     * Get information model parsing result. <br>
      * 
-     * @return result contain infomodel.
+     * @return result contain information model.
      * @since SDNO 0.5
      */
     public Map<String, Infomodel> getInfoModel() {
@@ -77,9 +77,9 @@ public class ModelParser {
     }
 
     /**
-     * Get datamodel parsing result. <br>
+     * Get data model parsing result. <br>
      * 
-     * @return result contain datamodel.
+     * @return result contain data model.
      * @since SDNO 0.5
      */
     public Map<String, Datamodel> getDataModel() {

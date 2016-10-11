@@ -24,6 +24,12 @@ import java.util.Set;
 import org.junit.Test;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 
+/**
+ * FilterUtil test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class FilterUtilTest {
 
     @Test

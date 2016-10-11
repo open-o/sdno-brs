@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of inventory in info model.<br>
+ * This is XML model class of inventory in info model.<br>
  * <p>
- * This xml model has one attribute: infomodel: info model of inventory
+ * This XML model has one attribute: info model: info model of inventory
  * </p>
  * 
  * @author
@@ -46,7 +46,7 @@ public class Inventory implements Serializable {
     protected List<Infomodel> infomodel;
 
     /**
-     * Get infomodel attribute.<br>
+     * Get info model attribute.<br>
      * 
      * @return
      * @since SDNO 0.5

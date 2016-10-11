@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.service.constant;
 
 /**
- * Mss service constant.<br>
+ * MSS service constant.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19

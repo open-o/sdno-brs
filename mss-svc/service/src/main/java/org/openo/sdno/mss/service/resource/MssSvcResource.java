@@ -137,7 +137,7 @@ public class MssSvcResource extends IResource<MssSvcService> {
      * 
      * @param bktName Bucket name
      * @param resType Resource type name
-     * @param uuid Uuid
+     * @param uuid UUID
      * @since SDNO 0.5
      */
     @DELETE
@@ -208,8 +208,8 @@ public class MssSvcResource extends IResource<MssSvcService> {
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name
-     * @param srcUuid Source uuid
-     * @param dstUuid Destination uuid
+     * @param srcUuid Source UUID
+     * @param dstUuid Destination UUID
      * @param dstType Destination type
      * @param reltype Relationship name
      * @since SDNO 0.5

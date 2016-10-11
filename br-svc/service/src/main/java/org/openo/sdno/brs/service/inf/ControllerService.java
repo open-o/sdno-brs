@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.openo.sdno.brs.service.inf;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.service.IService;
-
 import org.openo.sdno.brs.model.ControllerMo;
+import org.openo.sdno.framework.container.service.IService;
 
 /**
  * controller management service.<br>
@@ -31,9 +31,9 @@ public interface ControllerService extends IService {
     /**
      * <br>
      * 
-     * @param objectId uuid of controller.
-     * @return controller of the given uuid.
-     * @throws ServiceException if exception happens in db.
+     * @param objectId UUID of controller.
+     * @return controller of the given UUID.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     ControllerMo queryController(String objectId) throws ServiceException;
@@ -42,17 +42,17 @@ public interface ControllerService extends IService {
      * add controller.<br>
      * 
      * @param controller controller to add.
-     * @return uuid of the given controller.
-     * @throws ServiceException if exception happens in db.
+     * @return UUID of the given controller.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     String addController(ControllerMo controller) throws ServiceException;
 
     /**
-     * delete controller by uuid.<br>
+     * delete controller by UUID.<br>
      * 
-     * @param objectId uuid of controller.
-     * @throws ServiceException if exception happens in db.
+     * @param objectId UUID of controller.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     void deleteController(String objectId) throws ServiceException;
@@ -60,9 +60,9 @@ public interface ControllerService extends IService {
     /**
      * update controller.<br>
      * 
-     * @param objectId uuid of controller.
+     * @param objectId UUID of controller.
      * @param controller the controller information to update.
-     * @throws ServiceException if exception happens in db.
+     * @throws ServiceException if exception happens in DB.
      * @since SDNO 0.5
      */
     void modifyController(String objectId, ControllerMo controller) throws ServiceException;

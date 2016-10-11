@@ -64,10 +64,10 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     }
 
     /**
-     * Get link by uuid.<br>
+     * Get link by UUID.<br>
      * 
-     * @param objectID uuid of link.
-     * @param request context of http request.
+     * @param objectID UUID of link.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -91,7 +91,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     /**
      * get link list.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -105,9 +105,9 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     }
 
     /**
-     * add link to db.<br>
+     * add link to DB.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -149,10 +149,10 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     }
 
     /**
-     * Update link by uuid.<br>
+     * Update link by UUID.<br>
      * 
-     * @param objectId uuid of the link need to update.
-     * @param request context of http request.
+     * @param objectId UUID of the link need to update.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -197,10 +197,10 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     }
 
     /**
-     * delete link by uuid.<br>
+     * delete link by UUID.<br>
      * 
-     * @param objectId uuid of the link need todelete.
-     * @param request context of http request.
+     * @param objectId UUID of the link need to delete.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

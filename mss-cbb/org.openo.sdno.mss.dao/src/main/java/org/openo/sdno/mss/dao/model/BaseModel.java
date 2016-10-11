@@ -40,10 +40,10 @@ public class BaseModel {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param srcUuid The src uuid
-     * @param dstUuid The dst uuid
-     * @param srcAttribute The scr attribute
-     * @param dstAttribute the dst attribute
+     * @param srcUuid The source UUID
+     * @param dstUuid The destination UUID
+     * @param srcAttribute The source attribute
+     * @param dstAttribute the destination attribute
      * @param queryType The query type
      * @param serviceType The service type
      */

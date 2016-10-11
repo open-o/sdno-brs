@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.cxf.common.util.CollectionUtils;
-
 import org.openo.sdno.brs.constant.Constant;
 
 /**
@@ -82,8 +81,8 @@ public class ResourcePagePara {
         this.pagenum = pagenum;
     }
 
-    private void
-            initParameters(String fields, Map<String, String> filterMap, Map<String, List<String>> relationInfoMap) {
+    private void initParameters(String fields, Map<String, String> filterMap,
+            Map<String, List<String>> relationInfoMap) {
 
         initFields(fields, relationInfoMap);
 
@@ -177,28 +176,28 @@ public class ResourcePagePara {
     }
 
     /**
-     * @return Returns the pagesize.
+     * @return Returns the page size.
      */
     public int getPagesize() {
         return pagesize;
     }
 
     /**
-     * @param pagesize The pagesize to set.
+     * @param pagesize The page size to set.
      */
     public void setPagesize(int pagesize) {
         this.pagesize = pagesize;
     }
 
     /**
-     * @return Returns the pagenum.
+     * @return Returns the page number.
      */
     public int getPagenum() {
         return pagenum;
     }
 
     /**
-     * @param pagenum The pagenum to set.
+     * @param pagenum The page number to set.
      */
     public void setPagenum(int pagenum) {
         this.pagenum = pagenum;

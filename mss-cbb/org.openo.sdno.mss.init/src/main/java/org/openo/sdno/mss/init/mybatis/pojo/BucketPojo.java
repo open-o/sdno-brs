@@ -17,7 +17,7 @@
 package org.openo.sdno.mss.init.mybatis.pojo;
 
 /**
- * bucket pojo class.<br>
+ * bucket PoJo class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -75,14 +75,14 @@ public class BucketPojo {
     }
 
     /**
-     * @return Returns the allowread.
+     * @return Returns the allow read.
      */
     public String getAllowread() {
         return allowread;
     }
 
     /**
-     * @param allowread The allowread to set.
+     * @param allowread The allow read to set.
      */
     public void setAllowread(String allowread) {
         this.allowread = allowread.trim();

@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * This is xml model class of basic data in info model.<br>
+ * This is XML model class of basic data in info model.<br>
  * <p>
- * This xml model has one attribute: property: basic property of info model
+ * This XML model has one attribute: property: basic property of info model
  * </p>
  * 
  * @author

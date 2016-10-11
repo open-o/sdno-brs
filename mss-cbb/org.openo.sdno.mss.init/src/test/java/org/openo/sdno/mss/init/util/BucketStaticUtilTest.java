@@ -16,12 +16,19 @@
 
 package org.openo.sdno.mss.init.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * BucketStatic utility test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-27
+ */
 public class BucketStaticUtilTest {
 
     static String appRootPath;

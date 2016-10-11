@@ -147,7 +147,7 @@ public class SingleRange implements Cloneable {
      * Parse range string and build a SingleRange object.<br>
      * 
      * @param rangeStr Range string
-     * @param spliter Spliter
+     * @param spliter Splitter
      * @return SingleRange object
      * @since SDNO 0.5
      */

@@ -22,7 +22,7 @@ import java.util.List;
 import org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo;
 
 /**
- * Inventory Attribute Sql Filter Class.<br>
+ * Inventory Attribute SQL Filter Class.<br>
  * <p>
  * </p>
  * 
@@ -32,7 +32,7 @@ import org.openo.sdno.mss.dao.pojo.InvTempAttrFilterPojo;
 public class InvAttrSqlFilter {
 
     /**
-     * whereFilter sql
+     * whereFilter SQL
      */
     private String whereFilter;
 

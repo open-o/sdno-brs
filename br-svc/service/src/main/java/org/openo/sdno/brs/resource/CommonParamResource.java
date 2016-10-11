@@ -43,7 +43,7 @@ import org.openo.sdno.framework.container.service.IResource;
  * </p>
  * 
  * @author
- * @version SDNO 0.5 07-Jun-2016
+ * @version SDNO 0.5 07-June-2016
  */
 @Path("/sdnobrs/v1/commparammgmt")
 public class CommonParamResource extends IResource<CommParamService> {
@@ -137,7 +137,7 @@ public class CommonParamResource extends IResource<CommParamService> {
     }
 
     /**
-     * Delete common parameter by param ID<br>
+     * Delete common parameter by parameter ID<br>
      * 
      * @param paramId - Parameter ID
      * @throws ServiceException -when service throws exception

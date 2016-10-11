@@ -49,9 +49,9 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of Datamodel.<br>
+     * Create an instance of Data model.<br>
      * 
-     * @return Datamodel instance created
+     * @return Data model instance created
      * @since SDNO 0.5
      */
     public Datamodel createDatamodel() {

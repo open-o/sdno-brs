@@ -109,7 +109,7 @@ public final class InvTypeConvertor {
     }
 
     /**
-     * Data convertion. <br>
+     * Data conversion. <br>
      * 
      * @param type Type.
      * @param value Value.

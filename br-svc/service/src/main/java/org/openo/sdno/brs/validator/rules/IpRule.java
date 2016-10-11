@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Ip rule.<br>
+ * IP rule.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-20

@@ -27,7 +27,7 @@ package org.openo.sdno.mss.dao.constant;
 public enum InvAttrDefine {
 
     /**
-     * uuid
+     * UUID
      */
     UUID("uuid"),
 
@@ -42,7 +42,7 @@ public enum InvAttrDefine {
     UPDATE_TIME("updatetime"),
 
     /**
-     * device uuid
+     * device UUID
      */
     EMS_UUID("emsuuid");
 

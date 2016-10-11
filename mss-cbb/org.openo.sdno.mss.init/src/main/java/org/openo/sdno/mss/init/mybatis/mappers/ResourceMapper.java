@@ -21,7 +21,7 @@ import java.util.List;
 import org.openo.sdno.mss.init.mybatis.pojo.ResourcePojo;
 
 /**
- * Resource mapper class, used to create, insert, update, delete a resource pojo in db. <br>
+ * Resource mapper class, used to create, insert, update, delete a resource PoJo in DB. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -37,9 +37,9 @@ public interface ResourceMapper {
     int createTable();
 
     /**
-     * Delete a row by its uuid. <br>
+     * Delete a row by its UUID. <br>
      * 
-     * @param uuid uuid of the resource.
+     * @param uuid UUID of the resource.
      * @return Primary key if success, 0 if failed.
      * @since SDNO 0.5
      */
@@ -67,7 +67,7 @@ public interface ResourceMapper {
      * Get all the resource by the bucket name. <br>
      * 
      * @param bktName name of the bucket.
-     * @return List of resource pojo.
+     * @return List of resource PoJo.
      * @since SDNO 0.5
      */
     List<ResourcePojo> selectByBktName(String bktName);

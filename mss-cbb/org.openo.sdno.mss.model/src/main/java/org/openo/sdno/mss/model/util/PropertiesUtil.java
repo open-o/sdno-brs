@@ -142,8 +142,7 @@ public class PropertiesUtil {
      * @since SDNO 0.5
      */
     public synchronized static PropertiesUtil getInstance() {
-        if (INSTANCE == null)
-        {
+        if(INSTANCE == null) {
             INSTANCE = new PropertiesUtil();
         }
         return INSTANCE;
@@ -152,7 +151,7 @@ public class PropertiesUtil {
     /**
      * Initialization from property file. <br/>
      * 
-     * @param url the url of configure file.
+     * @param url the URL of configure file.
      * @since SDNO 0.5
      */
     private void initProperties(URL url) {
@@ -187,7 +186,7 @@ public class PropertiesUtil {
     /**
      * Parse the relation type and its value from property. <br/>
      * 
-     * @param property the string contain type and its value num in style like "type=int".
+     * @param property the string contain type and its value number in style like "type=integer".
      * @return Map contain type and its value.
      * @since SDNO 0.5
      */
@@ -243,9 +242,9 @@ public class PropertiesUtil {
     }
 
     /**
-     * Get Properties from web url. <br/>
+     * Get Properties from web URL. <br/>
      * 
-     * @param configUrl url of the configure file.
+     * @param configUrl URL of the configure file.
      * @return Properties parsed from web.
      * @since SDNO 0.5
      */
@@ -277,10 +276,10 @@ public class PropertiesUtil {
     }
 
     /**
-     * Turn filename to url path. <br/>
+     * Turn filename to URL path. <br/>
      * 
      * @param cfgFilename name of the configure file.
-     * @return url of the configure file.
+     * @return URL of the configure file.
      * @since SDNO 0.5
      */
     public static URL getURL(String cfgFilename) {

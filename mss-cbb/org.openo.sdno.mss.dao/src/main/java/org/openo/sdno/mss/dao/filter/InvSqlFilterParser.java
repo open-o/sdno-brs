@@ -33,7 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Inventory Sql Filter Parser Class.<br>
+ * Inventory SQL Filter Parser Class.<br>
  * <p>
  * This class provide functions to build InvAttrSqlFilter.
  * </p>

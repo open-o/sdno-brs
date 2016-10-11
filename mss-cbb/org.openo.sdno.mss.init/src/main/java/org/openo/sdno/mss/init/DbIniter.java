@@ -16,11 +16,8 @@
 
 package org.openo.sdno.mss.init;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-
-import liquibase.exception.LiquibaseException;
 
 import org.openo.sdno.mss.init.buckets.BucketsMgrt;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
@@ -28,8 +25,10 @@ import org.openo.sdno.mss.init.util.BucketStaticUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import liquibase.exception.LiquibaseException;
+
 /**
- * Entrance for Db Init Jar's call.<br>
+ * Entrance for DB Initialize Jar's call.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-25

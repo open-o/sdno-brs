@@ -19,7 +19,7 @@ package org.openo.sdno.brs.check.inf;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 
 /**
- * Brs checker interface.<br>
+ * BRS checker interface.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -29,9 +29,9 @@ public interface BrsChecker {
     /**
      * Check if the resource is being used.<br>
      * 
-     * @param objectID uuid of the object.
+     * @param objectID UUID of the object.
      * @param classType Resource type.
-     * @throws ServiceException if exception happens in the db service.
+     * @throws ServiceException if exception happens in the DB service.
      * @since SDNO 0.5
      */
     void checkResourceIsUsed(String objectID, Class<?> classType) throws ServiceException;

@@ -27,7 +27,7 @@ public class HandlerManagement {
     private static final HandlerManagement INSTANCE = new HandlerManagement();
 
     /**
-     * Get the Handlermanagement class singleton instance. <br>
+     * Get the HandlerManagement class singleton instance. <br>
      * 
      * @since SDNO 0.5
      */

@@ -41,7 +41,7 @@ public class BucketHandlerImpl extends AHandlerImpl implements BucketHandler {
     private volatile BucketMapper mapper = null;
 
     /**
-     * Init bucket mapper.<br>
+     * Initialize bucket mapper.<br>
      * 
      * @since SDNO 0.5
      */

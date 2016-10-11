@@ -25,7 +25,7 @@ package org.openo.sdno.mss.dao.filter;
 public class FilterReplaceReturn {
 
     /**
-     * where filter sql
+     * where filter SQL
      */
     private String allWhereFilter;
 

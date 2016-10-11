@@ -23,7 +23,7 @@ import org.openo.sdno.framework.container.util.PageQueryResult;
 import org.openo.sdno.mss.service.constant.Constant;
 
 /**
- * Util class of BatchQuery.<br>
+ * Utility class of BatchQuery.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-8-23

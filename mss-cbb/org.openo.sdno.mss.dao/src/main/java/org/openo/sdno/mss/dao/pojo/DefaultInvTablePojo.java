@@ -59,12 +59,12 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     protected String filterEx;
 
     /**
-     * Filter condition json
+     * Filter condition JSON
      */
     private String filterJson;
 
     /**
-     * Filter sescription
+     * Filter description
      */
     protected String filterDesc;
 
@@ -90,7 +90,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     protected Set<String> preDeleteUuidSet;
 
     /**
-     * This sql session is a little special , using for single query. Can not be submitted alone in
+     * This SQL session is a little special , using for single query. Can not be submitted alone in
      * batch operation.
      */
     protected SqlSession querySession;
@@ -148,7 +148,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     /**
      * Set filter conditions. <br>
      * 
-     * @param filterJson Filter condition jason.
+     * @param filterJson Filter condition JSON.
      * @since SDNO 0.5
      */
     public void setFilter(String filterJson) {
@@ -166,7 +166,7 @@ public class DefaultInvTablePojo implements IInvTableDataCrud {
     /**
      * Create temporary table. <br>
      * 
-     * @param session Sql session.
+     * @param session SQL session.
      * @since SDNO 0.5
      */
     public void createTempAttrTable(SqlSession session) {

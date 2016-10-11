@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * Service implementation of common parameter for Controller communication.(Support CRUD)<br>
  * 
  * @author
- * @version SDNO 0.5 07-Jun-2016
+ * @version SDNO 0.5 07-June-2016
  */
 public class CommParamServiceImpl implements CommParamService {
 
@@ -118,7 +118,7 @@ public class CommParamServiceImpl implements CommParamService {
     /**
      * Query common parameters by parameter ID and Object ID<br>
      * 
-     * @param paramId - paramter ID (unique ID)
+     * @param paramId - parameter ID (unique ID)
      * @param objectId - Controller UUID
      * @return Common parameter Information
      * @throws ServiceException - when input is invalid or mss service return error
@@ -128,7 +128,7 @@ public class CommParamServiceImpl implements CommParamService {
     public CommParamMo queryCommParamsDetail(String paramId, String objectId) throws ServiceException {
         LOGGER.info("CommParamService.queryCommParamsDetail() in, the paramId is: {}", paramId);
 
-        // Param ID is itself unique, no need to use objectId
+        // Parameter ID is itself unique, no need to use objectId
         if(StringUtils.isBlank(paramId)) {
             LOGGER.error("paramId is empty");
 
@@ -151,7 +151,7 @@ public class CommParamServiceImpl implements CommParamService {
             return null;
         }
 
-        // Object ID is mis-match, Input is not empty
+        // Object ID is mismatch, Input is not empty
         if(!StringUtils.isBlank(objectId) && !objectId.equals(cmList.get(0).getObjectId())) {
             LOGGER.error("Object Id mis-match");
             return null;
@@ -200,7 +200,7 @@ public class CommParamServiceImpl implements CommParamService {
      * 
      * @param commParams - Common parameter
      * @param objectId - Controller UUID
-     * @throws ServiceException - when input is invalid or mss service returns error
+     * @throws ServiceException - when input is invalid or MSS service returns error
      * @since SDNO 0.5
      */
     @Override

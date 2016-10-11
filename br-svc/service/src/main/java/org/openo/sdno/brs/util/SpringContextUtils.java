@@ -20,7 +20,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * Spring context util class. Provide util of ApplicationContext and Object.<br>
+ * Spring context utility class. Provide utility of ApplicationContext and Object.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24

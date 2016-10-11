@@ -17,14 +17,13 @@
 package org.openo.sdno.mss.init.mybatis.handler;
 
 import org.apache.commons.lang.StringUtils;
+import org.openo.sdno.mss.init.mybatis.mappers.RelationMapper;
+import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.openo.sdno.mss.init.mybatis.mappers.RelationMapper;
-import org.openo.sdno.mss.init.mybatis.pojo.RelationPojo;
-
 /**
- * Relation handler class, used to get, add, delete, and updat the relation map. <br>
+ * Relation handler class, used to get, add, delete, and update the relation map. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
@@ -40,7 +39,7 @@ public class RelationHandler extends AHandler {
     /**
      * Add a new relation model. <br>
      * 
-     * @param relation new relation pojo need to add.
+     * @param relation new relation PoJo need to add.
      * @return primary key if success, 0 if failed.
      * @since SDNO 0.5
      */
@@ -60,6 +59,7 @@ public class RelationHandler extends AHandler {
         }
         return row;
     }
+
     /**
      * Get the model by Bucket name. <br>
      * 

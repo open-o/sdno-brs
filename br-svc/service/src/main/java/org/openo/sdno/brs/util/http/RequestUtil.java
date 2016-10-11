@@ -22,7 +22,7 @@ import java.util.Map;
 import org.openo.sdno.brs.constant.Constant;
 
 /**
- * Request util class.<br>
+ * Request utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23

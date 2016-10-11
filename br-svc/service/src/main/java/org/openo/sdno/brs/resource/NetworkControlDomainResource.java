@@ -59,10 +59,10 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     }
 
     /**
-     * get NCD by uuid.<br>
+     * get NCD by UUID.<br>
      * 
-     * @param objectID uuid of NCD.
-     * @param request context of http request.
+     * @param objectID UUID of NCD.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -86,7 +86,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     /**
      * Get NDC list.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -105,7 +105,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     /**
      * Add new NDC.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -141,10 +141,10 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     }
 
     /**
-     * Update NDC by uuid.<br>
+     * Update NDC by UUID.<br>
      * 
-     * @param objectId uuid of the NDC need to update.
-     * @param request context of http request.
+     * @param objectId UUID of the NDC need to update.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -187,10 +187,10 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     }
 
     /**
-     * Delete NDC by uuid.<br>
+     * Delete NDC by UUID.<br>
      * 
-     * @param objectId uuid of the NDC need to delete.
-     * @param request context of http request.
+     * @param objectId UUID of the NDC need to delete.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

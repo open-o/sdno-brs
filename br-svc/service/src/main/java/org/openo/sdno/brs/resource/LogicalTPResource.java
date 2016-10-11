@@ -65,10 +65,10 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     }
 
     /**
-     * Get LTP information by uuid.<br>
+     * Get LTP information by UUID.<br>
      * 
-     * @param objectID uuid of object need to query.
-     * @param request context of http request.
+     * @param objectID UUID of object need to query.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -92,7 +92,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     /**
      * Paged query LTP resource list.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -108,7 +108,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     /**
      * Add new termination point.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -150,8 +150,8 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     /**
      * Update termination point.<br>
      * 
-     * @param objectId uuid of the object need to update.
-     * @param request context of http request.
+     * @param objectId UUID of the object need to update.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -197,8 +197,8 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     /**
      * Delete TP information.<br>
      * 
-     * @param objectId uuid of the TP need to delete.
-     * @param request context of http request.
+     * @param objectId UUID of the TP need to delete.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

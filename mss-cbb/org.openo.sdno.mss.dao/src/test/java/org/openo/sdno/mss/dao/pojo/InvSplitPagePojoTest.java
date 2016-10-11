@@ -40,6 +40,12 @@ import org.openo.sdno.mss.schema.infomodel.Property;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * InvSplitPagePojo test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class InvSplitPagePojoTest {
 
     InvBasicTablePojo invBasicTablePojo;

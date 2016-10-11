@@ -28,18 +28,17 @@ import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.framework.container.util.JsonUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.combine.intf.InvRelationDataService;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
 import org.openo.sdno.mss.service.constant.Constant;
 import org.openo.sdno.mss.service.intf.MssRelationService;
 import org.openo.sdno.mss.service.util.ExceptionArgsUtil;
 import org.openo.sdno.mss.service.util.ParamConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * The class of mss service to deal with relation.<br>
+ * The class of MSS service to deal with relation.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19

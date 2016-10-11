@@ -25,6 +25,12 @@ import org.xml.sax.SAXNotSupportedException;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * SaxParserFactories test class. <br/>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-3-26
+ */
 public class SaxParserFactoriesTest {
 
     @SuppressWarnings("restriction")

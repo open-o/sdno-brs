@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-
 import org.openo.sdno.brs.check.inf.BrsChecker;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
@@ -32,7 +31,7 @@ import org.openo.sdno.brs.service.inf.ResourceService;
 import org.openo.sdno.brs.util.validate.ValidateUtil;
 
 /**
- * Checker of brs service, check if the resources are being used.<br>
+ * Checker of BRS service, check if the resources are being used.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -47,8 +46,8 @@ public class BrsCheckerImpl implements BrsChecker {
     /**
      * Check if the NE is being used.<br>
      * 
-     * @param managedElementId uuid of the manage element object.
-     * @throws ServiceException if exception happens in the db service.
+     * @param managedElementId UUID of the manage element object.
+     * @throws ServiceException if exception happens in the DB service.
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
@@ -66,7 +65,7 @@ public class BrsCheckerImpl implements BrsChecker {
         srcParamMap.setPageNum(Constant.PAGE_NUM_KEY);
         srcParamMap.
 
-        setPageSize(Constant.PAGE_SIZE_KEY);
+                setPageSize(Constant.PAGE_SIZE_KEY);
         srcParamMap.setFields(Constant.AEND_ME);
         srcParamMap.setFiltersMap(srcFilterMap);
         // z side parameter.
@@ -76,9 +75,8 @@ public class BrsCheckerImpl implements BrsChecker {
         dstParamMap.setFields(Constant.ZEND_ME);
         dstParamMap.setFiltersMap(dstFilterMap);
 
-        Map<String, Object> srcTopologicalLinkList =
-                (Map<String, Object>)service.getResourceList(srcParamMap, Constant.TOPOLOGICALLINK_KEY,
-                        TopologicalLinkMO.class);
+        Map<String, Object> srcTopologicalLinkList = (Map<String, Object>)service.getResourceList(srcParamMap,
+                Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class);
         Object srcTotalNumObject = srcTopologicalLinkList.get(Constant.TOTAL_NUM_KEY);
         ValidateUtil.assertNotNull(srcTotalNumObject, Constant.TOTAL_NUM_KEY);
         int srcTotalNum = (int)srcTotalNumObject;
@@ -86,9 +84,8 @@ public class BrsCheckerImpl implements BrsChecker {
             throw new ServiceException(ErrorCode.BRS_MANAGEDELEMENT_ISUSED,
                     "brs managedElement is used by topologicalLink");
         } else {
-            Map<String, Object> dstTopologicalLinkList =
-                    (Map<String, Object>)service.getResourceList(dstParamMap, Constant.TOPOLOGICALLINK_KEY,
-                            TopologicalLinkMO.class);
+            Map<String, Object> dstTopologicalLinkList = (Map<String, Object>)service.getResourceList(dstParamMap,
+                    Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class);
             Object dstTotalNumObject = dstTopologicalLinkList.get(Constant.TOTAL_NUM_KEY);
             ValidateUtil.assertNotNull(dstTotalNumObject, Constant.TOTAL_NUM_KEY);
             int dstTotalNum = (int)dstTotalNumObject;
@@ -102,8 +99,8 @@ public class BrsCheckerImpl implements BrsChecker {
     /**
      * Check if the TP is being used.<br>
      * 
-     * @param logicalTPId uuid of the TP.
-     * @throws ServiceException if exception happens in the db service.
+     * @param logicalTPId UUID of the TP.
+     * @throws ServiceException if exception happens in the DB service.
      * @since SDNO 0.5
      */
     @SuppressWarnings("unchecked")
@@ -128,9 +125,8 @@ public class BrsCheckerImpl implements BrsChecker {
         dstParamMap.setFields(Constant.Z_END);
         dstParamMap.setFiltersMap(dstFilterMap);
 
-        Map<String, Object> srcTopologicalLinkList =
-                (Map<String, Object>)service.getResourceList(srcParamMap, Constant.TOPOLOGICALLINK_KEY,
-                        TopologicalLinkMO.class);
+        Map<String, Object> srcTopologicalLinkList = (Map<String, Object>)service.getResourceList(srcParamMap,
+                Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class);
         Object srcTotalNumObject = srcTopologicalLinkList.get(Constant.TOTAL_NUM_KEY);
         ValidateUtil.assertNotNull(srcTotalNumObject, Constant.TOTAL_NUM_KEY);
         int srcTotalNum = (int)srcTotalNumObject;
@@ -139,9 +135,8 @@ public class BrsCheckerImpl implements BrsChecker {
                     "brs logicalTerminationPoint is used by topologicalLink");
         } else {
 
-            Map<String, Object> dstTopologicalLinkList =
-                    (Map<String, Object>)service.getResourceList(dstParamMap, Constant.TOPOLOGICALLINK_KEY,
-                            TopologicalLinkMO.class);
+            Map<String, Object> dstTopologicalLinkList = (Map<String, Object>)service.getResourceList(dstParamMap,
+                    Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class);
             Object dstTotalNumObject = dstTopologicalLinkList.get(Constant.TOTAL_NUM_KEY);
             ValidateUtil.assertNotNull(dstTotalNumObject, Constant.TOTAL_NUM_KEY);
             int dstTotalNum = (int)dstTotalNumObject;
@@ -155,9 +150,9 @@ public class BrsCheckerImpl implements BrsChecker {
     /**
      * Check if the resource is being used.<br>
      * 
-     * @param objectID uuid of the object.
+     * @param objectID UUID of the object.
      * @param classType Resource type.
-     * @throws ServiceException if exception happens in the db service.
+     * @throws ServiceException if exception happens in the DB service.
      * @since SDNO 0.5
      */
     @Override

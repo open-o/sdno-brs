@@ -30,6 +30,12 @@ import org.openo.sdno.testframework.replace.PathReplace;
 import org.openo.sdno.testframework.testmanager.TestManager;
 import org.openo.sdno.testframework.util.file.FileUtils;
 
+/**
+ * ITBrsNeFailed test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class ITBrsNeFailedTest extends TestManager {
 
     private static final String CREATE_PATH =

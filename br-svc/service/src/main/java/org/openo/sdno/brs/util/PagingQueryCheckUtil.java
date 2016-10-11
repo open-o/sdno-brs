@@ -24,12 +24,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.cxf.common.util.CollectionUtils;
 import org.openo.baseservice.remoteservice.exception.ExceptionArgs;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.apache.cxf.common.util.CollectionUtils;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.exception.ErrorCode;
 import org.openo.sdno.brs.exception.HttpCode;
@@ -37,9 +34,11 @@ import org.openo.sdno.brs.model.RootEntity;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import org.openo.sdno.brs.validator.rules.SupportFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Paging query check util class.<br>
+ * Paging query check utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24
@@ -195,9 +194,8 @@ public class PagingQueryCheckUtil {
     /**
      * Check filters.<br>
      */
-    private static void
-            checkFilters(Map<String, String> filtersMap, Map<String, Field> allFieldsMap, Class<?> classType)
-                    throws ServiceException {
+    private static void checkFilters(Map<String, String> filtersMap, Map<String, Field> allFieldsMap,
+            Class<?> classType) throws ServiceException {
 
         if(filtersMap == null || CollectionUtils.isEmpty(filtersMap.values())) {
             return;

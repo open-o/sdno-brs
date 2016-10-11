@@ -147,9 +147,9 @@ public class DBParam implements Cloneable {
     }
 
     /**
-     * Return the driver class of the Corresponding db.<br>
+     * Return the driver class of the Corresponding DB.<br>
      * 
-     * @return driver url of the given db.
+     * @return driver URL of the given DB.
      * @since SDNO 0.5
      */
     @SuppressWarnings("static-access")
@@ -158,13 +158,13 @@ public class DBParam implements Cloneable {
     }
 
     /**
-     * @return The url of the db.
+     * @return The URL of the DB.
      * @since SDNO 0.5
      */
     public String getUrl() {
         String urlPattern = CONN_URL_PATTERN.get(this.dbType.toLowerCase());
-        return urlPattern.replace("{ip}", this.host).replace("{port}", String.valueOf(this.port))
-                .replace("{dbname}", this.dbName);
+        return urlPattern.replace("{ip}", this.host).replace("{port}", String.valueOf(this.port)).replace("{dbname}",
+                this.dbName);
     }
 
     /**

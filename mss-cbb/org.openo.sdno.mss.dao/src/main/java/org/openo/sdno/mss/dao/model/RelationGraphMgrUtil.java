@@ -22,7 +22,7 @@ import org.openo.sdno.mss.dao.multi.DataSourceCtrler;
 import org.openo.sdno.mss.dao.util.SpringContextUtil;
 
 /**
- * Relation Graph Manager Util class.<br>
+ * Relation Graph Manager Utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 May 20, 2016

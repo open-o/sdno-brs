@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * HTTP client util class.<br>
+ * HTTP client utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23

@@ -60,10 +60,10 @@ public class SiteResource extends IResource<SiteService> {
     }
 
     /**
-     * Get site by uuid.<br>
+     * Get site by UUID.<br>
      * 
-     * @param objectID uuid of the site.
-     * @param request context of http request.
+     * @param objectID UUID of the site.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -87,7 +87,7 @@ public class SiteResource extends IResource<SiteService> {
     /**
      * paged query site list.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -106,7 +106,7 @@ public class SiteResource extends IResource<SiteService> {
     /**
      * Add new site.<br>
      * 
-     * @param request context of http request.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -141,10 +141,10 @@ public class SiteResource extends IResource<SiteService> {
     }
 
     /**
-     * Update site by uuid.<br>
+     * Update site by UUID.<br>
      * 
-     * @param objectId uuid of the site need to update.
-     * @param request context of http request.
+     * @param objectId UUID of the site need to update.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -187,10 +187,10 @@ public class SiteResource extends IResource<SiteService> {
     }
 
     /**
-     * delete site by uuid.<br>
+     * delete site by UUID.<br>
      * 
-     * @param objectId uuid of the site need to delete.
-     * @param request context of http request.
+     * @param objectId UUID of the site need to delete.
+     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5

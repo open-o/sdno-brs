@@ -16,7 +16,7 @@
 
 package org.openo.sdno.mss.dao.io;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.BatchUpdateException;
 import java.util.ArrayList;
@@ -31,6 +31,12 @@ import org.junit.Test;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * SqlSessionProxy test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 July 26, 2016
+ */
 public class SqlSessionProxyTest {
 
     private PersistenceException ex = new PersistenceException();

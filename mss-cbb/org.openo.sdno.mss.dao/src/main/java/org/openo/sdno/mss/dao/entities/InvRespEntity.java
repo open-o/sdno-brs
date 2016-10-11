@@ -22,8 +22,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Inventory Response Entity class.<br>
  * <p>
- * 1.if you don't care http body,just return this response 2.if you care http body,you can return
- * the http response and this response. 3.The business can extend this message body.
+ * 1.if you don't care HTTP body,just return this response 2.if you care HTTP body,you can return
+ * the HTTP response and this response. 3.The business can extend this message body.
  * </p>
  * 
  * @param <T> T is class of user defined data
@@ -141,9 +141,9 @@ public class InvRespEntity<T> {
     }
 
     /**
-     * Get retcode attribute.<br>
+     * Get return code attribute.<br>
      * 
-     * @return retcode attribute
+     * @return return code attribute
      * @since SDNO 0.5
      */
     @JsonIgnore

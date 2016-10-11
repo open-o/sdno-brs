@@ -30,18 +30,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 
-import liquibase.Liquibase;
-import liquibase.database.DatabaseConnection;
-import liquibase.exception.DatabaseException;
-import liquibase.exception.LiquibaseException;
-import liquibase.resource.FileSystemResourceAccessor;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.openo.sdno.framework.container.util.DefaultEnvUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog;
 import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog.ChangeSet;
 import org.openo.sdno.model.liquibasemodel.ObjectFactory;
@@ -51,6 +42,14 @@ import org.openo.sdno.mss.schema.datamodel.DataModelIndex;
 import org.openo.sdno.mss.schema.datamodel.Datamodel;
 import org.openo.sdno.mss.schema.infomodel.Extension;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import liquibase.Liquibase;
+import liquibase.database.DatabaseConnection;
+import liquibase.exception.DatabaseException;
+import liquibase.exception.LiquibaseException;
+import liquibase.resource.FileSystemResourceAccessor;
 
 /**
  * Generate the database log when changing the set. <br>
@@ -75,7 +74,7 @@ public abstract class ChangeLogBuilder {
     protected int changeSetIndex = 0;
 
     /**
-     * Add the name space of the db change set.
+     * Add the name space of the DB change set.
      * 
      * @since SDNO 0.5
      */
@@ -86,18 +85,16 @@ public abstract class ChangeLogBuilder {
 
         dbChangeLog.getOtherAttributes().put(nsxsi, "http://www.w3.org/2001/XMLSchema-instance");
         dbChangeLog.getOtherAttributes().put(nsext, "http://www.liquibase.org/xml/ns/dbchangelog-ext");
-        dbChangeLog
-                .getOtherAttributes()
-                .put(xsischem,
-                        "http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"
-                                + " http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd");
+        dbChangeLog.getOtherAttributes().put(xsischem,
+                "http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"
+                        + " http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd");
     }
 
     /**
-     * Generate the change set of the infomodel.<br>
+     * Generate the change set of the information model.<br>
      * 
      * @param keyStr Type of the resource.
-     * @param infoModel informodel of the type.
+     * @param infoModel information model of the type.
      * @since SDNO 0.5
      */
     protected void generateInfoModelChangeSet(String keyStr, Infomodel infoModel) {
@@ -123,8 +120,8 @@ public abstract class ChangeLogBuilder {
 
         changeSet.setPreConditions(InfoModelProcess.getPreCondChangeSet(factory, getBasicTableName(keyStr)));
 
-        changeSet.getChangeSetChildren().add(
-                InfoModelProcess.getBasicTable(factory, getBasicTableName(keyStr), infoModel));
+        changeSet.getChangeSetChildren()
+                .add(InfoModelProcess.getBasicTable(factory, getBasicTableName(keyStr), infoModel));
 
         changeSet.getChangeSetChildren().add(InfoModelProcess.getRollBack(factory, getBasicTableName(keyStr)));
 
@@ -169,8 +166,8 @@ public abstract class ChangeLogBuilder {
 
             indexChangeSet.setPreConditions(DataModelProcess.getPrecondIndex(factory, indexName, tableName));
 
-            indexChangeSet.getChangeSetChildren().add(
-                    DataModelProcess.getCreateCustomizedIndex(factory, indexInfo, tableName, indexName));
+            indexChangeSet.getChangeSetChildren()
+                    .add(DataModelProcess.getCreateCustomizedIndex(factory, indexInfo, tableName, indexName));
 
             indexChangeSet.getChangeSetChildren().add(DataModelProcess.getRollBackIndex(factory, indexName, tableName));
 
@@ -205,21 +202,20 @@ public abstract class ChangeLogBuilder {
 
             String indexName = indexInfo[0] + keyStr;
 
-            indexChangeSet.setPreConditions(DataModelProcess.getPrecondIndex(factory, indexName,
-                    getRelationTableName(keyStr)));
-            indexChangeSet.getChangeSetChildren().add(
-                    DataModelProcess.getCreateCustomizedIndex(factory, indexInfo, getRelationTableName(keyStr),
-                            indexName));
+            indexChangeSet.setPreConditions(
+                    DataModelProcess.getPrecondIndex(factory, indexName, getRelationTableName(keyStr)));
+            indexChangeSet.getChangeSetChildren().add(DataModelProcess.getCreateCustomizedIndex(factory, indexInfo,
+                    getRelationTableName(keyStr), indexName));
 
-            indexChangeSet.getChangeSetChildren().add(
-                    DataModelProcess.getRollBackIndex(factory, indexName, getRelationTableName(keyStr)));
+            indexChangeSet.getChangeSetChildren()
+                    .add(DataModelProcess.getRollBackIndex(factory, indexName, getRelationTableName(keyStr)));
 
             dbChangeLog.getChangeSetOrIncludeOrIncludeAll().add(indexChangeSet);
         }
     }
 
     /**
-     * Generate the information of the changeset.<br>
+     * Generate the information of the change set.<br>
      * 
      * @return the detail of the info, including time and index.
      * @since SDNO 0.5
@@ -242,8 +238,8 @@ public abstract class ChangeLogBuilder {
      * @param dataName2InfoName the mapping from data model to info model.
      * @since SDNO 0.5
      */
-    protected void
-            generateDataModelChangeSet(String keyStr, Datamodel dataModel, Map<String, String> dataName2InfoName) {
+    protected void generateDataModelChangeSet(String keyStr, Datamodel dataModel,
+            Map<String, String> dataName2InfoName) {
         if(null == dataModel) {
             return;
         }
@@ -261,17 +257,17 @@ public abstract class ChangeLogBuilder {
 
         indexChangeSet.getChangeSetChildren().add(DataModelProcess.getCreateIndex(factory, index, tableName));
 
-        indexChangeSet.getChangeSetChildren().add(
-                DataModelProcess.getRollBackIndex(factory, index.getName(), tableName));
+        indexChangeSet.getChangeSetChildren()
+                .add(DataModelProcess.getRollBackIndex(factory, index.getName(), tableName));
 
         dbChangeLog.getChangeSetOrIncludeOrIncludeAll().add(indexChangeSet);
     }
 
     /**
-     * Save the change set to a xml file.<br>
+     * Save the change set to a XML file.<br>
      * 
      * @throws LiquibaseException if getting a Liquibase object is invalid.
-     * @throws SQLException if sql syntax is wrong.
+     * @throws SQLException if SQL syntax is wrong.
      * @since SDNO 0.5
      */
     protected void saveChangeLog2File() throws LiquibaseException, SQLException {
@@ -325,9 +321,8 @@ public abstract class ChangeLogBuilder {
     private void bakCurrChangeLogFile() {
         String oldFilePath = getBucketChangeLogDirPath() + File.separator + BucketStaticUtil.getChangeLogName();
 
-        String newFilePath =
-                getBucketChangeLogDirPath() + File.separator + "history" + File.separator + System.currentTimeMillis()
-                        + "_" + BucketStaticUtil.getChangeLogName();
+        String newFilePath = getBucketChangeLogDirPath() + File.separator + "history" + File.separator
+                + System.currentTimeMillis() + "_" + BucketStaticUtil.getChangeLogName();
 
         File oldFile = new File(oldFilePath);
 

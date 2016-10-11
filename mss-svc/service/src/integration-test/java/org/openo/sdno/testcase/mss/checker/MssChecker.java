@@ -28,6 +28,12 @@ import org.openo.sdno.testframework.http.model.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * MssChecker class, for checking the response.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-19
+ */
 public class MssChecker implements IChecker {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MssChecker.class);

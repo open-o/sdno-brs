@@ -36,9 +36,10 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 /**
- * This is xml model class of Relation.<br>
+ * This is XML model class of Relation.<br>
  * <p>
- * This xml model has four attributes: src: the source data model name dst: the destination data
+ * This XML model has four attributes: source: the source data model name destination: the
+ * destination data
  * model name type: the relation type owner: the owner of the relation
  * </p>
  * 
@@ -64,9 +65,9 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     protected String owner;
 
     /**
-     * Get src attribute.<br>
+     * Get source attribute.<br>
      * 
-     * @return src attribute
+     * @return source attribute
      * @since SDNO 0.5
      */
     public String getSrc() {
@@ -74,7 +75,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set src attribute.<br>
+     * Set source attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -84,9 +85,9 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get dst attribute.<br>
+     * Get destination attribute.<br>
      * 
-     * @return dst attribute
+     * @return destination attribute
      * @since SDNO 0.5
      */
     public String getDst() {
@@ -94,7 +95,7 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Set dst attribute.<br>
+     * Set destination attribute.<br>
      * 
      * @param value String Object
      * @since SDNO 0.5
@@ -154,7 +155,8 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
      * @since SDNO 0.5
      */
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
         if(!(object instanceof RelationModelRelation)) {
             return false;
         }
@@ -263,9 +265,9 @@ public class RelationModelRelation implements Serializable, Equals, HashCode, To
     }
 
     /**
-     * Get xml description of current Relation object.<br>
+     * Get XML description of current Relation object.<br>
      * 
-     * @return xml description of current object
+     * @return XML description of current object
      * @since SDNO 0.5
      */
     public String toString() {

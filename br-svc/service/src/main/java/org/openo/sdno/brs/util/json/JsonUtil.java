@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 import net.sf.json.JSON;
 
 /**
- * JSON util class.<br>
+ * JSON utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-23

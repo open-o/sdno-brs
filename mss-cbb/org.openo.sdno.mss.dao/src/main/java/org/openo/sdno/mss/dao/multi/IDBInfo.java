@@ -73,7 +73,7 @@ public interface IDBInfo {
     void setDBName(String dbName);
 
     /**
-     * Clean plaintext password in buffer. <br>
+     * Clean plain text password in buffer. <br>
      * 
      * @since SDNO 0.5
      */

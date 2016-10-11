@@ -38,6 +38,12 @@ import org.openo.sdno.testframework.replace.PathReplace;
 import org.openo.sdno.testframework.testmanager.TestManager;
 import org.openo.sdno.testframework.util.file.FileUtils;
 
+/**
+ * ITMssRelation test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-19
+ */
 public class ITMssRelationTest extends TestManager {
 
     private static final String CREATE_PATH =

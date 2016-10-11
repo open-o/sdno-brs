@@ -26,9 +26,16 @@ import java.util.Set;
 
 import org.junit.Test;
 
+/**
+ * File utility test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 2016-5-27
+ */
 public class FileUtilTest {
 
     private static final String FILE_PATH = "src/test/java/org/openo/sdno/mss/init/util";
+
     @Test(expected = IllegalArgumentException.class)
     public void testGetDirFileListEmpty() {
         FileUtil.getDirFileList("");

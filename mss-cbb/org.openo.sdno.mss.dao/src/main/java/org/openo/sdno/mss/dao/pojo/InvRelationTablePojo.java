@@ -27,16 +27,15 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
-
 import org.openo.sdno.mss.dao.entities.InvRelationEntity;
 import org.openo.sdno.mss.dao.util.ValidUtil;
 import org.openo.sdno.mss.model.util.PropertiesUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Property;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 
 /**
  * Inventory relation table. <br>
@@ -87,9 +86,8 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
      */
     public InvRelationTablePojo(String resType) {
         super(resType);
-        this.tableName =
-                PropertiesUtil.getInstance().getINVTABLEPREFIX() + resType
-                        + PropertiesUtil.getInstance().getRELATIONTABLEPOSTFIX();
+        this.tableName = PropertiesUtil.getInstance().getINVTABLEPREFIX() + resType
+                + PropertiesUtil.getInstance().getRELATIONTABLEPOSTFIX();
         this.allAttrMap = getRelationAttributes();
         emptyCheckColumn = SRCUUID;
 
@@ -233,7 +231,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
     }
 
     /**
-     * Inventory relation table Pojo. <br>
+     * Inventory relation table PoJo. <br>
      * 
      * @param valueMap Value map.
      * @return Table PoJo.

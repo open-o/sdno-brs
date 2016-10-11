@@ -38,7 +38,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Sql Session Proxy class for batch Commit.<br>
+ * SQL Session Proxy class for batch Commit.<br>
  * 
  * @author
  */
@@ -274,7 +274,7 @@ public class SqlSessionProxy implements SqlSession {
      * Execute an insert statement.
      * 
      * @param statement Unique identifier matching the statement to execute.
-     * @return int The number of rows affected by the insert.
+     * @return integer The number of rows affected by the insert.
      */
     @Override
     public int insert(final String statement) {
@@ -292,12 +292,12 @@ public class SqlSessionProxy implements SqlSession {
 
     /**
      * Execute an insert statement with the given parameter object. Any generated
-     * autoincrement values or selectKey entries will modify the given parameter
+     * auto increment values or selectKey entries will modify the given parameter
      * object properties. Only the number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
-     * @return int The number of rows affected by the insert.
+     * @return integer The number of rows affected by the insert.
      */
     @Override
     public int insert(final String statement, final Object parameter) {
@@ -317,7 +317,7 @@ public class SqlSessionProxy implements SqlSession {
      * Execute an update statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
-     * @return int The number of rows affected by the update.
+     * @return integer The number of rows affected by the update.
      */
     @Override
     public int update(final String statement) {
@@ -338,7 +338,7 @@ public class SqlSessionProxy implements SqlSession {
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
-     * @return int The number of rows affected by the update.
+     * @return integer The number of rows affected by the update.
      */
     @Override
     public int update(final String statement, final Object parameter) {
@@ -358,7 +358,7 @@ public class SqlSessionProxy implements SqlSession {
      * Execute a delete statement. The number of rows affected will be returned.<br>
      * 
      * @param statement Unique identifier matching the statement to execute.
-     * @return int The number of rows affected by the delete.
+     * @return integer The number of rows affected by the delete.
      */
     @Override
     public int delete(final String statement) {
@@ -379,7 +379,7 @@ public class SqlSessionProxy implements SqlSession {
      * 
      * @param statement Unique identifier matching the statement to execute.
      * @param parameter A parameter object to pass to the statement.
-     * @return int The number of rows affected by the delete.
+     * @return integer The number of rows affected by the delete.
      */
     @Override
     public int delete(final String statement, final Object parameter) {
@@ -655,7 +655,7 @@ public class SqlSessionProxy implements SqlSession {
      */
     @Override
     public void clearCache() {
-        // reinit
+        // reinitialize
         recordList.clear();
         session.clearCache();
         deadLockRetryCnt = 0;

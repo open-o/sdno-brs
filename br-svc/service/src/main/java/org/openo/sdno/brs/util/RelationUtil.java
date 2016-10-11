@@ -23,7 +23,7 @@ import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.Relation;
 
 /**
- * Relation util class.<br>
+ * Relation utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24

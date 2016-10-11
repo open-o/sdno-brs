@@ -86,7 +86,7 @@ public class InvTempDevUuidTablePojo implements IInvTableCrud {
     }
 
     /**
-     * Insert data to network element ID temprary table. <br>
+     * Insert data to network element ID temporary table. <br>
      * 
      * @param session SQL session.
      * @param devUuidList Device UUID list.

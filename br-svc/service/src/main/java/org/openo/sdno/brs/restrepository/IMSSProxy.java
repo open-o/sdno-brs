@@ -20,7 +20,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 
 /**
- * Interface of mss service proxy.<br>
+ * Interface of MSS service proxy.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -32,9 +32,9 @@ public interface IMSSProxy {
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
-     * @param objectID uuid of object.
+     * @param objectID UUID of object.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getResource(String bucketName, String resourceTypeName, String objectID) throws ServiceException;
@@ -45,10 +45,10 @@ public interface IMSSProxy {
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
      * @param dstType destination resource type.
-     * @param srcIds uuid of the source resource.
-     * @param dstIds uuid of the destination resource.
+     * @param srcIds UUID of the source resource.
+     * @param dstIds UUID of the destination resource.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getRelations(String bucketName, String resourceTypeName, String dstType, String srcIds,
@@ -64,7 +64,7 @@ public interface IMSSProxy {
      * @param pagesize size of the page.
      * @param pagenum number of page.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getRelationResourceList(String bucketName, String resourceTypeName, String fields, String filter,
@@ -80,7 +80,7 @@ public interface IMSSProxy {
      * @param pagesize size of the page.
      * @param pagenum number of page.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getResourceList(String bucketName, String resourceTypeName, String fields, String filter,
@@ -93,7 +93,7 @@ public interface IMSSProxy {
      * @param resourceTypeName name of resource type.
      * @param obj object to add.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse addResources(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
@@ -103,37 +103,37 @@ public interface IMSSProxy {
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
-     * @param objectId uuid of the object need update.
+     * @param objectId UUID of the object need update.
      * @param obj object to update.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse updateResource(String bucketName, String resourceTypeName, String objectId, Object obj)
             throws ServiceException;
 
     /**
-     * Delete resource from db.<br>
+     * Delete resource from DB.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
-     * @param objectId uuid of the object need update.
+     * @param objectId UUID of the object need update.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse deleteResource(String bucketName, String resourceTypeName, String objectId) throws ServiceException;
 
     /**
-     * Delete relation from db.<br>
+     * Delete relation from DB.<br>
      * 
      * @param bucketName name of the bucket.
      * @param resourceTypeName name of resource type.
-     * @param strSrcID uuid of the source resource.
-     * @param strDstID uuid of the destination resource.
+     * @param strSrcID UUID of the source resource.
+     * @param strDstID UUID of the destination resource.
      * @param strDstType type of the destination resource.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse deleteRelation(String bucketName, String resourceTypeName, String strSrcID, String strDstID,
@@ -146,7 +146,7 @@ public interface IMSSProxy {
      * @param resourceTypeName name of resource type.
      * @param obj relation object to create.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse createRelation(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
@@ -158,7 +158,7 @@ public interface IMSSProxy {
      * @param resourceTypeName name of resource type.
      * @param obj object to check.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse checkObjExsit(String bucketName, String resourceTypeName, Object obj) throws ServiceException;
@@ -169,9 +169,9 @@ public interface IMSSProxy {
      * @param bucketName name of bucket.
      * @param siteResTypeName name of resource type of site.
      * @param resourceTypeName name of resource type.
-     * @param dstIds destination object uuid.
+     * @param dstIds destination object UUID.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getManageElementByRelation(String bucketName, String siteResTypeName, String resourceTypeName,
@@ -185,7 +185,7 @@ public interface IMSSProxy {
      * @param joinAttr joint attribute.
      * @param filter filter field.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse commonQueryCount(String bucketName, String resourceTypeName, String joinAttr, String filter)
@@ -201,7 +201,7 @@ public interface IMSSProxy {
      * @param pagesize size of page.
      * @param pagenum number of page.
      * @return RestfulResponse contain data and error code.
-     * @throws ServiceException if data base service encouter some problem.
+     * @throws ServiceException if data base service encounter some problem.
      * @since SDNO 0.5
      */
     RestfulResponse getResourceListInfo(String bucketName, String resourceTypeName, String fields, String filter,

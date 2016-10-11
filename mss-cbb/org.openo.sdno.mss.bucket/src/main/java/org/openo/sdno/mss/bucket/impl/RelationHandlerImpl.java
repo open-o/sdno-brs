@@ -17,11 +17,10 @@
 package org.openo.sdno.mss.bucket.impl;
 
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.bucket.dao.mappers.RelationMapper;
 import org.openo.sdno.mss.bucket.dao.pojo.RelationPojo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Relation handler class.<br>
@@ -46,15 +45,16 @@ public class RelationHandlerImpl extends AHandlerImpl {
 
         return this.mapper;
     }
-    
+
     /**
-     * Init the mapper.<br>
+     * Initialize the mapper.<br>
      * 
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public void init() {
         this.mapper = getMapper();
     }
+
     /**
      * Get relation data by bucket name.<br>
      * 

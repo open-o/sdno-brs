@@ -24,13 +24,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.infomodel.ObjectFactory;
 import org.openo.sdno.mss.schema.infomodel.Property;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Model static utility class to clone and turn it to whole info model. <br>
@@ -65,10 +64,10 @@ public class ModelUtil {
     }
 
     /**
-     * Turn infomodel to wholeinfomodel. <br>
+     * Turn information model to whole info model. <br>
      * 
-     * @param infoModel model which contain the data field of pojo.
-     * @return WholeInfoModel model which contain the data field of pojo.
+     * @param infoModel model which contain the data field of PoJo.
+     * @return WholeInfoModel model which contain the data field of PoJo.
      * @since SDNO 0.5
      */
     public static Infomodel getWholeInfoModel(Infomodel infoModel) {
@@ -90,10 +89,10 @@ public class ModelUtil {
     }
 
     /**
-     * Use serialization to deep clone a infomodel. <br>
+     * Use serialization to deep clone a info model. <br>
      * 
-     * @param infoModel infomodel need to clone.
-     * @return the cloned infomodel.
+     * @param infoModel info model need to clone.
+     * @return the cloned info model.
      * @since SDNO 0.5
      */
     private static Infomodel deepClone(Infomodel infoModel) {

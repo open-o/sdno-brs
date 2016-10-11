@@ -24,7 +24,7 @@ import javax.ws.rs.core.Context;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 
 /**
- * The interface of mss service to deal with relation.<br>
+ * The interface of MSS service to deal with relation.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-19
@@ -37,8 +37,8 @@ public interface MssRelationService {
      * @param bktName Bucket name
      * @param srcResType Source resource type
      * @param dstResType Destination resource type
-     * @param srcUuids Source uuid
-     * @param dstUuids Destination uuid
+     * @param srcUuids Source UUID
+     * @param dstUuids Destination UUID
      * @return The map of relationship
      * @since SDNO 0.5
      */
@@ -61,8 +61,8 @@ public interface MssRelationService {
      * 
      * @param bktName Bucket name
      * @param relationType Resource type name
-     * @param srcUuid Source uuid
-     * @param dstUuid Destination uuid
+     * @param srcUuid Source UUID
+     * @param dstUuid Destination UUID
      * @param dstType Destination type
      * @param reltype Relationship name
      * @since SDNO 0.5

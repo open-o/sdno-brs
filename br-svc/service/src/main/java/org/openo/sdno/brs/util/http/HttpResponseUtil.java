@@ -40,7 +40,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Response util class.<br>
+ * Response utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-5-24

@@ -25,6 +25,12 @@ import org.junit.Test;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * NumSet test class.<br>
+ * 
+ * @author
+ * @version SDNO 0.5 October 11, 2016
+ */
 public class NumSetTest {
 
     private NumSet numSet;

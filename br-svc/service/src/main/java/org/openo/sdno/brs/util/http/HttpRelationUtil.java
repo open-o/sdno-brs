@@ -36,7 +36,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Util class of Http Relation.<br>
+ * Utility class of HTTP Relation.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-08-23

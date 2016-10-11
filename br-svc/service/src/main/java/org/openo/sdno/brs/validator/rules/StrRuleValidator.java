@@ -19,7 +19,6 @@ package org.openo.sdno.brs.validator.rules;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
-
 import org.openo.sdno.brs.validator.ErrorMessageKey;
 import org.openo.sdno.brs.validator.SingleRange;
 import org.openo.sdno.brs.validator.ValidateTask;
@@ -47,7 +46,7 @@ public class StrRuleValidator extends AbstractRuleValidator<StrRule, String> {
     public StrRuleValidator(StrRule rule) {
         super(rule);
 
-        // Init range.
+        // Initialize range.
         if(!StringUtils.isEmpty(rule.range())) {
             range = SingleRange.parse(rule.range());
         }

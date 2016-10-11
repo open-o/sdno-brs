@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * CommParam check util class.<br>
+ * CommParam check utility class.<br>
  * 
  * @author
  * @version SDNO 0.5 2016-8-22

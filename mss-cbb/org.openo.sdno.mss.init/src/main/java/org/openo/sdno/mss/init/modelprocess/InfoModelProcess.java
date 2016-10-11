@@ -20,9 +20,6 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.model.liquibasemodel.Column;
 import org.openo.sdno.model.liquibasemodel.Constraints;
 import org.openo.sdno.model.liquibasemodel.CreateTable;
@@ -39,6 +36,8 @@ import org.openo.sdno.mss.schema.infomodel.Basic;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
 import org.openo.sdno.mss.schema.infomodel.Property;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to handle the infomodel. <br>
@@ -55,7 +54,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * Generate the precondition of infomodel. <br>
+     * Generate the precondition of information model. <br>
      * 
      * @param factory object factory
      * @param tableName name of table
@@ -84,7 +83,7 @@ public class InfoModelProcess {
      * @param factory object factory
      * @param tableName name of table
      * @param infoModel infoModel object
-     * @return basic info table calss
+     * @return basic info table class
      * @since SDNO 0.5
      */
     public static Object getBasicTable(ObjectFactory factory, String tableName, Infomodel infoModel) {
@@ -110,7 +109,7 @@ public class InfoModelProcess {
     }
 
     /**
-     * get the data type string from db. <br>
+     * get the data type string from DB. <br>
      * 
      * @param type data type
      * @param length length of type string

@@ -63,7 +63,7 @@ public class HttpCode {
     /**
      * Return if the response is success.<br>
      * 
-     * @param httpCode the response http code.
+     * @param httpCode the response HTTP code.
      * @return if the result is ok or not.
      * @since SDNO 0.5
      */

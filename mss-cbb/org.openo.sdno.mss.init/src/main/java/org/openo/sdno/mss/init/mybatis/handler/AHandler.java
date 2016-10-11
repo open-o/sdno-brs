@@ -17,14 +17,13 @@
 package org.openo.sdno.mss.init.mybatis.handler;
 
 import org.apache.ibatis.session.SqlSession;
+import org.openo.sdno.mss.init.mybatis.MybatisManagement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.openo.sdno.mss.init.mybatis.MybatisManagement;
-
 /**
  * Father class of all the resource handle class,define the basic operation a handler do, including
- * getting sql map, get,commit,close sql session. <br>
+ * getting SQL map, get,commit,close SQL session. <br>
  * 
  * @author
  * @version SDNO 0.5 2016-3-26
