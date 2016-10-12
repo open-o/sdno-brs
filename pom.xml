@@ -20,13 +20,13 @@
     <parent>
         <groupId>org.openo.oparent</groupId>
         <artifactId>oparent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
         <relativePath>../oparent</relativePath>
     </parent>
 
     <groupId>org.openo.sdno.brs</groupId>
     <artifactId>res-manage</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -39,7 +39,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <brs.version>1.0.0-SNAPSHOT</brs.version>
+        <brs.version>1.1.0-SNAPSHOT</brs.version>
         <resources.dir>${basedir}/src/main/resources</resources.dir>
     </properties>
 

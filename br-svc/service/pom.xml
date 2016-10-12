@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.openo.sdno.brs</groupId>
         <artifactId>br-svc</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>org.openo.sdno.brs</artifactId>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.openo.common-services.common-utilities</groupId>
             <artifactId>commonlib-restclient</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -49,12 +49,12 @@
         <dependency>
             <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.common-cbb</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.framework.base</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.jmockit</groupId>
@@ -138,7 +138,7 @@
         <dependency>
             <groupId>org.openo.integration</groupId>
             <artifactId>org.openo.sdno.testframework</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
