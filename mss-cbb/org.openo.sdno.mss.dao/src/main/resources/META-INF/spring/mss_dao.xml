@@ -24,162 +24,138 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="vxlandb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="vxlandb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
 
-    <bean id="brsdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="brsdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="compositevpndb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="compositevpndb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="l3vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="l3vpn" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="l2vpn" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="l2vpn" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="vpcdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="vpcdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="osdriverdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="osdriverdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="ipsecdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="ipsecdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="acbranchdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="acbranchdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="servicechaindb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="servicechaindb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-    <bean id="scdriverdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+    <bean id="scdriverdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
-        <bean id="nslcmdb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="user" value="root" />
+        <bean id="nslcmdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+		<property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="dataSource" class="org.openo.sdno.mss.dao.multi.DynamicDataSource">
         <property name="targetDataSources">

@@ -32,18 +32,16 @@
         <property name="dataSource" ref="dataSource1" />
     </bean>
 
-    <bean id="dataSource1" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://10.22.27.190:3306/l3vpn" />
-        <property name="user" value="root" />
+    <bean id="dataSource1" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://10.22.27.190:3306/l3vpn" />
+        <property name="username" value="root" />
         <property name="password" value="Test_12345" />
-        <property name="acquireIncrement" value="10" />
-        <property name="idleConnectionTestPeriod" value="120" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatements" value="30" />
-        <property name="minPoolSize" value="10" />
-        <property name="maxIdleTime" value="600" />
-        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">

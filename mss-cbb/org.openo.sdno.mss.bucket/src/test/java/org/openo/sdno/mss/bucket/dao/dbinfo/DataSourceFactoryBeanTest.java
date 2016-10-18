@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.tomcat.jdbc.pool.DataSource;
 
 /**
  * DataSourceFactoryBean test class.<br>
@@ -33,7 +33,7 @@ public class DataSourceFactoryBeanTest {
 
     private DataSourceFactoryBean dataSourceBean = new DataSourceFactoryBean();
 
-    private ComboPooledDataSource dataSource = new ComboPooledDataSource();
+    private DataSource dataSource = new DataSource();
 
     private IDBInfo dbInfo = new DBInfo4OSSPl();
 

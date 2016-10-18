@@ -16,14 +16,11 @@
 
 package org.openo.sdno.mss.bucket.dao.dbinfo;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.lang.StringUtils;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
  * Factory class for data source.<br>
@@ -37,9 +34,9 @@ public class DataSourceFactoryBean implements FactoryBean {
 
     private IDBInfo dbInfo = new DBInfo4OSSPl();
 
-    private ComboPooledDataSource dataSource;
+    private DataSource dataSource;
 
-    public void setDataSource(ComboPooledDataSource dataSource) {
+    public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -51,7 +48,7 @@ public class DataSourceFactoryBean implements FactoryBean {
      * @since SDNO 0.5
      */
     @Override
-    public DataSource getObject() throws Exception {
+    public javax.sql.DataSource getObject() throws Exception {
         if(null == this.dataSource) {
             LOGGER.error("dataSource is null");
             return this.dataSource;
@@ -69,21 +66,21 @@ public class DataSourceFactoryBean implements FactoryBean {
             LOGGER.error("Driver is empty");
             return this.dataSource;
         }
-        this.dataSource.setDriverClass(str);
+        this.dataSource.setDriverClassName(str);
 
         str = this.dbInfo.getUrl();
         if(StringUtils.isEmpty(str)) {
             LOGGER.error("Url is empty");
             return this.dataSource;
         }
-        this.dataSource.setJdbcUrl(str);
+        this.dataSource.setUrl(str);
 
         str = this.dbInfo.getUser();
         if(StringUtils.isEmpty(str)) {
             LOGGER.error("User is empty");
             return this.dataSource;
         }
-        this.dataSource.setUser(str);
+        this.dataSource.setUsername(str);
 
         String pwd = dbInfo.getPassword();
         if(null == pwd) {
