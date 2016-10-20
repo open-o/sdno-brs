@@ -55,7 +55,7 @@ public class StartInit {
 
         DBParam dbParam = new DBParam();
         dbParam.setDbName("brsdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         dbParam.setDbType("mysql");
         dbParam.setDbUser("root");
         dbParam.setHost("localhost");
@@ -64,57 +64,57 @@ public class StartInit {
         brsiniter.init(dbParam);
 
         dbParam.setDbName("vxlandb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter vxlaniniter = new DbIniter();
         vxlaniniter.init(dbParam);
 
         dbParam.setDbName("compositevpndb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter compositevpndbiniter = new DbIniter();
         compositevpndbiniter.init(dbParam);
 
         dbParam.setDbName("l3vpn");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter l3vpniniter = new DbIniter();
         l3vpniniter.init(dbParam);
 
         dbParam.setDbName("l2vpn");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter l2vpniniter = new DbIniter();
         l2vpniniter.init(dbParam);
 
         dbParam.setDbName("osdriverdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter osdriveriniter = new DbIniter();
         osdriveriniter.init(dbParam);
 
         dbParam.setDbName("ipsecdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter ipseciniter = new DbIniter();
         ipseciniter.init(dbParam);
 
         dbParam.setDbName("acbranchdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter acbranchiniter = new DbIniter();
         acbranchiniter.init(dbParam);
 
         dbParam.setDbName("vpcdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter vpciniter = new DbIniter();
         vpciniter.init(dbParam);
 
         dbParam.setDbName("servicechaindb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter servicechaininiter = new DbIniter();
         servicechaininiter.init(dbParam);
 
         dbParam.setDbName("scdriverdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter dcdriveriniter = new DbIniter();
         dcdriveriniter.init(dbParam);
 
         dbParam.setDbName("nslcmdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd("root".toCharArray());
         DbIniter nslcminiter = new DbIniter();
         nslcminiter.init(dbParam);
     }

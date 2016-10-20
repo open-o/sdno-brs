@@ -19,18 +19,18 @@
     xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
     xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
     xsi:schemaLocation="
-	http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="vxlandb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -40,9 +40,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -51,9 +51,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -62,9 +62,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -73,9 +73,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -84,9 +84,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -95,9 +95,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -106,9 +106,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -117,9 +117,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -128,9 +128,9 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
@@ -139,20 +139,20 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
-        <bean id="nslcmdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+    <bean id="nslcmdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="password" value="root" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />

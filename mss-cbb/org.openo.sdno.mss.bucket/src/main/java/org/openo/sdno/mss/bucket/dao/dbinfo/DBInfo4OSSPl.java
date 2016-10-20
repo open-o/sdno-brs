@@ -51,7 +51,7 @@ public class DBInfo4OSSPl implements IDBInfo {
 
     @Override
     public String getPassword() {
-        return "Test_12345";
+        return "root";
     }
 
     @Override
