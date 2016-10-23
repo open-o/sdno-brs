@@ -23,10 +23,8 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.type.TypeReference;
-import org.openo.baseservice.remoteservice.exception.ExceptionArgs;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
-import org.openo.sdno.mss.combine.entities.ErrorCode;
 import org.openo.sdno.mss.combine.intf.InvDataService;
 import org.openo.sdno.mss.combine.util.InvDataServiceUtil;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
@@ -68,11 +66,6 @@ public class InvDataServiceImpl implements InvDataService {
 
         try {
             InvRespEntity<List<Map<String, Object>>> res = dataHandler.get(resType, uuid, attr);
-
-            if(res.getData().isEmpty()) {
-                throw new ServiceException(ErrorCode.INTERNAL_ERROR, 404,
-                        new ExceptionArgs(new String[] {"UUID not Exist"}, null, null, null));
-            }
 
             return res;
         } finally {
