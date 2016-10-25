@@ -104,7 +104,7 @@ public class DBInfo4OSSPl implements IDBInfo {
             dataFromMap.put(HOST, "localhost");
             dataFromMap.put(PORT, "3306");
             dataFromMap.put(USER_NAME, "root");
-            dataFromMap.put(PWD, "Test_12345");
+            dataFromMap.put(PWD, "root");
         }
         return dataFromMap;
     }

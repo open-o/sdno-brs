@@ -27,8 +27,8 @@ unzip $LIB_PATH/org.openo.sdno.mss.init*.jar buckets/*
 
 for D in dummy/bucketsys buckets/*; do
     dbname=$(basename $D)
-    mysql -uroot -pTest_12345 -e"drop database if exists $dbname;"
-    mysql -uroot -pTest_12345 -e"create database $dbname;"
+    mysql -uroot -proot -e"drop database if exists $dbname;"
+    mysql -uroot -proot -e"create database $dbname;"
 done
 
 java -cp "$LIB_PATH/*" org.openo.sdno.mss.init.StartInit
