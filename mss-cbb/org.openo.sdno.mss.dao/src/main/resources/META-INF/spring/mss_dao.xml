@@ -19,140 +19,144 @@
     xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
     xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
     xsi:schemaLocation="
-	http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean> 
+    
     <bean id="vxlandb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
 
     <bean id="brsdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/brsdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="compositevpndb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/compositevpndb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="l3vpn" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/l3vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="l2vpn" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/l2vpn?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="vpcdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/vpcdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="osdriverdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/osdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="ipsecdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/ipsecdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="acbranchdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/acbranchdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="servicechaindb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/servicechaindb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
     <bean id="scdriverdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/scdriverdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
-        <bean id="nslcmdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+    <bean id="nslcmdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/nslcmdb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
-		<property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />

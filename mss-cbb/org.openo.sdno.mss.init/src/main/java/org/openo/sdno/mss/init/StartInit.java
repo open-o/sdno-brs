@@ -16,8 +16,12 @@
 
 package org.openo.sdno.mss.init;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 
@@ -30,6 +34,16 @@ import liquibase.exception.LiquibaseException;
  * @version SDNO 0.5 2016-6-30
  */
 public class StartInit {
+
+    private static final String CONFIG_PATH = "webapps/ROOT/WEB-INF/classes/jdbc.properties";
+
+    private static final String HOST = "jdbcHost";
+
+    private static final String PORT = "jdbcPort";
+
+    private static final String USER_NAME = "jdbcUsername";
+
+    private static final String PWD = "jdbcPassword";
 
     /**
      * Constructor<br>
@@ -52,70 +66,93 @@ public class StartInit {
      */
     public static void main(String[] args)
             throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
-
+        Map<String, String> dbInfoMap = getDataFromPropertiesFile(CONFIG_PATH);
         DBParam dbParam = new DBParam();
-        dbParam.setDbName("brsdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
         dbParam.setDbType("mysql");
-        dbParam.setDbUser("root");
-        dbParam.setHost("localhost");
-        dbParam.setPort(3306);
+        dbParam.setHost(dbInfoMap.get(HOST));
+        dbParam.setPort(Integer.parseInt(dbInfoMap.get(PORT)));
+        dbParam.setDbUser(dbInfoMap.get(USER_NAME));
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
+
+        dbParam.setDbName("brsdb");
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter brsiniter = new DbIniter();
         brsiniter.init(dbParam);
 
         dbParam.setDbName("vxlandb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter vxlaniniter = new DbIniter();
         vxlaniniter.init(dbParam);
 
         dbParam.setDbName("compositevpndb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter compositevpndbiniter = new DbIniter();
         compositevpndbiniter.init(dbParam);
 
         dbParam.setDbName("l3vpn");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter l3vpniniter = new DbIniter();
         l3vpniniter.init(dbParam);
 
         dbParam.setDbName("l2vpn");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter l2vpniniter = new DbIniter();
         l2vpniniter.init(dbParam);
 
         dbParam.setDbName("osdriverdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter osdriveriniter = new DbIniter();
         osdriveriniter.init(dbParam);
 
         dbParam.setDbName("ipsecdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter ipseciniter = new DbIniter();
         ipseciniter.init(dbParam);
 
         dbParam.setDbName("acbranchdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter acbranchiniter = new DbIniter();
         acbranchiniter.init(dbParam);
 
         dbParam.setDbName("vpcdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter vpciniter = new DbIniter();
         vpciniter.init(dbParam);
 
         dbParam.setDbName("servicechaindb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter servicechaininiter = new DbIniter();
         servicechaininiter.init(dbParam);
 
         dbParam.setDbName("scdriverdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter dcdriveriniter = new DbIniter();
         dcdriveriniter.init(dbParam);
 
         dbParam.setDbName("nslcmdb");
-        dbParam.setDbPwd("Test_12345".toCharArray());
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter nslcminiter = new DbIniter();
         nslcminiter.init(dbParam);
+    }
+
+    private static Map<String, String> getDataFromPropertiesFile(String path) {
+
+        Map<String, String> dataFromMap = new HashMap<String, String>();
+        try {
+            Properties props = new Properties();
+            FileInputStream in = new FileInputStream(path);
+            props.load(in);
+            dataFromMap.put(HOST, props.getProperty("jdbc.host"));
+            dataFromMap.put(PORT, props.getProperty("jdbc.port"));
+            dataFromMap.put(USER_NAME, props.getProperty("jdbc.username"));
+            dataFromMap.put(PWD, props.getProperty("jdbc.password"));
+            in.close();
+        } catch(IOException e) {
+            dataFromMap.put(HOST, "localhost");
+            dataFromMap.put(PORT, "3306");
+            dataFromMap.put(USER_NAME, "root");
+            dataFromMap.put(PWD, "root");
+        }
+        return dataFromMap;
     }
 }

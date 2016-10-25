@@ -32,11 +32,15 @@
         <property name="dataSource" ref="dataSource1" />
     </bean>
 
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean> 
+    
     <bean id="dataSource1" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://10.22.27.190:3306/l3vpn" />
-        <property name="username" value="root" />
-        <property name="password" value="Test_12345" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/l3vpn" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
