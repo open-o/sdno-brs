@@ -16,6 +16,12 @@
 
 package org.openo.sdno.mss.bucket.dao.dbinfo;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * Class of data source information acquisition.<br>
  * 
@@ -24,44 +30,52 @@ package org.openo.sdno.mss.bucket.dao.dbinfo;
  */
 public class DBInfo4OSSPl implements IDBInfo {
 
-    public static final String SERVER_NAME = "serverName";
+    private static final String DRIVER_CLASS_NAME = "driverClassName";
 
-    public static final String PWD = "passwd";
+    private static final String HOST = "jdbcHost";
 
-    public static final String USER = "user";
+    private static final String PORT = "jdbcPort";
 
-    public static final String PORT = "port";
+    private static final String USER_NAME = "jdbcUsername";
 
-    public static final String DB_NAME = "bucketsys";
+    private static final String PWD = "jdbcPassword";
+
+    private static final String DB_NAME = "bucketsys";
+
+    private Map<String, String> dbInfoMap = new HashMap<String, String>();
+
+    private static final String CONFIG_PATH = "webapps/ROOT/WEB-INF/classes/jdbc.properties";
+
+    private static final String URL_CONFIG = "jdbc:mysql://%s:%s/%s?useUnicode=true&amp;characterEncoding=utf-8";
 
     @Override
     public String getDriver() {
-        return "com.mysql.jdbc.Driver";
+        return this.dbInfoMap.get(DRIVER_CLASS_NAME);
     }
 
     @Override
     public String getUrl() {
-        return "jdbc:mysql://localhost:3306/bucketsys?useUnicode=true&characterEncoding=UTF-8";
+        return String.format(URL_CONFIG, this.dbInfoMap.get(HOST), this.dbInfoMap.get(PORT), DB_NAME);
     }
 
     @Override
     public String getUser() {
-        return "root";
+        return this.dbInfoMap.get(USER_NAME);
     }
 
     @Override
     public String getPassword() {
-        return "root";
+        return this.dbInfoMap.get(PWD);
     }
 
     @Override
     public void destroyPassword() {
-        // The password is assigned as constant, and no need to destroy.
+        this.dbInfoMap.clear();
     }
 
     @Override
     public void init() {
-        // The member variables are assigned as constant, and no initialization is required.
+        this.dbInfoMap = getDataFromPropertiesFile(CONFIG_PATH);
     }
 
     /**
@@ -71,5 +85,27 @@ public class DBInfo4OSSPl implements IDBInfo {
      */
     public void destroy() {
         this.destroyPassword();
+    }
+
+    private static Map<String, String> getDataFromPropertiesFile(String path) {
+        Map<String, String> dataFromMap = new HashMap<String, String>();
+        try {
+            Properties props = new Properties();
+            FileInputStream in = new FileInputStream(path);
+            props.load(in);
+            dataFromMap.put(DRIVER_CLASS_NAME, props.getProperty("jdbc.driver"));
+            dataFromMap.put(HOST, props.getProperty("jdbc.host"));
+            dataFromMap.put(PORT, props.getProperty("jdbc.port"));
+            dataFromMap.put(USER_NAME, props.getProperty("jdbc.username"));
+            dataFromMap.put(PWD, props.getProperty("jdbc.password"));
+            in.close();
+        } catch(IOException e) {
+            dataFromMap.put(DRIVER_CLASS_NAME, "com.mysql.jdbc.Driver");
+            dataFromMap.put(HOST, "localhost");
+            dataFromMap.put(PORT, "3306");
+            dataFromMap.put(USER_NAME, "root");
+            dataFromMap.put(PWD, "Test_12345");
+        }
+        return dataFromMap;
     }
 }
