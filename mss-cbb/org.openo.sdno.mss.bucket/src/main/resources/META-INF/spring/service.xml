@@ -44,6 +44,8 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testWhileIdle" value="true" />
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
