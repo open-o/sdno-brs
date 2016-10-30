@@ -26,8 +26,8 @@
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:jdbc.properties" />
-    </bean> 
-    
+    </bean>
+
     <bean id="vxlandb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}" />
         <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/vxlandb?useUnicode=true&amp;characterEncoding=utf-8" />
@@ -36,6 +36,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -50,6 +51,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -63,6 +65,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -76,6 +79,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -89,6 +93,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -102,6 +107,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -115,6 +121,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -128,6 +135,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -141,6 +149,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -154,6 +163,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -167,6 +177,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
@@ -180,6 +191,7 @@
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="50" />
         <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
         <property name="testWhileIdle" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="600000" />
