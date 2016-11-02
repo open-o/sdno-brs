@@ -1,0 +1,1535 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "BRS NBI",
+        "description": "API of SDN-O Lifecycle Brs service",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/openoapi/sdnobrs/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/commparammgmt/access-objects/{objectId}/commparams": {
+            "post": {
+                "summary": "Create commparams",
+                "description": "it will create commparams specified in requests.",
+                "operationId": "createCommparams",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to create commparams",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CommparamResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "create commparams success.",
+                        "schema": {
+                            "$ref": "#/definitions/CommparamRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "create commparams failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "create commparams failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "create commparams failure as inner error."
+                    }
+                }
+            },
+            "get": {
+                "summary": "query commparams",
+                "description": "it will query commparams specified in requests.",
+                "operationId": "queryCommparams",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query commparams success.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Commparam"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "query commparams failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query commparams failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query commparams failure as inner error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete commparams",
+                "description": "it will delete commparams specified in requests.",
+                "operationId": "deleteCommparams",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delete commparams success."
+                    },
+                    "400": {
+                        "description": "delete commparams failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "delete commparams failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "delete commparams failure as inner error."
+                    }
+                }
+            }
+        },
+        "/commparammgmt/access-objects/{objectId}/commparams/{paramID}": {
+            "get": {
+                "summary": "query commparam",
+                "description": "it will query commparam specified in requests.",
+                "operationId": "queryCommparam",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "paramID",
+                        "in": "path",
+                        "description": "commparam UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query commparam success.",
+                        "schema": {
+                            "$ref": "#/definitions/Commparam"
+                        }
+                    },
+                    "400": {
+                        "description": "query commparam failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query commparam failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query commparam failure as inner error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "update commparam",
+                "description": "it will update commparam specified in requests.",
+                "operationId": "updateCommparam",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "paramID",
+                        "in": "path",
+                        "description": "commparam UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to update commparams",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CommparamResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "update commparam success."
+                    },
+                    "400": {
+                        "description": "update commparam failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "update commparam failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "update commparam failure as inner error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete commparam",
+                "description": "it will delete commparam specified in requests.",
+                "operationId": "deleteCommparam",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "paramID",
+                        "in": "path",
+                        "description": "commparam UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delete commparam success."
+                    },
+                    "400": {
+                        "description": "delete commparam failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "delete commparam failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "delete commparam failure as inner error."
+                    }
+                }
+            }
+        },
+        "/controller": {
+            "post": {
+                "summary": "Create controller",
+                "description": "it will create controller specified in requests.",
+                "operationId": "createController",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to create controller",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ControllerResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "create controller success.",
+                        "schema": {
+                            "$ref": "#/definitions/ControllerRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "create controller failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "create controller failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "create controller failure as inner error."
+                    }
+                }
+            }
+        },
+        "/controller/{objectId}": {
+            "get": {
+                "summary": "query controller",
+                "description": "it will query controller specified in requests.",
+                "operationId": "queryController",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query controller success.",
+                        "schema": {
+                            "$ref": "#/definitions/Controller"
+                        }
+                    },
+                    "400": {
+                        "description": "query controller failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query controller failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query controller failure as inner error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "update controller",
+                "description": "it will update controller specified in requests.",
+                "operationId": "updateController",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to update controller",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ControllerResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "update controller success."
+                    },
+                    "400": {
+                        "description": "update controller failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "update controller failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "update controller failure as inner error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete controller",
+                "description": "it will delete controller specified in requests.",
+                "operationId": "deleteController",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "controller UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delete controller success."
+                    },
+                    "400": {
+                        "description": "delete controller failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "delete controller failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "delete controller failure as inner error."
+                    }
+                }
+            }
+        },
+        "/logical-termination-points": {
+            "post": {
+                "summary": "Create LogicalTPResource",
+                "description": "it will create LogicalTPResource specified in requests.",
+                "operationId": "createLogicalTPResource",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to create LogicalTPResource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "create LogicalTPResource success.",
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "create LogicalTPResource failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "create LogicalTPResource failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "create LogicalTPResource failure as inner error."
+                    }
+                }
+            },
+            "get": {
+                "summary": "query LogicalTPResources",
+                "description": "it will query LogicalTPResources specified in requests.",
+                "operationId": "queryLogicalTPResources",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "queryString",
+                        "in": "path",
+                        "description": "query string",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query LogicalTPResources success.",
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceResult"
+                        }
+                    },
+                    "400": {
+                        "description": "query LogicalTPResources failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query LogicalTPResources failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query LogicalTPResources failure as inner error."
+                    }
+                }
+            }
+        },
+        "/logical-termination-points/{objectId}": {
+            "get": {
+                "summary": "query LogicalTPResource",
+                "description": "it will query LogicalTPResource specified in requests.",
+                "operationId": "queryLogicalTPResource",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "LogicalTPResource UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query LogicalTPResource success.",
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceResult"
+                        }
+                    },
+                    "400": {
+                        "description": "query LogicalTPResource failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query LogicalTPResource failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query LogicalTPResource failure as inner error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "update LogicalTPResource",
+                "description": "it will update LogicalTPResource specified in requests.",
+                "operationId": "updateLogicalTPResource",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "LogicalTPResource UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to update LogicalTPResource",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "update LogicalTPResource success.",
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "update LogicalTPResource failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "update LogicalTPResource failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "update LogicalTPResource failure as inner error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete LogicalTPResource",
+                "description": "it will delete LogicalTPResource specified in requests.",
+                "operationId": "deleteLogicalTPResource",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "LogicalTPResource UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delete LogicalTPResource success.",
+                        "schema": {
+                            "$ref": "#/definitions/LogicalTPResourceRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "delete LogicalTPResource failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "delete LogicalTPResource failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "delete LogicalTPResource failure as inner error."
+                    }
+                }
+            }
+        },
+        "/managed-elements": {
+            "post": {
+                "summary": "Create ManagedElement",
+                "description": "it will create ManagedElement specified in requests.",
+                "operationId": "createManagedElement",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8",
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to create ManagedElement",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "create ManagedElement success.",
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "create ManagedElement failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "create ManagedElement failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "create ManagedElement failure as inner error."
+                    }
+                }
+            },
+            "get": {
+                "summary": "query ManagedElement",
+                "description": "it will query ManagedElement specified in requests.",
+                "operationId": "queryManagedElement",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "queryString",
+                        "in": "path",
+                        "description": "query string",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query ManagedElement success.",
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementResult"
+                        }
+                    },
+                    "400": {
+                        "description": "query ManagedElement failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query ManagedElement failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query ManagedElement failure as inner error."
+                    }
+                }
+            }
+        },
+        "/managed-elements/{objectId}": {
+            "get": {
+                "summary": "query ManagedElement",
+                "description": "it will query ManagedElement specified in requests.",
+                "operationId": "queryManagedElement",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "ManagedElement UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "query ManagedElement success.",
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementResult"
+                        }
+                    },
+                    "400": {
+                        "description": "query ManagedElement failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "query ManagedElement failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "query ManagedElement failure as inner error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "update ManagedElement",
+                "description": "it will update ManagedElement specified in requests.",
+                "operationId": "updateManagedElement",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "ManagedElement UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "a map which contains the configurations used to update ManagedElement",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementResq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "update ManagedElement success.",
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "update ManagedElement failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "update ManagedElement failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "update ManagedElement failure as inner error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete ManagedElement",
+                "description": "it will delete ManagedElement specified in requests.",
+                "operationId": "deleteManagedElement",
+                "consumes": [
+                    "application/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "objectId",
+                        "in": "path",
+                        "description": "ManagedElement UUID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delete ManagedElement success.",
+                        "schema": {
+                            "$ref": "#/definitions/ManagedElementRsp"
+                        }
+                    },
+                    "400": {
+                        "description": "delete ManagedElement failure as parameters invalid."
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    },
+                    "404": {
+                        "description": "delete ManagedElement failure as can't reach server."
+                    },
+                    "500": {
+                        "description": "delete ManagedElement failure as inner error."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CommparamResq": {
+            "type": "object",
+            "properties": {
+                "commparam": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Commparam"
+                        }
+                    },
+                    "description": "Commparam map"
+                }
+            }
+        },
+        "Commparam": {
+            "type": "object",
+            "properties": {
+                "objectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "controller uuid"
+                },
+                "hostName": {
+                    "type": "string",
+                    "description": "ip adress"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "protocol type"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "port"
+                },
+                "commParams": {
+                    "type": "string",
+                    "description": "commparam list that contain user name and password"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "commparam uuid"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "commparam description"
+                },
+                "createtime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "create time"
+                },
+                "updatetime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "update time"
+                },
+                "auditOperLogSn": {
+                    "type": "string",
+                    "description": "audit operate log sign"
+                },
+                "auditUserName": {
+                    "type": "string",
+                    "description": "audit user name"
+                },
+                "auditUserID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit user uuid"
+                },
+                "auditTerminal": {
+                    "type": "string",
+                    "description": "audit terminal"
+                },
+                "auditDomianName": {
+                    "type": "string",
+                    "description": "audit domian name"
+                },
+                "auditDomianID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit domian uuid"
+                }
+            }
+        },
+        "CommparamRsp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "commparam uuid"
+                }
+            }
+        },
+        "ControllerResq": {
+            "type": "object",
+            "properties": {
+                "controller": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Controller"
+                        }
+                    },
+                    "description": "Controller map"
+                }
+            }
+        },
+        "Controller": {
+            "type": "object",
+            "properties": {
+                "objectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "objectId"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "controller name"
+                },
+                "productName": {
+                    "type": "string",
+                    "description": "product name"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "version"
+                },
+                "slaveHostName": {
+                    "type": "string",
+                    "description": "slave host name"
+                },
+                "hostName": {
+                    "type": "string",
+                    "description": "ip adress"
+                },
+                "vendor": {
+                    "type": "string",
+                    "description": "vendor"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "controller description"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "controller uuid"
+                },
+                "createtime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "create time"
+                },
+                "updatetime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "update time"
+                },
+                "auditOperLogSn": {
+                    "type": "string",
+                    "description": "audit operate log sign"
+                },
+                "auditUserName": {
+                    "type": "string",
+                    "description": "audit user name"
+                },
+                "auditUserID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit user uuid"
+                },
+                "auditTerminal": {
+                    "type": "string",
+                    "description": "audit terminal"
+                },
+                "auditDomianName": {
+                    "type": "string",
+                    "description": "audit domian name"
+                },
+                "auditDomianID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit domian uuid"
+                }
+            }
+        },
+        "ControllerRsp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "controller uuid"
+                }
+            }
+        },
+        "LogicalTPResourceResq": {
+            "type": "object",
+            "properties": {
+                "LogicalTPResource": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/LogicalTPResource"
+                        }
+                    },
+                    "description": "LogicalTPResource map"
+                }
+            }
+        },
+        "LogicalTPResourceResult": {
+            "type": "object",
+            "properties": {
+                "LogicalTPResource": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "items": {
+                            "$ref": "#/definitions/LogicalTPResource"
+                        }
+                    },
+                    "description": "LogicalTPResource map"
+                }
+            }
+        },
+        "LogicalTPResource": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "LogicalTPResource name"
+                },
+                "meID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "meID"
+                },
+                "logicalType": {
+                    "type": "string",
+                    "enums": [
+                        "ETH",
+                        "POS",
+                        "Trunk",
+                        "Loopback"
+                    ],
+                    "description": "logical Type"
+                },
+                "layerRate": {
+                    "type": "string",
+                    "description": "layer Rate"
+                },
+                "isEdgePoint": {
+                    "type": "string",
+                    "enums": [
+                        true,
+                        false
+                    ],
+                    "description": "is Edge Point"
+                },
+                "portIndex": {
+                    "type": "string",
+                    "description": "port Index"
+                },
+                "source": {
+                    "type": "string",
+                    "enums": [
+                        "network_me",
+                        "os",
+                        "network_ems",
+                        "user"
+                    ],
+                    "description": "source type"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "owner"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "ipAddress"
+                },
+                "adminState": {
+                    "type": "string",
+                    "enums": [
+                        "active",
+                        "inactive"
+                    ],
+                    "description": "adminState"
+                },
+                "operState": {
+                    "type": "string",
+                    "enums": [
+                        "up",
+                        "down",
+                        "unknown"
+                    ],
+                    "description": "operState"
+                },
+                "direction": {
+                    "type": "string",
+                    "enums": [
+                        "D_NA",
+                        "D_BIDIRECTIONAL",
+                        "D_SOURCE",
+                        "D_SINK"
+                    ],
+                    "description": "direction"
+                },
+                "phyBW": {
+                    "type": "string",
+                    "description": "phyBW"
+                },
+                "ipMask": {
+                    "type": "string",
+                    "description": "ipMask"
+                },
+                "nativeID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "nativeID"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "macAddress"
+                },
+                "tenantID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "tenantID"
+                },
+                "usageState": {
+                    "type": "string",
+                    "enums": [
+                        "unused",
+                        "used"
+                    ],
+                    "description": "usageState"
+                },
+                "containedLayers": {
+                    "type": "string",
+                    "description": "containedLayers"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "LogicalTPResource uuid"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "LogicalTPResource description"
+                },
+                "createtime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "create time"
+                },
+                "updatetime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "update time"
+                },
+                "auditOperLogSn": {
+                    "type": "string",
+                    "description": "audit operate log sign"
+                },
+                "auditUserName": {
+                    "type": "string",
+                    "description": "audit user name"
+                },
+                "auditUserID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit user uuid"
+                },
+                "auditTerminal": {
+                    "type": "string",
+                    "description": "audit terminal"
+                },
+                "auditDomianName": {
+                    "type": "string",
+                    "description": "audit domian name"
+                },
+                "auditDomianID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit domian uuid"
+                }
+            }
+        },
+        "LogicalTPResourceRsp": {
+            "type": "object",
+            "properties": {
+                "logicalTerminationPoint": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "String"
+                    },
+                    "description": "LogicalTPResource map"
+                }
+            }
+        },
+        "ManagedElementResq": {
+            "type": "object",
+            "properties": {
+                "ManagedElement": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/ManagedElement"
+                        }
+                    },
+                    "description": "ManagedElement map"
+                }
+            }
+        },
+        "ManagedElementResult": {
+            "type": "object",
+            "properties": {
+                "ManagedElement": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "items": {
+                            "$ref": "#/definitions/ManagedElement"
+                        }
+                    },
+                    "description": "ManagedElement map"
+                }
+            }
+        },
+        "ManagedElement": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "ManagedElement name"
+                },
+                "logicID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "logicID"
+                },
+                "phyNeID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "phyNeID"
+                },
+                "productName": {
+                    "type": "string",
+                    "description": "productName"
+                },
+                "isVirtual": {
+                    "type": "string",
+                    "enums": [
+                        true,
+                        false
+                    ],
+                    "description": "is Virtual"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "ipAddress"
+                },
+                "source": {
+                    "type": "string",
+                    "enums": [
+                        "network_me",
+                        "os",
+                        "network_ems",
+                        "user"
+                    ],
+                    "description": "source type"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "owner"
+                },
+                "adminState": {
+                    "type": "string",
+                    "enums": [
+                        "active",
+                        "inactive"
+                    ],
+                    "description": "adminState"
+                },
+                "operState": {
+                    "type": "string",
+                    "enums": [
+                        "up",
+                        "down",
+                        "unknown"
+                    ],
+                    "description": "operState"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "serial Number"
+                },
+                "neRole": {
+                    "type": "string",
+                    "description": "neRole"
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "description": "manufacturer"
+                },
+                "manufactureDate": {
+                    "type": "string",
+                    "description": "manufactureDate"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "location"
+                },
+                "managementDomainID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "managementDomainID"
+                },
+                "controllerID": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "description": "controller ID"
+                },
+                "siteID": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "description": "site ID"
+                },
+                "nativeID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "native ID"
+                },
+                "networkControlDomainID": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "description": "networkControlDomain ID"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "version"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ManagedElement uuid"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "ManagedElement description"
+                },
+                "createtime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "create time"
+                },
+                "updatetime": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "update time"
+                },
+                "auditOperLogSn": {
+                    "type": "string",
+                    "description": "audit operate log sign"
+                },
+                "auditUserName": {
+                    "type": "string",
+                    "description": "audit user name"
+                },
+                "auditUserID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit user uuid"
+                },
+                "auditTerminal": {
+                    "type": "string",
+                    "description": "audit terminal"
+                },
+                "auditDomianName": {
+                    "type": "string",
+                    "description": "audit domian name"
+                },
+                "auditDomianID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "audit domian uuid"
+                }
+            }
+        },
+        "ManagedElementRsp": {
+            "type": "object",
+            "properties": {
+                "ManagedElement": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "String",
+                        "description": "ManagedElement map"
+                    }
+                }
+            }
+        }
+    }
+}
