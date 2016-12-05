@@ -80,6 +80,10 @@
         select count(uuid) from ${tableName} where ${filter}
     </select>
 
+    <select id="checkBasicAttrDataExist" parameterType="org.openo.sdno.mss.dao.pojo.InvBasicCheckerPojo" resultType="int">
+        select count(uuid) from ${tblName} where ${attrName}='${attrVal}'
+    </select>
+
     <!-- Query the number of the specified attibute that satisfy filtering conditions -->
     <select id="getStatCnt" parameterType="org.openo.sdno.mss.dao.pojo.InvStatPojo" resultType="int">
         select count(${countAttrName}) from ${tableName}
