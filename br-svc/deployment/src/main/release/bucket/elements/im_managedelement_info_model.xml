@@ -29,16 +29,18 @@
             <property name="source" type="string" length="64" />
             <property name="owner" type="string" length="36" />
             <property name="adminState" type="string" length="32" />
+            <property name="operState" type="string" length="32" />
+            <property name="serialNumber" type="string" length="32" />
             <property name="nativeID" type="string" length="64" />
+            <property name="neRole" type="string" length="255" />
+            <property name="popID" type="string" length="36" />
         </basic>
         <extension>
             <property name="description" type="string" length="255" />
-            <property name="operState" type="string" length="32" />
             <property name="location" type="string" length="255" />
-            <property name="serialNumber" type="string" length="32" />
             <property name="manufacturer" type="string" length="32" />
             <property name="manufactureDate" type="string" length="32" />
+            <property name="accessIPVersion" type="string" length="32" />
         </extension>
     </infomodel>
 </inventory>
-

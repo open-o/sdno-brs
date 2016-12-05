@@ -36,6 +36,8 @@ public class Constant {
 
     public static final String COMMONPARAMETER = "commparam";
 
+    public static final String POP_KEY = "pop";
+
     public static final String SITE_KEY = "site";
 
     public static final String MANAGEMENTDOMAIN_KEY = "managementDomain";

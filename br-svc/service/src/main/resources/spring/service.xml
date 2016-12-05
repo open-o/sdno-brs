@@ -40,6 +40,7 @@
             <ref bean="logicalTPResource"></ref>
             <ref bean="managedElementResource"></ref>
             <ref bean="topologicalLinkResource"></ref>
+            <ref bean="popResource"></ref>
             <ref bean="statisticsResource"></ref>
             <ref bean="networkControlDomainResource"></ref>
             <ref bean="swaggerRoa"></ref>
@@ -68,8 +69,17 @@
     <bean id="logicalTPResource" class="org.openo.sdno.brs.resource.LogicalTPResource">
         <property name="service" ref="logicalTPService" />
     </bean>
+    
     <bean id="topologicalLinkResource" class="org.openo.sdno.brs.resource.TopologicalLinkResource">
         <property name="service" ref="topologicalLinkService" />
+    </bean>
+
+    <bean id="managedElementResource" class="org.openo.sdno.brs.resource.ManagedElementResource">
+        <property name="service" ref="managedElementService" />
+    </bean>
+
+    <bean id="popResource" class="org.openo.sdno.brs.resource.PopResource">
+        <property name="service" ref="popService" />
     </bean>
 
     <bean id="statisticsResource" class="org.openo.sdno.brs.resource.StatisticsResource">
@@ -143,14 +153,11 @@
         <property name="bucketName" value="brsdb"></property>
         <property name="resourceTypeName" value="terminationpoint"></property>
     </bean>
+
     <bean id="tpRelationService" class="org.openo.sdno.brs.service.impl.RelationServiceImpl">
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="bucketName" value="brsdb"></property>
         <property name="resourceTypeName" value="managedelement"></property>
-    </bean>
-
-    <bean id="managedElementResource" class="org.openo.sdno.brs.resource.ManagedElementResource">
-        <property name="service" ref="managedElementService" />
     </bean>
 
     <bean id="managedElementService" class="org.openo.sdno.brs.service.impl.ManagedElementServiceImpl">
@@ -166,6 +173,14 @@
         <property name="controllerResTypeName" value="controller" />
     </bean>
 
+    <bean id="popService" class="org.openo.sdno.brs.service.impl.PopServiceImpl">
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="pop"></property>
+        <property name="popQueryService" ref="popQueryService" />
+        <property name="popOperService" ref="popOperService"></property>
+    </bean>
+
     <bean id="meRelationService" class="org.openo.sdno.brs.service.impl.RelationServiceImpl">
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="bucketName" value="brsdb"></property>
@@ -177,6 +192,7 @@
         <property name="bucketName" value="brsdb" />
         <property name="resourceTypeName" value="managedelement" />
     </bean>
+
     <bean id="siteQueryService" class="org.openo.sdno.brs.service.impl.ResWithRelationQueryServiceImpl">
         <property name="mssProxy" ref="mssProxy" />
         <property name="bucketName" value="brsdb" />
@@ -188,6 +204,12 @@
         <property name="bucketName" value="brsdb" />
         <property name="resourceTypeName" value="managedelement" />
     </bean>
+    
+    <bean id="popQueryService" class="org.openo.sdno.brs.service.impl.ResWithRelationQueryServiceImpl">
+        <property name="mssProxy" ref="mssProxy" />
+        <property name="bucketName" value="brsdb" />
+        <property name="resourceTypeName" value="pop" />
+    </bean>
 
     <bean id="networkControlDomainService" class="org.openo.sdno.brs.service.impl.NetworkControlDomainServiceImpl">
         <property name="mssProxy" ref="mssProxy" />
@@ -195,6 +217,13 @@
         <property name="resourceTypeName" value="networkcontroldomain" />
         <property name="ncdOpreateService" ref="ncdOperService"></property>
         <property name="meRelationService" ref="meRelationService"></property>
+    </bean>
+    
+    <bean id="popOperService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">
+        <property name="mssProxy" ref="mssProxy"></property>
+        <property name="brsCheckerService" ref="brsChecker"></property>
+        <property name="bucketName" value="brsdb"></property>
+        <property name="resourceTypeName" value="pop"></property>
     </bean>
 
     <bean id="ncdOperService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">

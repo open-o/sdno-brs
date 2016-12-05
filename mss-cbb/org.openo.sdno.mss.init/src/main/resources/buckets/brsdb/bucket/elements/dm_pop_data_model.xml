@@ -16,19 +16,9 @@
 -->
 
 <inventory xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.w3school.com.cn inv-infomodule-1.0.xsd">
-    <infomodel name="site" datamodel="inv_site" version="1.0">
-        <!--basic property -->
-        <basic>
-            <property name="name" type="string" length="255" />
-            <property name="type" type="string" length="36" />
-            <property name="tenantID" type="string" length="36" />
-            <property name="location" type="string" length="255" />
-        </basic>
-
-        <!-- extension -->
-        <extension>
-            <property name="description" type="string" length="255" />
-        </extension>
-    </infomodel>
+    xsi:schemaLocation="http://www.w3school.com.cn inv_datamodel-1.0.xsd">
+    <datamodel name="inv_pop">
+        <index name="idx_pop_u1" value="name" isunique="true" />
+        <filter name="default" value="id in (:id) and name like '%:name%' and controllerID in (:controllerID)" />
+    </datamodel>
 </inventory>

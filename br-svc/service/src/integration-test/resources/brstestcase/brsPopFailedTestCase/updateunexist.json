@@ -1,0 +1,28 @@
+{
+	"request":
+	{
+		"uri": "/openoapi/sdnobrs/v1/pops/unexistuuid",
+		"method": "put",
+		"headers":{"Content-Type":"application/json;charset=UTF-8"},
+		"json":
+		{
+            "pop":
+            {
+                "description":"description2",
+                "name":"pop2",
+                "location":"location",
+                "area":"area",
+                "source":"source",
+                "controllerID":"controllerId",
+                "dcGW":"dcGW",
+                "internetGW":"internetGW",
+                "siteGW":"siteGw",
+                "managedGW":"managedGw"
+            }
+		}
+	},
+	"response":
+	{
+		"status":500
+	}
+}

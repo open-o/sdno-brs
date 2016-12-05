@@ -1,0 +1,26 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnobrs/v1/pops",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			"pop": {
+				"name": "pop",
+				"description": "description",
+				"location": "location",
+				"area": "area",
+				"source": "source",
+				"controllerID": "controllerId",
+				"dcGW": "dcGW",
+				"internetGW": "internetGW",
+				"siteGW": "siteGw",
+				"managedGW": "managedGw"
+			}
+		}
+	},
+	"response": {
+		"status": 200
+	}
+}

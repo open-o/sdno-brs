@@ -23,12 +23,12 @@
             <property name="name" type="string" length="255" />
             <property name="type" type="string" length="36" />
             <property name="tenantID" type="string" length="36" />
+            <property name="location" type="string" length="255" />
         </basic>
 
         <!-- extension -->
         <extension>
             <property name="description" type="string" length="255" />
-            <property name="location" type="string" length="255" />
         </extension>
     </infomodel>
 </inventory>

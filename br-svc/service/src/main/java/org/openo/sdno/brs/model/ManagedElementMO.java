@@ -161,6 +161,13 @@ public final class ManagedElementMO extends Resource {
     private String nativeID;
 
     /**
+     * pop ID
+     */
+    @StrRule(range = "0-36", paramName = "popID")
+    @SupportFilter
+    private String popID;
+
+    /**
      * manage domain ID
      */
     @RelationField(dbName = "networkControlDomainID", modelName = "networkcontroldomain", paraName = "networkControlDomainID")
@@ -288,58 +295,34 @@ public final class ManagedElementMO extends Resource {
         this.manufactureDate = manufactureDate;
     }
 
-    /**
-     * @return Returns the location.
-     */
     public String getLocation() {
         return location;
     }
 
-    /**
-     * @param location The location to set.
-     */
     public void setLocation(String location) {
         this.location = location;
     }
 
-    /**
-     * @return Returns the managementDomainID.
-     */
     public String getManagementDomainID() {
         return managementDomainID;
     }
 
-    /**
-     * @param managementDomainID The managementDomainID to set.
-     */
     public void setManagementDomainID(String managementDomainID) {
         this.managementDomainID = managementDomainID;
     }
 
-    /**
-     * @return Returns the controllerID.
-     */
     public List<String> getControllerID() {
         return controllerID;
     }
 
-    /**
-     * @param controllerID The controllerID to set.
-     */
     public void setControllerID(List<String> controllerID) {
         this.controllerID = controllerID;
     }
 
-    /**
-     * @return Returns the siteID.
-     */
     public List<String> getSiteID() {
         return siteID;
     }
 
-    /**
-     * @param siteID The siteID to set.
-     */
     public void setSiteID(List<String> siteID) {
         this.siteID = siteID;
     }
@@ -358,6 +341,14 @@ public final class ManagedElementMO extends Resource {
 
     public void setNeRole(String neRole) {
         this.neRole = neRole;
+    }
+
+    public String getPopID() {
+        return popID;
+    }
+
+    public void setPopID(String popID) {
+        this.popID = popID;
     }
 
 }

@@ -30,6 +30,7 @@
             <property name="owner" type="string" length="36" />
             <property name="ipAddress" type="string" length="128" />
             <property name="adminState" type="string" length="32" />
+            <property name="operState" type="string" length="32" />
             <property name="nativeID" type="string" length="64" />
         </basic>
 
@@ -37,9 +38,9 @@
         <extension>
             <property name="description" type="string" length="255" />
             <property name="direction" type="string" length="64" />
-            <property name="operState" type="string" length="32" />
             <property name="phyBW" type="string" length="64" />
             <property name="ipMask" type="string" length="64" />
+            <property name="mtu" type="integer"/>
         </extension>
     </infomodel>
 </inventory>
