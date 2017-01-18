@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,8 +65,8 @@ public class ITBrsNeTest extends TestManager {
 
     private static final String DELETE_PATH = "src/integration-test/resources/brstestcase/brsNeTestCase/delete.json";
 
-    private static final String GET_DELETE_PATH =
-            "src/integration-test/resources/brstestcase/brsNeTestCase/getdelete.json";
+    private static final String GET_UNEXIST_PATH =
+            "src/integration-test/resources/brstestcase/brsNeTestCase/getunexist.json";
 
     private static final String DELETE_CONTROLLER_PATH =
             "src/integration-test/resources/brstestcase/brsNeTestCase/deletecontroller.json";
@@ -174,6 +174,15 @@ public class ITBrsNeTest extends TestManager {
     }
 
     @Test
+    public void neGetUnExistTest() {
+        try {
+            doTest("notexistuuid", new File(GET_UNEXIST_PATH));
+        } catch(ServiceException e) {
+            assertFalse(true);
+        }
+    }
+
+    @Test
     public void neDeleteSuccessTest() {
         try {
             String uuid = createNe();
@@ -181,7 +190,7 @@ public class ITBrsNeTest extends TestManager {
             File deleteFile = new File(DELETE_PATH);
             doTest(uuid, deleteFile);
 
-            File queryDeleteFile = new File(GET_DELETE_PATH);
+            File queryDeleteFile = new File(GET_UNEXIST_PATH);
             doTest(uuid, queryDeleteFile);
 
         } catch(ServiceException e) {
@@ -189,6 +198,15 @@ public class ITBrsNeTest extends TestManager {
         } finally {
 
             deleteControllerAndSite();
+        }
+    }
+
+    @Test
+    public void neDeleteUnExistTest() {
+        try {
+            doTest("unexistuuid", new File(DELETE_PATH));
+        } catch(ServiceException e) {
+            assertFalse(true);
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.baseservice.roa.util.restclient.RestfulResponse;
+import org.openo.sdno.brs.exception.HttpCode;
 import org.openo.sdno.testcase.brs.checker.BrsChecker;
 import org.openo.sdno.testcase.brs.checker.SendUtil;
 import org.openo.sdno.testframework.http.model.HttpModelUtils;
@@ -121,11 +123,8 @@ public class ITBrsCommonParamTest extends TestManager {
         File[] listOfFiles = folder.listFiles();
 
         for(File file : listOfFiles) {
-
             if(file.isFile() && file.getName().contains("failure")) {
-
                 sendFailureTest(file, controlleruuid, null);
-
             }
         }
 
@@ -152,8 +151,8 @@ public class ITBrsCommonParamTest extends TestManager {
             HttpRequest request = httpObject.getRequest();
             request.setUri(PathReplace.replaceUuid("objectId", httpObject.getRequest().getUri(), uuid));
             request.setUri(PathReplace.replaceUuid("paramId", httpObject.getRequest().getUri(), paramId));
-            SendUtil.doSend(request);
-            assertFalse(true);
+            RestfulResponse response = SendUtil.doSend(request);
+            assertFalse(HttpCode.isSucess(response.getStatus()));
         } catch(ServiceException e) {
             // this function is used for sending failure cases, exception should be thrown
         }

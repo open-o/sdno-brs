@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,9 +41,6 @@ public class ITBrsControllerFailedTest extends TestManager {
     private static final String CREATE_PATH =
             "src/integration-test/resources/brstestcase/brsControllerFailedTestCase/createfailed.json";
 
-    private static final String GET_PATH =
-            "src/integration-test/resources/brstestcase/brsControllerFailedTestCase/getfailed.json";
-
     private static final String UPDATE_PATH =
             "src/integration-test/resources/brstestcase/brsControllerFailedTestCase/updatefailed.json";
 
@@ -62,15 +59,6 @@ public class ITBrsControllerFailedTest extends TestManager {
             BrsChecker controllerChecker = new BrsChecker(httpObject.getResponse());
 
             execTestCase(httpObject.getRequest(), controllerChecker);
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
-    public void controllerGetFailedTest() {
-        try {
-            doTest("test_failed", new File(GET_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }

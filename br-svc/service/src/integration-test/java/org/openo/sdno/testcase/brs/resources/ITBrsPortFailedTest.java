@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,16 +41,11 @@ public class ITBrsPortFailedTest extends TestManager {
     private static final String CREATE_PATH =
             "src/integration-test/resources/brstestcase/brsPortFailedTestCase/create.json";
 
-    private static final String GET_PATH = "src/integration-test/resources/brstestcase/brsPortFailedTestCase/get.json";
-
     private static final String UPDATE_PATH =
             "src/integration-test/resources/brstestcase/brsPortFailedTestCase/update.json";
 
-    private static final String DELETE_PATH =
-            "src/integration-test/resources/brstestcase/brsPortFailedTestCase/deleteuuidwrong.json";
-
-    private static final String DELETE_FAILED_PATH =
-            "src/integration-test/resources/brstestcase/brsPortFailedTestCase/delete.json";
+    private static final String DELETE_WRONGFORMAT_PATH =
+            "src/integration-test/resources/brstestcase/brsPortFailedTestCase/deletewrongformat.json";
 
     @Test
     public void portCreateFailedTest() {
@@ -67,15 +62,6 @@ public class ITBrsPortFailedTest extends TestManager {
     }
 
     @Test
-    public void portGetFailedTest() {
-        try {
-            doTest("test_failed", new File(GET_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
     public void portUpdateFailedTest() {
         try {
             doTest("test_failed", new File(UPDATE_PATH));
@@ -85,18 +71,9 @@ public class ITBrsPortFailedTest extends TestManager {
     }
 
     @Test
-    public void portDeleteUuidWrongTest() {
+    public void portDeleteWrongFormat() {
         try {
-            doTest("test_failed", new File(DELETE_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
-    public void portDeleteFailed() {
-        try {
-            doTest("test_failed", new File(DELETE_FAILED_PATH));
+            doTest("34488484+-484848", new File(DELETE_WRONGFORMAT_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }

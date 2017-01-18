@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,17 +73,11 @@ public class ITBrsLinkFailedTest extends TestManager {
     private static final String CREATE_EXIST_FAILED_PATH =
             "src/integration-test/resources/brstestcase/brsLinkFailedTestCase/createxistfailed.json";
 
-    private static final String GET_FAILED_PATH =
-            "src/integration-test/resources/brstestcase/brsLinkFailedTestCase/getfailed.json";
-
     private static final String UPDATE_FAILED_PATH =
             "src/integration-test/resources/brstestcase/brsLinkFailedTestCase/updatefailed.json";
 
     private static final String DELETE_PATH =
             "src/integration-test/resources/brstestcase/brsLinkFailedTestCase/delete.json";
-
-    private static final String DELETE_FAILED_PATH =
-            "src/integration-test/resources/brstestcase/brsLinkFailedTestCase/deletefailed.json";
 
     private String aEndMeUuid = null;
 
@@ -147,28 +141,9 @@ public class ITBrsLinkFailedTest extends TestManager {
     }
 
     @Test
-    public void linkGetUnexistFailedTest() {
-        try {
-            doTest("testUuidForGet", new File(GET_FAILED_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
     public void linkUpdateUnexistFailedTest() {
         try {
             doTest("testUuidForUpdate", new File(UPDATE_FAILED_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
-    public void linkDeleteUnexistFailedTest() {
-        try {
-            doTest("testUuidForDelete", new File(DELETE_FAILED_PATH));
-
         } catch(ServiceException e) {
             assertFalse(true);
         }

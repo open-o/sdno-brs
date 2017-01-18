@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,16 +41,11 @@ public class ITBrsNeFailedTest extends TestManager {
     private static final String CREATE_PATH =
             "src/integration-test/resources/brstestcase/brsNeFailedTestCase/create.json";
 
-    private static final String GET_PATH = "src/integration-test/resources/brstestcase/brsNeFailedTestCase/get.json";
-
     private static final String UPDATE_PATH =
             "src/integration-test/resources/brstestcase/brsNeFailedTestCase/update.json";
 
-    private static final String DELETE_PATH =
-            "src/integration-test/resources/brstestcase/brsNeFailedTestCase/deleteuuidwrong.json";
-
-    private static final String DELETE_FAILED_PATH =
-            "src/integration-test/resources/brstestcase/brsNeFailedTestCase/delete.json";
+    private static final String DELETE_FORMATWRONG_PATH =
+            "src/integration-test/resources/brstestcase/brsNeFailedTestCase/deleteformatwrong.json";
 
     @Test
     public void neCreateFailedTest() {
@@ -67,15 +62,6 @@ public class ITBrsNeFailedTest extends TestManager {
     }
 
     @Test
-    public void neGetFailedTest() {
-        try {
-            doTest("test_failed", new File(GET_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
     public void neUpdateFailedTest() {
         try {
             doTest("test_failed", new File(UPDATE_PATH));
@@ -85,18 +71,9 @@ public class ITBrsNeFailedTest extends TestManager {
     }
 
     @Test
-    public void neDeleteUuidWrongTest() {
+    public void neDeleteFormatWrongTest() {
         try {
-            doTest("test_failed", new File(DELETE_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
-    public void neDeleteFailed() {
-        try {
-            doTest("test_failed", new File(DELETE_FAILED_PATH));
+            doTest("234+45", new File(DELETE_FORMATWRONG_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,16 +41,11 @@ public class ITBrsSiteFailedTest extends TestManager {
     private static final String CREATE_PATH =
             "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/create.json";
 
-    private static final String GET_PATH = "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/get.json";
-
     private static final String UPDATE_PATH =
             "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/update.json";
 
-    private static final String DELETE_PATH =
-            "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/deleteuuidwrong.json";
-
-    private static final String DELETE_FAILED_PATH =
-            "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/delete.json";
+    private static final String DELETE_WRONGFORMAT_PATH =
+            "src/integration-test/resources/brstestcase/brsSiteFailedTestCase/deletewrongformat.json";
 
     @Test
     public void siteCreateFailedTest() {
@@ -67,15 +62,6 @@ public class ITBrsSiteFailedTest extends TestManager {
     }
 
     @Test
-    public void siteGetFailedTest() {
-        try {
-            doTest("test_failed", new File(GET_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
     public void siteUpdateFailedTest() {
         try {
             doTest("test_failed", new File(UPDATE_PATH));
@@ -85,18 +71,9 @@ public class ITBrsSiteFailedTest extends TestManager {
     }
 
     @Test
-    public void siteDeleteUuidWrongTest() {
+    public void siteDeleteWrongFormatTest() {
         try {
-            doTest("test_failed", new File(DELETE_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        }
-    }
-
-    @Test
-    public void siteDeleteFailed() {
-        try {
-            doTest("test_failed", new File(DELETE_FAILED_PATH));
+            doTest("344+77", new File(DELETE_WRONGFORMAT_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }

@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "/openoapi/sdnobrs/v1/logical-termination-points/{objectId}",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"logicalTerminationPoint":{}
+	   }
+	}
+}

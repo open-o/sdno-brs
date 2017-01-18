@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,12 +68,12 @@ public class ITBrsLinkTest extends TestManager {
     private static final String GET_LIST_PATH =
             "src/integration-test/resources/brstestcase/brsLinkTestCase/getlist.json";
 
-    private static final String GET_DELETE_PATH =
-            "src/integration-test/resources/brstestcase/brsLinkTestCase/getdelete.json";
-
     private static final String UPDATE_PATH = "src/integration-test/resources/brstestcase/brsLinkTestCase/update.json";
 
     private static final String DELETE_PATH = "src/integration-test/resources/brstestcase/brsLinkTestCase/delete.json";
+
+    private static final String GET_UNEXIST_PATH =
+            "src/integration-test/resources/brstestcase/brsLinkTestCase/getunexist.json";
 
     private String aEndMeUuid = null;
 
@@ -167,11 +167,29 @@ public class ITBrsLinkTest extends TestManager {
 
             doTest(uuid, new File(DELETE_PATH));
 
-            doTest(uuid, new File(GET_DELETE_PATH));
+            doTest(uuid, new File(GET_UNEXIST_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         } finally {
             deletePreSetResource();
+        }
+    }
+
+    @Test
+    public void linkDeleteUnexistTest() {
+        try {
+            doTest("UnExistUuid", new File(DELETE_PATH));
+        } catch(ServiceException e) {
+            assertFalse(true);
+        }
+    }
+
+    @Test
+    public void linkGetUnexistTest() {
+        try {
+            doTest("UnExistUuid", new File(GET_UNEXIST_PATH));
+        } catch(ServiceException e) {
+            assertFalse(true);
         }
     }
 
