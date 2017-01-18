@@ -46,9 +46,6 @@ public class ITMssResourceFailedTest extends TestManager {
     private static final String CREATE_PATH =
             "src/integration-test/resources/msstestcase/mssResourceFailedTestCase/create.json";
 
-    private static final String GET_PATH =
-            "src/integration-test/resources/msstestcase/mssResourceFailedTestCase/get.json";
-
     private static final String UPDATE_PATH =
             "src/integration-test/resources/msstestcase/mssResourceFailedTestCase/update.json";
 
@@ -86,21 +83,6 @@ public class ITMssResourceFailedTest extends TestManager {
             uuid = createPreSetResource();
 
             doTest(uuid, new File(UPDATE_PATH));
-        } catch(ServiceException e) {
-            assertFalse(true);
-        } finally {
-            deletePreSetResource(uuid);
-        }
-    }
-
-    @Test
-    public void resourceGetFailedTest() {
-        String uuid = null;
-        try {
-            uuid = createPreSetResource();
-
-            doTest(uuid, new File(GET_PATH));
-
         } catch(ServiceException e) {
             assertFalse(true);
         } finally {

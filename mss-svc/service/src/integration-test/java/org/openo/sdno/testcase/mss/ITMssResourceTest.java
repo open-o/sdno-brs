@@ -70,8 +70,8 @@ public class ITMssResourceTest extends TestManager {
     private static final String DELETE_RESOURCE_PATH =
             "src/integration-test/resources/msstestcase/mssResourceTestCase/deleteresource.json";
 
-    private static final String GET_DELETE_PATH =
-            "src/integration-test/resources/msstestcase/mssResourceTestCase/getdelete.json";
+    private static final String GET_UNEXIST_PATH =
+            "src/integration-test/resources/msstestcase/mssResourceTestCase/getunexist.json";
 
     @Test
     public void resourceCreateSuccessTest() {
@@ -179,7 +179,7 @@ public class ITMssResourceTest extends TestManager {
 
             doTest(uuid, new File(DELETE_RESOURCE_PATH));
 
-            doTest(uuid, new File(GET_DELETE_PATH));
+            doTest(uuid, new File(GET_UNEXIST_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }
@@ -192,7 +192,7 @@ public class ITMssResourceTest extends TestManager {
 
             doTest(uuid, new File(BATCH_DELETE_PATH));
 
-            doTest(uuid, new File(GET_DELETE_PATH));
+            doTest(uuid, new File(GET_UNEXIST_PATH));
         } catch(ServiceException e) {
             assertFalse(true);
         }

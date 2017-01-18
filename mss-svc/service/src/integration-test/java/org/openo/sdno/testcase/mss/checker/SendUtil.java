@@ -21,8 +21,8 @@ import java.util.Map;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.framework.container.resthelper.RestfulProxy;
 import org.openo.sdno.testframework.http.model.HttpRequest;
+import org.openo.sdno.testframework.restclient.HttpRestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +35,8 @@ import org.slf4j.LoggerFactory;
 public class SendUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SendUtil.class);
+
+    private static final HttpRestClient restClient = new HttpRestClient();
 
     private SendUtil() {
     }
@@ -64,16 +66,16 @@ public class SendUtil {
 
         switch(method) {
             case "post": {
-                return RestfulProxy.post(url, restfulParametes);
+                return restClient.post(url, restfulParametes);
             }
             case "get": {
-                return RestfulProxy.get(url, restfulParametes);
+                return restClient.get(url, restfulParametes);
             }
             case "put": {
-                return RestfulProxy.put(url, restfulParametes);
+                return restClient.put(url, restfulParametes);
             }
             case "delete": {
-                return RestfulProxy.delete(url, restfulParametes);
+                return restClient.delete(url, restfulParametes);
             }
             default: {
                 LOGGER.error("The method is invalid.");
