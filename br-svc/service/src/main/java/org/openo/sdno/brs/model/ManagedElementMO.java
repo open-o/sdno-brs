@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -129,6 +129,12 @@ public final class ManagedElementMO extends Resource {
      */
     @StrRule(range = "0-255", paramName = "location")
     private String location;
+
+    /**
+     * Access Ip Version
+     */
+    @StrRule(range = "0-32", paramName = "accessIPVersion")
+    private String accessIPVersion;
 
     /**
      * manage domain ID
@@ -301,6 +307,14 @@ public final class ManagedElementMO extends Resource {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getAccessIPVersion() {
+        return accessIPVersion;
+    }
+
+    public void setAccessIPVersion(String accessIPVersion) {
+        this.accessIPVersion = accessIPVersion;
     }
 
     public String getManagementDomainID() {
