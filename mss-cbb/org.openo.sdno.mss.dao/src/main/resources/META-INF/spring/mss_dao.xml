@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2016 Huawei Technologies Co., Ltd.
+    Copyright 2016-2017 Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -197,6 +197,20 @@
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
+    <bean id="localsitedb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/localsitedb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="testOnBorrow" value="true" />
+        <property name="testWhileIdle" value="true" />
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
+    </bean>
     <bean id="dataSource" class="org.openo.sdno.mss.dao.multi.DynamicDataSource">
         <property name="targetDataSources">
             <map key-type="java.lang.String">
@@ -212,6 +226,7 @@
                 <entry value-ref="scdriverdb" key="scdriverdb"></entry>
                 <entry value-ref="vpcdb" key="vpcdb"></entry>
                 <entry value-ref="nslcmdb" key="nslcmdb"></entry>
+                <entry value-ref="localsitedb" key="localsitedb"></entry>
             </map>
         </property>
         <property name="defaultTargetDataSource" ref="brsdb"></property>

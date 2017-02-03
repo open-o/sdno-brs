@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -133,6 +133,11 @@ public class StartInit {
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter nslcminiter = new DbIniter();
         nslcminiter.init(dbParam);
+
+        dbParam.setDbName("localsitedb");
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
+        DbIniter localsiteiniter = new DbIniter();
+        localsiteiniter.init(dbParam);
     }
 
     private static Map<String, String> getDataFromPropertiesFile(String path) {
