@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,9 @@ import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.PopMO;
-import org.openo.sdno.exception.HttpCode;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.testframework.checker.IChecker;
+import org.openo.sdno.testframework.http.model.HttpConstants;
 import org.openo.sdno.testframework.http.model.HttpModelUtils;
 import org.openo.sdno.testframework.http.model.HttpRequest;
 import org.openo.sdno.testframework.http.model.HttpResponse;
@@ -94,7 +94,7 @@ public class ITBrsPopTest extends TestManager {
 
         @Override
         public boolean check(HttpResponse response) {
-            return HttpCode.isSucess(response.getStatus());
+            return HttpConstants.isSucess(response.getStatus());
         }
 
     }
