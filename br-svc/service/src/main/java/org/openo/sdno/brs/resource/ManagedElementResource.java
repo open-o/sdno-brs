@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -78,10 +78,11 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
 
         Map<String, Object> managedEleResult = new HashMap<String, Object>();
         ManagedElementMO managedElement = service.getManagedElementByID(objectId);
-        managedEleResult.put(Constant.MANAGEDELEMENT_KEY, managedElement);
+
+        managedEleResult.put(Constant.MANAGEDELEMENT_KEY,
+                (null != managedElement) ? managedElement : new HashMap<String, String>());
 
         return managedEleResult;
-
     }
 
     /**

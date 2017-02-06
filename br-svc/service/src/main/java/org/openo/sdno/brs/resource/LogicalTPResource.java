@@ -86,7 +86,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
         Map<String, Object> logicalTPResult = new HashMap<String, Object>();
         LogicalTerminationPointMO data = service.getLogicalTPByID(objectID);
-        logicalTPResult.put(Constant.LOGICALTP_KEY, data);
+        logicalTPResult.put(Constant.LOGICALTP_KEY, (null != data) ? data : new HashMap<String, String>());
 
         return logicalTPResult;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,9 +77,11 @@ public class SiteResource extends IResource<SiteService> {
         LOGGER.info("brs get Site Resource by objectID {}.", objectID);
 
         ValidateUtil.assertNotEmpty(objectID, "objectID");
-        SiteMO data = service.getSiteByID(objectID);
+
         Map<String, Object> dataResult = new HashMap<String, Object>();
-        dataResult.put(Constant.SITE_KEY, data);
+        SiteMO data = service.getSiteByID(objectID);
+
+        dataResult.put(Constant.SITE_KEY, (null != data) ? data : new HashMap<String, String>());
 
         return dataResult;
     }
