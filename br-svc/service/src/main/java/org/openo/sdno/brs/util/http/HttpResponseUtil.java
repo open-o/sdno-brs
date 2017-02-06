@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -179,7 +179,12 @@ public class HttpResponseUtil {
         // If there is object field, it is a single modify or query operation.
         // Structure is {"object":{}}.
         if(map.containsKey(Constant.OBJECT_KEY)) {
-            return HttpRelationUtil.transferDataModel((Map)map.get(Constant.OBJECT_KEY), type);
+            Map objMap = (Map)map.get(Constant.OBJECT_KEY);
+            if(objMap.isEmpty()) {
+                LOGGER.info("No object in object map");
+                return null;
+            }
+            return HttpRelationUtil.transferDataModel(objMap, type);
         }
 
         Object obj = null;
