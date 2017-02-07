@@ -109,6 +109,11 @@ public class StartInit {
         DbIniter ipseciniter = new DbIniter();
         ipseciniter.init(dbParam);
 
+        dbParam.setDbName("routedb");
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
+        DbIniter routeiniter = new DbIniter();
+        routeiniter.init(dbParam);
+
         dbParam.setDbName("acbranchdb");
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter acbranchiniter = new DbIniter();
