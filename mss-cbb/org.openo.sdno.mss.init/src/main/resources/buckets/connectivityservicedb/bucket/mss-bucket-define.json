@@ -1,0 +1,8 @@
+{
+    "name": "connectivityservicedb",
+    "owner": "lcmsvc",
+    "authorization": "private",
+    "allowread": [
+            "lcmsvc"
+     ]
+}

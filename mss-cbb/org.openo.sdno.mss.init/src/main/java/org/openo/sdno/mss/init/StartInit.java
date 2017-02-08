@@ -83,7 +83,12 @@ public class StartInit {
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter vxlaniniter = new DbIniter();
         vxlaniniter.init(dbParam);
-
+          
+        dbParam.setDbName("connectivityservicedb");
+        dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
+        DbIniter connectivityservicedbiniter = new DbIniter();
+        connectivityservicedbiniter.init(dbParam);
+        
         dbParam.setDbName("compositevpndb");
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter compositevpndbiniter = new DbIniter();

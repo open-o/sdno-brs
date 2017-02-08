@@ -42,6 +42,19 @@
         <property name="minEvictableIdleTimeMillis" value="600000" />
         <property name="validationQuery" value="SELECT 1" />
     </bean>
+    
+    <bean id="connectivityservicedb"  class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="jdbc:mysql://${jdbc.host}:${jdbc.port}/connectivityservicedb?useUnicode=true&amp;characterEncoding=utf-8" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="50" />
+        <property name="minIdle" value="10" />
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <property name="validationQuery" value="SELECT 1" />
+    </bean>
 
     <bean id="brsdb" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}" />
@@ -236,6 +249,7 @@
                 <entry value-ref="osdriverdb" key="osdriverdb"></entry>
                 <entry value-ref="ipsecdb" key="ipsecdb"></entry>
                 <entry value-ref="routedb" key="routedb"></entry>
+                <entry value-ref="connectivityservicedb" key="connectivityservicedb"></entry>
                 <entry value-ref="acbranchdb" key="acbranchdb"></entry>
                 <entry value-ref="servicechaindb" key="servicechaindb"></entry>
                 <entry value-ref="scdriverdb" key="scdriverdb"></entry>
