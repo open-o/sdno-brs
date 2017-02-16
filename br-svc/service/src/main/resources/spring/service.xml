@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2016 Huawei Technologies Co., Ltd.
+    Copyright 2016-2017 Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@
             <ref bean="statisticsResource"></ref>
             <ref bean="networkControlDomainResource"></ref>
             <ref bean="swaggerRoa"></ref>
+            <ref bean="HealthCheckResource"></ref>
         </jaxrs:serviceBeans>
         <!-- registering providers -->
         <jaxrs:providers>
@@ -52,6 +53,9 @@
     </jaxrs:server>
 
     <bean id="swaggerRoa" class="org.openo.sdno.brs.resource.SwaggerRoa">
+    </bean>
+
+    <bean id="HealthCheckResource" class="org.openo.sdno.brs.resource.HealthCheckResource">
     </bean>
 
     <bean id="controllerResource" class="org.openo.sdno.brs.resource.ControllerResource">
@@ -69,7 +73,7 @@
     <bean id="logicalTPResource" class="org.openo.sdno.brs.resource.LogicalTPResource">
         <property name="service" ref="logicalTPService" />
     </bean>
-    
+
     <bean id="topologicalLinkResource" class="org.openo.sdno.brs.resource.TopologicalLinkResource">
         <property name="service" ref="topologicalLinkService" />
     </bean>
@@ -204,7 +208,7 @@
         <property name="bucketName" value="brsdb" />
         <property name="resourceTypeName" value="managedelement" />
     </bean>
-    
+
     <bean id="popQueryService" class="org.openo.sdno.brs.service.impl.ResWithRelationQueryServiceImpl">
         <property name="mssProxy" ref="mssProxy" />
         <property name="bucketName" value="brsdb" />
@@ -218,7 +222,7 @@
         <property name="ncdOpreateService" ref="ncdOperService"></property>
         <property name="meRelationService" ref="meRelationService"></property>
     </bean>
-    
+
     <bean id="popOperService" class="org.openo.sdno.brs.service.impl.ResourceServiceImpl">
         <property name="mssProxy" ref="mssProxy"></property>
         <property name="brsCheckerService" ref="brsChecker"></property>
