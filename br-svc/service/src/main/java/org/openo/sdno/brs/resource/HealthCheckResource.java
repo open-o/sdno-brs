@@ -46,7 +46,6 @@ public class HealthCheckResource {
      * @since SDNO 0.5
      */
     @GET
-    @Path("/healthcheck")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void healthCheck(@Context HttpServletRequest req, @Context HttpServletResponse resp)
