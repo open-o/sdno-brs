@@ -18,6 +18,12 @@ package org.openo.sdno.brs.restrepository.impl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.net.URLEncoder;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 import org.apache.cxf.common.util.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -25,6 +31,7 @@ import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.util.http.HttpClientUtil;
+
 
 /**
  * Proxy of MSS service.<br>
@@ -69,7 +76,8 @@ public class MSSProxyImpl implements IMSSProxy {
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_OBJECT).append(FORWARD_SLASH).append(objectID).append(Constant.PARAM_SPLIT_LABLE)
-                .append(Constant.RESOUCRCE_FILEDS).append(Constant.EQUIVALENT).append(Constant.FILEDS_ALL).toString();
+                .append(Constant.RESOUCRCE_FILEDS).append(Constant.EQUIVALENT).append(Constant.FILEDS_ALL)
+                .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -77,13 +85,12 @@ public class MSSProxyImpl implements IMSSProxy {
     @Override
     public RestfulResponse getResourceList(final String bucketName, String resourceTypeName, String fields,
             String filter, int pagesize, int pagenum) throws ServiceException {
-        String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_OBJECT).append(Constant.PARAM_SPLIT_LABLE).append(Constant.RESOUCRCE_FILEDS)
-                .append(Constant.EQUIVALENT).append(fields).append(Constant.AND).append("filter")
-                .append(Constant.EQUIVALENT).append(filter).append(Constant.AND).append("pagesize")
-                .append(Constant.EQUIVALENT).append(pagesize).append(Constant.AND).append("pagenum")
-                .append(Constant.EQUIVALENT).append(pagenum).toString();
+        String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName)
+                .append(FORWARD_SLASH).append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName)
+                .append(FORWARD_SLASH).append(MSS_REST_URL_OBJECT)
+                .append(buildQuery(Constant.RESOUCRCE_FILEDS, fields, "filter", filter,
+                    "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
+                .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -174,11 +181,10 @@ public class MSSProxyImpl implements IMSSProxy {
 
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_RELATIONOBJECTS).append(Constant.PARAM_SPLIT_LABLE)
-                .append(Constant.RESOUCRCE_FILEDS).append(Constant.EQUIVALENT).append(fields).append(Constant.AND)
-                .append("filter").append(Constant.EQUIVALENT).append(filter).append(Constant.AND).append("pagesize")
-                .append(Constant.EQUIVALENT).append(pagesize).append(Constant.AND).append("pagenum")
-                .append(Constant.EQUIVALENT).append(pagenum).toString();
+                .append(MSS_REST_URL_RELATIONOBJECTS)
+                .append(buildQuery(Constant.RESOUCRCE_FILEDS, fields, "filter", filter,
+                    "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
+                .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -220,9 +226,9 @@ public class MSSProxyImpl implements IMSSProxy {
             String resourceTypeName, String dstIds) throws ServiceException {
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_RELATIONSHIPS).append(Constant.PARAM_SPLIT_LABLE).append(MSS_REST_URL_DST_TYPE)
-                .append(Constant.EQUIVALENT).append(siteResTypeName).append(Constant.AND).append(MSS_REST_URL_DST_IDS)
-                .append(Constant.EQUIVALENT).append(dstIds).toString();
+                .append(MSS_REST_URL_RELATIONSHIPS)
+                .append(buildQuery(MSS_REST_URL_DST_TYPE, siteResTypeName, MSS_REST_URL_DST_IDS, dstIds))
+                .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -230,23 +236,41 @@ public class MSSProxyImpl implements IMSSProxy {
     @Override
     public RestfulResponse commonQueryCount(String bucketName, String resourceTypeName, String joinAttr, String filter)
             throws ServiceException {
-        StringBuffer url = new StringBuffer(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
+        String url = new StringBuffer(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_STATISTICS);
+                .append(MSS_REST_URL_STATISTICS).append(buildQuery("joinAttr", joinAttr, "filter", filter))
+                .toString();
 
-        StringBuffer queryParam = new StringBuffer();
-        if(joinAttr != null && !joinAttr.isEmpty()) {
-            queryParam.append("joinAttr").append(Constant.EQUIVALENT).append(joinAttr);
+        return HttpClientUtil.get(url, new HashMap<String, String>());
+    }
+
+    private String buildQuery(String... nameOrValues) throws ServiceException
+    {
+        // TODO URLEncodedUtils not follows rfc2369, char in [ !'()~] is not encoded as expected.
+        // So a perfect soltion need to be found in future
+        if (0 != nameOrValues.length % 2) {
+            throw new ServiceException("buildQuery need name-value pairs, but input is " + nameOrValues.toString());
         }
 
-        if(filter != null && !filter.isEmpty()) {
-            queryParam.append("filter").append(Constant.EQUIVALENT).append(filter);
+        String[] copiedNameOrValues = nameOrValues;
+
+        List<NameValuePair> nvs = new ArrayList<>();
+        for(int i = 0; i < copiedNameOrValues.length; i += 2) {
+            String name = copiedNameOrValues[i];
+            String value = copiedNameOrValues[i + 1];
+            if (StringUtils.isEmpty(value)) {
+                // TODO I am not sure is XXX=null or XXX= also a valid condition for service logic.
+                continue;
+            } else {
+                nvs.add(new BasicNameValuePair(name, value));
+            }
         }
 
-        if(queryParam.length() > 0) {
-            url.append(Constant.PARAM_SPLIT_LABLE).append(queryParam);
+        if (nvs.isEmpty()) {
+            return new String();
+        } else {
+            return "?" + URLEncodedUtils.format(nvs, "UTF-8");
         }
 
-        return HttpClientUtil.get(url.toString(), new HashMap<String, String>());
     }
 }

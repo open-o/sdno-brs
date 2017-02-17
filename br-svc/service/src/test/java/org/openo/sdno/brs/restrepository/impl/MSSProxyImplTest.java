@@ -17,8 +17,11 @@
 package org.openo.sdno.brs.restrepository.impl;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.Map;
+import java.lang.reflect.Method;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -302,6 +305,23 @@ public class MSSProxyImplTest {
             assertTrue(false);
         } catch(ServiceException e) {
             assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testBuildQuery() {
+        try {
+            Method method = MSSProxyImpl.class.getDeclaredMethod("buildQuery", String[].class);
+            method.setAccessible(true);
+            assertEquals("", method.invoke(mssProxyImpl, (Object) new String[] {}));
+            assertEquals("", method.invoke(mssProxyImpl, (Object) new String[] {"name", ""}));
+            assertEquals("?name=value", method.invoke(mssProxyImpl, (Object) new String[] {"name", "value"}));
+            assertEquals("?n1=v1&n2=v2", method.invoke(mssProxyImpl, (Object) new String[] {"n1", "v1", "n2", "v2", "n3", ""}));
+            assertEquals("?filter=%7B%22basic%22%3A%7B%7D%2C%22relation%22%3A%7B%7D%7D",
+                method.invoke(mssProxyImpl, (Object) new String[] {"filter", "{\"basic\":{},\"relation\":{}}"}));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("trick on private failed");
         }
     }
 
