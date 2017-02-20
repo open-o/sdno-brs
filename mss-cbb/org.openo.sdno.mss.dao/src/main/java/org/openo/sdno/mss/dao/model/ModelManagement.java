@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -278,7 +278,7 @@ public class ModelManagement {
     private void infoModelFilelds(ModelRedisEntity entity, String bktname, Infomodel model) {
         List<Property> inforProperties = model.getBasic().getProperty();
         // same resource type in the same bucket will be added in one list
-        List<String> restypeValue = new ArrayList<String>();
+        List<String> restypeValue = new ArrayList<>();
         String restype = model.getName();
         for(Property pro : inforProperties) {
             if("not null".equals(pro.getDefault())) {

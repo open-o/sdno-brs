@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class DBParam implements Cloneable {
 
     private char[] dbPwd;
 
-    private static final Map<String, String> DRIVER_CLASS = new HashMap<String, String>();
+    private static final Map<String, String> DRIVER_CLASS = new HashMap<>();
 
     static {
         DRIVER_CLASS.put("mysql", "com.mysql.jdbc.Driver");
@@ -50,7 +50,7 @@ public class DBParam implements Cloneable {
         DRIVER_CLASS.put("gauss", "org.postgresql.Driver");
     }
 
-    private static final Map<String, String> CONN_URL_PATTERN = new HashMap<String, String>();
+    private static final Map<String, String> CONN_URL_PATTERN = new HashMap<>();
 
     static {
         CONN_URL_PATTERN.put("mysql", "jdbc:mysql://{ip}:{port}/{dbname}?"

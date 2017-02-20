@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ public class ResourceServiceImpl implements ResourceService {
         ResponseUtils.checkResonseAndThrowException(response);
 
         PageResponseData pageRsp = new PageResponseData();
-        Map<String, Object> resourceMap = new HashMap<String, Object>();
+        Map<String, Object> resourceMap = new HashMap<>();
 
         resourceMap.put(key, HttpResponseUtil.assembleListRspData(response.getResponseContent(), pageRsp, classType));
         resourceMap.put(Constant.RESPONSE_TOTALNUM, pageRsp.getTotalNum());
@@ -114,7 +114,7 @@ public class ResourceServiceImpl implements ResourceService {
         resourceMap.put(Constant.RESPONSE_TOPAGENUM, pageRsp.getTotalPageNum());
         resourceMap.put(Constant.RESPONSE_CURPAGENUM, pageRsp.getCurrentPageNum());
 
-        Map<String, Object> resourceRspMap = new HashMap<String, Object>();
+        Map<String, Object> resourceRspMap = new HashMap<>();
         try {
             resourceRspMap = JsonUtil.unMarshal(JsonUtil.marshal(resourceMap), Map.class);
         } catch(IOException e) {
@@ -132,8 +132,8 @@ public class ResourceServiceImpl implements ResourceService {
 
         checkIDIsUsed(data);
 
-        List<Object> list = new ArrayList<Object>();
-        Map<String, Object> sendBody = new HashMap<String, Object>();
+        List<Object> list = new ArrayList<>();
+        Map<String, Object> sendBody = new HashMap<>();
         list.add(data);
         sendBody.put(Constant.OBJECTS_KEY, list);
 

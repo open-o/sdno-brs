@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,11 +38,11 @@ public class ModelData {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ModelData.class);
 
-    private Map<String, Infomodel> wholeInfoModels = new ConcurrentHashMap<String, Infomodel>();
+    private Map<String, Infomodel> wholeInfoModels = new ConcurrentHashMap<>();
 
-    private Map<String, String> dataName2InfoNames = new ConcurrentHashMap<String, String>();
+    private Map<String, String> dataName2InfoNames = new ConcurrentHashMap<>();
 
-    private Map<String, String> modelUniqueIndexs = new ConcurrentHashMap<String, String>();
+    private Map<String, String> modelUniqueIndexs = new ConcurrentHashMap<>();
 
     private BucketModel bktModel = null;
 

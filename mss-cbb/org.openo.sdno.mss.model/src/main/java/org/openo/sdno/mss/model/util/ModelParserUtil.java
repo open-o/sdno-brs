@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ public class ModelParserUtil {
 
     private static final ModelParserUtil INSTANCE = new ModelParserUtil();
 
-    private final Map<String, Infomodel> infoModels = new ConcurrentHashMap<String, Infomodel>();
+    private final Map<String, Infomodel> infoModels = new ConcurrentHashMap<>();
 
     private final Map<String, Datamodel> dataModels = new ConcurrentHashMap<String, Datamodel>();
 

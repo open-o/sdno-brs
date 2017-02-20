@@ -152,7 +152,7 @@ public class StartInit {
 
     private static Map<String, String> getDataFromPropertiesFile(String path) {
 
-        Map<String, String> dataFromMap = new HashMap<String, String>();
+        Map<String, String> dataFromMap = new HashMap<>();
         try {
             Properties props = new Properties();
             FileInputStream in = new FileInputStream(path);

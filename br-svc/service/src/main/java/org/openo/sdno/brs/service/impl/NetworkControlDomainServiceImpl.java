@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
 
         checkNameIsExist(ncdMO);
 
-        List<String> meIDList = new ArrayList<String>();
+        List<String> meIDList = new ArrayList<>();
         if(!CollectionUtils.isEmpty(ncdMO.getManagementElementIDs())) {
             meIDList.addAll(ncdMO.getManagementElementIDs());
         }
@@ -181,7 +181,7 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
             String modelName = relationInfoMap.get(relationField).get(0);
             String paraName = relationInfoMap.get(relationField).get(1);
 
-            List<String> data = new ArrayList<String>();
+            List<String> data = new ArrayList<>();
             List<Relation> relationsDB = meRelationService.getRelations(modelName, null, resource.getId());
             for(Relation relation : relationsDB) {
                 data.add(relation.getSrcId());
@@ -207,11 +207,11 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
         if(null != relationInfoMap) {
             return;
         }
-        relationInfoMap = new HashMap<String, List<String>>();
+        relationInfoMap = new HashMap<>();
         Field[] fields = classType.getDeclaredFields();
         for(Field field : fields) {
             if(field.isAnnotationPresent(RelationField.class)) {
-                List<String> infoList = new ArrayList<String>();
+                List<String> infoList = new ArrayList<>();
                 RelationField relationField = field.getAnnotation(RelationField.class);
                 String dbName = relationField.dbName();
                 infoList.add(relationField.modelName());
@@ -242,7 +242,7 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
 
         meRelationService.delRelation(objectID, relationReq, relationsDB);
 
-        List<Relation> lstAdd = new ArrayList<Relation>();
+        List<Relation> lstAdd = new ArrayList<>();
         for(Relation relation : relationReq) {
             if(relationsDB.contains(relation)) {
                 continue;
@@ -260,7 +260,7 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
             return null;
         }
 
-        List<Relation> lstRelation = new ArrayList<Relation>();
+        List<Relation> lstRelation = new ArrayList<>();
         for(String srcID : relations) {
             Relation relation = new Relation();
             relation.setSrcId(srcID);

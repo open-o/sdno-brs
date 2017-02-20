@@ -66,7 +66,7 @@ public class HttpResponseUtil {
     public static <T> T getDataModelFromReqStr(String requestStr, String key, Class<T> type) throws ServiceException {
         ValidateUtil.assertNotEmpty(requestStr, "requestBodyStr");
 
-        Map<String, Object> requestMap = new HashMap<String, Object>();
+        Map<String, Object> requestMap = new HashMap<>();
         try {
             requestMap = JsonUtil.unMarshal(requestStr, Map.class);
         } catch(IOException e) {
@@ -116,7 +116,7 @@ public class HttpResponseUtil {
             throws ServiceException {
         ValidateUtil.assertNotEmpty(responseContent, "responseContent");
 
-        List<T> dataModelList = new ArrayList<T>();
+        List<T> dataModelList = new ArrayList<>();
 
         PageQueryResult pageResult = new PageQueryResult();
         try {
@@ -162,7 +162,7 @@ public class HttpResponseUtil {
     public static <T> Object assembleRspData(String responseContent, Class<T> type) throws ServiceException {
         ValidateUtil.assertNotEmpty(responseContent, "responseContent");
 
-        List<T> dataModelList = new ArrayList<T>();
+        List<T> dataModelList = new ArrayList<>();
 
         Map map = null;
         try {
@@ -223,12 +223,12 @@ public class HttpResponseUtil {
      * @since SDNO 0.5
      */
     public static <T> String getFilterValue(Map<String, String> queryMap, Class<T> classType) throws IOException {
-        Map<String, Object> filtersMap = new HashMap<String, Object>();
+        Map<String, Object> filtersMap = new HashMap<>();
         if(queryMap == null || CollectionUtils.isEmpty(queryMap.values())) {
             return JsonUtil.marshal(filtersMap);
         }
 
-        Map<String, Object> filtersData = new HashMap<String, Object>();
+        Map<String, Object> filtersData = new HashMap<>();
         String filtersDsc = "";
         List<String> enumList = getEnumParaNames(classType);
         for(Map.Entry<String, String> entry : queryMap.entrySet()) {
@@ -292,7 +292,7 @@ public class HttpResponseUtil {
 
     private static <T> List<String> getEnumParaNames(Class<T> classType) {
         Class<?> currentClass = classType;
-        List<String> enumList = new ArrayList<String>();
+        List<String> enumList = new ArrayList<>();
 
         while(!currentClass.equals(Object.class)) {
             Field[] fields = currentClass.getDeclaredFields();

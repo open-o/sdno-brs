@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ public class FileUtil {
             throw new IllegalArgumentException("input path is Empty");
         }
 
-        List<File> files = new ArrayList<File>();
+        List<File> files = new ArrayList<>();
 
         File rootDir = new File(dirPath);
 

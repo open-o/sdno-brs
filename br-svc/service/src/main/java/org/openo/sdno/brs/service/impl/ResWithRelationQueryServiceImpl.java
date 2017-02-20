@@ -75,7 +75,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
         T result = (T)HttpResponseUtil.assembleRspData(response.getResponseContent(), classType);
 
         if(null != result && !StringUtils.isEmpty(result.getId())) {
-            List<T> resourceLst = new ArrayList<T>();
+            List<T> resourceLst = new ArrayList<>();
             resourceLst.add(result);
             initRelationInfoMap(classType);
 
@@ -143,7 +143,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
                 ResWithRelationQueryUtil.convertToFilterString(pagePara.getBaseFilters(), classType);
         Map<String, Object> relationfilters = convertToRelationFilterString(pagePara.getRelationFilters());
 
-        Map<String, Object> filterMap = new HashMap<String, Object>();
+        Map<String, Object> filterMap = new HashMap<>();
         filterMap.put(Constant.BASIC, basefilters);
         filterMap.put(Constant.RELATION, relationfilters);
 
@@ -152,7 +152,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
                 pagePara.getPagesize(), pagePara.getPagenum());
         ResponseUtils.checkResonseAndThrowException(response);
 
-        Map<String, Object> resourceMap = new HashMap<String, Object>();
+        Map<String, Object> resourceMap = new HashMap<>();
         PageResponseData pageRsp = new PageResponseData();
         List<T> resourceLst =
                 HttpRelationUtil.assembleListRspWithRelationData(response.getResponseContent(), pageRsp, classType);
@@ -182,7 +182,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
 
     private <T> void filterRelation(List<T> resourceLst, Map<String, String> relationFields) {
         Set<String> keys = relationInfoMap.keySet();
-        List<String> cleanParaNames = new ArrayList<String>();
+        List<String> cleanParaNames = new ArrayList<>();
         for(String dbName : keys) {
             if(!relationFields.containsKey(dbName)) {
                 List<String> values = relationInfoMap.get(dbName);
@@ -209,7 +209,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
 
     private Map<String, Object> convertToRelationFilterString(Map<String, String> relationQueryMap)
             throws ServiceException {
-        Map<String, Object> filtersMap = new HashMap<String, Object>();
+        Map<String, Object> filtersMap = new HashMap<>();
 
         try {
 
@@ -218,8 +218,8 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
             }
 
             String desc = "";
-            List<Object> lstData = new ArrayList<Object>();
-            List<Object> lstDsc = new ArrayList<Object>();
+            List<Object> lstData = new ArrayList<>();
+            List<Object> lstDsc = new ArrayList<>();
             for(Map.Entry<String, String> entry : relationQueryMap.entrySet()) {
 
                 String queryProperty = entry.getKey();
@@ -229,7 +229,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
                 String queryPtyIDValue = "";
                 String queryPtyTypeValue = "";
 
-                Map<String, Object> filtersData = new HashMap<String, Object>();
+                Map<String, Object> filtersData = new HashMap<>();
                 if(!CollectionUtils.isEmpty(relationInfos)) {
                     // "(dst_id = ':dst_id1\' and dst_type = ':dst_type1')\",
                     queryPtyIDValue = relationInfos.get(0) + "IDValue";
@@ -268,7 +268,7 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
         String srcFields = ResWithRelationQueryUtil.getResourcesIds(resourceLst);
 
         List<Relation> relationList = null;
-        Map<String, Map<String, List<String>>> allRelationMap = new HashMap<String, Map<String, List<String>>>();
+        Map<String, Map<String, List<String>>> allRelationMap = new HashMap<>();
         if(!StringUtils.isEmpty(srcFields)) {
             for(String relationField : relationFieldList) {
                 if(relationInfoMap.containsKey(relationField)) {
@@ -322,12 +322,12 @@ public class ResWithRelationQueryServiceImpl implements ResWithRelationQueryServ
             return;
         }
 
-        relationInfoMap = new HashMap<String, List<String>>();
+        relationInfoMap = new HashMap<>();
         Field[] fields = classType.getDeclaredFields();
 
         for(Field field : fields) {
             if(field.isAnnotationPresent(RelationField.class)) {
-                List<String> infoList = new ArrayList<String>();
+                List<String> infoList = new ArrayList<>();
                 RelationField relationField = field.getAnnotation(RelationField.class);
                 infoList.add(relationField.modelName());
                 infoList.add(relationField.paraName());

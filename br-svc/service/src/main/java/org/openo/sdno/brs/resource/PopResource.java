@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ public class PopResource extends IResource<PopService> {
 
         ValidateUtil.checkUuid(objectId);
 
-        Map<String, Object> resultMap = new HashMap<String, Object>();
+        Map<String, Object> resultMap = new HashMap<>();
         PopMO popMO = service.query(objectId);
         resultMap.put(Constant.POP_KEY, (null != popMO) ? popMO : new HashMap<String, String>());
 
@@ -125,11 +125,11 @@ public class PopResource extends IResource<PopService> {
         popMO.setId(service.getObjectId(popMO));
         PopMO resultPopMO = service.addPop(popMO);
 
-        Map<String, Object> resultObject = new HashMap<String, Object>();
+        Map<String, Object> resultObject = new HashMap<>();
         resultObject.put(Constant.RESOURCE_ID, resultPopMO.getId());
         resultObject.put(Constant.RESOUCRCE_CREATETIME, resultPopMO.getCreatetime());
 
-        Map<String, Object> resultMap = new HashMap<String, Object>();
+        Map<String, Object> resultMap = new HashMap<>();
         resultMap.put(Constant.POP_KEY, resultObject);
 
         return resultMap;
@@ -153,7 +153,7 @@ public class PopResource extends IResource<PopService> {
         ValidateUtil.checkUuid(objectId);
 
         Boolean result = service.deletePop(objectId);
-        Map<String, Object> resultMap = new HashMap<String, Object>();
+        Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("result", result ? true : false);
 
         return resultMap;
@@ -186,11 +186,11 @@ public class PopResource extends IResource<PopService> {
 
         PopMO resultPopMO = service.updatePop(objectId, popMO);
 
-        Map<String, Object> resultObject = new HashMap<String, Object>();
+        Map<String, Object> resultObject = new HashMap<>();
         resultObject.put(Constant.RESOURCE_ID, resultPopMO.getId());
         resultObject.put(Constant.RESOUCRCE_UPDATETIME, resultPopMO.getUpdatetime());
 
-        Map<String, Object> resultMap = new HashMap<String, Object>();
+        Map<String, Object> resultMap = new HashMap<>();
         resultMap.put(Constant.POP_KEY, resultObject);
 
         return resultMap;

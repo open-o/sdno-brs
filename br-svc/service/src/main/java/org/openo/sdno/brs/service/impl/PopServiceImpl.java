@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -135,13 +135,13 @@ public class PopServiceImpl implements PopService {
     }
 
     private boolean checkNameExist(String name) throws ServiceException {
-        Map<String, String> nameKey = new HashMap<String, String>();
+        Map<String, String> nameKey = new HashMap<>();
         nameKey.put("name", name);
         return checkObjectExist(nameKey);
     }
 
     private boolean checkIdExist(String objectId) throws ServiceException {
-        Map<String, String> idKey = new HashMap<String, String>();
+        Map<String, String> idKey = new HashMap<>();
         idKey.put("uuid", objectId);
         return checkObjectExist(idKey);
     }

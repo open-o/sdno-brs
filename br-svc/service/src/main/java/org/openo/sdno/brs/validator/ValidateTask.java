@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ public class ValidateTask {
     /**
      * Collection of error info of validating.
      */
-    private final List<RuleErrorInfo> lstErr = new ArrayList<RuleErrorInfo>();
+    private final List<RuleErrorInfo> lstErr = new ArrayList<>();
 
     /**
      * Constructor.<br>

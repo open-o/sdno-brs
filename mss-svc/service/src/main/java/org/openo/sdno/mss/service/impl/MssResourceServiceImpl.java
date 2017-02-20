@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ public class MssResourceServiceImpl implements MssResourceService {
         }
 
         List<Map<String, Object>> resourceMap = invRespEntity.getData();
-        Map<String, Object> ret = new HashMap<String, Object>();
+        Map<String, Object> ret = new HashMap<>();
         if(resourceMap != null && !resourceMap.isEmpty()) {
             // The single query method only query a single data, to obtain the first data of the
             // list and return
@@ -118,7 +118,7 @@ public class MssResourceServiceImpl implements MssResourceService {
         String pageSize = queryParam.getPageSize();
         String pageNum = queryParam.getPageNum();
 
-        List<String> attrList = new ArrayList<String>();
+        List<String> attrList = new ArrayList<>();
         if(!StringUtils.isEmpty(fields)) {
             String[] attrArray = StringUtils.split(fields.trim(), ", ");
             int len = attrArray.length;
@@ -200,7 +200,7 @@ public class MssResourceServiceImpl implements MssResourceService {
 
         }
 
-        Map<String, Object> ret = new HashMap<String, Object>();
+        Map<String, Object> ret = new HashMap<>();
         ret.put(Constant.OBJECTS_KEY, invRespEntity.getData());
         return ret;
     }
@@ -244,7 +244,7 @@ public class MssResourceServiceImpl implements MssResourceService {
 
         }
 
-        Map<String, Object> ret = new HashMap<String, Object>();
+        Map<String, Object> ret = new HashMap<>();
         Object data = invRespEntity.getData();
         ret.put(Constant.OBJECT_KEY, data);
 
@@ -270,7 +270,7 @@ public class MssResourceServiceImpl implements MssResourceService {
             InvRespEntity<List<Map<String, Object>>> invRespEntity =
                     this.invDataService.add(bktName, resType, listValues);
             ParamConverter.replaceEntitysUUID2ID(invRespEntity);
-            Map<String, Object> resourcesMap = new HashMap<String, Object>();
+            Map<String, Object> resourcesMap = new HashMap<>();
             resourcesMap.put(Constant.OBJECTS_KEY, invRespEntity.getData());
             return resourcesMap;
         } catch(IllegalArgumentException e) {
@@ -297,7 +297,7 @@ public class MssResourceServiceImpl implements MssResourceService {
     public PageQueryResult<Object> getRelationData(String bktName, String resType, String fields, String filter,
             String sort, String pageSize, String pageNum) throws ServiceException {
         Object obj = null;
-        List<String> attrList = new ArrayList<String>();
+        List<String> attrList = new ArrayList<>();
         if(!StringUtils.isEmpty(fields)) {
             String[] attrArray = StringUtils.split(fields.trim(), ", ");
             int len = attrArray.length;

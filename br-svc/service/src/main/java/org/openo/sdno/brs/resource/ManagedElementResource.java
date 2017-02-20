@@ -76,7 +76,7 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
             throws ServiceException {
         LOGGER.info("getManagedElement object_id={}", objectId);
 
-        Map<String, Object> managedEleResult = new HashMap<String, Object>();
+        Map<String, Object> managedEleResult = new HashMap<>();
         ManagedElementMO managedElement = service.getManagedElementByID(objectId);
 
         managedEleResult.put(Constant.MANAGEDELEMENT_KEY,
@@ -271,10 +271,10 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     }
 
     private Object assembleRspData(Object objME, String strAction) {
-        Map<String, Object> responseData = new HashMap<String, Object>();
+        Map<String, Object> responseData = new HashMap<>();
         if(null != objME) {
             ManagedElementMO managedElement = (ManagedElementMO)objME;
-            Map<String, Object> result = new HashMap<String, Object>();
+            Map<String, Object> result = new HashMap<>();
             result.put(Constant.RESOURCE_ID, managedElement.getId());
             if(strAction.endsWith(Constant.ACTION_ADD)) {
                 result.put(Constant.RESOUCRCE_CREATETIME, managedElement.getCreatetime());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ public class DBInfo4OSSPl implements IDBInfo {
 
     private static final String DB_NAME = "bucketsys";
 
-    private Map<String, String> dbInfoMap = new HashMap<String, String>();
+    private Map<String, String> dbInfoMap = new HashMap<>();
 
     private static final String CONFIG_PATH = "webapps/ROOT/WEB-INF/classes/jdbc.properties";
 
@@ -88,7 +88,7 @@ public class DBInfo4OSSPl implements IDBInfo {
     }
 
     private static Map<String, String> getDataFromPropertiesFile(String path) {
-        Map<String, String> dataFromMap = new HashMap<String, String>();
+        Map<String, String> dataFromMap = new HashMap<>();
         try {
             Properties props = new Properties();
             FileInputStream in = new FileInputStream(path);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ public class HttpRelationUtil {
             Class<T> type) throws ServiceException {
         ValidateUtil.assertNotEmpty(responseContent, "responseContent");
 
-        List<T> dataModelList = new ArrayList<T>();
+        List<T> dataModelList = new ArrayList<>();
 
         PageQueryResult pageResult = new PageQueryResult();
         pageResult = org.openo.sdno.framework.container.util.JsonUtil.fromJson(responseContent, PageQueryResult.class);
@@ -134,14 +134,14 @@ public class HttpRelationUtil {
     private static Map<String, List<String>> transferRelationDatas(Object relationDatas) {
         Map<String, List<String>> relationMap = null;
         if((null != relationDatas) && (relationDatas instanceof List)) {
-            relationMap = new HashMap<String, List<String>>();
+            relationMap = new HashMap<>();
             for(Object relationData : (List)relationDatas) {
                 if(relationData instanceof Map) {
                     String dstID = (String)((Map)relationData).get(Constant.RELATION_ID);
                     String dstType = (String)((Map)relationData).get(Constant.RELATION_DSTTYPE);
                     List<String> dstIdList = null;
                     if(null == relationMap.get(dstType)) {
-                        dstIdList = new ArrayList<String>();
+                        dstIdList = new ArrayList<>();
                         dstIdList.add(dstID);
                         relationMap.put(dstType, dstIdList);
                     } else {

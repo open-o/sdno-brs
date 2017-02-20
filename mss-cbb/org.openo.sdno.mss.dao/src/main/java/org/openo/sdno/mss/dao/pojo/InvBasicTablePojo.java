@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
         Infomodel infoModel = ModelMgrUtil.getInstance().getWholeInfoModelMap().get(resType);
 
         List<Property> basicProp = infoModel.getBasic().getProperty();
-        Map<String, Datatype> attrMap = new HashMap<String, Datatype>(basicProp.size() * 2);
+        Map<String, Datatype> attrMap = new HashMap<>(basicProp.size() * 2);
 
         for(Property property : basicProp) {
             attrMap.put(property.getName(), property.getType());
@@ -120,7 +120,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
      * @since SDNO 0.5
      */
     public InvBasicTablePojo buildAttributes(String attributes) {
-        attrEntityList = new ArrayList<InvAttrEntityPojo>();
+        attrEntityList = new ArrayList<>();
 
         if("ext".equals(attributes)) {
             InvAttrEntityPojo uuidPojo = new InvAttrEntityPojo(InvAttrDefine.UUID.getValue());
@@ -165,7 +165,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
         }
 
         if(attrEntityList == null) {
-            attrEntityList = new ArrayList<InvAttrEntityPojo>();
+            attrEntityList = new ArrayList<>();
         } else {
             attrEntityList.clear();
         }
@@ -247,7 +247,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
         }
 
         if(tableRowList == null) {
-            tableRowList = new ArrayList<InvTableRowPojo>();
+            tableRowList = new ArrayList<>();
         } else {
             tableRowList.clear();
         }
@@ -288,7 +288,7 @@ public class InvBasicTablePojo extends DefaultInvTablePojo {
 
     private void buildBasicAttrList(Set<String> keys) {
         if(null == attrEntityList) {
-            attrEntityList = new ArrayList<InvAttrEntityPojo>();
+            attrEntityList = new ArrayList<>();
         }
 
         for(String key : keys) {

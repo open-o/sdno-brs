@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public class InvSqlFilterParserUtil {
      * @since SDNO 0.5
      */
     public static List<String> validJsonField(Map<String, Object> jsonFieldPairs, List<String> fieldNames) {
-        List<String> jsonValidFields = new ArrayList<String>();
+        List<String> jsonValidFields = new ArrayList<>();
         for(String field : fieldNames) {
             if(jsonFieldPairs.containsKey(field)) {
                 jsonValidFields.add(field);

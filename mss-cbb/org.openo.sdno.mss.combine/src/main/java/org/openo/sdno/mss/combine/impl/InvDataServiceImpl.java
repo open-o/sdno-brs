@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ public class InvDataServiceImpl implements InvDataService {
             Map<String, Object> value) {
         DataSourceCtrler.add(bktName);
         try {
-            List<Map<String, Object>> infoBody = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> infoBody = new ArrayList<>();
 
             // Non empty field check, match batch update interface parameters.
             infoBody.add(value);
@@ -229,7 +229,7 @@ public class InvDataServiceImpl implements InvDataService {
                 return dataHandler.queryRelationDataCount(resType, attrsList, filter, sortList, pageNum, pageSize);
             } else {
                 Object object = dataHandler.queryRelationData(resType, attrsList, filter, sortList, pageNum, pageSize);
-                List<Object> objectList = new ArrayList<Object>();
+                List<Object> objectList = new ArrayList<>();
                 objectList.add(object);
                 return objectList;
             }

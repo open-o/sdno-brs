@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,13 +53,13 @@ public class InvRelationDataHandlerUtil {
      */
     public static List<String> getQueryUuidList(Iterator<String> it, List<String> refUuidList,
             InvRelationTablePojo relationPojo, String serviceType, SqlSession session) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         if(it.hasNext()) {
             // avert the sql is too long
             List<List<String>> partList = InvRelationDataHandlerUtil.splitList(refUuidList, QUERYNUMLIMIT);
             String typeName = it.next();
             String[] resTypes = ValidUtil.checkRelationType(typeName);
-            List<Map<String, Object>> queryResults = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> queryResults = new ArrayList<>();
             for(List<String> part : partList) {
                 relationPojo.buildServiceTypeFilter(serviceType);
                 relationPojo.buildDstTypeFilter(resTypes[1]).buildUuidFilter(part);
@@ -87,7 +87,7 @@ public class InvRelationDataHandlerUtil {
      * @since SDNO 0.5
      */
     private static List<String> getUuidListFromQueryResults(List<Map<String, Object>> queryResults, String uuidName) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         for(int i = 0, size = queryResults.size(); i < size; i++) {
             Map<String, Object> valueMap = queryResults.get(i);
             if(null != valueMap && !valueMap.isEmpty()) {

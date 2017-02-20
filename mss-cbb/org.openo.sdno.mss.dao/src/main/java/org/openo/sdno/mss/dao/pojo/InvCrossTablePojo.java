@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ public class InvCrossTablePojo implements IInvTableDataCrud {
         List<Property> basicList = model.getBasic().getProperty();
         List<org.openo.sdno.mss.schema.infomodel.Extension.Property> extensionList = model.getExtension().getProperty();
         int size = basicList.size() + extensionList.size();
-        Map<String, Datatype> attrMap = new HashMap<String, Datatype>(size * 2);
+        Map<String, Datatype> attrMap = new HashMap<>(size * 2);
 
         for(Property basic : basicList) {
             attrMap.put(basic.getName(), basic.getType());

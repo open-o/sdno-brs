@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -169,7 +169,7 @@ public class SiteServiceImpl implements SiteService {
         LOGGER.info("addTenantSites: begin to add.");
 
         String strSrcID = site.getId();
-        List<Relation> lstRelation = new ArrayList<Relation>();
+        List<Relation> lstRelation = new ArrayList<>();
         for(String strDstID : tenantSiteLst) {
             Relation relation = new Relation();
             relation.setSrcId(strSrcID);
@@ -194,7 +194,7 @@ public class SiteServiceImpl implements SiteService {
 
         relationService.delRelation(objectID, relationReq, relationsDB);
 
-        List<Relation> lstAdd = new ArrayList<Relation>();
+        List<Relation> lstAdd = new ArrayList<>();
         for(Relation relation : relationReq) {
             if(relationsDB.contains(relation)) {
                 continue;

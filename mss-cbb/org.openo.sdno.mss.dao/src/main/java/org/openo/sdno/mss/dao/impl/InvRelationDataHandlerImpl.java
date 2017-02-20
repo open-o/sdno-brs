@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
     public InvRespEntity<List<Map<String, Object>>> getRelationData(final String srcResType, final String dstResType,
             final String srcUuids, final String dstUuids) {
         // define the returned map
-        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> result = new ArrayList<>();
 
         // must input srcUuids or dstUuids
         if(StringUtils.isEmpty(srcUuids) && StringUtils.isEmpty(dstUuids)) {
@@ -93,7 +93,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
         if(null != uuidArrays && uuidArrays.length > 0) {
             int size = uuidArrays.length;
 
-            HashSet<String> uuidSet = new HashSet<String>(size);
+            HashSet<String> uuidSet = new HashSet<>(size);
 
             for(String srcUuid : uuidArrays) {
                 ValidUtil.checkUuid(srcUuid);
@@ -145,7 +145,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
         if(CollectionUtils.isEmpty(paths)) {
             LOGGER.info("Through the relationship" + relationType
                     + " between resource query, relationship path not found!");
-            List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> result = new ArrayList<>();
             return InvRespEntity.valueOfSuccess(result, result.size());
         }
 
@@ -193,18 +193,18 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
         ValidUtil.checkAttributes(queryResType, queryAttrs, true);
 
         InvRelationTablePojo relationPojo = new InvRelationTablePojo(resTypes[0], queryUuidName, refUuidName);
-        List<String> refUuidList = new ArrayList<String>();
+        List<String> refUuidList = new ArrayList<>();
         refUuidList.add(refUuidValue);
         Iterator<String> it = paths.iterator();
         List<String> queryUuidList = InvRelationDataHandlerUtil.getQueryUuidList(it, refUuidList, relationPojo,
                 serviceType, getSqlSession());
         if(CollectionUtils.isEmpty(queryUuidList)) {
             LOGGER.info("Target uuid list is empty!");
-            List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> result = new ArrayList<>();
             return InvRespEntity.valueOfSuccess(result, result.size());
         }
 
-        Map<String, Object> uuidCondition = new HashMap<String, Object>();
+        Map<String, Object> uuidCondition = new HashMap<>();
         uuidCondition.put("uuid", queryUuidList);
         if("all".equalsIgnoreCase(queryType)) {
             return invDataHandler.batchGet(queryResType, queryAttrs, JsonUtil.toJson(uuidCondition), null);
@@ -242,7 +242,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
 
         InvRelationTablePojo relationPojo = new InvRelationTablePojo(resTypes[0]);
         LOGGER.info("Beginning batch add data to relational tables, pojo = " + relationPojo);
-        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> result = new ArrayList<>();
 
         for(Map<String, Object> valueMap : values) {
             if(addOneData(getSqlSession(), relationPojo, valueMap)) {
@@ -339,7 +339,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
 
         InvRelationTablePojo relationPojo = new InvRelationTablePojo(resType);
 
-        HashSet<String> uuidSet = new HashSet<String>(uuidList);
+        HashSet<String> uuidSet = new HashSet<>(uuidList);
 
         try {
             relationPojo.createTempAttrTableByFiledName(uuidSet, sqlSession, uuidType);
@@ -349,7 +349,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
                 return new ArrayList<InvRelationEntity>();
             }
 
-            List<InvRelationEntity> nodeList = new ArrayList<InvRelationEntity>(relationDatalist.size());
+            List<InvRelationEntity> nodeList = new ArrayList<>(relationDatalist.size());
 
             for(Map<String, Object> resultMap : relationDatalist) {
                 InvRelationEntity invRelationEntity = new InvRelationEntity();

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,9 +55,9 @@ public class BrsCheckerImpl implements BrsChecker {
         ValidateUtil.assertNotEmpty(managedElementId, Constant.MANAGEDELEMENT_ID);
 
         // assembling query filter information.
-        Map<String, String> srcFilterMap = new HashMap<String, String>();
+        Map<String, String> srcFilterMap = new HashMap<>();
         srcFilterMap.put(Constant.AEND_ME, managedElementId);
-        Map<String, String> dstFilterMap = new HashMap<String, String>();
+        Map<String, String> dstFilterMap = new HashMap<>();
         dstFilterMap.put(Constant.ZEND_ME, managedElementId);
 
         // a side parameter.
@@ -107,9 +107,9 @@ public class BrsCheckerImpl implements BrsChecker {
     private void checkTPIsUsed(String logicalTPId) throws ServiceException {
         ValidateUtil.assertNotEmpty(logicalTPId, Constant.LOGICALTP_ID);
         // assembling query filter information.
-        Map<String, String> srcFilterMap = new HashMap<String, String>();
+        Map<String, String> srcFilterMap = new HashMap<>();
         srcFilterMap.put(Constant.A_END, logicalTPId);
-        Map<String, String> dstFilterMap = new HashMap<String, String>();
+        Map<String, String> dstFilterMap = new HashMap<>();
         dstFilterMap.put(Constant.Z_END, logicalTPId);
 
         // a side parameter.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ public class LogicalTPServiceImpl implements LogicalTPService {
     private void addComposition(LogicalTerminationPointMO logicalTP) throws ServiceException {
         LOGGER.info("addComposition: begin to add.");
 
-        List<Relation> lstRelation = new ArrayList<Relation>();
+        List<Relation> lstRelation = new ArrayList<>();
         Relation relation = new Relation();
         relation.setSrcId(logicalTP.getMeID());
         relation.setDstId(logicalTP.getId());

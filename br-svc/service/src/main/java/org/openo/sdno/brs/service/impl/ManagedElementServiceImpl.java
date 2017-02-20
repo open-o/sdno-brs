@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,9 +100,9 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
         managedElement.setControllerID(null);
         managedElement.setSiteID(null);
         managedElement.setNetworkControlDomainID(null);
-        List<ManagedElementMO> lstManagedElement = new ArrayList<ManagedElementMO>();
+        List<ManagedElementMO> lstManagedElement = new ArrayList<>();
         lstManagedElement.add(managedElement);
-        Map<String, Object> requestMap = new HashMap<String, Object>();
+        Map<String, Object> requestMap = new HashMap<>();
         requestMap.put(Constant.OBJECTS_KEY, lstManagedElement);
 
         RestfulResponse restfulResponse = mssProxy.addResources(bucketName, resourceTypeName, requestMap);
@@ -238,7 +238,7 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
         Object rspObj = HttpResponseUtil.assembleRspData(responseContent, ManagedElementMO.class);
         ValidateUtil.assertNotList(rspObj, "resultData");
 
-        List<ManagedElementMO> meList = new ArrayList<ManagedElementMO>();
+        List<ManagedElementMO> meList = new ArrayList<>();
         List listObj = (List)rspObj;
         for(Object objME : listObj) {
             ManagedElementMO managedElement = JsonUtil.fromJson(JsonUtil.toJson(objME), ManagedElementMO.class);
@@ -254,7 +254,7 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
 
         String strMD = managedElement.getManagementDomainID();
         if(null != strMD) {
-            List<String> lstMD = new ArrayList<String>();
+            List<String> lstMD = new ArrayList<>();
             lstMD.add(strMD);
             mapRelation.put(mdResTypeName, RelationUtil.convertRelation(lstMD, strResourceID, mdResTypeName));
         }
@@ -315,7 +315,7 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
 
         relationService.delRelation(strObjID, lstReq, lstDB);
 
-        List<Relation> lstAdd = new ArrayList<Relation>();
+        List<Relation> lstAdd = new ArrayList<>();
         for(Relation relation : lstReq) {
             if(lstDB.contains(relation)) {
                 continue;
@@ -428,7 +428,7 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
 
     @Override
     public List<ManagedElementMO> getManagedElementByTenantId(String tenantID) throws ServiceException {
-        List<ManagedElementMO> meinfo = new ArrayList<ManagedElementMO>();
+        List<ManagedElementMO> meinfo = new ArrayList<>();
 
         String filter = getSiteFilterByTenantID(tenantID);
         String fields = "id,tenantID";
@@ -457,8 +457,8 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
     }
 
     private String getSiteFilterByTenantID(String tenantID) {
-        Map<String, String> filterData = new HashMap<String, String>();
-        Map<String, Object> filter = new HashMap<String, Object>();
+        Map<String, String> filterData = new HashMap<>();
+        Map<String, Object> filter = new HashMap<>();
         String filterDsc = "tenantID =':teid'";
         filterData.put("teid", tenantID);
         filter.put("filterDsc", filterDsc);
@@ -468,7 +468,7 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
     }
 
     private List<String> getUuidByTenantId(List<SiteMO> data) {
-        List<String> uuidList = new ArrayList<String>();
+        List<String> uuidList = new ArrayList<>();
         if(null == data || data.isEmpty()) {
             LOGGER.error("the tenantId data in site is null, data: {}", data);
             return uuidList;

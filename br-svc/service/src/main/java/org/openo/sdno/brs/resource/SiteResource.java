@@ -78,7 +78,7 @@ public class SiteResource extends IResource<SiteService> {
 
         ValidateUtil.assertNotEmpty(objectID, "objectID");
 
-        Map<String, Object> dataResult = new HashMap<String, Object>();
+        Map<String, Object> dataResult = new HashMap<>();
         SiteMO data = service.getSiteByID(objectID);
 
         dataResult.put(Constant.SITE_KEY, (null != data) ? data : new HashMap<String, String>());
@@ -127,10 +127,10 @@ public class SiteResource extends IResource<SiteService> {
             objectId = service.getObjectId(site);
             site.setId(objectId);
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             SiteMO data = service.addSite(site);
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_CREATETIME, data.getCreatetime());
                 reponseBody.put(Constant.SITE_KEY, result);
@@ -173,11 +173,11 @@ public class SiteResource extends IResource<SiteService> {
                 siteForLog.setName(site.getName());
             }
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             SiteMO data = service.updateSiteByID(objectId, HttpResponseUtil
                     .getDataModelFromReqStr(RestUtils.getRequestBody(request), Constant.SITE_KEY, SiteMO.class));
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_UPDATETIME, data.getUpdatetime());
                 reponseBody.put(Constant.SITE_KEY, result);
@@ -217,7 +217,7 @@ public class SiteResource extends IResource<SiteService> {
                 siteForLog.setName(site.getName());
             }
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             Boolean bResult = service.delSiteByID(objectId);
             if(bResult) {
                 reponseBody.put("result", bResult);

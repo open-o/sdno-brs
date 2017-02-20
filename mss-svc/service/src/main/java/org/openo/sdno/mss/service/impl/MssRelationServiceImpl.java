@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ public class MssRelationServiceImpl implements MssRelationService {
             throw new ServiceException(null, Constant.SERVICE_ERROR_CODE, ExceptionArgsUtil.getExceptionArgs(e));
         }
 
-        Map<String, Object> relationMap = new HashMap<String, Object>();
+        Map<String, Object> relationMap = new HashMap<>();
         relationMap.put(Constant.RELATIONS_KEY, invRespEntity.getData());
 
         return relationMap;

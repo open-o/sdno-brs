@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ public class InvSqlFilterParser {
     /**
      * AttrFilter list
      */
-    private final List<InvTempAttrFilterPojo> pojoList = new ArrayList<InvTempAttrFilterPojo>();
+    private final List<InvTempAttrFilterPojo> pojoList = new ArrayList<>();
 
     /**
      * max number of Fields
@@ -348,7 +348,7 @@ public class InvSqlFilterParser {
     }
 
     private List<String> parseAllField(String allFieldFilter) {
-        List<String> fieldNameList = new ArrayList<String>();
+        List<String> fieldNameList = new ArrayList<>();
 
         String[] fieldPairArrs = allFieldFilter.split(AND_RELATION);
         for(String fieldPair : fieldPairArrs) {

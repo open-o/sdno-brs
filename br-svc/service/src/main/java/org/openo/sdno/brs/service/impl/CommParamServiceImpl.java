@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -321,8 +321,8 @@ public class CommParamServiceImpl implements CommParamService {
 
     private String getFilterValue(String[] filterName, Object[] filterValue) {
 
-        Map<String, String> filter = new HashMap<String, String>();
-        Map<String, Object> filterdata = new HashMap<String, Object>();
+        Map<String, String> filter = new HashMap<>();
+        Map<String, Object> filterdata = new HashMap<>();
         StringBuilder sb = new StringBuilder();
         String filterVlan = null;
         boolean bFirst = true;

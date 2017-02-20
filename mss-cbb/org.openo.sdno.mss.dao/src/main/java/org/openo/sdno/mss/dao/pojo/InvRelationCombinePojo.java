@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public class InvRelationCombinePojo extends InvMasterSlavesQueryPojo {
 
     private static final String RELATION_KEY = "src_uuid";
 
-    private List<String> attrsLinkList = new ArrayList<String>();
+    private List<String> attrsLinkList = new ArrayList<>();
 
     private static Map<String, Datatype> relationModel;
 
@@ -172,7 +172,7 @@ public class InvRelationCombinePojo extends InvMasterSlavesQueryPojo {
     }
 
     private static void initRelation() {
-        Map<String, Datatype> model = new HashMap<String, Datatype>();
+        Map<String, Datatype> model = new HashMap<>();
         String[] columnObjs = PropertiesUtil.getInstance().getRELATIONTABLECOLUMN();
         for(String columnObj : columnObjs) {
             String[] column = StringUtils.split(columnObj, ", ");

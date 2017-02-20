@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class AttrValidateInfo {
     /**
      * Rule list for attribute validating.
      */
-    private List<AbstractRuleValidator> lstRuleValidator = new ArrayList<AbstractRuleValidator>();
+    private List<AbstractRuleValidator> lstRuleValidator = new ArrayList<>();
 
     /**
      * Method for getting value from object.

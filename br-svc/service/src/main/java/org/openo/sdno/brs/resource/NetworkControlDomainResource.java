@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
 
         ValidateUtil.checkUuid(objectID);
         NetworkControlDomainMO data = service.getNCDById(objectID);
-        Map<String, Object> dataResult = new HashMap<String, Object>();
+        Map<String, Object> dataResult = new HashMap<>();
         dataResult.put(Constant.NETWORKCONTROLDOMIAN_KEY, data);
 
         return dataResult;
@@ -125,10 +125,10 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
             objectId = service.getObjectId(ncdMO);
             ncdMO.setId(objectId);
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             NetworkControlDomainMO data = service.addNCD(ncdMO);
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_CREATETIME, data.getCreatetime());
                 reponseBody.put(Constant.NETWORKCONTROLDOMIAN_KEY, result);
@@ -170,12 +170,12 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
             if(null != ncd) {
                 ncdForLog.setName(ncd.getName());
             }
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             NetworkControlDomainMO data = service.updateNCDByID(objectId,
                     HttpResponseUtil.getDataModelFromReqStr(RestUtils.getRequestBody(request),
                             Constant.NETWORKCONTROLDOMIAN_KEY, NetworkControlDomainMO.class));
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_UPDATETIME, data.getUpdatetime());
                 reponseBody.put(Constant.NETWORKCONTROLDOMIAN_KEY, result);
@@ -214,7 +214,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
             if(null != ncd) {
                 ncdForLog.setName(ncd.getName());
             }
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             Boolean bResult = service.delNCDByID(objectId);
             if(bResult) {
                 reponseBody.put("result", bResult);

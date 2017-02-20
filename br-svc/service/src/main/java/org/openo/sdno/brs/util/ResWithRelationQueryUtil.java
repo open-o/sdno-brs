@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,7 +127,7 @@ public class ResWithRelationQueryUtil {
     public static <T> void filterBaseAndExtAttr(List<T> resourceLst, Class<T> classType) {
         Class<?> currentClass = classType;
 
-        List<Field> lstField = new ArrayList<Field>();
+        List<Field> lstField = new ArrayList<>();
         lstField.addAll(Arrays.asList(currentClass.getDeclaredFields()));
         Class<?> superClassType = currentClass.getSuperclass();
         while(null != superClassType) {
@@ -159,11 +159,11 @@ public class ResWithRelationQueryUtil {
      * @since SDNO 0.5
      */
     public static Map<String, List<String>> getRelationMap(List<Relation> relations) {
-        Map<String, List<String>> relationMap = new HashMap<String, List<String>>();
+        Map<String, List<String>> relationMap = new HashMap<>();
         for(Relation relation : relations) {
             List<String> relationList = relationMap.get(relation.getSrcId());
             if(null == relationList) {
-                relationList = new ArrayList<String>();
+                relationList = new ArrayList<>();
             }
 
             relationList.add(relation.getDstId());

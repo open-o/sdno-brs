@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
  */
 public class ModelParser {
 
-    private List<File> models = new ArrayList<File>();
+    private List<File> models = new ArrayList<>();
 
     /**
      * Construction function, use default file path.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class PagingQueryCheckUtil {
             return pagingQueryPara;
         }
 
-        Map<String, String> queryMap = new HashMap<String, String>();
+        Map<String, String> queryMap = new HashMap<>();
         String[] queryStrArray = queryString.split(Constant.AND);
         for(int i = 0; i < queryStrArray.length; i++) {
             String[] propertyStrArray = queryStrArray[i].split(Constant.EQUIVALENT);
@@ -250,7 +250,7 @@ public class PagingQueryCheckUtil {
 
         checkPageSize(paraMap.getPageSize());
 
-        Map<String, Field> fieldsMap = new HashMap<String, Field>();
+        Map<String, Field> fieldsMap = new HashMap<>();
         String fieldsString = paraMap.getFields();
         checkFields(fieldsString, fieldsMap, classType);
 

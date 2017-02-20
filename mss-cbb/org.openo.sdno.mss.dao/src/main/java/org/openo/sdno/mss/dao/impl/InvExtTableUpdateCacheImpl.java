@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -112,8 +112,8 @@ public class InvExtTableUpdateCacheImpl {
      * @since SDNO 0.5
      */
     public void query(String resType, List<Map<String, Object>> datas) {
-        cache = new HashMap<ExtEntity, String>(datas.size() * 2);
-        List<String> uuids = new ArrayList<String>(datas.size());
+        cache = new HashMap<>(datas.size() * 2);
+        List<String> uuids = new ArrayList<>(datas.size());
         for(Map<String, Object> data : datas) {
             String uuid = data.get(InvAttrDefine.UUID.getValue()).toString();
             uuids.add(uuid);

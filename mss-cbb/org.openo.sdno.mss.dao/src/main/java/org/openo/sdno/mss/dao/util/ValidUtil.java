@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -158,7 +158,7 @@ public final class ValidUtil {
 
         Set<String> basicAttrs =
                 org.openo.sdno.mss.dao.pojo.InvCrossTablePojo.getAllAttributes(resType, checkHiddenAttr).keySet();
-        Set<String> allAttrs = new HashSet<String>();
+        Set<String> allAttrs = new HashSet<>();
         allAttrs.addAll(basicAttrs);
         // Check if there any relation table column.
         if(checkRelation) {

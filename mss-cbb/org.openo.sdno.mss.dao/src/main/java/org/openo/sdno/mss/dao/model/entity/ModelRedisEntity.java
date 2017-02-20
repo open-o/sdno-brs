@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,42 +51,42 @@ public class ModelRedisEntity {
     /**
      * Info model
      */
-    private volatile Map<String, Infomodel> infoModelMap = new ConcurrentHashMap<String, Infomodel>();
+    private volatile Map<String, Infomodel> infoModelMap = new ConcurrentHashMap<>();
 
     /**
      * Whole Info model
      */
-    private volatile Map<String, Infomodel> wholeInfoModelMap = new ConcurrentHashMap<String, Infomodel>();
+    private volatile Map<String, Infomodel> wholeInfoModelMap = new ConcurrentHashMap<>();
 
     /**
      * Data model map
      */
-    private Map<String, Datamodel> dataModelMap = new ConcurrentHashMap<String, Datamodel>();
+    private Map<String, Datamodel> dataModelMap = new ConcurrentHashMap<>();
 
     /**
      * Relation model map
      */
-    private Map<String, RelationModelRelation> relaModelMap = new ConcurrentHashMap<String, RelationModelRelation>();
+    private Map<String, RelationModelRelation> relaModelMap = new ConcurrentHashMap<>();
 
     /**
      * Map of data model and info model name, key=data model name value=info model name
      */
-    private Map<String, String> dataName2InfoNames = new ConcurrentHashMap<String, String>();
+    private Map<String, String> dataName2InfoNames = new ConcurrentHashMap<>();
 
     /**
      * Map of resource type and unique index, key=resource type value= unique index
      */
-    private Map<String, String> resUniqueIndexMap = new ConcurrentHashMap<String, String>();
+    private Map<String, String> resUniqueIndexMap = new ConcurrentHashMap<>();
 
     /**
      * Map of bucket name and resource type name
      */
-    private Map<String, String> dataFields = new ConcurrentHashMap<String, String>();
+    private Map<String, String> dataFields = new ConcurrentHashMap<>();
 
     /**
      * Map of Bucket and resource types. key=Bucket name value=List of Resource types
      */
-    private Map<String, List<String>> listBktValues = new ConcurrentHashMap<String, List<String>>();
+    private Map<String, List<String>> listBktValues = new ConcurrentHashMap<>();
 
     /**
      * Get dataFields attribute.<br>
@@ -320,7 +320,7 @@ public class ModelRedisEntity {
      */
     private void initWholeInfoModel() {
         if(null == this.dataName2InfoNames) {
-            this.dataName2InfoNames = new ConcurrentHashMap<String, String>();
+            this.dataName2InfoNames = new ConcurrentHashMap<>();
         }
 
         for(Infomodel model : this.infoModelMap.values()) {

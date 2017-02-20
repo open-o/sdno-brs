@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,7 +114,7 @@ public class ModelIniter extends ChangeLogBuilder {
 
     private void saveResource2Db() {
         Map<String, Infomodel> infoModels = this.modelData.getInfoModelMap();
-        List<ResourcePojo> resources = new ArrayList<ResourcePojo>();
+        List<ResourcePojo> resources = new ArrayList<>();
 
         for(Map.Entry<String, Infomodel> entry : infoModels.entrySet()) {
             ResourcePojo pojo = new ResourcePojo();

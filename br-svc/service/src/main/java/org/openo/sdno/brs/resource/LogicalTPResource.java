@@ -84,7 +84,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
         LOGGER.info("BRS get LogicalTerminationPoint by objectID {}.", objectID);
         ValidateUtil.assertNotEmpty(objectID, "object_id");
 
-        Map<String, Object> logicalTPResult = new HashMap<String, Object>();
+        Map<String, Object> logicalTPResult = new HashMap<>();
         LogicalTerminationPointMO data = service.getLogicalTPByID(objectID);
         logicalTPResult.put(Constant.LOGICALTP_KEY, (null != data) ? data : new HashMap<String, String>());
 
@@ -135,11 +135,11 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
             checkInterfaceExist(logicalTP);
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             LogicalTerminationPointMO data = service.addLogicalTP(logicalTP);
 
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_CREATETIME, data.getCreatetime());
                 reponseBody.put(Constant.LOGICALTP_KEY, result);
@@ -181,11 +181,11 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
             }
 
             String requestStr = RestUtils.getRequestBody(request);
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             LogicalTerminationPointMO logicalTPInfo = service.updateTPByID(objectId, HttpResponseUtil
                     .getDataModelFromReqStr(requestStr, Constant.LOGICALTP_KEY, LogicalTerminationPointMO.class));
             if(null != logicalTPInfo) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, logicalTPInfo.getId());
                 result.put(Constant.RESOUCRCE_UPDATETIME, logicalTPInfo.getUpdatetime());
 
@@ -227,7 +227,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
                 logicalTPForLog.setName(logicalTP.getName());
             }
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             Boolean isDelSuccess = service.delTpByID(objectId);
             if(isDelSuccess) {
                 reponseBody.put("result", true);

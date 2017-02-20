@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         if(tenantId != null && !tenantId.isEmpty()) {
             try {
-                Map<String, String> filterMap = new HashMap<String, String>();
+                Map<String, String> filterMap = new HashMap<>();
                 filterMap.put("tenantID", tenantId);
                 filter = HttpResponseUtil.getFilterValue(filterMap, SiteMO.class);
             } catch(IOException e) {

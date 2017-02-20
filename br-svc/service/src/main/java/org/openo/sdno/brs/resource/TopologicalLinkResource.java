@@ -81,7 +81,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
         ValidateUtil.assertNotEmpty(objectID, "object_id");
         LOGGER.info("brs get TopologicalLink Resource by objectID {}.", objectID);
 
-        Map<String, Object> topologicalLinkResult = new HashMap<String, Object>();
+        Map<String, Object> topologicalLinkResult = new HashMap<>();
         TopologicalLinkMO data = service.getResource(objectID, TopologicalLinkMO.class);
         topologicalLinkResult.put(Constant.TOPOLOGICALLINK_KEY, (null != data) ? data : new HashMap<String, String>());
 
@@ -131,11 +131,11 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
 
             checkLinkExist(topologicalLink);
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             TopologicalLinkMO data = service.addResource(topologicalLink, TopologicalLinkMO.class);
 
             if(null != data) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, data.getId());
                 result.put(Constant.RESOUCRCE_CREATETIME, data.getCreatetime());
                 reponseBody.put(Constant.TOPOLOGICALLINK_KEY, result);
@@ -178,12 +178,12 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
             }
 
             String requestStr = RestUtils.getRequestBody(request);
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             TopologicalLinkMO topologicalLinkInfo =
                     service.updateResource(objectId, HttpResponseUtil.getDataModelFromReqStr(requestStr,
                             Constant.TOPOLOGICALLINK_KEY, TopologicalLinkMO.class), TopologicalLinkMO.class);
             if(null != topologicalLinkInfo) {
-                Map<String, Object> result = new HashMap<String, Object>();
+                Map<String, Object> result = new HashMap<>();
                 result.put(Constant.RESOURCE_ID, topologicalLinkInfo.getId());
                 result.put(Constant.RESOUCRCE_UPDATETIME, topologicalLinkInfo.getUpdatetime());
 
@@ -224,7 +224,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
                 topologicalLinkForLog.setName(topologicalLink.getName());
             }
 
-            Map<String, Object> reponseBody = new HashMap<String, Object>();
+            Map<String, Object> reponseBody = new HashMap<>();
             Boolean isDelSuccess = service.deleteResource(objectId, TopologicalLinkMO.class);
             if(isDelSuccess) {
                 reponseBody.put("result", true);

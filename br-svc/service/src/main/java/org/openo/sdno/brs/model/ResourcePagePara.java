@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,22 +36,22 @@ public class ResourcePagePara {
     /**
      * basic table field.
      */
-    private List<String> resFieldList = new ArrayList<String>();
+    private List<String> resFieldList = new ArrayList<>();
 
     /**
      * key:dbName,Value:paraName.
      */
-    private Map<String, String> relationFields = new HashMap<String, String>();
+    private Map<String, String> relationFields = new HashMap<>();
 
     /**
      * basic table filter.
      */
-    private Map<String, String> baseFilters = new HashMap<String, String>();
+    private Map<String, String> baseFilters = new HashMap<>();
 
     /**
      * relation table filter.
      */
-    private Map<String, String> relationFilters = new HashMap<String, String>();
+    private Map<String, String> relationFilters = new HashMap<>();
 
     /**
      * maximum number in each page.

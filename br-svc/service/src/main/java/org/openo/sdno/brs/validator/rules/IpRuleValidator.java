@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ public class IpRuleValidator extends AbstractRuleValidator<IpRule, String> {
             + "((:[0-9A-Fa-f]{1,4}){1,2})))|(((25[0-5]|2[0-4]\\d|[01]?\\d{1,2})(\\.(25[0-5]|2[0-4]"
             + "\\d|[01]?\\d{1,2})){3})))(%.+)?\\s*$";
 
-    private static Map<String, String> regMap = new HashMap<String, String>();
+    private static Map<String, String> regMap = new HashMap<>();
 
     private final String type;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -191,7 +191,7 @@ public class PropertiesUtil {
      * @since SDNO 0.5
      */
     private static HashMap<String, Integer> getRelationTypeValues(String property) {
-        HashMap<String, Integer> relationTypeKeyValue = new HashMap<String, Integer>();
+        HashMap<String, Integer> relationTypeKeyValue = new HashMap<>();
         if(StringUtils.isEmpty(property)) {
             LOGGER.warn("Relationship Type enumeration is empty");
             return relationTypeKeyValue;

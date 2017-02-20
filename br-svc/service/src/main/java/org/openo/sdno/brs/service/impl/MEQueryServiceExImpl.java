@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public class MEQueryServiceExImpl implements MEQueryServiceEx {
     public List<String> getManagedElementIdListBySiteId(String siteResTypeName, List<String> uuidList)
             throws ServiceException {
         StringBuilder idStr = new StringBuilder();
-        List<String> meidList = new ArrayList<String>();
+        List<String> meidList = new ArrayList<>();
         for(String id : uuidList) {
             idStr = idStr.append(id).append(" ");
         }

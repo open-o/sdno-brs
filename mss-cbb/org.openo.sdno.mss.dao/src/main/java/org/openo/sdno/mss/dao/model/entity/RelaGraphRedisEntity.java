@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,8 +44,8 @@ import org.openo.sdno.mss.schema.relationmodel.Relationtype;
  */
 public class RelaGraphRedisEntity {
     private final Graph<String,Integer> relationGraph = new DirectedSparseMultigraph<String,Integer>();  //directed graph
-    private final Map<Integer, String> edgeSourceMap = new HashMap<Integer, String>();  //map between edge and its source
-    private final Map<Integer, String> edgeTargetMap = new HashMap<Integer, String>();  //map between edge and its target
+    private final Map<Integer, String> edgeSourceMap = new HashMap<>();  //map between edge and its source
+    private final Map<Integer, String> edgeTargetMap = new HashMap<>();  //map between edge and its target
     private static int nextEdgeId = 1;  //used to generate id for one edge. Although "src-target" looks like a good candidate, parallel links cannot be supported.
 
     private ModelManagement modelMgr = null;
@@ -73,7 +73,7 @@ public class RelaGraphRedisEntity {
      */
     public List<String> findPathBetweenRes(String srcRes, String dstRes) {
         if(srcRes.equals(dstRes)) {
-            List<String> res = new ArrayList<String>();
+            List<String> res = new ArrayList<>();
             res.add(srcRes + "-" + dstRes);
             return res;
         }
@@ -81,7 +81,7 @@ public class RelaGraphRedisEntity {
         DijkstraShortestPath<String, Integer> dsp = new DijkstraShortestPath(relationGraph); 
         List<Integer> shortestPath = dsp.getPath(srcRes, dstRes);
         
-        List<String> relationPath = new ArrayList<String>();
+        List<String> relationPath = new ArrayList<>();
         if(null != shortestPath) {
             for(Integer edge : shortestPath) {
                 String source = edgeSourceMap.get(edge);
@@ -101,7 +101,7 @@ public class RelaGraphRedisEntity {
      * @since SDNO 0.5
      */
     public List<String> findCompositonResFromRes(String bktName, String res) {
-        List<String> relationResList = new ArrayList<String>();
+        List<String> relationResList = new ArrayList<>();
         Collection<RelationModelRelation> relations = this.modelMgr.getRelaModelMap(bktName).values();
 
         for(RelationModelRelation relation : relations) {
@@ -122,7 +122,7 @@ public class RelaGraphRedisEntity {
      * @since SDNO 0.5
      */
     public List<String> findSrcRelationResByDstRes(String bktName, String res) {
-        List<String> srcRelationResList = new ArrayList<String>();
+        List<String> srcRelationResList = new ArrayList<>();
         Collection<RelationModelRelation> relations = this.modelMgr.getRelaModelMap(bktName).values();
         for(RelationModelRelation relation : relations) {
             if(res.equals(relation.getDst())) {
@@ -141,7 +141,7 @@ public class RelaGraphRedisEntity {
      * @since SDNO 0.5
      */
     public List<String> findNotCompositonResFromRes(String bktName, String res) {
-        List<String> relationResList = new ArrayList<String>();
+        List<String> relationResList = new ArrayList<>();
         Collection<RelationModelRelation> relations = this.modelMgr.getRelaModelMap(bktName).values();
 
         for(RelationModelRelation relation : relations) {
@@ -168,7 +168,7 @@ public class RelaGraphRedisEntity {
         if(relations == null) return;
         
         // remove duplicated vertex
-        Set<String> vertexs = new HashSet<String>();
+        Set<String> vertexs = new HashSet<>();
         for(RelationModelRelation relation : relations) {
             vertexs.add(relation.getSrc());
             vertexs.add(relation.getDst());

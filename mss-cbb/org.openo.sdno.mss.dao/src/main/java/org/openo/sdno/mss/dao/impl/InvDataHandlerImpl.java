@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -210,7 +210,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
             // do nothing when extended attributes is empty
             if(!exTablePojos.isEmpty()) {
-                Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
+                Map<String, Map<String, Object>> map = new HashMap<>();
                 for(Map<String, Object> row : resultData) {
                     Object uuid = row.get(InvAttrDefine.UUID.getValue());
                     Validate.notNull(uuid);
@@ -251,7 +251,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         ValidUtil.checkResType(resType);
         ValidUtil.checkUuid(uuid);
 
-        List<String> srcUuidList = new ArrayList<String>();
+        List<String> srcUuidList = new ArrayList<>();
         srcUuidList.add(uuid);
 
         return batchDelete(resType, srcUuidList);
@@ -324,7 +324,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
         LOGGER.debug("End of update data, pojo = " + basicPojo + " " + extPojo);
 
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put(InvAttrDefine.UUID.getValue(), uuid);
         map.put(InvAttrDefine.UPDATE_TIME.getValue(), value.get(InvAttrDefine.UPDATE_TIME.getValue()));
         map.putAll(value);
@@ -475,7 +475,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
     private int batchDeleteSubNodes(final String resType, List<String> srcUuidList) {
         // prepare the delete map of basic and extended table
-        Map<String, List<String>> preDelDataMap = new HashMap<String, List<String>>(srcUuidList.size());
+        Map<String, List<String>> preDelDataMap = new HashMap<>(srcUuidList.size());
 
         // prepare the delete map of relative map
         Map<String, List<InvRelationEntity>> preDelRelationMap =
@@ -514,7 +514,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             preDelRelationMap.put(resType, subNodeList);
         }
 
-        Map<String, List<String>> subNodeMap = new HashMap<String, List<String>>(subNodeList.size());
+        Map<String, List<String>> subNodeMap = new HashMap<>(subNodeList.size());
 
         subNodeListToMap(subNodeList, subNodeMap);
 
@@ -549,7 +549,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
             List<String> compositionDstTypeList = subNodeMap.get(nodeobject.getDstType());
             if(compositionDstTypeList == null) {
-                compositionDstTypeList = new ArrayList<String>();
+                compositionDstTypeList = new ArrayList<>();
                 subNodeMap.put(nodeobject.getDstType(), compositionDstTypeList);
             }
             compositionDstTypeList.add(nodeobject.getDstUuid());
@@ -590,7 +590,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         InvBasicTablePojo basicPojo = new InvBasicTablePojo(type);
         InvExtTablePojo extPojo = new InvExtTablePojo(type);
 
-        Set<String> uuidListToSet = new HashSet<String>(uuidList);
+        Set<String> uuidListToSet = new HashSet<>(uuidList);
 
         // split the set
         List<Set<String>> splitHashSet = splitHashSet(uuidListToSet, BATCH_DELETE_UUID_CNT);
@@ -606,7 +606,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     }
 
     private Set<String> listToSet(List<String> uuidList) {
-        Set<String> uuidSet = new HashSet<String>(uuidList.size());
+        Set<String> uuidSet = new HashSet<>(uuidList.size());
         for(int i = 0; i < uuidList.size(); i++) {
             uuidSet.add(uuidList.get(i));
         }
@@ -614,7 +614,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     }
 
     private List<Set<String>> splitHashSet(Set<String> uuidSet, int count) {
-        List<String> uuidList = new ArrayList<String>(uuidSet.size());
+        List<String> uuidList = new ArrayList<>(uuidSet.size());
 
         Iterator<String> iterator = uuidSet.iterator();
         while(iterator.hasNext()) {
@@ -624,7 +624,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
         List<List<String>> splitArrayList = splitArrayList(uuidList, count);
 
-        List<Set<String>> resultSet = new ArrayList<Set<String>>();
+        List<Set<String>> resultSet = new ArrayList<>();
         for(List<String> uuidSubList : splitArrayList) {
             resultSet.add(listToSet(uuidSubList));
         }
@@ -632,7 +632,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     }
 
     private List<List<String>> splitArrayList(List<String> srcList, int count) {
-        List<List<String>> resultList = new ArrayList<List<String>>();
+        List<List<String>> resultList = new ArrayList<>();
 
         if(srcList.isEmpty()) {
             return resultList;
@@ -647,7 +647,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             int last = size % count;
 
             for(int i = 0; i < pre; i++) {
-                List<String> preItemList = new ArrayList<String>(count);
+                List<String> preItemList = new ArrayList<>(count);
                 for(int j = 0; j < count; j++) {
                     preItemList.add(srcList.get(i * count + j));
                 }
@@ -655,7 +655,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             }
 
             if(last > 0) {
-                List<String> lastItemList = new ArrayList<String>();
+                List<String> lastItemList = new ArrayList<>();
                 for(int i = 0; i < last; i++) {
                     lastItemList.add(srcList.get(pre * count + i));
                 }
@@ -669,7 +669,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     private void batchDelRelationData(String resType, List<InvRelationEntity> relationList, String uuidType) {
         long startTime = System.currentTimeMillis();
 
-        Set<String> uuidSet = new HashSet<String>(relationList.size());
+        Set<String> uuidSet = new HashSet<>(relationList.size());
 
         if(InvRelationTablePojo.SRCUUID.equals(uuidType)) {
             for(int i = 0; i < relationList.size(); i++) {
@@ -753,7 +753,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         LOGGER.debug("Begin update data, pojo = " + basicPojo + " " + extPojo);
 
         int time = DateTimeUtil.getCurTime();
-        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> result = new ArrayList<>();
 
         final SqlSessionProxy sessionProxy = new SqlSessionProxy(values.size(), getBatchSession());
 
@@ -771,7 +771,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
                     sessionProxy.tryTheBestCommit();
                 }
 
-                Map<String, Object> map = new HashMap<String, Object>();
+                Map<String, Object> map = new HashMap<>();
                 map.put(InvAttrDefine.UUID.getValue(), uuid);
                 map.put(InvAttrDefine.UPDATE_TIME.getValue(), time);
                 map.putAll(valueMap);
@@ -796,7 +796,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     private void checkBasicDataExist(String resType, List<Map<String, Object>> values) {
         InvCrossTablePojo crossPojo = new InvCrossTablePojo(resType, InvAttrDefine.UUID.getValue());
 
-        Set<String> updateUuidSet = new HashSet<String>();
+        Set<String> updateUuidSet = new HashSet<>();
         for(Map<String, Object> valueMap : values) {
             updateUuidSet.add((String)valueMap.get(InvAttrDefine.UUID.getValue()));
         }
@@ -811,7 +811,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         crossPojo.setReadCount(updateUuidSet.size());
         List<Map<String, Object>> datas = crossPojo.getData(getSqlSession());
 
-        Set<String> dbUuidSet = new HashSet<String>(datas.size());
+        Set<String> dbUuidSet = new HashSet<>(datas.size());
 
         for(Map<String, Object> data : datas) {
             dbUuidSet.add(data.get(InvAttrDefine.UUID.getValue()).toString());
@@ -840,7 +840,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         doAdd(getSqlSession(), DateTimeUtil.getCurTime(), basicPojo, extPojo, values);
         LOGGER.debug("End of add data, pojo = " + basicPojo + " " + extPojo);
 
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put(InvAttrDefine.UUID.getValue(), values.get(InvAttrDefine.UUID.getValue()));
         map.put(InvAttrDefine.CREATE_TIME.getValue(), values.get(InvAttrDefine.CREATE_TIME.getValue()));
 
@@ -855,7 +855,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
         LOGGER.debug("Begin batch add data, resType = {}", resType);
 
-        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> result = new ArrayList<>();
         int curTime = DateTimeUtil.getCurTime();
         doBatchAdd(result, curTime, resType, values);
 
@@ -876,7 +876,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
                 doAdd(sessionProxy, curTime, basicPojo.copy(), extPojo, valueMap);
                 sessionProxy.addPoint();
 
-                Map<String, Object> map = new HashMap<String, Object>();
+                Map<String, Object> map = new HashMap<>();
                 map.putAll(valueMap);
                 map.put(InvAttrDefine.UUID.getValue(), valueMap.get(InvAttrDefine.UUID.getValue()));
                 map.put(InvAttrDefine.CREATE_TIME.getValue(), valueMap.get(InvAttrDefine.CREATE_TIME.getValue()));
@@ -1036,7 +1036,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             return;
         }
 
-        Map<String, Map<String, Object>> rspDataMap = new HashMap<String, Map<String, Object>>();
+        Map<String, Map<String, Object>> rspDataMap = new HashMap<>();
         for(Map<String, Object> oneRspData : data) {
             rspDataMap.put((String)oneRspData.get("uuid"), oneRspData);
         }
@@ -1051,10 +1051,10 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
             List<Map<Object, Object>> relationObjList = (List<Map<Object, Object>>)oneRspData.get("relation");
             if(relationObjList == null) {
-                relationObjList = new ArrayList<Map<Object, Object>>();
+                relationObjList = new ArrayList<>();
             }
 
-            Map<Object, Object> relationObj = new HashMap<Object, Object>();
+            Map<Object, Object> relationObj = new HashMap<>();
             for(String linkAttr : attrsLinkList) {
                 String key = linkAttr;
                 if("dst_uuid".equals(key)) {
@@ -1241,7 +1241,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         Map<String, Datatype> extAttrs = InvExtTablePojo.getAllExtAttributes(pojo.getResType());
 
         Set<String> relAttrs = InvRelationCombinePojo.getRelationModel().keySet();
-        Set<String> relationAttrs = new HashSet<String>();
+        Set<String> relationAttrs = new HashSet<>();
         for(String relAttr : relAttrs) {
             if("src_uuid".equals(relAttr)) {
                 continue;
@@ -1588,7 +1588,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
     }
 
     private Set<String> getUUIDs(List<Map<String, Object>> data) {
-        Set<String> uuids = new HashSet<String>();
+        Set<String> uuids = new HashSet<>();
 
         for(Map<String, Object> item : data) {
             uuids.add(item.get("uuid").toString());
@@ -1615,7 +1615,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
             throw new IllegalArgumentException("filterDsc:" + filterDsc + " or filterData:" + filterDsc + " is empty.");
         }
 
-        List<String> filterFields = new ArrayList<String>();
+        List<String> filterFields = new ArrayList<>();
 
         String filterDscResult = parseFields(filterDsc, filterFields, tableAlias);
         HashMap<String, Object> filterDataMap =
@@ -1623,7 +1623,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
         checkFilter(filterFields, filterDataMap, resType, filterDsc, filterData, checkRelation);
 
-        List<FieldPosition> fields = new ArrayList<FieldPosition>();
+        List<FieldPosition> fields = new ArrayList<>();
         for(Entry<String, Object> filterItem : filterDataMap.entrySet()) {
             fields.add(this.new FieldPosition(filterDsc.indexOf(filterItem.getKey()), filterItem.getKey(),
                     filterItem.getValue()));

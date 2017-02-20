@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ public class StrEnumRuleValidator extends AbstractRuleValidator<StrEnumRule, Str
 
         if(rule.range() != null && !rule.range().isEmpty()) {
             rangeDesc = rule.range();
-            mapEnum = new HashMap<String, String>();
+            mapEnum = new HashMap<>();
             for(String item : rangeDesc.split(",")) {
                 String newValue = item.trim();
                 mapEnum.put(newValue, newValue);

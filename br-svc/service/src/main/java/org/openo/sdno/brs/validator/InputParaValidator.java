@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ public final class InputParaValidator {
     /**
      * Mapping attribute validator by object class type.
      */
-    private final Map<Class, List<AttrValidateInfo>> mapObjAttrInfo = new HashMap<Class, List<AttrValidateInfo>>();
+    private final Map<Class, List<AttrValidateInfo>> mapObjAttrInfo = new HashMap<>();
 
     /**
      * Mapping rule validator by annotation configured on the attribute.
@@ -99,7 +99,7 @@ public final class InputParaValidator {
         List<AttrValidateInfo> attrValidateInfoList = mapObjAttrInfo.get(type);
         ValidateTask task = new ValidateTask(this, null);
         if(attrValidateInfoList == null) {
-            attrValidateInfoList = new ArrayList<AttrValidateInfo>();
+            attrValidateInfoList = new ArrayList<>();
             initAttrInfoList(task, type, attrValidateInfoList);
         }
 
@@ -238,7 +238,7 @@ public final class InputParaValidator {
      * @since SDNO 0.5
      */
     private List<AttrValidateInfo> initObjAttrInfo(ValidateTask task, Class<? extends Object> validDataType) {
-        List<AttrValidateInfo> lstAttrValidInfo = new ArrayList<AttrValidateInfo>();
+        List<AttrValidateInfo> lstAttrValidInfo = new ArrayList<>();
 
         // Look for the super class from current class, initialize the validator info of attribute.
         for(Class curType = validDataType; curType != null
@@ -272,7 +272,7 @@ public final class InputParaValidator {
                             validatorClass.getConstructor(ann.annotationType());
                     AbstractRuleValidator validator = constructor.newInstance(ann);
                     if(lstRule == null) {
-                        lstRule = new ArrayList<AbstractRuleValidator>();
+                        lstRule = new ArrayList<>();
                     }
                     paramName = validator.getParamName();
                     lstRule.add(validator);

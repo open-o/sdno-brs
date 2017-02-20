@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -160,7 +160,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
      */
     private Map<String, Datatype> getRelationAttributes() {
         String[] relationColumns = PropertiesUtil.getInstance().getRELATIONTABLECOLUMN();
-        Map<String, Datatype> attrMap = new HashMap<String, Datatype>();
+        Map<String, Datatype> attrMap = new HashMap<>();
         for(int i = 0; i < relationColumns.length; i++) {
             String[] columnStr = relationColumns[i].split(",");
             attrMap.put(columnStr[0], Datatype.fromValue(columnStr[1]));
@@ -216,12 +216,12 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
 
                 InvTempAttrFilterPojo pojo = new InvTempAttrFilterPojo(resType, property);
 
-                filterAttrList = new ArrayList<InvTempAttrFilterPojo>();
+                filterAttrList = new ArrayList<>();
                 filterAttrList.add(pojo);
 
                 pojo.createTmpAttrTable(session);
 
-                List<Object> uuidList = new ArrayList<Object>();
+                List<Object> uuidList = new ArrayList<>();
                 for(String uuid : srcUuidSet) {
                     uuidList.add(uuid);
                 }
@@ -241,7 +241,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
         checkValueMap(valueMap);
 
         if(attrEntityList == null) {
-            attrEntityList = new ArrayList<InvAttrEntityPojo>();
+            attrEntityList = new ArrayList<>();
         } else {
             attrEntityList.clear();
         }
@@ -479,7 +479,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
             return ret;
         }
 
-        List<InvTableRowPojo> relationRows = new ArrayList<InvTableRowPojo>();
+        List<InvTableRowPojo> relationRows = new ArrayList<>();
         for(int i = 0; i < records.size(); ++i) {
             relationRows.add(records.get(i));
 
@@ -528,7 +528,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
         }
 
         if(tableRowList == null) {
-            tableRowList = new ArrayList<InvTableRowPojo>();
+            tableRowList = new ArrayList<>();
         } else {
             tableRowList.clear();
         }

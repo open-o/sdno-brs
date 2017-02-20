@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,13 +46,13 @@ public class BucketModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BucketModel.class);
 
-    private final List<File> models = new ArrayList<File>();
+    private final List<File> models = new ArrayList<>();
 
-    private Map<String, Infomodel> infoModels = new ConcurrentHashMap<String, Infomodel>();
+    private Map<String, Infomodel> infoModels = new ConcurrentHashMap<>();
 
-    private Map<String, Datamodel> dataModels = new ConcurrentHashMap<String, Datamodel>();
+    private Map<String, Datamodel> dataModels = new ConcurrentHashMap<>();
 
-    private Map<String, RelationModelRelation> relationModels = new ConcurrentHashMap<String, RelationModelRelation>();
+    private Map<String, RelationModelRelation> relationModels = new ConcurrentHashMap<>();
 
     private static final String DM_PREFIX = "dm_";
 

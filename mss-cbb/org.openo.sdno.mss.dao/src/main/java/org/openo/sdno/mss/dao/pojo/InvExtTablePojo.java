@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
      * @since SDNO 0.5
      */
     public List<InvExtTablePojo> copyAllAttr() {
-        List<InvExtTablePojo> result = new ArrayList<InvExtTablePojo>();
+        List<InvExtTablePojo> result = new ArrayList<>();
         for(String attr : allAttrMap.keySet()) {
             result.add(copy().buildAttribute(attr));
         }
@@ -125,7 +125,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
         Infomodel infoModel = ModelMgrUtil.getInstance().getWholeInfoModelMap().get(resType);
 
         List<Property> extProp = infoModel.getExtension().getProperty();
-        Map<String, Datatype> attrMap = new HashMap<String, Datatype>(extProp.size() * 2);
+        Map<String, Datatype> attrMap = new HashMap<>(extProp.size() * 2);
         for(Property property : extProp) {
             attrMap.put(property.getName(), property.getType());
         }
@@ -162,7 +162,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
             return copyAllAttr();
         }
 
-        List<InvExtTablePojo> resultList = new ArrayList<InvExtTablePojo>();
+        List<InvExtTablePojo> resultList = new ArrayList<>();
         String[] attrArray = StringUtils.split(attributes.trim(), ", ");
         for(String str : attrArray) {
             if(allAttrMap.containsKey(str)) {
@@ -200,7 +200,7 @@ public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable
             uuid = (String)valueMap.get(InvAttrDefine.UUID.getValue());
         }
 
-        List<InvExtTablePojo> resultList = new ArrayList<InvExtTablePojo>();
+        List<InvExtTablePojo> resultList = new ArrayList<>();
 
         for(Map.Entry<String, Object> entry : valueMap.entrySet()) {
             Datatype type = allAttrMap.get(entry.getKey());
