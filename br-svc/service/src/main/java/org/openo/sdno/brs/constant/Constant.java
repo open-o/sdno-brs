@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,13 +104,13 @@ public class Constant {
 
     public static final String COLON = ":";
 
-    public static final String FILTER_PER = "%25";
+    public static final String FILTER_PER = "%";
 
-    public static final String FILTER_QUOTATION = "%22";
+    public static final String FILTER_QUOTATION = "\"";
 
-    public static final String FILTER_LIKE = "%20like%20";
+    public static final String FILTER_LIKE = " like ";
 
-    public static final String FILTER_EQUAL = "%20=%20";
+    public static final String FILTER_EQUAL = " = ";
 
     public static final String RELATION_ID = "dst_id";
 
@@ -120,7 +120,7 @@ public class Constant {
 
     public static final String RELATION = "relation";
 
-    public static final String FILTER_AND = "%20and%20";
+    public static final String FILTER_AND = " and ";
 
     public static final String RESOURCE_IP = "ip";
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -143,14 +143,14 @@ public class ITMssCountTest extends TestManager {
             String queryProperty = entry.getKey();
             String queryPtyValue = queryProperty + "Value";
 
-            filtersDsc += new StringBuilder(queryProperty).append("%20like%20").append("'").append("%25").append(":")
-                    .append(queryPtyValue).append("%25").append("'").append("%20and%20").toString();
+            filtersDsc += new StringBuilder(queryProperty).append(" like ").append("'").append("%").append(":")
+                    .append(queryPtyValue).append("%").append("'").append(" and ").toString();
 
             filtersData.put(queryPtyValue, entry.getValue());
         }
 
         // Delete last AND
-        filtersDsc = filtersDsc.substring(0, filtersDsc.length() - "%20and%20".length());
+        filtersDsc = filtersDsc.substring(0, filtersDsc.length() - " and ".length());
         filtersMap.put("filterDsc", filtersDsc);
         filtersMap.put("filterData", JsonUtil.toJson(filtersData));
 
