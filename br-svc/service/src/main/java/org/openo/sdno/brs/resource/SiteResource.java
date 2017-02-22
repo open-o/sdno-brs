@@ -63,7 +63,6 @@ public class SiteResource extends IResource<SiteService> {
      * Get site by UUID.<br>
      * 
      * @param objectID UUID of the site.
-     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -72,8 +71,7 @@ public class SiteResource extends IResource<SiteService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Object getSite(@PathParam("object_id") String objectID, @Context HttpServletRequest request)
-            throws ServiceException {
+    public Object getSite(@PathParam("object_id") String objectID) throws ServiceException {
         LOGGER.info("brs get Site Resource by objectID {}.", objectID);
 
         ValidateUtil.assertNotEmpty(objectID, "objectID");
@@ -138,6 +136,7 @@ public class SiteResource extends IResource<SiteService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("add Site failed", e);
             throw e;
         }
     }
@@ -184,6 +183,7 @@ public class SiteResource extends IResource<SiteService> {
             }
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("update Site failed", e);
             throw e;
         }
     }
@@ -226,6 +226,7 @@ public class SiteResource extends IResource<SiteService> {
             }
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("delete Site failed", e);
             throw e;
         }
     }

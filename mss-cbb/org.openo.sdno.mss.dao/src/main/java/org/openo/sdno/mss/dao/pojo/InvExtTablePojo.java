@@ -31,8 +31,6 @@ import org.openo.sdno.mss.dao.model.ModelMgrUtil;
 import org.openo.sdno.mss.schema.infomodel.Datatype;
 import org.openo.sdno.mss.schema.infomodel.Extension.Property;
 import org.openo.sdno.mss.schema.infomodel.Infomodel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Inventory extension table. <br>
@@ -41,8 +39,6 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-22
  */
 public class InvExtTablePojo extends DefaultInvTablePojo implements Serializable {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(InvExtTablePojo.class);
 
     private static final long serialVersionUID = 159753L;
 

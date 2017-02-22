@@ -63,7 +63,6 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
      * Get managed element from DB.<br>
      * 
      * @param objectId UUID of object need to query.
-     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -72,8 +71,7 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Object getManagedElement(@PathParam("object_id") String objectId, @Context HttpServletRequest request)
-            throws ServiceException {
+    public Object getManagedElement(@PathParam("object_id") String objectId) throws ServiceException {
         LOGGER.info("getManagedElement object_id={}", objectId);
 
         Map<String, Object> managedEleResult = new HashMap<>();
@@ -154,6 +152,7 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
             return assembleRspData(objME, Constant.ACTION_ADD);
 
         } catch(ServiceException e) {
+            LOGGER.error("add ManagedElement failed", e);
             throw e;
         }
     }
@@ -199,7 +198,7 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
 
             return assembleRspData(objME, Constant.ACTION_UPDATE);
         } catch(ServiceException e) {
-
+            LOGGER.error("update ManagedElement failed", e);
             throw e;
         }
     }
@@ -235,7 +234,7 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
             return service.delManagedElementByID(objectId);
 
         } catch(ServiceException e) {
-
+            LOGGER.error("delete ManagedElement failed", e);
             throw e;
         }
     }

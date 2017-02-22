@@ -34,7 +34,7 @@ public class StrEnumRuleValidatorTest {
 
     @Test
     public void testValidateEmptyEditTrue() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrEnumRule strEnumRule = new StrEnumRuleImpl();
         StrEnumRuleValidator ruleValidator = new StrEnumRuleValidator(strEnumRule);
@@ -44,7 +44,7 @@ public class StrEnumRuleValidatorTest {
 
     @Test
     public void testValidateEmptyEditFalse() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrEnumRule strEnumRule = new StrEnumRuleImpl();
         StrEnumRuleValidator ruleValidator = new StrEnumRuleValidator(strEnumRule);
@@ -55,7 +55,7 @@ public class StrEnumRuleValidatorTest {
 
     @Test
     public void testValidateSimpleEnumOutOfRange() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrEnumRule strEnumRule = new StrEnumRuleImpl();
         StrEnumRuleValidator ruleValidator = new StrEnumRuleValidator(strEnumRule);
@@ -66,7 +66,7 @@ public class StrEnumRuleValidatorTest {
 
     @Test
     public void testValidate() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrEnumRule strEnumRule = new StrEnumRuleImpl();
         StrEnumRuleValidator ruleValidator = new StrEnumRuleValidator(strEnumRule);

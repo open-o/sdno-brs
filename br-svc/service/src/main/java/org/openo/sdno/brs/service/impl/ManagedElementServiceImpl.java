@@ -79,13 +79,13 @@ public final class ManagedElementServiceImpl implements ManagedElementService {
 
     private ResWithRelationQueryService meQueryService;
 
-    private static String RELATION_MDID = "managementDomainID";
+    private static final String RELATION_MDID = "managementDomainID";
 
-    private static String RELATION_CONTROLLERID = "controllerID";
+    private static final String RELATION_CONTROLLERID = "controllerID";
 
-    private static String RELATION_SITEID = "siteID";
+    private static final String RELATION_SITEID = "siteID";
 
-    private static String RELATION_ID = "id";
+    private static final String RELATION_ID = "id";
 
     @SuppressWarnings("unchecked")
     @Override

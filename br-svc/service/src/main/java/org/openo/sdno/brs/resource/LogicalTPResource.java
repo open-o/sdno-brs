@@ -70,7 +70,6 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
      * Get LTP information by UUID.<br>
      * 
      * @param objectID UUID of object need to query.
-     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -79,8 +78,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Object getLogicalTerminationPoint(@PathParam("object_id") String objectID,
-            @Context HttpServletRequest request) throws ServiceException {
+    public Object getLogicalTerminationPoint(@PathParam("object_id") String objectID) throws ServiceException {
         LOGGER.info("BRS get LogicalTerminationPoint by objectID {}.", objectID);
         ValidateUtil.assertNotEmpty(objectID, "object_id");
 
@@ -147,6 +145,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("add LTP failed", e);
             throw e;
         }
     }
@@ -194,6 +193,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("update LTP failed", e);
             throw e;
         }
     }
@@ -237,6 +237,7 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("delete LTP failed", e);
             throw e;
         }
     }

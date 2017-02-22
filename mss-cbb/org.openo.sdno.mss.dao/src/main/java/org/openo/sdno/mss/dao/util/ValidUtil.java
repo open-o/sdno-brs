@@ -206,12 +206,11 @@ public final class ValidUtil {
      * Check sort parameter, non resType check in this method. <br>
      * 
      * @param resType Resource type.
-     * @param attributes Attributes.
      * @param sortAttrName Sort attribute name.
      * @param refValue Reference value.
      * @since SDNO 0.5
      */
-    public static void checkSort(String resType, String attributes, String sortAttrName, Object refValue) {
+    public static void checkSort(String resType, String sortAttrName, Object refValue) {
         // If sort is empty, no need sort.
         if(StringUtils.isEmpty(sortAttrName)) {
             if(refValue != null) {

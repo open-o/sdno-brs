@@ -96,7 +96,7 @@ public class SiteResourceTest {
 
         new MockRestfulProxyUpdate();
 
-        Map<String, Object> map = (Map<String, Object>)siteResource.getSite("uuid", request);
+        Map<String, Object> map = (Map<String, Object>)siteResource.getSite("uuid");
 
         assertTrue(map.containsKey(Constant.SITE_KEY));
     }

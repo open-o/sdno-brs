@@ -76,7 +76,7 @@ public class PopResourceTest {
 
         new MockRestfulProxyAdd();
 
-        Map<String, Object> map = (Map<String, Object>)popResource.addPop(request);
+        Map<String, Object> map = popResource.addPop(request);
 
         assertTrue(map.containsKey(Constant.POP_KEY));
     }
@@ -86,7 +86,7 @@ public class PopResourceTest {
 
         new MockRestfulProxyUpdate();
 
-        Map<String, Object> map = (Map<String, Object>)popResource.updatePop("popid", request);
+        Map<String, Object> map = popResource.updatePop("popid", request);
 
         assertTrue(map.containsKey(Constant.POP_KEY));
     }
@@ -96,7 +96,7 @@ public class PopResourceTest {
 
         new MockRestfulProxyUpdate();
 
-        Map<String, Object> map = (Map<String, Object>)popResource.getPop("uuid", request);
+        Map<String, Object> map = popResource.getPop("uuid");
 
         assertTrue(map.containsKey(Constant.POP_KEY));
     }
@@ -116,7 +116,7 @@ public class PopResourceTest {
 
         new MockRestfulProxyUpdate();
 
-        Map<String, Object> map = (Map<String, Object>)popResource.deletePop("uuid", request);
+        Map<String, Object> map = popResource.deletePop("uuid");
 
         assertTrue(map.containsValue(true));
     }

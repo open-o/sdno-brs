@@ -33,7 +33,7 @@ public class ValidateTaskTest {
 
     @Test
     public void testAddError() {
-        ValidateTask validateTask = new ValidateTask(null, "parameter");
+        ValidateTask validateTask = new ValidateTask("parameter");
         validateTask.addError("attrNameKey", "errorMsgKey", "paramName", "params");
         List<RuleErrorInfo> resultLst = validateTask.getLstErr();
         assertTrue("attrNameKey".equals(resultLst.get(0).getLstAttrPath().get(0)));
@@ -44,7 +44,7 @@ public class ValidateTaskTest {
 
     @Test
     public void testAddErrorAttrNameKeyNull() {
-        ValidateTask validateTask = new ValidateTask(null, "parameter");
+        ValidateTask validateTask = new ValidateTask("parameter");
         validateTask.addError(null, "errorMsgKey", "paramName", "params");
         List<RuleErrorInfo> resultLst = validateTask.getLstErr();
         assertTrue(resultLst.get(0).getLstAttrPath().isEmpty());
@@ -55,7 +55,7 @@ public class ValidateTaskTest {
 
     @Test
     public void testAddErrorParamsNull() {
-        ValidateTask validateTask = new ValidateTask(null, "parameter");
+        ValidateTask validateTask = new ValidateTask("parameter");
         validateTask.addError("attrNameKey", "errorMsgKey", "paramName", null);
         List<RuleErrorInfo> resultLst = validateTask.getLstErr();
         assertTrue("attrNameKey".equals(resultLst.get(0).getLstAttrPath().get(0)));
@@ -66,7 +66,7 @@ public class ValidateTaskTest {
 
     @Test
     public void testAddErrorParamsEmpty() {
-        ValidateTask validateTask = new ValidateTask(null, "parameter");
+        ValidateTask validateTask = new ValidateTask("parameter");
         validateTask.addError("attrNameKey", "errorMsgKey", "paramName", "");
         List<RuleErrorInfo> resultLst = validateTask.getLstErr();
         assertTrue("attrNameKey".equals(resultLst.get(0).getLstAttrPath().get(0)));

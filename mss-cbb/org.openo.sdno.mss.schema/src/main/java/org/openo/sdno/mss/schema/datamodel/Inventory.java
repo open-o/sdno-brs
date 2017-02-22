@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      */
     public List<Datamodel> getDatamodel() {
         if(datamodel == null) {
-            datamodel = new ArrayList<Datamodel>();
+            datamodel = new ArrayList<>();
         }
         return this.datamodel;
     }
@@ -123,6 +123,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return hash code of this object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int curHashCode = 1;
         {
@@ -140,6 +141,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return hash code of this object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode() {
         final HashCodeStrategy hashCodestrategy = JAXBHashCodeStrategy.INSTANCE;
         return this.hashCode(null, hashCodestrategy);
@@ -151,6 +153,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return XML description of current object
      * @since SDNO 0.5
      */
+    @Override
     public String toString() {
         final ToStringStrategy toStringStrategy = JAXBToStringStrategy.INSTANCE;
         final StringBuilder sb = new StringBuilder();
@@ -167,6 +170,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return String buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder append(ObjectLocator objectLocator, StringBuilder strBuilder, ToStringStrategy strategy) {
         strategy.appendStart(objectLocator, this, strBuilder);
         appendFields(objectLocator, strBuilder, strategy);
@@ -183,6 +187,7 @@ public class Inventory implements Serializable, Equals, HashCode, ToString {
      * @return String buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder appendFields(ObjectLocator objLocator, StringBuilder stringBuilder,
             ToStringStrategy strategy) {
         {

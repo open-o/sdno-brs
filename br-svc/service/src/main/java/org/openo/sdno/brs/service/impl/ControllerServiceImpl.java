@@ -33,8 +33,6 @@ import org.openo.sdno.brs.util.http.HttpResponseUtil;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
 import org.openo.sdno.framework.container.util.UuidUtils;
 import org.openo.sdno.rest.ResponseUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * controller management service.<br>
@@ -43,8 +41,6 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-6-7
  */
 public class ControllerServiceImpl implements ControllerService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerServiceImpl.class);
 
     private IMSSProxy mssProxy;
 

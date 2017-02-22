@@ -69,7 +69,7 @@ public class InvRelationDataHandlerUtil {
         }
 
         if(CollectionUtils.isEmpty(result)) {
-            return null;
+            return new ArrayList<>();
         }
 
         if(it.hasNext()) {
@@ -109,7 +109,7 @@ public class InvRelationDataHandlerUtil {
      * @since SDNO 0.5
      */
     public static <T> List<List<T>> splitList(List<T> list, final int length) {
-        List<List<T>> partList = new ArrayList<List<T>>();
+        List<List<T>> partList = new ArrayList<>();
         final int size = list.size();
         for(int i = 0; i < size; i += length) {
             partList.add(new ArrayList<T>(list.subList(i, Math.min(size, i + length))));

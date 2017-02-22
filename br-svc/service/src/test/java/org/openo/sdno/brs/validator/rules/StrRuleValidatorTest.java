@@ -34,7 +34,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidateEmptyEditFalse() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);
@@ -45,7 +45,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidateEmptyEditTrue() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);
@@ -55,7 +55,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidateOutOfRange() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);
@@ -67,7 +67,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidateNotMatch1() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);
@@ -78,7 +78,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidateNotMatch2() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);
@@ -90,7 +90,7 @@ public class StrRuleValidatorTest {
 
     @Test
     public void testValidate() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         StrRule strRule = new StrRuleImpl();
         StrRuleValidator ruleValidator = new StrRuleValidator(strRule);

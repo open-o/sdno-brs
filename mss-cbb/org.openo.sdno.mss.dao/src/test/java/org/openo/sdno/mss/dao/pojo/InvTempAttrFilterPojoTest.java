@@ -88,7 +88,7 @@ public class InvTempAttrFilterPojoTest {
         Property pro = new Property();
         pro.setName("porperty1");
         pro.setType(Datatype.INTEGER);
-        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo("attrName", pro);
+        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo(pro);
 
         assertEquals("porperty1", inv.getAttrProperty().getAttrName());
         assertEquals("int", inv.getAttrProperty().getAttrType());
@@ -129,7 +129,7 @@ public class InvTempAttrFilterPojoTest {
         Property pro = new Property();
         pro.setName("porperty1");
         pro.setType(Datatype.INTEGER);
-        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo("attrName", pro);
+        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo(pro);
         PriSqlSession sql = new PriSqlSession();
         assertEquals(0, inv.addData(sql));
     }
@@ -148,7 +148,7 @@ public class InvTempAttrFilterPojoTest {
         Property pro = new Property();
         pro.setName("porperty1");
         pro.setType(Datatype.INTEGER);
-        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo("attrName", pro);
+        InvTempAttrFilterPojo inv = new InvTempAttrFilterPojo(pro);
         PriSqlSession sql = new PriSqlSession();
         List<Object> attrValueList = new ArrayList<>();
         inv.batchAdd(sql, attrValueList);

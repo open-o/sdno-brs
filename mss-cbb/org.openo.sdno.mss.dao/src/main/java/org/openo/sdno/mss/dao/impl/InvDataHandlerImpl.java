@@ -178,7 +178,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         ValidUtil.checkResType(resType);
         ValidUtil.checkAttributes(resType, attr, true);
         ValidUtil.checkFilter(resType, filter);
-        ValidUtil.checkSort(resType, attr, sortAttrName, refValue);
+        ValidUtil.checkSort(resType, sortAttrName, refValue);
         ValidUtil.checkSplitPage(sortAttrName, refValue, refUnique);
 
         InvBasicTablePojo basic = new InvBasicTablePojo(resType).buildAttributes(attr);
@@ -478,8 +478,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         Map<String, List<String>> preDelDataMap = new HashMap<>(srcUuidList.size());
 
         // prepare the delete map of relative map
-        Map<String, List<InvRelationEntity>> preDelRelationMap =
-                new HashMap<String, List<InvRelationEntity>>(srcUuidList.size());
+        Map<String, List<InvRelationEntity>> preDelRelationMap = new HashMap<>(srcUuidList.size());
 
         long startTime = System.currentTimeMillis();
 
@@ -949,7 +948,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         // set the alias of basic table, the default is A
         msPojo.setTableAlias(masterTableAlias);
         // check parameters
-        checkAndSetMasterResType(resType, attrsList,
+        checkAndSetMasterResType(attrsList,
                 fillFilterData(resType, masterTableAlias, filterDsc, queryParam.getFilter()), sortList, msPojo,
                 queryParam.getPageNum(), queryParam.getPageSize());
 
@@ -980,7 +979,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         // set the alias of basic table, the default is A
         msPojo.setTableAlias(masterTableAlias);
         // check parameters
-        checkAndSetMasterResType(resType, new ArrayList<String>(),
+        checkAndSetMasterResType(new ArrayList<String>(),
                 fillFilterData(resType, masterTableAlias, filterDsc, filterData), null, msPojo, "0", "0");
 
         // check joinAttrList
@@ -1166,25 +1165,25 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
     }
 
-    private StringBuffer genInsertFilter(String tableName, String tableAlias, String fields, String oneFilterStr,
-            int filterSize, int index, StringBuffer result) {
-        StringBuffer filter;
+    private StringBuilder genInsertFilter(String tableName, String tableAlias, String fields, String oneFilterStr,
+            int filterSize, int index, StringBuilder result) {
+        StringBuilder filter;
 
         if(index == 0) {
             if(filterSize == 1) {
-                filter = new StringBuffer().append(" (").append(fields).append(")").append(" in ").append(" (")
+                filter = new StringBuilder().append(" (").append(fields).append(")").append(" in ").append(" (")
                         .append("select ").append(fields).append(" from ").append(tableName).append(" ")
                         .append(tableAlias).append(" where (").append(oneFilterStr).append(")").append(")");
             } else {
-                filter = new StringBuffer().append("select ").append(fields).append(" from ").append(tableName)
+                filter = new StringBuilder().append("select ").append(fields).append(" from ").append(tableName)
                         .append(" ").append(tableAlias).append(" where (").append(oneFilterStr).append(")");
             }
         } else if(index < filterSize - 1) {
-            filter = new StringBuffer().append("select ").append(fields).append(" from ").append(tableName).append(" ")
+            filter = new StringBuilder().append("select ").append(fields).append(" from ").append(tableName).append(" ")
                     .append(tableAlias).append(" where ").append(oneFilterStr).append(" and (").append(fields)
                     .append(")").append(" in ").append(" (").append(result).append(")");
         } else {
-            filter = new StringBuffer().append("(").append(oneFilterStr).append(" and (").append(fields).append(")")
+            filter = new StringBuilder().append("(").append(oneFilterStr).append(" and (").append(fields).append(")")
                     .append(" in ").append(" (").append(result).append("))");
         }
 
@@ -1199,7 +1198,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
                     "combine filterDsc: " + filterDsc + " and filterData: " + filterData + " is invalid.");
         }
 
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         List<String> descList = JsonUtil.fromJson(filterDsc, new TypeReference<List<String>>() {});
 
         List<Map<String, Object>> dataMapList =
@@ -1444,8 +1443,8 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
         return tableAlias[size];
     }
 
-    private void checkAndSetMasterResType(String resType, List<String> attrsList, String filterSql,
-            List<String> sortList, InvMasterSlavesQueryPojo msPojo, String pageNumber, String pageCapacity) {
+    private void checkAndSetMasterResType(List<String> attrsList, String filterSql, List<String> sortList,
+            InvMasterSlavesQueryPojo msPojo, String pageNumber, String pageCapacity) {
         final long maxPageCount = 1000;
         setAttrfields(attrsList, msPojo);
 
@@ -1740,7 +1739,7 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
         String fieldFilter = formatFilterStr(allFieldFilter);
         String[] fieldAndPairArrs = fieldFilter.split(andRelation);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         for(int andIndex = 0; andIndex < fieldAndPairArrs.length; andIndex++) {
             String fieldAndPair = fieldAndPairArrs[andIndex];

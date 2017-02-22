@@ -110,7 +110,7 @@ public class PagingQueryCheckUtil {
             try {
                 pageSize = Integer.parseInt(pageSizePara);
             } catch(NumberFormatException e) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGESIZE, null, pageSizePara, "1-1000");
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGESIZE, pageSizePara, "1-1000");
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()), e);
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
@@ -130,7 +130,7 @@ public class PagingQueryCheckUtil {
             try {
                 pageNum = Integer.parseInt(pageNumPara);
             } catch(NumberFormatException e) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGENUM, null, pageNumPara, null);
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGENUM, pageNumPara, null);
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()), e);
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
@@ -144,8 +144,7 @@ public class PagingQueryCheckUtil {
      */
     private static void checkPageSize(int pageSize) throws ServiceException {
         if(pageSize > 1000 || pageSize < 1) {
-            ExceptionArgs eArgs =
-                    genExceptionArgs(Constant.RESOUCRCE_PAGESIZE, null, String.valueOf(pageSize), "1-1000");
+            ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGESIZE, String.valueOf(pageSize), "1-1000");
             LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
             throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
         }
@@ -156,7 +155,7 @@ public class PagingQueryCheckUtil {
      */
     private static void checkPageNum(int pageNum) throws ServiceException {
         if(pageNum < 0) {
-            ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGENUM, null, String.valueOf(pageNum), null);
+            ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_PAGENUM, String.valueOf(pageNum), null);
             LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
             throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
         }
@@ -175,7 +174,7 @@ public class PagingQueryCheckUtil {
         List<String> fieldsList = Arrays.asList(fieldsValue.split(","));
 
         if(CollectionUtils.isEmpty(fieldsList)) {
-            ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILEDS, null, null, null);
+            ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILEDS, null, null);
             LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
             throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
         }
@@ -184,7 +183,7 @@ public class PagingQueryCheckUtil {
 
         for(String field : fieldsList) {
             if(!allFieldsMap.containsKey(field)) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILEDS, null, field, null);
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILEDS, field, null);
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
@@ -205,7 +204,7 @@ public class PagingQueryCheckUtil {
         for(String key : filtersKey) {
             Field field = allFieldsMap.get(key);
             if(null == field) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, null, key, null);
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, key, null);
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
@@ -220,13 +219,13 @@ public class PagingQueryCheckUtil {
             }
 
             if(!isSupportFilter) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, null, key, null);
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, key, null);
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
 
             if(filtersMap.get(key) == null || filtersMap.get(key).isEmpty()) {
-                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, null, key, null);
+                ExceptionArgs eArgs = genExceptionArgs(Constant.RESOUCRCE_FILTERS, key, null);
                 LOGGER.error(Arrays.toString(eArgs.getReasonArgs()));
                 throw new ServiceException(ErrorCode.BRS_PAGINGQUERY_PARAMETERS_ERROR, HttpCode.NOT_ACCEPTABLE, eArgs);
             }
@@ -277,7 +276,7 @@ public class PagingQueryCheckUtil {
     /**
      * Convert error message to error message list displayed on the foreground. <br>
      */
-    private static ExceptionArgs genExceptionArgs(String desc, String reason, String detail, String advice) {
+    private static ExceptionArgs genExceptionArgs(String desc, String detail, String advice) {
         ExceptionArgs eArgs = new ExceptionArgs();
 
         if(advice != null) {

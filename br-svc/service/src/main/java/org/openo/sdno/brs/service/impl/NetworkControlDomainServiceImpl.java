@@ -223,7 +223,8 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
     }
 
     @Override
-    public NetworkControlDomainMO updateNCDByID(String objectId, NetworkControlDomainMO ncdReq) throws ServiceException {
+    public NetworkControlDomainMO updateNCDByID(String objectId, NetworkControlDomainMO ncdReq)
+            throws ServiceException {
 
         updateRelation(objectId, ncdReq.getManagementElementIDs());
 
@@ -257,7 +258,7 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
 
     private List<Relation> convertRelation(List<String> relations, String objectID, String dstType) {
         if(null == relations) {
-            return null;
+            return new ArrayList<>();
         }
 
         List<Relation> lstRelation = new ArrayList<>();
@@ -276,9 +277,8 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
     @SuppressWarnings("unchecked")
     @Override
     public Object getNCDs(String queryString) throws ServiceException {
-        Map<String, Object> result =
-                (Map<String, Object>)ncdOpreateService.getResourceList(queryString, Constant.NETWORKCONTROLDOMIAN_KEY,
-                        NetworkControlDomainMO.class);
+        Map<String, Object> result = (Map<String, Object>)ncdOpreateService.getResourceList(queryString,
+                Constant.NETWORKCONTROLDOMIAN_KEY, NetworkControlDomainMO.class);
         Object ncdData = result.get(Constant.NETWORKCONTROLDOMIAN_KEY);
         try {
             List<NetworkControlDomainMO> ncdList =

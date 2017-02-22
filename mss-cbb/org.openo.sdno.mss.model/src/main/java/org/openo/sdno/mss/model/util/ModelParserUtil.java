@@ -56,10 +56,9 @@ public class ModelParserUtil {
 
     private final Map<String, Infomodel> infoModels = new ConcurrentHashMap<>();
 
-    private final Map<String, Datamodel> dataModels = new ConcurrentHashMap<String, Datamodel>();
+    private final Map<String, Datamodel> dataModels = new ConcurrentHashMap<>();
 
-    private final Map<String, RelationModelRelation> relationModels =
-            new ConcurrentHashMap<String, RelationModelRelation>();
+    private final Map<String, RelationModelRelation> relationModels = new ConcurrentHashMap<>();
 
     private ModelParserUtil() {
 

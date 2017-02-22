@@ -25,8 +25,6 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.bucket.dao.mappers.BucketMapper;
 import org.openo.sdno.mss.bucket.dao.pojo.BucketPojo;
 import org.openo.sdno.mss.bucket.intf.BucketHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Bucket handler class.<br>
@@ -35,8 +33,6 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 public class BucketHandlerImpl extends AHandlerImpl implements BucketHandler {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BucketHandlerImpl.class);
 
     private volatile BucketMapper mapper = null;
 

@@ -75,10 +75,9 @@ public class InvTempAttrFilterPojo {
      * Constructor<br>
      * 
      * @since SDNO 0.5
-     * @param resType Resource type.
      * @param property property
      */
-    public InvTempAttrFilterPojo(String resType, Property property) {
+    public InvTempAttrFilterPojo(Property property) {
         tableName = "tmp_tbl_" + StringUtils.remove(UuidUtils.createUuid(), "-");
 
         attrProperty = new InvAttrEntityPojo(property);

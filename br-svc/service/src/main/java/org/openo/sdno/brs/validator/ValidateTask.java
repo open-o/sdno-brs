@@ -18,8 +18,9 @@ package org.openo.sdno.brs.validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * Class of validating task.<br>
@@ -32,7 +33,7 @@ public class ValidateTask {
     /**
      * Stack of validating trace.
      */
-    private final Stack<ValidateTraceItem> stackValidTrace = new Stack<ValidateTraceItem>();
+    private final Deque<ValidateTraceItem> stackValidTrace = new LinkedList<>();
 
     /**
      * Collection of error info of validating.
@@ -43,10 +44,9 @@ public class ValidateTask {
      * Constructor.<br>
      * 
      * @since SDNO 0.5
-     * @param validator Validator of input parameter
      * @param validData The object to be validated
      */
-    public ValidateTask(InputParaValidator validator, Object validData) {
+    public ValidateTask(Object validData) {
         super();
         stackValidTrace.push(new ValidateTraceItem(null, validData));
     }
@@ -80,7 +80,7 @@ public class ValidateTask {
         lstErr.add(err);
     }
 
-    public Stack<ValidateTraceItem> getStackValidTrace() {
+    public Deque<ValidateTraceItem> getStackValidTrace() {
         return stackValidTrace;
     }
 

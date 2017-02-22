@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      */
     public List<RelationModelRelation> getRelation() {
         if(relation == null) {
-            relation = new ArrayList<RelationModelRelation>();
+            relation = new ArrayList<>();
         }
         return this.relation;
     }
@@ -124,6 +124,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      * @return hash code of this object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int resultHashCode = 1;
         {
@@ -141,6 +142,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      * @return hash code of this object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode() {
         final HashCodeStrategy curHashCodestrategy = JAXBHashCodeStrategy.INSTANCE;
         return this.hashCode(null, curHashCodestrategy);
@@ -152,6 +154,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      * @return XML description of current object
      * @since SDNO 0.5
      */
+    @Override
     public String toString() {
         final StringBuilder resultStringbuffer = new StringBuilder();
         append(null, resultStringbuffer, JAXBToStringStrategy.INSTANCE);
@@ -167,6 +170,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      * @return String buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder append(ObjectLocator locator, StringBuilder appendStringBuffer, ToStringStrategy strategy) {
         strategy.appendStart(locator, this, appendStringBuffer);
         appendFields(locator, appendStringBuffer, strategy);
@@ -183,6 +187,7 @@ public class Relationmodel implements Serializable, Equals, HashCode, ToString {
      * @return String buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             List<RelationModelRelation> thisRelation;

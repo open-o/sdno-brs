@@ -67,7 +67,6 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
      * Get link by UUID.<br>
      * 
      * @param objectID UUID of link.
-     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -76,8 +75,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Object getTopologicalLinkByobjectID(@PathParam("object_id") String objectID,
-            @Context HttpServletRequest request) throws ServiceException {
+    public Object getTopologicalLinkByobjectID(@PathParam("object_id") String objectID) throws ServiceException {
         ValidateUtil.assertNotEmpty(objectID, "object_id");
         LOGGER.info("brs get TopologicalLink Resource by objectID {}.", objectID);
 
@@ -143,7 +141,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
 
             return reponseBody;
         } catch(ServiceException e) {
-
+            LOGGER.error("add Link failed", e);
             throw e;
         }
     }
@@ -192,6 +190,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("update Link failed", e);
             throw e;
         }
     }
@@ -234,6 +233,7 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("delete Link failed", e);
             throw e;
         }
     }

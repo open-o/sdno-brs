@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -155,7 +155,7 @@ public final class SchemaUtil {
     private static DocumentBuilderFactory newSecuDocBuilderFactory() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
-        Map<String, Boolean> featureMap = new HashMap<String, Boolean>();
+        Map<String, Boolean> featureMap = new HashMap<>();
         featureMap.put("http://xml.org/sax/features/external-general-entities", false);
         featureMap.put("http://xml.org/sax/features/external-parameter-entities", false);
         featureMap.put("http://apache.org/xml/features/disallow-doctype-decl", true);

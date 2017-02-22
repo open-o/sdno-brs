@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,6 @@ import java.util.List;
 
 import org.openo.sdno.mss.bucket.dao.mappers.ResourceMapper;
 import org.openo.sdno.mss.bucket.dao.pojo.ResourcePojo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Resource handler class.<br>
@@ -30,8 +28,6 @@ import org.slf4j.LoggerFactory;
  * @version SDNO 0.5 2016-5-19
  */
 public class ResourceHandlerImpl extends AHandlerImpl {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ResourceHandlerImpl.class);
 
     private volatile ResourceMapper mapper = null;
 

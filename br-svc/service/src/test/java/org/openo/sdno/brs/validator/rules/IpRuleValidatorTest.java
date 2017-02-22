@@ -34,7 +34,7 @@ public class IpRuleValidatorTest {
 
     @Test
     public void testValidateNull() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IpRule ipRule = new IpRuleImpl();
         IpRuleValidator ipRuleValidator = new IpRuleValidator(ipRule);
@@ -45,7 +45,7 @@ public class IpRuleValidatorTest {
 
     @Test
     public void testValidateEmpty() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IpRule ipRule = new IpRuleImpl();
         IpRuleValidator ipRuleValidator = new IpRuleValidator(ipRule);
@@ -56,7 +56,7 @@ public class IpRuleValidatorTest {
 
     @Test
     public void testValidateNotMatch() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IpRule ipRule = new IpRuleImpl();
         IpRuleValidator ipRuleValidator = new IpRuleValidator(ipRule);
@@ -67,7 +67,7 @@ public class IpRuleValidatorTest {
 
     @Test
     public void testValidate() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IpRule ipRule = new IpRuleImpl();
         IpRuleValidator ipRuleValidator = new IpRuleValidator(ipRule);

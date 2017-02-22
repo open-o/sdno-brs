@@ -16,7 +16,6 @@
 
 package org.openo.sdno.brs.resource;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -40,7 +39,6 @@ public class HealthCheckResource {
     /**
      * Rest interface to perform health checking operation. <br>
      * 
-     * @param req HttpServletRequest Object
      * @param resp HttpServletResponse Object
      * @throws ServiceException When check health failed
      * @since SDNO 0.5
@@ -48,8 +46,7 @@ public class HealthCheckResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void healthCheck(@Context HttpServletRequest req, @Context HttpServletResponse resp)
-            throws ServiceException {
+    public void healthCheck(@Context HttpServletResponse resp) throws ServiceException {
         resp.setStatus(HttpStatus.SC_OK);
     }
 }

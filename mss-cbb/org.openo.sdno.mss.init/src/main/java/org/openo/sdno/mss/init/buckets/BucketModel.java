@@ -158,13 +158,13 @@ public class BucketModel {
     private void recursiveScanElementModelFiles(File dir) {
         for(File file : dir.listFiles()) {
             if(file.isDirectory()) {
-                scanInfoModelFiles(file.getName(), file);
+                scanInfoModelFiles(file);
                 recursiveScanElementModelFiles(file.getAbsoluteFile());
             }
         }
     }
 
-    private void scanInfoModelFiles(String resource, File dir) {
+    private void scanInfoModelFiles(File dir) {
         File dmFile = null;
         File imFile = null;
 

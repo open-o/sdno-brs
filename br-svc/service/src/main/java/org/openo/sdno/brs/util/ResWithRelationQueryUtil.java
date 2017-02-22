@@ -58,7 +58,7 @@ public class ResWithRelationQueryUtil {
      * @since SDNO 0.5
      */
     public static String convertToFieldString(List<String> fieldList) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for(String field : fieldList) {
             buffer.append(field);
             buffer.append(Constant.COMMA);
@@ -102,7 +102,7 @@ public class ResWithRelationQueryUtil {
      */
     public static <T extends RootEntity> String getResourcesIds(List<T> resourceList) {
 
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for(T resource : resourceList) {
             if(null != resource.getId()) {
                 buffer.append(resource.getId());

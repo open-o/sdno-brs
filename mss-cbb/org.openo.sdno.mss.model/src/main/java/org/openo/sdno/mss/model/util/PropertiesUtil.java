@@ -42,97 +42,97 @@ public class PropertiesUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    private static PropertiesUtil INSTANCE = null;
+    private static PropertiesUtil instance = null;
 
-    private final String MYBAITS_PROPERTIES_PATH = "/META-INF/conf/bucket.properties";
+    private final String mybatisPropertiePath = "/META-INF/conf/bucket.properties";
 
-    private String INVTABLEPREFIX = null;
+    private String invTablePrefix = null;
 
-    private String EXTENSIONTABLEPOSTFIX = null;
+    private String extensionTablePostfix = null;
 
-    private String RELATIONTABLEPOSTFIX = null;
+    private String relationTablePostfix = null;
 
-    private String CHANGESETAUTHOR = null;
+    private String changeSetAuthor = null;
 
-    private String DEFAULTSCHEMA = null;
+    private String defaultSchema = null;
 
-    private String[] BASICTABLEFIXEDCOLIMN = null;
+    private String[] basicTableFixedColumn = null;
 
-    private String[] EXRENSIONTABLECOLUMN = null;
+    private String[] extensionTableColumn = null;
 
-    private String[] EXTENDINDEXS = null;
+    private String[] extendedIndexs = null;
 
-    private String[] RELATIONTABLECOLUMN = null;
+    private String[] relationTableColumn = null;
 
-    private HashMap<String, Integer> RELATIONTYPEVALUES = null;
+    private HashMap<String, Integer> relationTypeValus = null;
 
-    private String[] RELATIONINDEXS = null;
+    private String[] relationIndexs = null;
 
-    private String INFOMODELPREFIX = null;
+    private String infoModelPrefix = null;
 
-    private String DATAMODELPREFIX = null;
+    private String dataModelPrefix = null;
 
-    private String RELAMODELPREFIX = null;
+    private String relaModelPrefix = null;
 
     private PropertiesUtil() {
-        URL url = getClass().getResource(MYBAITS_PROPERTIES_PATH);
+        URL url = getClass().getResource(mybatisPropertiePath);
         initProperties(url);
     }
 
     public String getINVTABLEPREFIX() {
-        return INVTABLEPREFIX;
+        return invTablePrefix;
     }
 
     public String getEXTENSIONTABLEPOSTFIX() {
-        return EXTENSIONTABLEPOSTFIX;
+        return extensionTablePostfix;
     }
 
     public String getCHANGESETAUTHOR() {
-        return CHANGESETAUTHOR;
+        return changeSetAuthor;
     }
 
     public String getDEFAULTSCHEMA() {
-        return DEFAULTSCHEMA;
+        return defaultSchema;
     }
 
     public String[] getBasicTableFixedColumn() {
-        return BASICTABLEFIXEDCOLIMN;
+        return basicTableFixedColumn;
     }
 
     public String[] getExtensionTableColumn() {
-        return EXRENSIONTABLECOLUMN;
+        return extensionTableColumn;
     }
 
     public String getINFOMODELPREFIX() {
-        return INFOMODELPREFIX;
+        return infoModelPrefix;
     }
 
     public String getDATAMODELPREFIX() {
-        return DATAMODELPREFIX;
+        return dataModelPrefix;
     }
 
     public String getRELAMODELPREFIX() {
-        return RELAMODELPREFIX;
+        return relaModelPrefix;
     }
 
     public String[] getRELATIONTABLECOLUMN() {
-        return RELATIONTABLECOLUMN;
+        return relationTableColumn;
     }
 
     public String[] getRELATIONINDEXS() {
-        return RELATIONINDEXS;
+        return relationIndexs;
     }
 
     public Map<String, Integer> getRELATIONTYPEVALUES() {
-        return RELATIONTYPEVALUES;
+        return relationTypeValus;
     }
 
     public String getRELATIONTABLEPOSTFIX() {
-        return RELATIONTABLEPOSTFIX;
+        return relationTablePostfix;
     }
 
     public String[] getEXTENDINDEXS() {
-        return EXTENDINDEXS;
+        return extendedIndexs;
     }
 
     /**
@@ -142,10 +142,10 @@ public class PropertiesUtil {
      * @since SDNO 0.5
      */
     public synchronized static PropertiesUtil getInstance() {
-        if(INSTANCE == null) {
-            INSTANCE = new PropertiesUtil();
+        if(instance == null) {
+            instance = new PropertiesUtil();
         }
-        return INSTANCE;
+        return instance;
     }
 
     /**
@@ -166,21 +166,21 @@ public class PropertiesUtil {
             return;
         }
 
-        INVTABLEPREFIX = invProperties.getProperty("tableprefix");
-        EXTENSIONTABLEPOSTFIX = invProperties.getProperty("exttablepostfix");
-        RELATIONTABLEPOSTFIX = invProperties.getProperty("relationtablepostfix");
-        CHANGESETAUTHOR = invProperties.getProperty("changesetauthor");
-        DEFAULTSCHEMA = invProperties.getProperty("defaultschema");
-        BASICTABLEFIXEDCOLIMN = invProperties.getProperty("basictablefixedcolumn").split("/");
-        EXRENSIONTABLECOLUMN = invProperties.getProperty("exttablecolumn").split("/");
-        EXTENDINDEXS = invProperties.getProperty("exttableindex").split("/");
-        RELATIONTABLECOLUMN = invProperties.getProperty("relationtablecolumn").split("/");
-        RELATIONINDEXS = invProperties.getProperty("relationtableindex").split("/");
+        invTablePrefix = invProperties.getProperty("tableprefix");
+        extensionTablePostfix = invProperties.getProperty("exttablepostfix");
+        relationTablePostfix = invProperties.getProperty("relationtablepostfix");
+        changeSetAuthor = invProperties.getProperty("changesetauthor");
+        defaultSchema = invProperties.getProperty("defaultschema");
+        basicTableFixedColumn = invProperties.getProperty("basictablefixedcolumn").split("/");
+        extensionTableColumn = invProperties.getProperty("exttablecolumn").split("/");
+        extendedIndexs = invProperties.getProperty("exttableindex").split("/");
+        relationTableColumn = invProperties.getProperty("relationtablecolumn").split("/");
+        relationIndexs = invProperties.getProperty("relationtableindex").split("/");
 
-        INFOMODELPREFIX = invProperties.getProperty("infomodelprefix");
-        DATAMODELPREFIX = invProperties.getProperty("datamodelprefix");
-        RELAMODELPREFIX = invProperties.getProperty("relamodelprefix");
-        RELATIONTYPEVALUES = getRelationTypeValues(invProperties.getProperty("relationtypevalue"));
+        infoModelPrefix = invProperties.getProperty("infomodelprefix");
+        dataModelPrefix = invProperties.getProperty("datamodelprefix");
+        relaModelPrefix = invProperties.getProperty("relamodelprefix");
+        relationTypeValus = getRelationTypeValues(invProperties.getProperty("relationtypevalue"));
     }
 
     /**

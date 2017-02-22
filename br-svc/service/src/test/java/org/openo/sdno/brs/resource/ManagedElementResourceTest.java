@@ -96,7 +96,7 @@ public class ManagedElementResourceTest {
 
         new MockRestfulProxyUpdate();
 
-        Map<String, Object> map = (Map<String, Object>)neResource.getManagedElement("uuid", request);
+        Map<String, Object> map = (Map<String, Object>)neResource.getManagedElement("uuid");
 
         assertTrue(map.containsKey(Constant.MANAGEDELEMENT_KEY));
     }

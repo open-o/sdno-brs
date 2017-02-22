@@ -62,7 +62,6 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
      * get NCD by UUID.<br>
      * 
      * @param objectID UUID of NCD.
-     * @param request context of HTTP request.
      * @return object get from data base.
      * @throws ServiceException if data base service have encounter some problem.
      * @since SDNO 0.5
@@ -71,8 +70,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     @Path("{object_id}")
     @Produces("application/json")
     @Consumes("application/json")
-    public Object getNCDById(@PathParam("object_id") String objectID, @Context HttpServletRequest request)
-            throws ServiceException {
+    public Object getNCDById(@PathParam("object_id") String objectID) throws ServiceException {
         LOGGER.info("brs get NCD Resource by objectID {}.", objectID);
 
         ValidateUtil.checkUuid(objectID);
@@ -136,6 +134,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("add NCD failed", e);
             throw e;
         }
     }
@@ -182,6 +181,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
             }
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("update NCD failed", e);
             throw e;
         }
     }
@@ -224,6 +224,7 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
 
             return reponseBody;
         } catch(ServiceException e) {
+            LOGGER.error("delete NCD failed", e);
             throw e;
         }
     }

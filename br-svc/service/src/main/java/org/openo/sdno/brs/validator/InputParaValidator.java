@@ -59,8 +59,7 @@ public final class InputParaValidator {
     /**
      * Mapping rule validator by annotation configured on the attribute.
      */
-    private final Map<Class, Class<? extends AbstractRuleValidator>> mapValidator =
-            new HashMap<Class, Class<? extends AbstractRuleValidator>>();
+    private final Map<Class, Class<? extends AbstractRuleValidator>> mapValidator = new HashMap<>();
 
     /**
      * Constructor.<br>
@@ -97,7 +96,7 @@ public final class InputParaValidator {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public List<RuleErrorInfo> validateField(String field, Object value, Class<?> type) {
         List<AttrValidateInfo> attrValidateInfoList = mapObjAttrInfo.get(type);
-        ValidateTask task = new ValidateTask(this, null);
+        ValidateTask task = new ValidateTask(null);
         if(attrValidateInfoList == null) {
             attrValidateInfoList = new ArrayList<>();
             initAttrInfoList(task, type, attrValidateInfoList);
@@ -137,15 +136,15 @@ public final class InputParaValidator {
      */
     public List<RuleErrorInfo> validate(Object validData, boolean isEdit) {
         if(validData == null) {
-            return null;
+            return new ArrayList<>();
         }
 
         List<RuleErrorInfo> lstErr = null;
 
         // Depth traversal to check all attributes.
-        ValidateTask task = new ValidateTask(this, validData);
+        ValidateTask task = new ValidateTask(validData);
         while(!task.getStackValidTrace().isEmpty()) {
-            ValidateTraceItem curValidDataTraceItem = task.getStackValidTrace().lastElement();
+            ValidateTraceItem curValidDataTraceItem = task.getStackValidTrace().peekLast();
 
             // If this type of object is not initialized, to initialize validate record.
             List<AttrValidateInfo> lstAttrValidInfo = curValidDataTraceItem.getLstAttrValidInfo();
@@ -189,8 +188,7 @@ public final class InputParaValidator {
             Object attrValue = attrValidateInfo.getAttrValue(validateData);
 
             // The executed validator, for processing scene.
-            Map<Class<? extends AbstractRuleValidator>, String> mapExecutedValidator =
-                    new HashMap<Class<? extends AbstractRuleValidator>, String>();
+            Map<Class<? extends AbstractRuleValidator>, String> mapExecutedValidator = new HashMap<>();
 
             // Traversal check every rule
             for(AbstractRuleValidator validator : attrValidateInfo.getLstRuleValidator()) {

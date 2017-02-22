@@ -34,7 +34,7 @@ public class IntRuleValidatorTest {
 
     @Test
     public void testValidateMax() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IntRule intRule = new IntRuleImpl();
         IntRuleValidator ruleValidator = new IntRuleValidator(intRule);
@@ -45,7 +45,7 @@ public class IntRuleValidatorTest {
 
     @Test
     public void testValidateMin() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IntRule intRule = new IntRuleImpl();
         IntRuleValidator ruleValidator = new IntRuleValidator(intRule);
@@ -56,7 +56,7 @@ public class IntRuleValidatorTest {
 
     @Test
     public void testValidateBetween() {
-        ValidateTask taskResult = new ValidateTask(null, null);
+        ValidateTask taskResult = new ValidateTask(null);
         ValidateTask task = taskResult;
         IntRule intRule = new IntRuleImpl();
         IntRuleValidator ruleValidator = new IntRuleValidator(intRule);

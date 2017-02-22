@@ -63,7 +63,6 @@ public class PopResource extends IResource<PopService> {
      * Query Pop by Uuid.<br>
      * 
      * @param objectId Pop Uuid
-     * @param request HttpServletRequest Object
      * @return Pop queried out
      * @throws ServiceException when query failed
      * @since SDNO 0.5
@@ -72,8 +71,7 @@ public class PopResource extends IResource<PopService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Map<String, Object> getPop(@PathParam("object_id") String objectId, @Context HttpServletRequest request)
-            throws ServiceException {
+    public Map<String, Object> getPop(@PathParam("object_id") String objectId) throws ServiceException {
 
         ValidateUtil.checkUuid(objectId);
 
@@ -139,7 +137,6 @@ public class PopResource extends IResource<PopService> {
      * Delete Pop Object.<br>
      * 
      * @param objectId Pop Object Uuid
-     * @param request HttpServletRequest Object
      * @return delete result
      * @throws ServiceException when delete failed
      * @since SDNO 0.5
@@ -148,8 +145,7 @@ public class PopResource extends IResource<PopService> {
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/{object_id}")
-    public Map<String, Object> deletePop(@PathParam("object_id") String objectId, @Context HttpServletRequest request)
-            throws ServiceException {
+    public Map<String, Object> deletePop(@PathParam("object_id") String objectId) throws ServiceException {
         ValidateUtil.checkUuid(objectId);
 
         Boolean result = service.deletePop(objectId);

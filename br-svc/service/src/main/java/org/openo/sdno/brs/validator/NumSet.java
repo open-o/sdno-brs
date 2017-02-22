@@ -146,7 +146,7 @@ public class NumSet implements Cloneable {
 
     @Override
     public String toString() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
 
         for(int i = 0, n = singleRanges.size(); i < n; i++) {
             buf.append(singleRanges.get(i).toString());

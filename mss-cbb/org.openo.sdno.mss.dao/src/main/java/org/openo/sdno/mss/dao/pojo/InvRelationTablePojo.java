@@ -214,7 +214,7 @@ public class InvRelationTablePojo extends DefaultInvTablePojo implements IInvTab
                 property.setType(Datatype.STRING);
                 property.setLength(BigInteger.valueOf(36));
 
-                InvTempAttrFilterPojo pojo = new InvTempAttrFilterPojo(resType, property);
+                InvTempAttrFilterPojo pojo = new InvTempAttrFilterPojo(property);
 
                 filterAttrList = new ArrayList<>();
                 filterAttrList.add(pojo);

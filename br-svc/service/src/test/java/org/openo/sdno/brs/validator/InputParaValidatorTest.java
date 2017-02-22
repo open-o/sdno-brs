@@ -24,6 +24,7 @@ import java.util.List;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.brs.validator.InputParaValidator.InputParaCheck;
+import org.springframework.util.CollectionUtils;
 
 import mockit.Mock;
 import mockit.MockUp;
@@ -40,7 +41,7 @@ public class InputParaValidatorTest {
 
     @Test
     public void testValidate() {
-        assertTrue(null == inputParaValidator.validate(null, false));
+        assertTrue(CollectionUtils.isEmpty(inputParaValidator.validate(null, false)));
     }
 
     @Test

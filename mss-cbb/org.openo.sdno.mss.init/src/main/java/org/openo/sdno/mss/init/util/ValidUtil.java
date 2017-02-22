@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,12 +23,6 @@ package org.openo.sdno.mss.init.util;
  * @version SDNO 0.5 2016-3-26
  */
 public class ValidUtil {
-
-    private static int DEFAULT_STRING_LEN = 255;
-
-    private static int DEFAULT_DECIMAL_LEN = 10;
-
-    private static int DEFAULT_SCALE_LEN = 0;
 
     private ValidUtil() {
 

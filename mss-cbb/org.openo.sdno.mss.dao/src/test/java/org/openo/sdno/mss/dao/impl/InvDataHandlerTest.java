@@ -65,7 +65,7 @@ public class InvDataHandlerTest {
             }
 
             @Mock
-            public void checkSort(String resType, String attributes, String sortAttrName, Object refValue) {
+            public void checkSort(String resType, String sortAttrName, Object refValue) {
                 return;
             }
 

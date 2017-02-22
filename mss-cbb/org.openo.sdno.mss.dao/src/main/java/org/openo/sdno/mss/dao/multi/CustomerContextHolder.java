@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ package org.openo.sdno.mss.dao.multi;
  */
 public class CustomerContextHolder {
 
-    private static ThreadLocal<String> contexHolder = new ThreadLocal<String>();
+    private static ThreadLocal<String> contexHolder = new ThreadLocal<>();
 
     private CustomerContextHolder() {
         // Private constructor to prohibit instantiation.

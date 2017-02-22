@@ -18,7 +18,6 @@ package org.openo.sdno.brs.resource;
 
 import static org.junit.Assert.assertTrue;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
@@ -37,9 +36,6 @@ import mockit.Mocked;
 public class HealthCheckResourceTest {
 
     @Mocked
-    HttpServletRequest request;
-
-    @Mocked
     HttpServletResponse response;
 
     @Autowired
@@ -54,7 +50,7 @@ public class HealthCheckResourceTest {
     public void testHealthCheckSuccess() throws ServiceException {
 
         try {
-            healthCheckResource.healthCheck(request, response);
+            healthCheckResource.healthCheck(response);
             assertTrue(true);
         } catch(ServiceException e) {
             assertTrue(false);

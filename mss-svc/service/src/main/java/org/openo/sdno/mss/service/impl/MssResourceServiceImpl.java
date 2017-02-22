@@ -77,7 +77,7 @@ public class MssResourceServiceImpl implements MssResourceService {
             if(len == 1) {
                 fieldsTemp = ParamConverter.replaceID2UUID(fields);
             } else {
-                StringBuffer sb = new StringBuffer();
+                StringBuilder sb = new StringBuilder();
                 for(int i = 0; i < len; i++) {
                     sb.append(ParamConverter.replaceID2UUID(attrArray[i])).append(Constant.COMMA);
                 }

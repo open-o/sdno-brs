@@ -239,13 +239,13 @@ public class ValidUtilTest {
     @Test(expected = IllegalArgumentException.class)
     public void testCheckSortEmpty() {
 
-        ValidUtil.checkSort("resType", "attr", "", "refValue");
+        ValidUtil.checkSort("resType", "", "refValue");
     }
 
     @Test()
     public void testCheckSortNull() {
 
-        ValidUtil.checkSort("resType", "attr", "", null);
+        ValidUtil.checkSort("resType", "", null);
     }
 
     @Test()
@@ -260,7 +260,7 @@ public class ValidUtilTest {
 
             }
         };
-        ValidUtil.checkSort("resType", "attr", "str", "refValue");
+        ValidUtil.checkSort("resType", "str", "refValue");
         mock.tearDown();
     }
 
@@ -276,7 +276,7 @@ public class ValidUtilTest {
 
             }
         };
-        ValidUtil.checkSort("resType", "attr", "strErr", "refValue");
+        ValidUtil.checkSort("resType", "strErr", "refValue");
         mock.tearDown();
     }
 

@@ -18,21 +18,19 @@ package org.openo.sdno.mss.dao.model.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import java.util.Map;
-import java.util.HashMap;
-
-import edu.uci.ics.jung.graph.Graph; 
-import edu.uci.ics.jung.graph.DirectedSparseMultigraph; 
-import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
-
+import java.util.Set;
 
 import org.openo.sdno.mss.dao.model.ModelManagement;
 import org.openo.sdno.mss.schema.relationmodel.RelationModelRelation;
 import org.openo.sdno.mss.schema.relationmodel.Relationtype;
+
+import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
+import edu.uci.ics.jung.graph.Graph;
 
 /**
  * Relation Graph Redius Entity Class.<br>
@@ -43,10 +41,19 @@ import org.openo.sdno.mss.schema.relationmodel.Relationtype;
  * @version SDNO 0.5 May 20, 2016
  */
 public class RelaGraphRedisEntity {
-    private final Graph<String,Integer> relationGraph = new DirectedSparseMultigraph<String,Integer>();  //directed graph
-    private final Map<Integer, String> edgeSourceMap = new HashMap<>();  //map between edge and its source
-    private final Map<Integer, String> edgeTargetMap = new HashMap<>();  //map between edge and its target
-    private static int nextEdgeId = 1;  //used to generate id for one edge. Although "src-target" looks like a good candidate, parallel links cannot be supported.
+
+    private final Graph<String, Integer> relationGraph = new DirectedSparseMultigraph<>(); // directed
+                                                                                           // graph
+
+    private final Map<Integer, String> edgeSourceMap = new HashMap<>(); // map between edge and its
+                                                                        // source
+
+    private final Map<Integer, String> edgeTargetMap = new HashMap<>(); // map between edge and its
+                                                                        // target
+
+    private static int nextEdgeId = 1; // used to generate id for one edge. Although "src-target"
+                                       // looks like a good candidate, parallel links cannot be
+                                       // supported.
 
     private ModelManagement modelMgr = null;
 
@@ -77,10 +84,10 @@ public class RelaGraphRedisEntity {
             res.add(srcRes + "-" + dstRes);
             return res;
         }
-        
-        DijkstraShortestPath<String, Integer> dsp = new DijkstraShortestPath(relationGraph); 
+
+        DijkstraShortestPath<String, Integer> dsp = new DijkstraShortestPath(relationGraph);
         List<Integer> shortestPath = dsp.getPath(srcRes, dstRes);
-        
+
         List<String> relationPath = new ArrayList<>();
         if(null != shortestPath) {
             for(Integer edge : shortestPath) {
@@ -163,10 +170,12 @@ public class RelaGraphRedisEntity {
         Collection<RelationModelRelation> relations = this.modelMgr.getRelaModelMap(bktName).values();
         buildRelationGraph(relations);
     }
-    //added for facilitaing test.
+
+    // added for facilitaing test.
     void buildRelationGraph(Collection<RelationModelRelation> relations) {
-        if(relations == null) return;
-        
+        if(relations == null)
+            return;
+
         // remove duplicated vertex
         Set<String> vertexs = new HashSet<>();
         for(RelationModelRelation relation : relations) {

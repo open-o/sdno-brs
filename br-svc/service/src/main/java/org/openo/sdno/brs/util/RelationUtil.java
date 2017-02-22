@@ -45,7 +45,7 @@ public class RelationUtil {
      */
     public static List<Relation> convertRelation(List<String> lstID, String strSrcID, String strDstType) {
         if(null == lstID) {
-            return null;
+            return new ArrayList<>();
         }
 
         List<Relation> lstRelation = new ArrayList<>();

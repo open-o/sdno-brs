@@ -17,6 +17,7 @@
 package org.openo.sdno.brs.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -174,7 +175,7 @@ public class CommParamServiceImpl implements CommParamService {
 
         if(StringUtils.isBlank(objectid)) {
             LOGGER.error("objectid is empty");
-            return null;
+            return new ArrayList<>();
 
         }
 
@@ -186,7 +187,7 @@ public class CommParamServiceImpl implements CommParamService {
                 Constant.PAGE_NUM_KEY, CommParamMo.class);
         if(cmList == null || cmList.isEmpty()) {
             LOGGER.error("objectId is not existed");
-            return null;
+            return new ArrayList<>();
 
         }
 

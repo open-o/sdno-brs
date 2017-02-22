@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -214,7 +214,7 @@ public class InvRespEntity<T> {
      * @since SDNO 0.5
      */
     public static <T> InvRespEntity<T> valueOfSuccess(T data) {
-        return new InvRespEntity<T>(0, data, -1);
+        return new InvRespEntity<>(0, data, -1);
     }
 
     /**
@@ -226,7 +226,7 @@ public class InvRespEntity<T> {
      * @since SDNO 0.5
      */
     public static <T> InvRespEntity<T> valueOfSuccess(T data, int row) {
-        return new InvRespEntity<T>(0, data, row);
+        return new InvRespEntity<>(0, data, row);
     }
 
     /**
@@ -238,7 +238,7 @@ public class InvRespEntity<T> {
      * @since SDNO 0.5
      */
     public static <T> InvRespEntity<T> valueOfError(T data, int row) {
-        return new InvRespEntity<T>(ERROR_UNKNOWN, data, row);
+        return new InvRespEntity<>(ERROR_UNKNOWN, data, row);
     }
 
     /**
@@ -249,7 +249,7 @@ public class InvRespEntity<T> {
      * @since SDNO 0.5
      */
     public static <T> InvRespEntity<T> valueOfError(String message) {
-        InvRespEntity<T> entity = new InvRespEntity<T>(ERROR_UNKNOWN, null, -1);
+        InvRespEntity<T> entity = new InvRespEntity<>(ERROR_UNKNOWN, null, -1);
         entity.message = message;
         return entity;
     }
@@ -262,6 +262,6 @@ public class InvRespEntity<T> {
      * @since SDNO 0.5
      */
     public static <T> InvRespEntity<T> valueOfError(int retcode) {
-        return new InvRespEntity<T>(retcode, null, -1);
+        return new InvRespEntity<>(retcode, null, -1);
     }
 }

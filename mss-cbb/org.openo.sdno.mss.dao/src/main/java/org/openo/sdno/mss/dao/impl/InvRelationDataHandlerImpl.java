@@ -346,7 +346,7 @@ public class InvRelationDataHandlerImpl extends AbstractHandlerImpl implements I
             List<Map<String, Object>> relationDatalist = relationPojo.batchGetRelations(sqlSession);
 
             if(relationDatalist.isEmpty()) {
-                return new ArrayList<InvRelationEntity>();
+                return new ArrayList<>();
             }
 
             List<InvRelationEntity> nodeList = new ArrayList<>(relationDatalist.size());

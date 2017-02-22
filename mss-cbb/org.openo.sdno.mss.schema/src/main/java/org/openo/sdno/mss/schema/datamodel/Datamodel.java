@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      */
     public List<DataModelIndex> getIndex() {
         if(index == null) {
-            index = new ArrayList<DataModelIndex>();
+            index = new ArrayList<>();
         }
         return this.index;
     }
@@ -86,7 +86,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      */
     public List<DataModelFilter> getFilter() {
         if(filter == null) {
-            filter = new ArrayList<DataModelFilter>();
+            filter = new ArrayList<>();
         }
         return this.filter;
     }
@@ -162,14 +162,14 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
         if((this.index != null) && (!this.index.isEmpty())) {
             return this.getIndex();
         }
-        return null;
+        return new ArrayList<>();
     }
 
     private List<DataModelFilter> obtainModellFilter() {
         if((this.filter != null) && (!this.filter.isEmpty())) {
             return this.getFilter();
         }
-        return null;
+        return new ArrayList<>();
     }
 
     /**
@@ -193,6 +193,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @return hashCode of the Object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
@@ -222,6 +223,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @return hashCode of the Object
      * @since SDNO 0.5
      */
+    @Override
     public int hashCode() {
         final HashCodeStrategy jaxbStrategy = JAXBHashCodeStrategy.INSTANCE;
         return this.hashCode(null, jaxbStrategy);
@@ -233,6 +235,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @return XML description of the Object
      * @since SDNO 0.5
      */
+    @Override
     public String toString() {
         final ToStringStrategy jaxbToStringstrategy = JAXBToStringStrategy.INSTANCE;
         final StringBuilder buffer = new StringBuilder();
@@ -249,6 +252,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @return string buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strStrategy) {
         strStrategy.appendStart(locator, this, buffer);
         appendFields(locator, buffer, strStrategy);
@@ -265,6 +269,7 @@ public class Datamodel implements Serializable, Equals, HashCode, ToString {
      * @return string buffer after appending
      * @since SDNO 0.5
      */
+    @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             List<DataModelIndex> theIndex = this.obtainModelIndex();

@@ -92,11 +92,11 @@ public class ModelManagement {
      * @since SDNO 0.5
      */
     private ModelRedisEntity getRamModelEntity(String bktName) {
-        if(null == ModelJedisCache.getInstance().getCacheEntity(bktName)
-                || !ModelJedisCache.getInstance().getCacheEntity(bktName).isInited()) {
+        if(null == ModelJedisCache.getInstance().getCacheEntity()
+                || !ModelJedisCache.getInstance().getCacheEntity().isInited()) {
             synchronized(lock) {
-                if(null == ModelJedisCache.getInstance().getCacheEntity(bktName)
-                        || !ModelJedisCache.getInstance().getCacheEntity(bktName).isInited()) {
+                if(null == ModelJedisCache.getInstance().getCacheEntity()
+                        || !ModelJedisCache.getInstance().getCacheEntity().isInited()) {
                     ModelRedisEntity entity = initModel(bktName);
                     if(null != entity) {
                         ModelJedisCache.getInstance().putCacheEntity(bktName, entity);
@@ -105,7 +105,7 @@ public class ModelManagement {
                 }
             }
         }
-        return ModelJedisCache.getInstance().getCacheEntity(bktName);
+        return ModelJedisCache.getInstance().getCacheEntity();
 
     }
 
