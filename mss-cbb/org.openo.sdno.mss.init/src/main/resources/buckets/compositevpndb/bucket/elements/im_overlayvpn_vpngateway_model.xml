@@ -38,6 +38,8 @@
             <property name="downstreamBandwidth" type="string" length="64" />
             <property name="portList" type="string" length="5120" />
             <property name="portNameList" type="string" length="2560" />
+            <property name="subnetList" type="string" length="2048" />
+            <property name="vpnDescriptor" type="string" length="128" />
             <property name="ext" type="string" length="256" />
         </basic>
         <!-- extension -->

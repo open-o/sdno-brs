@@ -44,6 +44,8 @@
             <property name="destSiteId" type="string" length="36" />
             <property name="qosPreClassify" type="string" length="64" />
             <property name="ext" type="string" length="256" />
+            <property name="srcPortIp" type="string" length="128" />
+            <property name="destPortIp" type="string" length="128" />
         </basic>
         <!-- extension -->
         <extension>

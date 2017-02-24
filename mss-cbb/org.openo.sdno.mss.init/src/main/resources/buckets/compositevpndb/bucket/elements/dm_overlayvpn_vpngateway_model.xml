@@ -20,6 +20,6 @@
     <datamodel name="inv_overlayvpn_vpngateway">
         <index name="inv_overlayvpn_vpngateway_id" value="uuid" isunique="true" />
         <filter name="default"
-            value="uuid in (:uuid) and name in (:name) and description in (:description) and tenantId in (:tenantId) and operationStatus in (:operationStatus) and activeStatus in (:activeStatus) and runningStatus in (:runningStatus) and deployStatus in (:deployStatus) and vpnId in (:vpnId) and siteId in (:siteId) and vpcId in (:vpcId) and regionId in (:regionId) and manageable in (:manageable) and protectionType in (:protectionType) and deployPosition in (:deployPosition) and ext in (:ext)" />
+            value="uuid in (:uuid) and name in (:name) and description in (:description) and tenantId in (:tenantId) and operationStatus in (:operationStatus) and activeStatus in (:activeStatus) and runningStatus in (:runningStatus) and deployStatus in (:deployStatus) and vpnId in (:vpnId) and siteId in (:siteId) and vpcId in (:vpcId) and regionId in (:regionId) and manageable in (:manageable) and protectionType in (:protectionType) and deployPosition in (:deployPosition) and vpnDescriptor in (:vpnDescriptor) and ext in (:ext)" />
     </datamodel>
 </inventory>
