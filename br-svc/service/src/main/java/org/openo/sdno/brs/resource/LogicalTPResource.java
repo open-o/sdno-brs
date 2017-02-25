@@ -33,6 +33,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
+import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
@@ -103,7 +104,10 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     public Object getLogicalTerminationPointList(@Context HttpServletRequest request)
             throws ServiceException, UnsupportedEncodingException {
         // TODO: need to solve query parameter contains key words: "=" or "&" problem
-        String queryString = URLDecoder.decode(request.getQueryString(), "UTF-8");
+        String queryString = request.getQueryString();
+        if(!StringUtils.isEmpty(queryString)) {
+            queryString = URLDecoder.decode(queryString, "UTF-8");
+        }
         return service.getLogicalTPs(queryString, LOGICAL_TPS);
     }
 
