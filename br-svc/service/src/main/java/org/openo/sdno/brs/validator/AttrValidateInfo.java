@@ -21,6 +21,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.brs.validator.rules.AbstractRuleValidator;
 
 /**
@@ -74,12 +75,17 @@ public class AttrValidateInfo {
      * 
      * @param validData The object which contains the attribute.
      * @return Attribute value
-     * @throws IllegalAccessException if get attribute value failed
-     * @throws InvocationTargetException if get attribute value failed
+     * @throws ServiceException if inner error happens
      * @since SDNO 0.5
      */
-    public Object getAttrValue(Object validData) throws IllegalAccessException, InvocationTargetException {
-        return getMethod.invoke(validData);
+    public Object getAttrValue(Object validData) throws ServiceException {
+
+        try {
+            return getMethod.invoke(validData);
+        } catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
+
     }
 
     public String getAttributeName() {

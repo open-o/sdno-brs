@@ -101,12 +101,14 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     @GET
     @Produces("application/json")
     @Consumes("application/json")
-    public Object getLogicalTerminationPointList(@Context HttpServletRequest request)
-            throws ServiceException, UnsupportedEncodingException {
-        // TODO: need to solve query parameter contains key words: "=" or "&" problem
+    public Object getLogicalTerminationPointList(@Context HttpServletRequest request) throws ServiceException {
         String queryString = request.getQueryString();
-        if(!StringUtils.isEmpty(queryString)) {
-            queryString = URLDecoder.decode(queryString, "UTF-8");
+        try {
+            if(!StringUtils.isEmpty(queryString)) {
+                queryString = URLDecoder.decode(queryString, "UTF-8");
+            }
+        } catch(UnsupportedEncodingException e) {
+            throw new ServiceException("failed to decode queryString", e);
         }
         return service.getLogicalTPs(queryString, LOGICAL_TPS);
     }

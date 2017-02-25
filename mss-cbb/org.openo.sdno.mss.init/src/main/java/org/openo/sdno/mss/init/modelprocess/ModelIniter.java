@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.openo.sdno.mss.init.mybatis.handler.HandlerManagement;
@@ -70,9 +71,10 @@ public class ModelIniter extends ChangeLogBuilder {
     /**
      * Initialize the model. <br>
      * 
+     * @throws ServiceException if inner error happen
      * @since SDNO 0.5
      */
-    public void init() throws LiquibaseException, SQLException {
+    public void init() throws ServiceException {
         try {
 
             addDbChangeSetNameSpace();
@@ -83,10 +85,13 @@ public class ModelIniter extends ChangeLogBuilder {
             LOGGER.warn("init tablels for " + this.modelData.getBktName() + " do not interruption it, waiting please.");
 
             saveChangeLog2File();
+
             LOGGER.warn("saving models for " + this.modelData.getBktName()
                     + " do not interruption it, waiting please......");
             saveModels2Db();
             LOGGER.warn("model inited, exit the process now. ");
+        } catch(LiquibaseException | SQLException e) {
+            throw new ServiceException(e.getMessage(), e);
         } finally {
             dbParam.destroyPassword();
         }

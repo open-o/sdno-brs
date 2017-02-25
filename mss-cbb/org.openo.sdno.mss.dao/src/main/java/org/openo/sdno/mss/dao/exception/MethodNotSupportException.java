@@ -31,7 +31,7 @@ public class MethodNotSupportException extends RuntimeException {
      */
     private static final long serialVersionUID = 21394561207854L;
 
-    private String methodName = "";
+    private final String methodName;
 
     /**
      * Constructor<br>

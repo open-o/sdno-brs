@@ -197,7 +197,7 @@ public final class InputParaValidator {
 
                 validator.validate(task, attributeNameKey, attrValue, isEdit);
             }
-        } catch(IllegalArgumentException | ReflectiveOperationException e) {
+        } catch(IllegalArgumentException | ServiceException e) {
             LOGGER.error(e.getMessage(), e);
             task.addError(attributeNameKey, ErrorMessageKey.GET_VALUE_FAILED, attrValidateInfo.getParamName());
         }

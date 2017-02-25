@@ -1571,7 +1571,6 @@ public class InvDataHandlerImpl extends AbstractHandlerImpl implements InvDataHa
 
     private void appendBaseDataWithExData(List<Map<String, Object>> data, List<InvExtTablePojo> extDatas,
             List<String> extLists) {
-        // TODO this need be modified as efficiency
         for(Map<String, Object> item : data) {
             String uuid = item.get("uuid").toString();
             for(InvExtTablePojo extPojo : extDatas) {

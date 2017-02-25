@@ -21,7 +21,6 @@ import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.mss.dao.entities.InvRespEntity;
-import org.openo.sdno.mss.dao.exception.ServerInnerException;
 import org.openo.sdno.mss.dao.model.QueryParamModel;
 
 /**
@@ -40,11 +39,10 @@ public interface InvDataService {
      * @param uuid UUID
      * @param attr Resource attribute
      * @return query results.
-     * @throws ServiceException when query failed
      * @since SDNO 0.5
      */
     InvRespEntity<List<Map<String, Object>>> get(String bktName, final String resType, final String uuid,
-            final String attr) throws ServiceException;
+            final String attr);
 
     /**
      * Delete a resource data.<br>
@@ -76,11 +74,9 @@ public interface InvDataService {
      * @param uuid UUID of resource
      * @param value Collection of resource value
      * @return Collection of updated data
-     * @throws ServerInnerException when update failed
      * @since SDNO 0.5
      */
-    InvRespEntity<Map<String, Object>> update(String bktName, String resType, String uuid, Map<String, Object> value)
-            throws ServerInnerException;
+    InvRespEntity<Map<String, Object>> update(String bktName, String resType, String uuid, Map<String, Object> value);
 
     /**
      * Batch update resource data.<br>
@@ -89,11 +85,10 @@ public interface InvDataService {
      * @param resType Resource type
      * @param values Collection of resource value
      * @return Collection of updated data
-     * @throws ServerInnerException when update failed
      * @since SDNO 0.5
      */
     InvRespEntity<List<Map<String, Object>>> batchUpdate(String bktName, String resType,
-            List<Map<String, Object>> values) throws ServerInnerException;
+            List<Map<String, Object>> values);
 
     /**
      * Batch add resource data.<br>
@@ -102,11 +97,9 @@ public interface InvDataService {
      * @param resType Resource type
      * @param values Collection of resource value
      * @return Collection of added data
-     * @throws ServerInnerException when add failed
      * @since SDNO 0.5
      */
-    InvRespEntity<List<Map<String, Object>>> add(String bktName, String resType, List<Map<String, Object>> values)
-            throws ServerInnerException;
+    InvRespEntity<List<Map<String, Object>>> add(String bktName, String resType, List<Map<String, Object>> values);
 
     /**
      * Common query, support the query mode of one main table and Multiple subordinate tables.<br>

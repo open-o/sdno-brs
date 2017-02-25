@@ -16,22 +16,20 @@
 
 package org.openo.sdno.brs.restrepository.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
-import java.net.URLEncoder;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.cxf.common.util.StringUtils;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.message.BasicNameValuePair;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.restrepository.IMSSProxy;
 import org.openo.sdno.brs.util.http.HttpClientUtil;
-
 
 /**
  * Proxy of MSS service.<br>
@@ -76,8 +74,7 @@ public class MSSProxyImpl implements IMSSProxy {
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_OBJECT).append(FORWARD_SLASH).append(objectID).append(Constant.PARAM_SPLIT_LABLE)
-                .append(Constant.RESOUCRCE_FILEDS).append(Constant.EQUIVALENT).append(Constant.FILEDS_ALL)
-                .toString();
+                .append(Constant.RESOUCRCE_FILEDS).append(Constant.EQUIVALENT).append(Constant.FILEDS_ALL).toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -85,11 +82,10 @@ public class MSSProxyImpl implements IMSSProxy {
     @Override
     public RestfulResponse getResourceList(final String bucketName, String resourceTypeName, String fields,
             String filter, int pagesize, int pagenum) throws ServiceException {
-        String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName)
-                .append(FORWARD_SLASH).append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName)
-                .append(FORWARD_SLASH).append(MSS_REST_URL_OBJECT)
-                .append(buildQuery(Constant.RESOUCRCE_FILEDS, fields, "filter", filter,
-                    "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
+        String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
+                .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName)
+                .append(FORWARD_SLASH).append(MSS_REST_URL_OBJECT).append(buildQuery(Constant.RESOUCRCE_FILEDS, fields,
+                        "filter", filter, "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
                 .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
@@ -181,9 +177,8 @@ public class MSSProxyImpl implements IMSSProxy {
 
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_RELATIONOBJECTS)
-                .append(buildQuery(Constant.RESOUCRCE_FILEDS, fields, "filter", filter,
-                    "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
+                .append(MSS_REST_URL_RELATIONOBJECTS).append(buildQuery(Constant.RESOUCRCE_FILEDS, fields, "filter",
+                        filter, "pagesize", String.valueOf(pagesize), "pagenum", String.valueOf(pagenum)))
                 .toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
@@ -227,8 +222,7 @@ public class MSSProxyImpl implements IMSSProxy {
         String url = new StringBuilder(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RELATIONSHIPS)
-                .append(buildQuery(MSS_REST_URL_DST_TYPE, siteResTypeName, MSS_REST_URL_DST_IDS, dstIds))
-                .toString();
+                .append(buildQuery(MSS_REST_URL_DST_TYPE, siteResTypeName, MSS_REST_URL_DST_IDS, dstIds)).toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
@@ -238,17 +232,15 @@ public class MSSProxyImpl implements IMSSProxy {
             throws ServiceException {
         String url = new StringBuffer(MSS_SERVICE_REST_URL_PREFIX).append(bucketName).append(FORWARD_SLASH)
                 .append(MSS_REST_URL_RESOURCES).append(FORWARD_SLASH).append(resourceTypeName).append(FORWARD_SLASH)
-                .append(MSS_REST_URL_STATISTICS).append(buildQuery("joinAttr", joinAttr, "filter", filter))
-                .toString();
+                .append(MSS_REST_URL_STATISTICS).append(buildQuery("joinAttr", joinAttr, "filter", filter)).toString();
 
         return HttpClientUtil.get(url, new HashMap<String, String>());
     }
 
-    private String buildQuery(String... nameOrValues) throws ServiceException
-    {
+    private String buildQuery(String... nameOrValues) throws ServiceException {
         // TODO URLEncodedUtils not follows rfc2369, char in [ !'()~] is not encoded as expected.
         // So a perfect soltion need to be found in future
-        if (0 != nameOrValues.length % 2) {
+        if(0 != nameOrValues.length % 2) {
             throw new ServiceException("buildQuery need name-value pairs, but input is " + nameOrValues.toString());
         }
 
@@ -258,15 +250,14 @@ public class MSSProxyImpl implements IMSSProxy {
         for(int i = 0; i < copiedNameOrValues.length; i += 2) {
             String name = copiedNameOrValues[i];
             String value = copiedNameOrValues[i + 1];
-            if (StringUtils.isEmpty(value)) {
-                // TODO I am not sure is XXX=null or XXX= also a valid condition for service logic.
+            if(StringUtils.isEmpty(value)) {
                 continue;
             } else {
                 nvs.add(new BasicNameValuePair(name, value));
             }
         }
 
-        if (nvs.isEmpty()) {
+        if(nvs.isEmpty()) {
             return new String();
         } else {
             return "?" + URLEncodedUtils.format(nvs, "UTF-8");

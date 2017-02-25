@@ -33,7 +33,7 @@ public class InvSqlException extends RuntimeException {
     /**
      * sqlState
      */
-    private InvSqlState sqlState;
+    private final InvSqlState sqlState;
 
     /**
      * Constructor<br>

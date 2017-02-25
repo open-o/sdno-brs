@@ -16,14 +16,11 @@
 
 package org.openo.sdno.mss.init.modelprocess;
 
-import java.sql.SQLException;
-
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.mss.init.buckets.BucketModel;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import liquibase.exception.LiquibaseException;
 
 /**
  * Class to modify or add a new model. <br>
@@ -57,9 +54,10 @@ public class ModelProcessor {
      * 
      * @param bktName model file name
      * @param modelBasicPath path to the file
+     * @throws ServiceException if inner error happens
      * @since SDNO 0.5
      */
-    public void loadModel(String bktName, String modelBasicPath) throws LiquibaseException, SQLException {
+    public void loadModel(String bktName, String modelBasicPath) throws ServiceException {
         try {
             LOGGER.info("Start to init the models.......");
             BucketModel bktModel = new BucketModel(modelBasicPath);
@@ -68,6 +66,8 @@ public class ModelProcessor {
             this.modelData.init();
             ModelIniter initer = new ModelIniter(this.modelData, this.dbParam);
             initer.init();
+        } catch(ServiceException e) {
+            throw new ServiceException(e.getMessage(), e);
         } finally {
 
             this.dbParam.destroyPassword();

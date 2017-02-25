@@ -61,7 +61,7 @@ public class InvDataServiceImpl implements InvDataService {
 
     @Override
     public InvRespEntity<List<Map<String, Object>>> get(String bktName, final String resType, final String uuid,
-            final String attr) throws ServiceException {
+            final String attr) {
         DataSourceCtrler.add(bktName);
 
         try {

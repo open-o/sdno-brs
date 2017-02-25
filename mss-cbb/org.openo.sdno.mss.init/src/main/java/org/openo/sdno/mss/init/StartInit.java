@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 
 import liquibase.exception.LiquibaseException;
@@ -62,10 +63,11 @@ public class StartInit {
      * @throws LiquibaseException when initialize database failed
      * @throws IOException when initialize database failed
      * @throws CloneNotSupportedException when when initialize database failed
+     * @throws ServiceException if inner error happen
      * @since SDNO 0.5
      */
     public static void main(String[] args)
-            throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
+            throws LiquibaseException, SQLException, IOException, CloneNotSupportedException, ServiceException {
         Map<String, String> dbInfoMap = getDataFromPropertiesFile(CONFIG_PATH);
         DBParam dbParam = new DBParam();
         dbParam.setDbType("mysql");
@@ -83,12 +85,12 @@ public class StartInit {
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter vxlaniniter = new DbIniter();
         vxlaniniter.init(dbParam);
-          
+
         dbParam.setDbName("connectivityservicedb");
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter connectivityservicedbiniter = new DbIniter();
         connectivityservicedbiniter.init(dbParam);
-        
+
         dbParam.setDbName("compositevpndb");
         dbParam.setDbPwd(dbInfoMap.get(PWD).toCharArray());
         DbIniter compositevpndbiniter = new DbIniter();

@@ -19,6 +19,7 @@ package org.openo.sdno.mss.init.buckets;
 import java.io.File;
 import java.sql.SQLException;
 
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.Bucket;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
@@ -33,8 +34,6 @@ import org.openo.sdno.mss.init.util.AuthorityUtil;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import liquibase.exception.LiquibaseException;
 
 /**
  * Bucket management class,run as singleton model.<br>
@@ -86,12 +85,10 @@ public class BucketsMgrt {
     /**
      * Initialization method of Bucket.<br>
      * 
-     * @throws SQLException
-     * @throws LiquibaseException
-     * @throws CloneNotSupportedException
+     * @throws ServiceException if inner error happens
      * @since SDNO 0.5
      */
-    public void init() throws LiquibaseException, SQLException, CloneNotSupportedException {
+    public void init() throws ServiceException {
         try {
             LOGGER.info("init bucket.");
 
@@ -109,6 +106,8 @@ public class BucketsMgrt {
             doInit();
             modelProcessor.loadModel(this.bucket.getName(), BucketStaticUtil.getBucketRootPath());
 
+        } catch(SQLException | CloneNotSupportedException e) {
+            throw new ServiceException(e.getMessage(), e);
         } finally {
             this.dbParam.destroyPassword();
         }

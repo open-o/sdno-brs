@@ -24,9 +24,10 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.model.liquibasemodel.DatabaseChangeLog.ChangeSet.PreConditions;
-import org.openo.sdno.model.liquibasemodel.ObjectFactory;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
+import org.openo.sdno.model.liquibasemodel.ObjectFactory;
 import org.openo.sdno.mss.init.modelprocess.DataModelProcess;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
 
@@ -107,7 +108,8 @@ public class DbIniterTest {
     }
 
     @Test
-    public void testInitNormal() throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
+    public void testInitNormal()
+            throws LiquibaseException, SQLException, IOException, CloneNotSupportedException, ServiceException {
         DBParam dbParam = new DBParam();
         dbParam.setDbName("init");
         dbParam.setDbUser("ossdbuser");

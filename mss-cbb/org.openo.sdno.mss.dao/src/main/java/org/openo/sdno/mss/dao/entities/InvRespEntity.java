@@ -32,9 +32,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class InvRespEntity<T> {
 
-    /**
-     * TODO more error code will be defined
-     */
+
     private static final int ERROR_UNKNOWN = -2;
 
     /**

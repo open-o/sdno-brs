@@ -36,7 +36,7 @@ public class ServerInnerException extends WebApplicationException implements IRe
     /**
      * entity
      */
-    private InvRespEntity<Object> entity;
+    private final InvRespEntity<Object> entity;
 
     /**
      * Constructor<br>

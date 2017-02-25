@@ -16,16 +16,12 @@
 
 package org.openo.sdno.mss.init;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.mss.init.buckets.BucketsMgrt;
 import org.openo.sdno.mss.init.dbinfo.DBParam;
 import org.openo.sdno.mss.init.util.BucketStaticUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import liquibase.exception.LiquibaseException;
 
 /**
  * Entrance for DB Initialize Jar's call.<br>
@@ -41,11 +37,10 @@ public class DbIniter {
      * Initialization of database.<br>
      * 
      * @param dbParam parameter for database.
-     * @throws IOException when database init failed
-     * @throws CloneNotSupportedException when database init failed
+     * @throws ServiceException if inner error happens
      * @since SDNO 0.5
      */
-    public void init(DBParam dbParam) throws LiquibaseException, SQLException, IOException, CloneNotSupportedException {
+    public void init(DBParam dbParam) throws ServiceException {
         try {
             LOGGER.warn("DBiniter is running.....");
 

@@ -446,7 +446,6 @@ public class SqlSessionProxy implements SqlSession {
                 } else {
                     LOGGER.warn("INV-Import: Duplicate retry", ex);
                     setException(ex, sqlState);
-                    // TODO if have duplicated insert index, then uppdate
                     recommit(failedSqlIndex, records);
                 }
             }
