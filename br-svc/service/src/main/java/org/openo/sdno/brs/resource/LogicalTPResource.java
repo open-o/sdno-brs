@@ -16,8 +16,7 @@
 
 package org.openo.sdno.brs.resource;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import org.apache.commons.lang.StringUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.util.RestUtils;
 import org.openo.sdno.brs.constant.Constant;
@@ -102,15 +100,8 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
     @Produces("application/json")
     @Consumes("application/json")
     public Object getLogicalTerminationPointList(@Context HttpServletRequest request) throws ServiceException {
-        String queryString = request.getQueryString();
-        try {
-            if(!StringUtils.isEmpty(queryString)) {
-                queryString = URLDecoder.decode(queryString, "UTF-8");
-            }
-        } catch(UnsupportedEncodingException e) {
-            throw new ServiceException("failed to decode queryString", e);
-        }
-        return service.getLogicalTPs(queryString, LOGICAL_TPS);
+        Map<String, String[]> paramMap = request.getParameterMap();
+        return service.getLogicalTPs(paramMap, LOGICAL_TPS);
     }
 
     /**
@@ -250,8 +241,9 @@ public class LogicalTPResource extends IResource<LogicalTPService> {
 
     @SuppressWarnings("unchecked")
     private void checkInterfaceExist(LogicalTerminationPointMO tpNew) throws ServiceException {
-        String queryString = Constant.RESOURCE_NAME + Constant.EQUIVALENT + tpNew.getName();
-        Object result = service.getLogicalTPs(queryString, LOGICAL_TPS);
+        Map<String, String[]> paramMap = new HashMap<String, String[]>();
+        paramMap.put(Constant.RESOURCE_NAME , Arrays.asList(tpNew.getName()).toArray(new String[1]));
+        Object result = service.getLogicalTPs(paramMap, LOGICAL_TPS);
         if(null != result) {
             Object tps = ((Map<String, Object>)result).get(LOGICAL_TPS);
             if(null != tps) {

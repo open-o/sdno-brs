@@ -52,29 +52,22 @@ public class PagingQueryCheckUtil {
     }
 
     /**
-     * Analyze parameters in query request.<br>
+     * Analyze query string.<br>
      * 
-     * @param queryString query request
-     * @return result of analysis
-     * @throws ServiceException
+     * @param paramMap parameter map
+     * @return PagingQueryPara object
+     * @throws ServiceException when analyze failed
      * @since SDNO 0.5
      */
-    public static PagingQueryPara analysicQueryString(String queryString) throws ServiceException {
+    public static PagingQueryPara analysicQueryString(Map<String, String[]> paramMap) throws ServiceException {
         PagingQueryPara pagingQueryPara = new PagingQueryPara();
-        if(queryString == null || queryString.isEmpty()) {
+        if(null == paramMap || paramMap.isEmpty()) {
             return pagingQueryPara;
         }
 
         Map<String, String> queryMap = new HashMap<>();
-        String[] queryStrArray = queryString.split(Constant.AND);
-        for(int i = 0; i < queryStrArray.length; i++) {
-            String[] propertyStrArray = queryStrArray[i].split(Constant.EQUIVALENT);
-            String propertyName = propertyStrArray[0];
-            String propertyValue = null;
-            if(propertyStrArray.length == 2) {
-                propertyValue = propertyStrArray[1];
-            }
-            queryMap.put(propertyName, propertyValue);
+        for(Map.Entry<String, String[]> mapEntry : paramMap.entrySet()) {
+            queryMap.put(mapEntry.getKey(), mapEntry.getValue()[0]);
         }
 
         int pageSizeValue = getPageSize(queryMap);

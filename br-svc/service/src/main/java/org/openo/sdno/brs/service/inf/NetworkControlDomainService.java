@@ -16,10 +16,11 @@
 
 package org.openo.sdno.brs.service.inf;
 
-import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.service.IService;
+import java.util.Map;
 
+import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.brs.model.NetworkControlDomainMO;
+import org.openo.sdno.framework.container.service.IService;
 
 /**
  * Interface of network controller domain service.<br>
@@ -32,11 +33,11 @@ public interface NetworkControlDomainService extends IService {
     /**
      * Get NCDs.<br>
      * 
-     * @param field The field to query
+     * @param queryParam Parameter map
      * @return The NCD object
      * @since SDNO 0.5
      */
-    Object getNCDs(String field) throws ServiceException;
+    Object getNCDs(Map<String, String[]> queryParam) throws ServiceException;
 
     /**
      * Get object Id.<br>

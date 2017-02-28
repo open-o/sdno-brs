@@ -16,6 +16,7 @@
 
 package org.openo.sdno.brs.resource;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,8 +99,8 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
     @Produces("application/json")
     @Consumes("application/json")
     public Object getTopologicalLinkList(@Context HttpServletRequest request) throws ServiceException {
-        String queryString = request.getQueryString();
-        return service.getResourceList(queryString, TP_LINKS, TopologicalLinkMO.class);
+        Map<String, String[]> paramMap = request.getParameterMap();
+        return service.getResourceList(paramMap, TP_LINKS, TopologicalLinkMO.class);
     }
 
     /**
@@ -254,11 +255,12 @@ public class TopologicalLinkResource extends IResource<ResourceService> {
      */
     @SuppressWarnings("unchecked")
     private void checkLinkExist(TopologicalLinkMO linkNew) throws ServiceException {
-        String queryString = new StringBuilder(Constant.RESOURCE_LOGICAL_TYPE).append(Constant.EQUIVALENT)
-                .append(linkNew.getLogicalType()).append(Constant.AND).append(Constant.A_END)
-                .append(Constant.EQUIVALENT).append(linkNew.getaEnd()).append(Constant.AND).append(Constant.Z_END)
-                .append(Constant.EQUIVALENT).append(linkNew.getzEnd()).toString();
-        Object result = service.getResourceList(queryString, TP_LINKS, TopologicalLinkMO.class);
+        Map<String, String[]> paramMap = new HashMap<String, String[]>();
+        paramMap.put(Constant.RESOURCE_LOGICAL_TYPE, Arrays.asList(linkNew.getLogicalType()).toArray(new String[1]));
+        paramMap.put(Constant.A_END, Arrays.asList(linkNew.getaEnd()).toArray(new String[1]));
+        paramMap.put(Constant.Z_END, Arrays.asList(linkNew.getzEnd()).toArray(new String[1]));
+
+        Object result = service.getResourceList(paramMap, TP_LINKS, TopologicalLinkMO.class);
         if(null != result) {
             Object links = ((Map<String, Object>)result).get(TP_LINKS);
             if(null != links) {

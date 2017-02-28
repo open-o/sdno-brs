@@ -16,6 +16,8 @@
 
 package org.openo.sdno.brs.service.inf;
 
+import java.util.Map;
+
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 import org.openo.sdno.framework.container.service.IService;
@@ -40,12 +42,12 @@ public interface LogicalTPService extends IService {
     /**
      * Get TP list.<br>
      * 
-     * @param queryString Query string object
+     * @param paramMap Parameter map
      * @param key The query key
      * @return The logical TPs
      * @since SDNO 0.5
      */
-    Object getLogicalTPs(String queryString, String key) throws ServiceException;
+    Object getLogicalTPs(Map<String, String[]> paramMap, String key) throws ServiceException;
 
     /**
      * Get Id of TP.<br>

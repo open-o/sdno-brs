@@ -94,10 +94,8 @@ public class NetworkControlDomainResource extends IResource<NetworkControlDomain
     @Consumes("application/json")
     public Object getNCDs(@Context HttpServletRequest request) throws ServiceException {
         LOGGER.info("brs get NCDList Resource.");
-
-        String queryString = request.getQueryString();
-
-        return service.getNCDs(queryString);
+        Map<String, String[]> paramMap = request.getParameterMap();
+        return service.getNCDs(paramMap);
     }
 
     /**

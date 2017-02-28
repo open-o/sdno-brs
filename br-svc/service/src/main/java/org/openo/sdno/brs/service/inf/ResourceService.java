@@ -17,12 +17,12 @@
 package org.openo.sdno.brs.service.inf;
 
 import java.util.List;
+import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.service.IService;
-
 import org.openo.sdno.brs.model.RootEntity;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
+import org.openo.sdno.framework.container.service.IService;
 
 /**
  * The interface of service to deal the resource.<br>
@@ -45,13 +45,13 @@ public interface ResourceService extends IService {
     /**
      * Get the resource list.<br>
      * 
-     * @param queryString Query string object
+     * @param paramMap Parameter map
      * @param key The query key
      * @param type The class type
      * @return The resource object
      * @since SDNO 0.5
      */
-    <T extends RootEntity> Object getResourceList(String queryString, String key, Class<T> type)
+    <T extends RootEntity> Object getResourceList(Map<String, String[]> paramMap, String key, Class<T> type)
             throws ServiceException;
 
     /**

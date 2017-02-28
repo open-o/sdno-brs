@@ -18,17 +18,17 @@ package org.openo.sdno.brs.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.openo.sdno.brs.constant.Constant;
 import org.openo.sdno.brs.model.LogicalTerminationPointMO;
 import org.openo.sdno.brs.model.Relation;
 import org.openo.sdno.brs.service.inf.LogicalTPService;
 import org.openo.sdno.brs.service.inf.RelationService;
 import org.openo.sdno.brs.service.inf.ResourceService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * LogicalTP service implement class.<br>
@@ -52,8 +52,8 @@ public class LogicalTPServiceImpl implements LogicalTPService {
     }
 
     @Override
-    public Object getLogicalTPs(String queryString, String key) throws ServiceException {
-        return tpOperService.getResourceList(queryString, key, LogicalTerminationPointMO.class);
+    public Object getLogicalTPs(Map<String, String[]> paramMap, String key) throws ServiceException {
+        return tpOperService.getResourceList(paramMap, key, LogicalTerminationPointMO.class);
     }
 
     @Override

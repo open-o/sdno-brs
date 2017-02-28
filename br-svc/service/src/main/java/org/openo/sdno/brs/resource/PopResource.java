@@ -94,8 +94,7 @@ public class PopResource extends IResource<PopService> {
     @Produces("application/json")
     @Consumes("application/json")
     public Map<String, Object> getPopList(@Context HttpServletRequest request) throws ServiceException {
-        String queryString = request.getQueryString();
-        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(queryString);
+        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(request.getParameterMap());
         PagingQueryCheckUtil.checkPagedParameters(param, PopMO.class);
         return service.batchQuery(param.getFields(), param.getFiltersMap(), param.getPageSize(), param.getPageNum());
     }

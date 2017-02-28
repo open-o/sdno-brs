@@ -276,8 +276,8 @@ public class NetworkControlDomainServiceImpl implements NetworkControlDomainServ
 
     @SuppressWarnings("unchecked")
     @Override
-    public Object getNCDs(String queryString) throws ServiceException {
-        Map<String, Object> result = (Map<String, Object>)ncdOpreateService.getResourceList(queryString,
+    public Object getNCDs(Map<String, String[]> queryParam) throws ServiceException {
+        Map<String, Object> result = (Map<String, Object>)ncdOpreateService.getResourceList(queryParam,
                 Constant.NETWORKCONTROLDOMIAN_KEY, NetworkControlDomainMO.class);
         Object ncdData = result.get(Constant.NETWORKCONTROLDOMIAN_KEY);
         try {

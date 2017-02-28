@@ -16,6 +16,7 @@
 
 package org.openo.sdno.brs.resource;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,11 +105,10 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
             LOGGER.info("getManagedElement tenantId={}", tenantID);
             ValidateUtil.checkTenantID(tenantID);
             return service.getManagedElementByTenantId(tenantID);
-
         } else {
             // if tenantIDis null,paged query NE.
-            String queryString = request.getQueryString();
-            PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(queryString);
+            Map<String, String[]> paramMap = request.getParameterMap();
+            PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(paramMap);
             PagingQueryCheckUtil.checkPagedParameters(param, ManagedElementMO.class);
             return service.getManagedElementMOs(param.getFields(), param.getFiltersMap(), param.getPageSize(),
                     param.getPageNum());
@@ -294,8 +294,11 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
             return;
         }
 
-        String queryString = getFilterString(meNew);
-        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(queryString);
+        Map<String, String[]> paramMap = new HashMap<String, String[]>();
+        paramMap.put("ipAddress", Arrays.asList(meNew.getIpAddress()).toArray(new String[1]));
+        paramMap.put(Constant.RESOURCE_MD, Arrays.asList(meNew.getManagementDomainID()).toArray(new String[1]));
+
+        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(paramMap);
         PagingQueryCheckUtil.checkPagedParameters(param, ManagedElementMO.class);
         Object result = service.getManagedElementMOs(param.getFields(), param.getFiltersMap(), param.getPageSize(),
                 param.getPageNum());
@@ -311,16 +314,5 @@ public class ManagedElementResource extends IResource<ManagedElementService> {
                 throw new ServiceException(ErrorCode.BRS_RESOURCE_IP_CONFLICT, HttpCode.BAD_REQUEST);
             }
         }
-    }
-
-    private String getFilterString(ManagedElementMO me) {
-        StringBuilder filter = (new StringBuilder("ipAddress=")).append(me.getIpAddress());
-
-        if(null != me.getManagementDomainID()) {
-            filter.append(Constant.AND).append(Constant.RESOURCE_MD).append(Constant.EQUIVALENT)
-                    .append(me.getManagementDomainID());
-        }
-
-        return filter.toString();
     }
 }

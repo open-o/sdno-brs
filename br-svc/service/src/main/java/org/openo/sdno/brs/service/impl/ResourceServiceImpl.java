@@ -72,9 +72,9 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
-    public <T extends RootEntity> Object getResourceList(String queryString, String key, Class<T> classType)
+    public <T extends RootEntity> Object getResourceList(Map<String, String[]> paramMap, String key, Class<T> classType)
             throws ServiceException {
-        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(queryString);
+        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(paramMap);
         return getResourceList(param, key, classType);
     }
 

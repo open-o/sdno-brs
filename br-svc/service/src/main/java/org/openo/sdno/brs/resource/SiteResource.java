@@ -97,8 +97,7 @@ public class SiteResource extends IResource<SiteService> {
     @Consumes("application/json")
     public Object getSiteList(@Context HttpServletRequest request) throws ServiceException {
         LOGGER.info("brs get SiteList Resource.");
-        String queryString = request.getQueryString();
-        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(queryString);
+        PagingQueryPara param = PagingQueryCheckUtil.analysicQueryString(request.getParameterMap());
         PagingQueryCheckUtil.checkPagedParameters(param, SiteMO.class);
         return service.getSiteMOs(param.getFields(), param.getFiltersMap(), param.getPageSize(), param.getPageNum());
     }

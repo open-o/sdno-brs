@@ -18,13 +18,13 @@ package org.openo.sdno.brs.util;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-
 import org.openo.sdno.brs.model.SiteMO;
 import org.openo.sdno.brs.model.roamo.PagingQueryPara;
 
@@ -44,7 +44,7 @@ public class PagingQueryCheckUtilTest {
     public void testAnalysicQueryString1() throws ServiceException {
 
         PagingQueryPara result = PagingQueryCheckUtil.analysicQueryString(null);
-        PagingQueryPara result2 = PagingQueryCheckUtil.analysicQueryString("");
+        PagingQueryPara result2 = PagingQueryCheckUtil.analysicQueryString(new HashMap<String, String[]>());
         PagingQueryPara emptyPagingQueryPara = new PagingQueryPara();
 
         assertEquals(result.getFields(), emptyPagingQueryPara.getFields());
@@ -61,11 +61,15 @@ public class PagingQueryCheckUtilTest {
     @Test
     public void testAnalysicQueryString2() throws ServiceException {
 
-        PagingQueryPara result = PagingQueryCheckUtil.analysicQueryString("A=0&B=0");
+        Map<String, String[]> paramMap = new HashMap<String, String[]>();
+        paramMap.put("A", Arrays.asList("0").toArray(new String[1]));
+        paramMap.put("B", Arrays.asList("1").toArray(new String[1]));
+
+        PagingQueryPara result = PagingQueryCheckUtil.analysicQueryString(paramMap);
 
         Map<String, String> queryMap = new HashMap<String, String>();
         queryMap.put("A", "0");
-        queryMap.put("B", "0");
+        queryMap.put("B", "1");
 
         assertEquals(result.getFields(), "base");
         assertEquals(result.getFiltersMap(), queryMap);
@@ -77,11 +81,17 @@ public class PagingQueryCheckUtilTest {
     @Test
     public void testAnalysicQueryString3() throws ServiceException {
 
-        PagingQueryPara result = PagingQueryCheckUtil.analysicQueryString("A=0&B=0&pageNum=1&pageSize=500");
+        Map<String, String[]> paramMap = new HashMap<String, String[]>();
+        paramMap.put("A", Arrays.asList("0").toArray(new String[1]));
+        paramMap.put("B", Arrays.asList("1").toArray(new String[1]));
+        paramMap.put("pageNum", Arrays.asList("1").toArray(new String[1]));
+        paramMap.put("pageSize", Arrays.asList("500").toArray(new String[1]));
+
+        PagingQueryPara result = PagingQueryCheckUtil.analysicQueryString(paramMap);
 
         Map<String, String> queryMap = new HashMap<String, String>();
         queryMap.put("A", "0");
-        queryMap.put("B", "0");
+        queryMap.put("B", "1");
 
         assertEquals(result.getFields(), "base");
         assertEquals(result.getFiltersMap(), queryMap);
