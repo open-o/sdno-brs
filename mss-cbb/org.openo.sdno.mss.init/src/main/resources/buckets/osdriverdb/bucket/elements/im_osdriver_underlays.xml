@@ -20,14 +20,14 @@
     <infomodel name="osdriverunderlays" datamodel="inv_osdriverunderlays" version="1.0">
         <!--basic property -->
         <basic>
-            <property name="overlayId" type="string" length="36" />
-            <property name="overlayType" type="string" length="64" />
-            <property name="controllerId" type="string" length="36" />
-            <property name="tenantId" type="string" length="36" />
-            <property name="underlayId" type="string" length="36" />
-            <property name="underlayTenantId" type="string" length="36" />
-            <property name="underlayType" type="string" length="64" />
-            <property name="action" type="string" length="64" />
+            <property name="overlayId" type="string" length="256" />
+            <property name="overlayType" type="string" length="256" />
+            <property name="controllerId" type="string" length="256" />
+            <property name="tenantId" type="string" length="256" />
+            <property name="underlayId" type="string" length="256" />
+            <property name="underlayTenantId" type="string" length="256" />
+            <property name="underlayType" type="string" length="256" />
+            <property name="action" type="string" length="256" />
         </basic>
         <!-- extension -->
         <extension>
