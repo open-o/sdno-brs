@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.common.util.CollectionUtils;
 import org.openo.baseservice.remoteservice.exception.ExceptionArgs;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
@@ -67,6 +68,11 @@ public class PagingQueryCheckUtil {
 
         Map<String, String> queryMap = new HashMap<>();
         for(Map.Entry<String, String[]> mapEntry : paramMap.entrySet()) {
+            String[] values = mapEntry.getValue();
+            // Filter invalid parameter
+            if(null == values || 0 == values.length || StringUtils.isEmpty(values[0])) {
+                continue;
+            }
             queryMap.put(mapEntry.getKey(), mapEntry.getValue()[0]);
         }
 
