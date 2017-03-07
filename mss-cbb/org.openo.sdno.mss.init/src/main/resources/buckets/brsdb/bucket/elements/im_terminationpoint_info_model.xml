@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright 2016 Huawei Technologies Co., Ltd.
+    Copyright 2016-2017 Huawei Technologies Co., Ltd.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -32,6 +32,8 @@
             <property name="adminState" type="string" length="32" />
             <property name="operState" type="string" length="32" />
             <property name="nativeID" type="string" length="64" />
+            <property name="macAddress" type="string" length="24" />
+            <property name="tenantID" type="string" length="36" />
         </basic>
 
         <!-- extension -->
@@ -40,7 +42,7 @@
             <property name="direction" type="string" length="64" />
             <property name="phyBW" type="string" length="64" />
             <property name="ipMask" type="string" length="64" />
-            <property name="mtu" type="integer"/>
+            <property name="mtu" type="integer" />
         </extension>
     </infomodel>
 </inventory>
