@@ -53,6 +53,7 @@
     </jaxrs:server>
 
     <bean id="swaggerRoa" class="org.openo.sdno.brs.resource.SwaggerRoa">
+        <property name="swaggerFilePath" value="docs/swagger.json"></property>
     </bean>
 
     <bean id="HealthCheckResource" class="org.openo.sdno.brs.resource.HealthCheckResource">

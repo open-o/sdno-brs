@@ -1,0 +1,1326 @@
+#
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: BRS NBI
+  description: API of SDN-O Lifecycle Brs service
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /openoapi/sdnobrs/v1
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+    
+paths:
+  /commparammgmt/access-objects/{objectId}/commparams:
+    post:
+      summary: Create commparams
+      description: it will create commparams specified in requests. 
+      operationId: createCommparams
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'commparam', the value is Commparam
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/Commparam'
+      responses:  
+        201:
+          description: create commparams success, return commparam UUID.
+          schema:
+            type: string
+        400:
+          description: create commparams failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create commparams failure as can't reach server.
+        500:
+          description: create commparams failure as inner error.
+    get:
+      summary: query commparams
+      description: it will query commparams specified in requests. 
+      operationId: queryCommparams
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      responses:  
+        200:
+          description: query commparams success.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Commparam'
+        400:
+          description: query commparams failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query commparams failure as can't reach server.
+        500:
+          description: query commparams failure as inner error.
+    delete:
+      summary: delete commparams
+      description: it will delete commparams specified in requests. 
+      operationId: deleteCommparams
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      responses:  
+        200:
+          description: delete commparams success.
+        400:
+          description: delete commparams failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete commparams failure as can't reach server.
+        500:
+          description: delete commparams failure as inner error.
+  /commparammgmt/access-objects/{objectId}/commparams/{paramID}:
+    get:
+      summary: query commparam
+      description: it will query commparam specified in requests.
+      operationId: queryCommparam
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      - name: paramID
+        in: path
+        description: commparam UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: query commparam success.
+          schema:
+            $ref: '#/definitions/Commparam'
+        400:
+          description: query commparam failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query commparam failure as can't reach server.
+        500:
+          description: query commparam failure as inner error.
+    put:
+      summary: update commparam
+      description: it will update commparam specified in requests.
+      operationId: updateCommparam
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      - name: paramID
+        in: path
+        description: commparam UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'commparam', the value is Commparam
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/Commparam'
+      responses:
+        200:
+          description: update commparam success.
+        400:
+          description: update commparam failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update commparam failure as can't reach server.
+        500:
+          description: update commparam failure as inner error.
+    delete:
+      summary: delete commparam
+      description: it will delete commparam specified in requests.
+      operationId: deleteCommparam
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      - name: paramID
+        in: path
+        description: commparam UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: delete commparam success.
+        400:
+          description: delete commparam failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete commparam failure as can't reach server.
+        500:
+          description: delete commparam failure as inner error.
+          
+  /controller:
+    post:
+      summary: Create controller
+      description: it will create controller specified in requests.
+      operationId: createController
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - in: body
+        name: body
+        description: The request is a map, the key is 'controller', the value is Controller
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/Controller'
+      responses:
+        201:
+          description: create controller success, return controller UUID.
+          schema:
+            type: string
+        400:
+          description: create controller failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create controller failure as can't reach server.
+        500:
+          description: create controller failure as inner error.
+  /controller/{objectId}:
+    get:
+      summary: query controller
+      description: it will query controller specified in requests.
+      operationId: queryController
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: query controller success.
+          schema:
+            $ref: '#/definitions/Controller'
+        400:
+          description: query controller failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query controller failure as can't reach server.
+        500:
+          description: query controller failure as inner error.
+    put:
+      summary: update controller
+      description: it will update controller specified in requests.
+      operationId: updateController
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'controller', the value is Controller
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/Controller'
+      responses:
+        200:
+          description: update controller success.
+        400:
+          description: update controller failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update controller failure as can't reach server.
+        500:
+          description: update controller failure as inner error.
+    delete:
+      summary: delete controller
+      description: it will delete controller specified in requests.
+      operationId: deleteController
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: controller UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: delete controller success.
+        400:
+          description: delete controller failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete controller failure as can't reach server.
+        500:
+          description: delete controller failure as inner error.
+          
+  /logical-termination-points:
+    post:
+      summary: Create LogicalTP
+      description: it will create LogicalTP specified in requests.
+      operationId: createLogicalTPResource
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - in: body
+        name: body
+        description: The request is a map, the key is 'logicalTerminationPoint', the value is LogicalTP
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/LogicalTP'
+      responses:
+        201:
+          description: Create LogicalTP success. The response is a map, the key is 'logicalTerminationPoint', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: create LogicalTP failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create LogicalTP failure as can't reach server.
+        500:
+          description: create LogicalTP failure as inner error.
+    get:
+      summary: query LogicalTPResources
+      description: it will query LogicalTPResources specified in requests.
+      operationId: queryLogicalTPResources
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: queryString
+        in: query
+        description: query string
+        required: false
+        type: string
+      responses:
+        200:
+          description: Query LogicalTPs success. The response is a map, the map contains 'logicalTerminationPoint',
+                       'totalNum', 'pageSize', 'currentPageNum' and 'totalPageNum' as keys. The value of key 'logicalTerminationPoint' 
+                       is a list of LogicalTP.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query LogicalTPResources failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query LogicalTPResources failure as can't reach server.
+        500:
+          description: query LogicalTPResources failure as inner error.
+  /logical-termination-points/{objectId}:
+    get:
+      summary: query LogicalTP
+      description: it will query LogicalTP specified in requests.
+      operationId: queryLogicalTPResource
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: LogicalTP UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Query LogicalTP success. The response is a map, the key is 'logicalTerminationPoint',
+                       the value is LogicalTP or an empty map.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query LogicalTP failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query LogicalTP failure as can't reach server.
+        500:
+          description: query LogicalTP failure as inner error.
+    put:
+      summary: update LogicalTP
+      description: it will update LogicalTP specified in requests.
+      operationId: updateLogicalTPResource
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: LogicalTP UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'logicalTerminationPoint', the value is LogicalTP
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/LogicalTP'
+      responses:
+        200:
+          description: Update LogicalTP success. The response is a map, the key is 'logicalTerminationPoint', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: update LogicalTP failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update LogicalTP failure as can't reach server.
+        500:
+          description: update LogicalTP failure as inner error.
+    delete:
+      summary: delete LogicalTP
+      description: it will delete LogicalTP specified in requests.
+      operationId: deleteLogicalTPResource
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: LogicalTP UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Delete LogicalTP success. The response is a map, the key is 'result', the 
+                      value is 'true' and 'false'. True means success and false is failure.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: delete LogicalTP failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete LogicalTP failure as can't reach server.
+        500:
+          description: delete LogicalTP failure as inner error.
+   
+  /managed-elements:
+    post:
+      summary: Create ManagedElement
+      description: it will create ManagedElement specified in requests.
+      operationId: createManagedElement
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - in: body
+        name: body
+        description: The request is a map, the key is 'managedElement', the value is ManagedElement
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/ManagedElement'
+      responses:
+        201:
+          description: Create ManagedElement success. The response is a map, the key is 'managedElement', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: create ManagedElement failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create ManagedElement failure as can't reach server.
+        500:
+          description: create ManagedElement failure as inner error.
+    get:
+      summary: query ManagedElement
+      description: it will query ManagedElement specified in requests.
+      operationId: queryManagedElement
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: queryString
+        in: query
+        description: query string
+        required: false
+        type: string
+      responses:
+        200:
+          description: Query ManagedElement success. The response is a map, the map contains 'managedElement',
+                       'totalNum', 'pageSize', 'currentPageNum' and 'totalPageNum' as keys. The value of key 'managedElement' 
+                       is a list of ManagedElement.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query ManagedElement failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query ManagedElement failure as can't reach server.
+        500:
+          description: query ManagedElement failure as inner error.
+  /managed-elements/{objectId}:
+    get:
+      summary: query ManagedElement
+      description: it will query ManagedElement specified in requests.
+      operationId: queryManagedElementById
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: ManagedElement UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Query ManagedElement success. The response is a map, the key is 'managedElement',
+                       the value is ManagedElement or an empty map.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query ManagedElement failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query ManagedElement failure as can't reach server.
+        500:
+          description: query ManagedElement failure as inner error.
+    put:
+      summary: update ManagedElement
+      description: it will update ManagedElement specified in requests.
+      operationId: updateManagedElement
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: ManagedElement UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'managedElement', the value is ManagedElement
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/ManagedElement'
+      responses:
+        200:
+          description: Update ManagedElement success. The response is a map, the key is 'managedElement', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: update ManagedElement failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update ManagedElement failure as can't reach server.
+        500:
+          description: update ManagedElement failure as inner error.
+    delete:
+      summary: delete ManagedElement
+      description: it will delete ManagedElement specified in requests.
+      operationId: deleteManagedElement
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: objectId
+        in: path
+        description: ManagedElement UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: delete ManagedElement success, return the status of the operation.
+          schema:
+            type: integer
+            format: int32
+        400:
+          description: delete ManagedElement failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete ManagedElement failure as can't reach server.
+        500:
+          description: delete ManagedElement failure as inner error.
+
+  /sites:
+    post:
+      summary: add site
+      description: it will create site specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - in: body
+        name: body
+        description: The request is a map, the key is 'site', the value is SiteMO
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/SiteMO'
+      responses:
+        201:
+          description: Create site success. The response is a map, the key is 'site', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: create site failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create site failure as can't reach server.
+        500:
+          description: create site failure as inner error.
+    get:
+      summary: paged query site list
+      description: it will query site specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: queryString
+        in: query
+        description: query string
+        required: false
+        type: string
+      responses:
+        200:
+          description: Query site success. The response is a map, the map contains 'site',
+                       'totalNum', 'pageSize', 'currentPageNum' and 'totalPageNum' as keys. The value of key 'site' 
+                       is a list of SiteMO.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query site failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query site failure as can't reach server.
+        500:
+          description: query site failure as inner error.
+  /sites/{object_id}:
+    get:
+      summary: query site
+      description: it will query site specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: site UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Query site success. The response is a map, the key is 'site',
+                       the value is SiteMO or an empty map.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query site failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query site failure as can't reach server.
+        500:
+          description: query site failure as inner error.
+    put:
+      summary: update site
+      description: it will update site specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: site UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'site', the value is SiteMO
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/SiteMO'
+      responses:
+        200:
+          description: Update site success. The response is a map, the key is 'site', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: update site failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update site failure as can't reach server.
+        500:
+          description: update site failure as inner error.
+    delete:
+      summary: delete site
+      description: it will delete site specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: site UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Delete site success. The response is a map, the key is 'result', the 
+                      value is 'true' and 'false'. True means success and false is failure.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: delete site failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete site failure as can't reach server.
+        500:
+          description: delete site failure as inner error.
+
+  /topological-links:
+    post:
+      summary: add topological link
+      description: it will create topological link specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - in: body
+        name: body
+        description: The request is a map, the key is 'topologicalLink', the value is TopologicalLinkMO
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/TopologicalLinkMO'
+      responses:
+        201:
+          description: Create topological link success. The response is a map, the key is 'topologicalLink', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: create topological link failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: create topological link failure as can't reach server.
+        500:
+          description: create topological link failure as inner error.
+    get:
+      summary: paged query topological link list
+      description: it will query topological link specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: queryString
+        in: query
+        description: query string
+        required: false
+        type: string
+      responses:
+        200:
+          description: Query topological link success. The response is a map, the map contains 'topologicalLink',
+                       'totalNum', 'pageSize', 'currentPageNum' and 'totalPageNum' as keys. The value of key 'topologicalLink' 
+                       is a list of TopologicalLinkMO.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query topological link failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query topological link failure as can't reach server.
+        500:
+          description: query topological link failure as inner error.
+  /topological-links/{object_id}:
+    get:
+      summary: query topological link
+      description: it will query topological link specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: topological link UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Query topological link success. The response is a map, the key is 'site',
+                       the value is SiteMO or an empty map.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: query topological link failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: query topological link failure as can't reach server.
+        500:
+          description: query topological link failure as inner error.
+    put:
+      summary: update topological link
+      description: it will update topological link specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: topological link UUID
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: The request is a map, the key is 'topologicalLink', the value is TopologicalLinkMO
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            items:
+              $ref: '#/definitions/TopologicalLinkMO'
+      responses:
+        200:
+          description: Update topological link success. The response is a map, the key is 'topologicalLink', 
+                      the value is a map. The value map contains 'createTime' and 'id' as keys.
+          schema:  
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: update topological link failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: update topological link failure as can't reach server.
+        500:
+          description: update topological link failure as inner error.
+    delete:
+      summary: delete topological link
+      description: it will delete topological link specified in requests.
+      consumes:
+      - application/json;charset=UTF-8
+      produces:
+      - application/json;charset=UTF-8
+      parameters:
+      - name: object_id
+        in: path
+        description: topological link UUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: Delete topological link success. The response is a map, the key is 'result', the 
+                      value is 'true' and 'false'. True means success and false is failure.
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        400:
+          description: delete topological link failure as parameters invalid.
+        401:
+          description: unauthorized.
+        404:
+          description: delete topological link failure as can't reach server.
+        500:
+          description: delete topological link failure as inner error.
+
+definitions:
+  Commparam:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        properties:
+          objectId:
+            type: string
+            format: uuid
+            description: controller uuid
+          hostName:
+            type: string
+            description: ip adress
+          protocol:
+            type: string
+            description: protocol type
+          port:
+            type: string
+            description: port
+          commParams:
+            type: string
+            description: commparam list that contain user name and password
+  Controller:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        properties:
+          objectId:
+            type: string
+            format: uuid
+            description: objectId
+          name:
+            type: string
+            description: controller name
+          productName:
+            type: string
+            description: product name
+          version:
+            type: string
+            description: version
+          slaveHostName:
+            type: string
+            description: slave host name
+          hostName:
+            type: string
+            description: ip adress
+          vendor:
+            type: string
+            description: vendor
+          description:
+            type: string
+            description: controller description
+  LogicalTP:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        required:
+          - name
+          - meID
+          - logicalType
+        properties:
+          name:
+            type: string
+            description: LogicalTP name
+          meID:
+            type: string
+            format: uuid
+            description: meID
+          logicalType:
+            type: string
+            description: logical Type(ETH,POS,Trunk,Loopback)
+          layerRate:
+            type: string
+            description: layer Rate
+          isEdgePoint:
+            type: string
+            description: is Edge Point(true,false)
+          portIndex:
+            type: string
+            description: port Index
+          source:
+            type: string
+            description: source type(network_me,os,network_ems,user)
+          owner:
+            type: string
+            description: owner
+          ipAddress:
+            type: string
+            description: ipAddress
+          adminState:
+            type: string
+            description: adminState(active,inactive)
+          operState:
+            type: string
+            description: operState(up,down,unknown)
+          direction:
+            type: string
+            description: direction(D_NA,D_BIDIRECTIONAL,D_SOURCE,D_SINK)
+          phyBW:
+            type: string
+            description: phyBW
+          ipMask:
+            type: string
+            description: ipMask
+          nativeID:
+            type: string
+            format: uuid
+            description: nativeID
+          macAddress:
+            type: string
+            description: macAddress
+          tenantID:
+            type: string
+            format: uuid
+            description: tenantID
+          usageState:
+            type: string
+            description: usageState(unused,used)
+          containedLayers:
+            type: string
+            description: containedLayers
+  ManagedElement:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+            description: ManagedElement name
+          logicID:
+            type: string
+            format: uuid
+            description: logicID
+          phyNeID:
+            type: string
+            format: uuid
+            description: phyNeID
+          productName:
+            type: string
+            description: productName
+          isVirtual:
+            type: string
+            description: is Virtual(true,false)
+          ipAddress:
+            type: string
+            description: ipAddress
+          source:
+            type: string
+            description: source type(network_me,os,network_ems,user)
+          owner:
+            type: string
+            description: owner
+          adminState:
+            type: string
+            description: adminState(active,inactive)
+          operState:
+            type: string
+            description: operState(up,down,unknown)
+          serialNumber:
+            type: string
+            description: serial Number
+          neRole:
+            type: string
+            description: neRole
+          manufacturer:
+            type: string
+            description: manufacturer
+          manufactureDate:
+            type: string
+            description: manufactureDate
+          location:
+            type: string
+            description: location
+          managementDomainID:
+            type: string
+            format: uuid
+            description: managementDomainID
+          controllerID:
+            type: array
+            items:
+              type: string
+              format: uuid
+            description: controller ID
+          siteID:
+            type: array
+            items:
+              type: string
+              format: uuid
+            description: site ID
+          nativeID:
+            type: string
+            format: uuid
+            description: native ID
+          networkControlDomainID:
+            type: array
+            items:
+              type: string
+              format: uuid
+            description: networkControlDomain ID
+          version:
+            type: string
+            description: version
+  SiteMO:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        required:
+          - type
+          - name
+        properties:
+          type:
+            type: string
+          tenantID:
+            type: string
+          location:
+            type: string
+          name:
+            type: string
+          tenantSiteIDs:
+            type: string
+  RootEntity:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: commparam uuid
+      description:
+        type: string
+        description: commparam description
+      createtime:
+        type: integer
+        format: int64
+        description: create time
+      updatetime:
+        type: integer
+        format: int64
+        description: update time
+      auditUserName:
+        type: string
+        description: audit user name
+      auditUserID:
+        type: string
+        format: uuid
+        description: audit user uuid
+      auditTerminal:
+        type: string
+        description: audit terminal
+      auditDomianName:
+        type: string
+        description: audit domian name
+      auditDomianID:
+        type: string
+        format: uuid
+        description: audit domian uuid
+  TopologicalLinkMO:
+    allOf:
+      - $ref: '#/definitions/RootEntity'
+      - type: object
+        required:
+          - name
+          - aEnd
+          - zEnd
+          - aEndME
+          - zEndME
+          - logicalType
+        properties:
+          name:
+            type: string
+          layerRate:
+            type: string
+          aEnd:
+            type: string
+          zEnd:
+            type: string
+          aEndME:
+            type: string
+          zEndME:
+            type: string
+          phyBW:
+            type: string
+          owner:
+            type: string
+          direction:
+            type: string
+          logicalType:
+            type: string
+          source:
+            type: string
+          adminState:
+            type: string
+          operState:
+            type: string
+          nativeID:
+            type: string
+          latency:
+            type: string
+ 
